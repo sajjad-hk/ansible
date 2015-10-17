@@ -1,0 +1,44 @@
+- name: Set up software repositories
+  hosts: servers
+  sudo: True
+  tasks:
+
+  ## Arch Linux
+  - name: Copy Arch pacman.conf
+    copy: src=files/pacman.conf dest=/etc/pacman.conf owner=root group=root mode=644
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    register: arch-update
+
+
+  ## Debian
+  - name: Enable 32-bit packages
+    when: ansible_distribution == 'Debian'
+    copy: src=files/arch dest=/var/lib/dpkg/arch owner=root group=root mode=755
+    register: apt-update
+  
+  - name: Enable backports
+    copy: src=files/backports.list dest=/etc/apt/sources.list.d/backports owner=root group=root mode=644
+    when: ansible_distribution == 'Debian'
+    register: apt-update
+
+  - name: Install sources
+    copy: src=files/sources.list dest=/etc/apt/sources.list owner=root group=root mode=644
+    when: ansible_distribution == 'Debian'
+    register: apt-update
+
+
+  ## Ubuntu
+    - name: Enable 32-bit packages
+      when: ansible_distribution == 'Ubuntu'
+      copy: src=files/arch dest=/var/lib/dpkg/arch owner=root group=root mode=755
+      register: apt-update
+
+
+  ## Update apt sources
+    - apt: update_cache=yes
+      when: apt-update.changed
+
+
+  ## Update pacman
+    - pacman: update_cache=yes
+      when: arch-update.changed

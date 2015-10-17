@@ -13,11 +13,11 @@
     - apt: name=openssh-server
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
       
-     
-
+      
   ## Copy sshd_config
     - name: Copy sshd_config
       copy: src=files/sshd_config_p65001 dest=/etc/openssh/sshd_config owner=root group=root mode=755
+      notify: restart sshd
       
 
   ## Set up the daemon
@@ -29,3 +29,10 @@
       
     - service: name=ssh enabled=yes state=started
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- handlers:
+  - name restart sshd
+    service name=sshd state=restarted
+    when: ansible_distribution == 'Archlinux'or ansible_distribution == 'Manjarolinux' or ansible_distribution == 'Manjarolinux'
+    service name=ssh state=restarted
+    when: ansible_distribution == 'Debian'or ansible_distribution == 'Ubuntu'

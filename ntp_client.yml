@@ -17,6 +17,7 @@
   ## Copy ntp.conf
     - name: Copy ntp.conf
       copy: src=files/ntp.conf dest=/etc/nagios/ntp.conf owner=root group=root mode=755
+      notify: restart ntp
       
 
   ## Set up the daemon
@@ -28,3 +29,11 @@
       
     - service: name=ntp enabled=yes state=started
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+
+- handlers:
+  - name restart ntp
+    service name=ntp state=restarted
+    when: ansible_distribution == 'Debian'or ansible_distribution == 'Ubuntu'
+    service name=ntpd state=restarted
+    when: ansible_distribution == 'Archlinux'or ansible_distribution == 'CentOS' or ansible_distribution == 'Manjarolinux'

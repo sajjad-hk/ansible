@@ -44,15 +44,6 @@
 
 
   ## Debian and Ubuntu
-
-    - name: Enable 32-bit packages
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      copy: src=files/arch dest=/var/lib/dpkg/arch owner=root group=root mode=755
-      register: arch
-
-    - apt: update_cache=yes
-      when: arch.changed
-
     - apt: name=chromium-bsu
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 

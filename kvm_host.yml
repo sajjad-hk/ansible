@@ -1,0 +1,67 @@
+- name: Install KVM virtualization host
+  hosts: servers
+  sudo: True
+  tasks:
+
+  ## Arch Linux
+  - pacman: name=bridge-utils
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=dnsmasq
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  
+  - pacman: name=ebtables
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=libvirt
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  
+  - pacman: name=qemu
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  
+  
+  ## Debian and Ubuntu
+  - apt: name=bridge-utils
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=libvirt-bin
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=qemu-kvm
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=qemu-system
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: virt-top
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=virt-inst
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  
+  
+  ## Create required directories
+  - name: Create libvirt directory
+    file: path=/etc/libvirt state=directory owner=root group=root mode=755
+  
+  - name: Create storage directory
+    file: path=/etc/libvirt/storage state=directory owner=root group=root mode=755
+
+
+  ## Copy configuration files
+  - copy: src=files/libvirt/libvirt.conf dest=/etc/libvirt/libvirtd.conf owner=root group=root mode=644
+    notify: restart libvirt
+
+  - copy: src=files/libvirt/default.xml dest=/etc/libvirt/storage/default.xml owner=root group=root mode=644
+    notify: restart libvirt
+    
+  - copy: src=files/libvirt/iso.xml dest=/etc/libvirt/storage/iso.xml owner=root group=root mode=644
+    notify: restart libvirt
+
+
+  ## libvirt daemon
+  - service: name=libvirtd enabled=yes state=started
+
+- handlers:
+  - name restart libvirt
+    service name=libvirtd state=restarted
