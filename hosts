@@ -9,6 +9,7 @@ pi-dev-1 ansible_ssh_host=10.10.97.100 ansible_ssh_port=65001
 pi-dev-2 ansible_ssh_host=10.10.97.101 ansible_ssh_port=65001
 pluto ansible_ssh_host=10.10.96.10 ansible_ssh_port=65001
 upsmon ansible_ssh_host=10.10.96.100 ansible_ssh_port=65001
+testserver ansible_ssh_host=159.203.97.142 ansible_ssh_port=22
 
 
 [workstations]
