@@ -4,37 +4,35 @@
   tasks:
 
   ## Install packages
-    - pacman: name=openssh
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=openssh
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - yum: name=openssh-server
-      when: ansible_distribution == 'CentOS'
+  - yum: name=openssh-server
+    when: ansible_distribution == 'CentOS'
 
-    - apt: name=openssh-server
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-     
+  - apt: name=openssh-server
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
 
   ## Copy sshd_config
-    - name: Copy sshd_config
-      copy: src=files/sshd_config_p22 dest=/etc/openssh/sshd_config owner=root group=root mode=755
-      notify: restart sshd
-      
+  - name: Copy sshd_config
+    copy: src=files/sshd/sshd_config_p22 dest=/etc/ssh/sshd_config owner=root group=root mode=755
+    notify: restart sshd
+
 
   ## Set up the daemon
-    - service: name=sshd enabled=yes state=started
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - service: name=sshd enabled=yes state=started
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - service: name=sshd enabled=yes state=started
-      when: ansible_distribution == 'CentOS'
-      
-    - service: name=ssh enabled=yes state=started
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - service: name=sshd enabled=yes state=started
+    when: ansible_distribution == 'CentOS'
 
+  - service: name=ssh enabled=yes state=started
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- handlers:
-  - name restart sshd
-    service name=sshd state=restarted
-    when: ansible_distribution == 'Archlinux'or ansible_distribution == 'Manjarolinux' or ansible_distribution == 'Manjarolinux'
-    service name=ssh state=restarted
-    when: ansible_distribution == 'Debian'or ansible_distribution == 'Ubuntu'
+  handlers:
+  - name: restart sshd
+    service: name=sshd state=restarted
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux' or ansible_distribution == 'Manjarolinux'
+    service: name=ssh state=restarted
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
