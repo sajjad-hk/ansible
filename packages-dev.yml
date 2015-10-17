@@ -1,0 +1,22 @@
+- name: Install base packages on Debian hosts
+  hosts: debian-workstations
+  sudo: True
+  tasks:
+
+  ## Archlinux
+    - pacman: name=python2-pip
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=tig
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+
+  ## Debian and Ubuntu
+    - apt: name=python-dev
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=python-pip
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=tig
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

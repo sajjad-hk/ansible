@@ -1,0 +1,26 @@
+[servers]
+localhost ansible_connection=local
+galaxy ansible_ssh_host=10.10.96.4 ansible_ssh_port=22
+hermes ansible_ssh_host=10.10.96.1 ansible_ssh_port=65001
+jaylacroix.com ansible_ssh_host=jaylacroix.com ansible_ssh_port=65001
+nagios ansible_ssh_host=10.10.96.3 ansible_ssh_port=22
+neptune ansible_ssh_host=neptune.jaylacroix.com ansible_ssh_port=22
+pi-dev-1 ansible_ssh_host=10.10.97.100 ansible_ssh_port=65001
+pi-dev-2 ansible_ssh_host=10.10.97.101 ansible_ssh_port=65001
+pluto ansible_ssh_host=10.10.96.10 ansible_ssh_port=65001
+upsmon ansible_ssh_host=10.10.96.100 ansible_ssh_port=65001
+
+
+[workstations]
+localhost ansible_connection=local
+#crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001
+#ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
+testserver ansible_ssh_host=159.203.97.142 ansible_ssh_port=22
+
+[arch-workstations]
+
+
+[debian-servers]
+
+
+[webservers]

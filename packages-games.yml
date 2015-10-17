@@ -1,0 +1,98 @@
+- name: Install game packages
+  hosts: workstations
+  sudo: True
+  tasks:
+
+  ## Archlinux
+    - pacman: name=chromium-bsu
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=frozen-bubble
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=lib32-alsa-lib
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=lib32-gcc-libs
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=mednafen
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=neverball
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=sdlmame
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=supertux
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=supertuxkart
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=wesnoth
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - name: Create mame directory
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+      file: path=/home/jay/.mame state=directory owner=jay group=users mode=700
+
+    - name: Copy mame.ini
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+      copy: src=files/mame.ini dest=/home/jay/.mame/mame.ini owner=jay group=users mode=700
+
+
+  ## Debian and Ubuntu
+
+    - name: Enable 32-bit packages
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      copy: src=files/arch dest=/var/lib/dpkg/arch owner=root group=root mode=755
+      register: arch
+
+    - apt: update_cache=yes
+      when: arch.changed
+
+    - apt: name=chromium-bsu
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=frozen-bubble
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=libasound2:1386
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=libasound2-data
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=libasound2-plugins:i386
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=libc6:i386
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=mame
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=mednafen
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=neverball
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=supertux
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=supertuxkart
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=wesnoth
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - name: Create mame directory
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+      file: path=/etc/mame state=directory owner=root group=root mode=755
+
+    - name: Copy mame.ini
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+      copy: src=files/mame.ini dest=/etc/mame.ini owner=root group=users mode=655

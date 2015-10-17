@@ -1,0 +1,29 @@
+class packages_gnome {
+    case $::operatingsystem {
+        Archlinux, Manjarolinux: {
+            package { 'file-roller': ensure => installed }
+            package { 'gedit': ensure => installed }
+            package { 'gnome-control-center': ensure => installed }
+            package { 'gnome-music': ensure => installed }
+            package { 'gnome-power-manager': ensure => installed }
+            package { 'gnome-shell': ensure => installed }
+            package { 'gnome-shell-extensions': ensure => installed }
+            package { 'gnome-terminal': ensure => installed }
+            package { 'gnome-tweak-tool': ensure => installed }
+            package { 'nautilus': ensure => installed }
+        }
+
+        Debian, Ubuntu: {
+            package { 'file-roller': ensure => installed }
+            package { 'gedit': ensure => installed }
+            package { 'gnome-control-center': ensure => installed }
+            package { 'gnome-music': ensure => installed }
+            package { 'gnome-power-manager': ensure => installed }
+            package { 'gnome-shell': ensure => installed }
+            package { 'gnome-shell-extensions': ensure => installed }
+            package { 'gnome-terminal': ensure => installed }
+            package { 'gnome-tweak-tool': ensure => installed }
+            package { 'nautilus': ensure => installed }
+        }
+    }
+}
