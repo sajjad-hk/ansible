@@ -1,0 +1,5 @@
+SMTPFROM=notify@serenitytech.net
+SMTPTO=notify@serenitytech.net
+SMTPSERVER=mail.hover.com:587
+SMTPUSER=notify@serenitytech.net
+SMTPPASS=iyEEkTzZ3HPk

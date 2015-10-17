@@ -1,0 +1,48 @@
+#!/bin/bash
+
+## Import parameters for sending email:
+source /usr/local/bin/.email-params
+SUBJECT="$HOSTNAME weekly update"
+
+## Insert the message body:
+echo "The results of this week's update are as follows:" > /tmp/update.txt
+echo "----------" >> /tmp/update.txt
+
+## Check if the local host is Debian-based:
+if [ -d /etc/apt ]
+then
+	## Run the Debian version of the update commands:
+	sudo apt-get update
+	sudo apt-get dist-upgrade -y >> /tmp/update.txt
+fi
+
+## Check if the local host is Arch-based:
+if [ -f /etc/pacman.conf ]
+then
+	## Run the Arch version of the update commands:
+	sudo pacman -Syyy
+	sudo pacman -Su --noconfirm >> /tmp/update.txt
+fi
+
+## Check to see if a reboot is required, and if so, reboot the local host:
+if [ -f /var/run/reboot-required ]; then
+
+	## Alter the message to contain notification of a reboot:
+	echo " " >> /tmp/update.txt
+     echo "System reboot initiated." >> /tmp/update.txt
+
+     ## Send the update notification:
+	/usr/local/bin/sendemail -f $SMTPFROM -t $SMTPTO -u $SUBJECT -o message-file=/tmp/update.txt -s $SMTPSERVER -xu $SMTPUSER -xp $SMTPPASS -o tls=no
+
+	## Remove the output file, since we're done with it:
+	sudo rm /tmp/update.txt
+
+	## Reboot the local host:
+	sudo reboot
+else
+	## Send the update notification:
+	/usr/local/bin/sendemail -f $SMTPFROM -t $SMTPTO -u $SUBJECT -o message-file=/tmp/update.txt -s $SMTPSERVER -xu $SMTPUSER -xp $SMTPPASS -o tls=no
+
+	## Remove the output file, since we're done with it:
+	sudo rm /tmp/update.txt
+fi

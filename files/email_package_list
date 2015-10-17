@@ -1,0 +1,50 @@
+#!/bin/bash
+
+## Parameters for sending email:
+source /usr/local/bin/.email-params
+SMTPPASS=iyEEkTzZ3HPk
+SUBJECT="Installed packages on $HOSTNAME"
+
+## Insert message body:
+echo "These packages are currently installed on $HOSTNAME:" > /tmp/installed_packages.txt
+echo "----------" >> /tmp/installed_packages.txt
+
+## Debian version:
+folderName="apt"
+cd /etc
+if test -d $folderName
+then
+	## Create the output file:
+	aptitude search '~i !~M' -F %p >> /tmp/installed_packages.txt
+
+	## Email the output file:
+	/usr/local/bin/sendemail -f $SMTPFROM -t $SMTPTO -u $SUBJECT -o message-file=/tmp/installed_packages.txt -s $SMTPSERVER -xu $SMTPUSER -xp $SMTPPASS -o tls=no
+fi
+
+## Arch Linux version:
+folderName="pacman.d"
+cd /etc
+if test -d $folderName
+then
+	## Create the output file:
+	pacman -Qe >> /tmp/installed_packages.txt
+
+	## Email the output file:
+	/usr/local/bin/sendemail -f $SMTPFROM -t $SMTPTO -u $SUBJECT -o message-file=/tmp/installed_packages.txt -s $SMTPSERVER -xu $SMTPUSER -xp $SMTPPASS -o tls=no
+fi
+
+## Arch Linux version:
+folderName="yum"
+cd /etc
+if test -d $folderName
+then
+	## Create the output file:
+	rpm -qa | sort >> /tmp/installed_packages.txt
+
+	## Email the output file:
+	/usr/local/bin/sendemail -f $SMTPFROM -t $SMTPTO -u $SUBJECT -o message-file=/tmp/installed_packages.txt -s $SMTPSERVER -xu $SMTPUSER -xp $SMTPPASS -o tls=no
+fi
+
+
+## Delete the output file, since we're done with it:
+sudo rm /tmp/installed_packages.txt

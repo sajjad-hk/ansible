@@ -1,0 +1,77 @@
+# Hosts
+
+Host *
+    ServerAliveInterval 15
+    ServerAliveCountMax 5
+
+Host ceres
+    Hostname 10.10.98.1
+    Port 22
+    User mediauser
+
+Host crusader
+    Hostname 10.10.97.4
+    Port 22
+    User jay
+
+Host galaxy
+    Hostname 10.10.96.4
+    Port 22
+    User jay
+
+Host hermes
+    Hostname 10.10.96.1
+    Port 65001
+    User jay
+
+Host home
+    Hostname jlacroix82.homelinux.com
+    Port 65001
+    User jay
+
+Host jaylacroix.com
+    Hostname jaylacroix.com
+    Port 65001
+    User jay
+
+Host nagios
+    Hostname 10.10.96.3
+    Port 22
+    User jay
+
+Host neptune
+    Hostname neptune.jaylacroix.com
+    # IP address: 162.243.255.50
+    Port 22
+    User jay
+
+Host puppet
+    Hostname puppet.jaylacroix.com
+    # IP address: 104.236.61.63
+    Port 65001
+    User jay
+
+Host pi-dev-1
+    Hostname 10.10.97.100
+    Port 22
+    User jay
+
+Host pi-dev-2
+    Hostname 10.10.97.101
+    Port 22
+    User jay
+
+Host pluto
+    Hostname 10.10.96.10
+    Port 22
+    User jay
+
+Host ragnarok
+    Hostname 10.10.97.1
+    Port 22
+    User jay
+
+Host upsmon
+    Hostname 10.10.96.100
+    Port 22
+    User jay

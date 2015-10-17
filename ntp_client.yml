@@ -1,0 +1,30 @@
+- name: Configure NTP client
+  hosts: servers
+  sudo: True
+  tasks:
+
+  ## Install packages
+    - pacman: name=ntp
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - apt: name=ntp
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      
+    - yum: name=ntp
+      when: ansible_distribution == 'CentOS'
+      
+
+  ## Copy ntp.conf
+    - name: Copy ntp.conf
+      copy: src=files/ntp.conf dest=/etc/nagios/ntp.conf owner=root group=root mode=755
+      
+
+  ## Set up the daemon
+    - service: name=ntpd enabled=yes state=started
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - service: name=ntpd enabled=yes state=started
+      when: ansible_distribution == 'CentOS'
+      
+    - service: name=ntp enabled=yes state=started
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

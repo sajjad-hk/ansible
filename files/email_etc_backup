@@ -1,0 +1,18 @@
+#!/bin/bash
+
+## Parameters for sending email:
+source /usr/local/bin/.email-params
+SUBJECT="/etc backup from $HOSTNAME"
+BODY="The attached archive contains a current backup of /etc from $HOSTNAME."
+ATTACHMENT="/tmp/etc.tar.gz"
+
+cd /etc
+
+## Create the Archive:
+sudo tar -zcvf /tmp/etc.tar.gz *
+
+## Email the archive:
+/usr/local/bin/sendemail -f $SMTPFROM -t $SMTPTO -u $SUBJECT -m $BODY -a $ATTACHMENT -s $SMTPSERVER -xu $SMTPUSER -xp $SMTPPASS -o tls=no
+
+## Remove the file since we're done with it:
+sudo rm /tmp/etc.tar.gz

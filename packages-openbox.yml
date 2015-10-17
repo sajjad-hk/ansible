@@ -1,0 +1,122 @@
+- name: Install Openbox packages on hosts
+  hosts: workstations
+  sudo: True
+  tasks:
+
+  ## Archlinux and Manjarolinux
+    #package compton is only available in AUR at this time, so omitted here.
+    - pacman: name=acpid
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=cantarell-fonts
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=clipit
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=gksu
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=gmrun
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=gnome-keyring
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=gnome-themes-standard
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=gsimplecal
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=lxappearance
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=mousepad
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=obconf
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=obmenu
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=pcmanfm
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: name=scrot
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: tint2
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: volumeicon
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: xarchiver
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+    - pacman: xscreensaver
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+
+   ## Debian and Ubuntu
+    - apt: name=acpid
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=clipit
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=compton
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=fonts-cantarell
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=gksu
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=gmrun
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=gnome-keyring
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=gnome-themes-standard
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=gsimplecal
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=lxappearance
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=mousepad
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=obconf
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=obmenu
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=openbox
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=pcmanfm
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=scrot
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=tint2
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=volumeicon-alsa
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=xarchiver
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - apt: name=xscreensaver
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

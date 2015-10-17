@@ -1,0 +1,18 @@
+#!/bin/bash
+
+## Parameters for sending email:
+source /usr/local/bin/.email-params
+SUBJECT="Current disk usage from $HOSTNAME"
+
+## Insert message body:
+echo "Current disk usage for $HOSTNAME is as follows:" > /tmp/diskusage.txt
+echo " " >> /tmp/diskusage.txt
+
+## Insert disk usage information:
+df -h >> /tmp/diskusage.txt
+
+## Email the output file:
+/usr/local/bin/sendemail -f $SMTPFROM -t $SMTPTO -u $SUBJECT -o message-file=/tmp/diskusage.txt -s $SMTPSERVER -xu $SMTPUSER -xp $SMTPPASS -o tls=no
+
+## Remove the output file since we're done with it:
+sudo rm /tmp/diskusage.txt
