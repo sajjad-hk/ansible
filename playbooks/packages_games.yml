@@ -40,7 +40,7 @@
 
     - name: Copy mame.ini
       when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      copy: src=files/mame.ini dest=/home/jay/.mame/mame.ini owner=jay group=users mode=700
+      copy: src=files/games/mame.ini dest=/home/jay/.mame/mame.ini owner=jay group=users mode=700
 
 
   ## Debian and Ubuntu
@@ -86,4 +86,4 @@
 
     - name: Copy mame.ini
       when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      copy: src=files/mame.ini dest=/etc/mame.ini owner=root group=users mode=655
+      copy: src=files/games/mame.ini dest=/etc/mame.ini owner=root group=users mode=655
