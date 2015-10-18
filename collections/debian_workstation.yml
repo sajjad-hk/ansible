@@ -1,0 +1,4 @@
+---
+# Configure Debian workstation
+- name: Debian workstation
+  include: ../playbooks/repositories.yml
