@@ -17,7 +17,7 @@
     when: ansible_distribution == 'Debian'
 
   - name: Enable backports
-    copy: src=files/repositories/backports.list dest=/etc/apt/sources.list.d/backports owner=root group=root mode=644
+    copy: src=files/repositories/backports.list dest=/etc/apt/sources.list.d/backports.list owner=root group=root mode=644
     notify: apt-update
     when: ansible_distribution == 'Debian'
 

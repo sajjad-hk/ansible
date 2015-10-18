@@ -4,50 +4,38 @@
   tasks:
 
   ## Set up default files and directories
-    - name: Copy .bash_profile
-      copy: src=files/dotfiles/bash_profile dest=/home/jay/.bash_profile owner=jay group=users mode=700
-      copy: src=files/dotfiles/bash_profile dest=/root/.bash_profile owner=root group=root mode=700
+      - copy: src=files/dotfiles/bash_profile dest=/home/jay/.bash_profile owner=jay group=users mode=700
+      - copy: src=files/dotfiles/bash_profile dest=/root/.bash_profile owner=root group=root mode=700
 
-    - name: Copy .bashrc
-      copy: src=files/dotfiles/bashrc dest=/home/jay/.bashrc owner=jay group=users mode=700
-      copy: src=files/dotfiles/bashrc dest=/root/.bashrc owner=root group=root mode=700
+      - copy: src=files/dotfiles/bashrc dest=/home/jay/.bashrc owner=jay group=users mode=700
+      - copy: src=files/dotfiles/bashrc dest=/root/.bashrc owner=root group=root mode=700
 
-    - name: Copy .profile
-      copy: src=files/dotfiles/profile dest=/home/jay/.profile owner=jay group=users mode=700
-      copy: src=files/dotfiles/profile dest=/root/.profile owner=root group=root mode=700
+      - copy: src=files/dotfiles/profile dest=/home/jay/.profile owner=jay group=users mode=700
+      - copy: src=files/dotfiles/profile dest=/root/.profile owner=root group=root mode=700
 
-    - name: Copy .tmux.conf
-      copy: src=files/dotfiles/tmux.conf dest=/home/jay/.tmux.conf owner=jay group=users mode=700
-      copy: src=files/dotfiles/tmux.conf dest=/root/.tmux.conf owner=root group=root mode=700
+      - copy: src=files/dotfiles/tmux.conf dest=/home/jay/.tmux.conf owner=jay group=users mode=700
+      - copy: src=files/dotfiles/tmux.conf dest=/root/.tmux.conf owner=root group=root mode=700
 
-    - name: Copy .vimrc
-      copy: src=files/dotfiles/vimrc dest=/home/jay/.vimrc owner=jay group=users mode=700
-      copy: src=files/dotfiles/vimrc dest=/root/.vimrc owner=root group=root mode=700
+      - copy: src=files/dotfiles/vimrc dest=/home/jay/.vimrc owner=jay group=users mode=700
+      - copy: src=files/dotfiles/vimrc dest=/root/.vimrc owner=root group=root mode=700
 
-    - name: Create .vim directory
-      file: path=/home/jay/.vim state=directory owner=jay group=users mode=700
-      file: path=/root/.vim state=directory owner=root group=root mode=700
+      - file: path=/home/jay/.vim state=directory owner=jay group=users mode=700
+      - file: path=/root/.vim state=directory owner=root group=root mode=700
 
-    - name: Create .vim/colors directory
-      file: path=/home/jay/.vim/colors state=directory owner=jay group=users mode=700
-      file: path=/root/.vim/colors state=directory owner=root group=root mode=700
+      - file: path=/home/jay/.vim/colors state=directory owner=jay group=users mode=700
+      - file: path=/root/.vim/colors state=directory owner=root group=root mode=700
 
-    - name: Copy bubblegum color scheme
-      copy: src=files/dotfiles/bubblegum-256-dark.vim dest=/home/jay/.vim/colors/bubblegum-256-dark.vim owner=jay group=users mode=700
-      copy: src=files/dotfiles/bubblegum-256-dark.vim dest=/root/.vim/colors/bubblegum-256-dark.vim owner=root group=root mode=700
+      - copy: src=files/dotfiles/bubblegum-256-dark.vim dest=/home/jay/.vim/colors/bubblegum-256-dark.vim owner=jay group=users mode=700
+      - copy: src=files/dotfiles/bubblegum-256-dark.vim dest=/root/.vim/colors/bubblegum-256-dark.vim owner=root group=root mode=700
 
-    - name: Copy darktango color scheme
-      copy: src=files/dotfiles/darktango.vim dest=/home/jay/.vim/colors/darktango.vim owner=jay group=users mode=700
-      copy: src=files/dotfiles/darktango.vim dest=/root/.vim/colors/darktrango.vim owner=root group=root mode=700
+      - copy: src=files/dotfiles/darktango.vim dest=/home/jay/.vim/colors/darktango.vim owner=jay group=users mode=700
+      - copy: src=files/dotfiles/darktango.vim dest=/root/.vim/colors/darktrango.vim owner=root group=root mode=700
 
-    - name: Copy jellybeans color scheme
-      copy: src=files/dotfiles/jellybeans.vim dest=/home/jay/.vim/colors/jellybeans.vim owner=jay group=users mode=700
-      copy: src=files/dotfiles/jellybeans.vim dest=/root/.vim/colors/jellybeans.vim owner=root group=root mode=700
+      - copy: src=files/dotfiles/jellybeans.vim dest=/home/jay/.vim/colors/jellybeans.vim owner=jay group=users mode=700
+      - copy: src=files/dotfiles/jellybeans.vim dest=/root/.vim/colors/jellybeans.vim owner=root group=root mode=700
 
-    - name: Copy xoria256 color scheme
-      copy: src=files/dotfiles/xoria256.vim dest=/home/jay/.vim/colors/xoria256.vim owner=jay group=users mode=700
-      copy: src=files/dotfiles/xoria256.vim dest=/root/.vim/colors/xoria256.vim owner=root group=root mode=700
+      - copy: src=files/dotfiles/xoria256.vim dest=/home/jay/.vim/colors/xoria256.vim owner=jay group=users mode=700
+      - copy: src=files/dotfiles/xoria256.vim dest=/root/.vim/colors/xoria256.vim owner=root group=root mode=700
 
-    - name: Copy zenburn color scheme
-      copy: src=files/dotfiles/zenburn.vim dest=/home/jay/.vim/colors/zenburn.vim owner=jay group=users mode=700
-      copy: src=files/dotfiles/zenburn.vim dest=/root/.vim/colors/zenburn.vim owner=root group=root mode=700
+      - copy: src=files/dotfiles/zenburn.vim dest=/home/jay/.vim/colors/zenburn.vim owner=jay group=users mode=700
+      - copy: src=files/dotfiles/zenburn.vim dest=/root/.vim/colors/zenburn.vim owner=root group=root mode=700

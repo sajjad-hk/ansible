@@ -11,12 +11,10 @@
   - name: create jay user
     user: name=jay state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="jay" uid=1000  shell=/bin/bash
 
-
   ## Create .ssh directory
   - name: Create .ssh directory
     file: path=/home/jay/.ssh state=directory owner=jay group=users mode=700
 
-  ## Create personal .ssh directory and populate it
-  - name: Create .ssh directory
-    copy: src=files/config dest=/home/jay/.ssh/config owner=jay group=users mode=600
-    copy: src=files/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=users mode=600
+  ## Populate .ssh directory
+  - copy: src=files/jlacroix/config dest=/home/jay/.ssh/config owner=jay group=users mode=600
+  - copy: src=files/jlacroix/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=users mode=600

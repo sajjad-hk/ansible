@@ -16,7 +16,7 @@
 
   ## Copy ntp.conf
   - name: Copy ntp.conf
-    copy: src=files/ntp.conf dest=/etc/nagios/ntp.conf owner=root group=root mode=755
+    copy: src=files/ntp/ntp.conf dest=/etc/nagios/ntp.conf owner=root group=root mode=755
     notify: restart ntp
 
 

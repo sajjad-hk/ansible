@@ -35,12 +35,12 @@
       when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
     - name: Create mame directory
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
       file: path=/home/jay/.mame state=directory owner=jay group=users mode=700
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
     - name: Copy mame.ini
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
       copy: src=files/games/mame.ini dest=/home/jay/.mame/mame.ini owner=jay group=users mode=700
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
 
   ## Debian and Ubuntu
@@ -50,8 +50,8 @@
     - apt: name=frozen-bubble
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=libasound2:1386
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    #- apt: name=libasound2:1386
+    #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
     - apt: name=libasound2-data
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
@@ -81,9 +81,9 @@
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
     - name: Create mame directory
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
       file: path=/etc/mame state=directory owner=root group=root mode=755
+      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
     - name: Copy mame.ini
+      copy: src=files/games/mame.ini dest=/etc/mame.ini owner=root group=users mode=644
       when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      copy: src=files/games/mame.ini dest=/etc/mame.ini owner=root group=users mode=655
