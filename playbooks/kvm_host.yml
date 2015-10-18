@@ -60,8 +60,16 @@
 
 
   ## libvirt daemon
-  - service: name=libvirtd enabled=yes state=started
+  - name: Enable libvirt
+    service: name=libvirtd enabled=yes state=started
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Debian' or ansible_distribution == 'Manjarolinux'
+    service: name=libvirt-bin enabled=yes state=started
+    when: ansible_distribution == 'Ubuntu'
+
 
   handlers:
-    - name: restart libvirt
-      service: name=libvirtd state=restarted
+  - name: restart libvirt
+    service: name=libvirtd state=restarted
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Debian' or ansible_distribution == 'Manjarolinux'
+    service: name=libvirt-bin state=restarted
+    when: ansible_distribution == 'Ubuntu'
