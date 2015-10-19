@@ -19,10 +19,14 @@ testserver ansible_ssh_host=10.10.99.165 ansible_ssh_port=22 ansible_python_inte
 #ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 testserver ansible_ssh_host=10.10.99.165 ansible_ssh_port=22
 
-[arch-workstations]
+
+[workstations-arch]
 
 
-[debian-servers]
+[workstations-gnome]
 
 
-[webservers]
+[workstations-mate]
+
+
+[workstations-openbox]
