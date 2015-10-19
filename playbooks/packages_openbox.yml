@@ -120,3 +120,61 @@
 
     - apt: name=xscreensaver
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+
+  ## Fedora
+    #package compton is not available, so omitted here.
+
+    - dnf: name=abattis-cantarell-fonts
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=acpid
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=clipit
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=gksu-polkit
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=gmrun
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=gnome-keyring
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=gnome-themes-standard
+      when: ansible_distribution == 'Fedora'
+
+    #- dnf: name=gsimplecal # Not available for Fedora, need equivelant
+    #  when: ansible_distribution == 'Fedora'
+
+    - dnf: name=lxappearance
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=mousepad
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=obconf
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=obmenu
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=pcmanfm
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=scrot
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=tint2
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=volumeicon
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=xarchiver
+      when: ansible_distribution == 'Fedora'
+
+    - dnf: name=xscreensaver
+      when: ansible_distribution == 'Fedora'

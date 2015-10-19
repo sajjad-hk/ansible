@@ -12,6 +12,12 @@
   - pacman: name=cronie
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
+  - apt: name=cron
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - dnf: name=cronie
+    when: ansible_distribution == 'Fedora'
+
 
   ## Set up the crontab
   - cron: name="ups_check" minute="*/2" job="/usr/local/bin/ups_check > /dev/null"

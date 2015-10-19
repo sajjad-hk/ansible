@@ -4,86 +4,110 @@
   tasks:
 
   ## Archlinux
-    - pacman: name=chromium-bsu
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=chromium-bsu
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=frozen-bubble
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=frozen-bubble
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=lib32-alsa-lib
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=lib32-alsa-lib
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=lib32-gcc-libs
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=lib32-gcc-libs
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mednafen
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mednafen
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=neverball
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=neverball
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=sdlmame
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=sdlmame
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=supertux
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=supertux
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=supertuxkart
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=supertuxkart
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=wesnoth
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=wesnoth
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - name: Create mame directory
-      file: path=/home/jay/.mame state=directory owner=jay group=users mode=700
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - name: Copy mame.ini
-      copy: src=files/games/mame.ini dest=/home/jay/.mame/mame.ini owner=jay group=users mode=700
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  ## Fedora
+  - dnf: name=alsa-lib.i686
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=chromium-bsu
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=frozen-bubble
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=libgcc.i686
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mame
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mednafen
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=neverball
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=supertux
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=supertuxkart
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=wesnoth
+    when: ansible_distribution == 'Fedora'
 
 
   ## Debian and Ubuntu
-    - apt: name=chromium-bsu
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=chromium-bsu
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=frozen-bubble
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=frozen-bubble
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    #- apt: name=libasound2:1386
-    #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  #- apt: name=libasound2:1386
+  #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=libasound2-data
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=libasound2-data
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=libasound2-plugins:i386
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=libasound2-plugins:i386
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=libc6:i386
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=libc6:i386
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mame
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mame
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mednafen
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mednafen
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=neverball
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=neverball
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=supertux
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=supertux
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=supertuxkart
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=supertuxkart
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=wesnoth
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=wesnoth
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - name: Create mame directory
-      file: path=/etc/mame state=directory owner=root group=root mode=755
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - name: Copy mame.ini
-      copy: src=files/games/mame.ini dest=/etc/mame.ini owner=root group=users mode=644
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+## Install mame.ini
+  - name: Create mame directory
+    file: path=/etc/mame state=directory owner=root group=root mode=755
+
+  - name: Copy mame.ini
+    copy: src=files/games/mame.ini dest=/etc/mame.ini owner=root group=users mode=644

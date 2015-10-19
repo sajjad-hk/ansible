@@ -7,6 +7,9 @@
   - pacman: name=ntp
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
+  - dnf: name=ntp
+    when: ansible_distribution == 'Fedora'
+
   - apt: name=ntp
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
@@ -22,10 +25,7 @@
 
   ## Set up the daemon
   - service: name=ntpd enabled=yes state=started
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-
-  - service: name=ntpd enabled=yes state=started
-    when: ansible_distribution == 'CentOS'
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'
 
   - service: name=ntp enabled=yes state=started
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
@@ -36,4 +36,4 @@
     service: name=ntp state=restarted
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
     service: name=ntpd state=restarted
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'

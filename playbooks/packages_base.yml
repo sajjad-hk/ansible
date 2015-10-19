@@ -4,147 +4,194 @@
   tasks:
 
   ## Archlinux and Manjarolinux
-    - pacman: name=colordiff
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=colordiff
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=curl
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=curl
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=git
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=git
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=htop
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=htop
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=iotop
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=iotop
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=lm_sensors
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=lm_sensors
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=lynx
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=lynx
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mosh
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mosh
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=ncdu
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=ncdu
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=screen
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=screen
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=sshfs
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=sshfs
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=sudo
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=sudo
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=the_silver_searcher
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=the_silver_searcher
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=tmux
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=tmux
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=vim-python3
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=vim-python3
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+
+  ## Fedora
+  - dnf: name=colordiff
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=curl
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=git
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=htop
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=iotop
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=lm_sensors
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=lynx
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mosh
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=ncdu
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=screen
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=sshfs
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=sudo
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=the_silver_searcher
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=tmux
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=vim-python3
+    when: ansible_distribution == 'Fedora'
 
 
   ## CentOS
-    - yum: name=colordiff
-      when: ansible_distribution == 'CentOS'
+  - yum: name=colordiff
+    when: ansible_distribution == 'CentOS'
 
-    - yum: curl
-      when: ansible_distribution == 'CentOS'
+  - yum: curl
+    when: ansible_distribution == 'CentOS'
 
-    - yum: fuse-sshfs
-      when: ansible_distribution == 'CentOS'
+  - yum: fuse-sshfs
+    when: ansible_distribution == 'CentOS'
 
-    - yum: git
-      when: ansible_distribution == 'CentOS'
+  - yum: git
+    when: ansible_distribution == 'CentOS'
 
-    - yum: htop
-      when: ansible_distribution == 'CentOS'
+  - yum: htop
+    when: ansible_distribution == 'CentOS'
 
-    - yum: iotop
-      when: ansible_distribution == 'CentOS'
+  - yum: iotop
+    when: ansible_distribution == 'CentOS'
 
-    - yum: lm_sensors
-      when: ansible_distribution == 'CentOS'
+  - yum: lm_sensors
+    when: ansible_distribution == 'CentOS'
 
-    - yum: lynx
-      when: ansible_distribution == 'CentOS'
+  - yum: lynx
+    when: ansible_distribution == 'CentOS'
 
-    - yum: mosh
-      when: ansible_distribution == 'CentOS'
+  - yum: mosh
+    when: ansible_distribution == 'CentOS'
 
-    - yum: ncdu
-      when: ansible_distribution == 'CentOS'
+  - yum: ncdu
+    when: ansible_distribution == 'CentOS'
 
-    - yum: screen
-      when: ansible_distribution == 'CentOS'
+  - yum: screen
+    when: ansible_distribution == 'CentOS'
 
-    - yum: sudo
-      when: ansible_distribution == 'CentOS'
+  - yum: sudo
+    when: ansible_distribution == 'CentOS'
 
-    - yum: tmux
-      when: ansible_distribution == 'CentOS'
+  - yum: tmux
+    when: ansible_distribution == 'CentOS'
 
-    - yum: vim-enhanced
-      when: ansible_distribution == 'CentOS'
+  - yum: vim-enhanced
+    when: ansible_distribution == 'CentOS'
 
 
    ## Debian and Ubuntu
-    - apt: name=colordiff
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=colordiff
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=curl
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=curl
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=exim4 state=absent
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=exim4 state=absent
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=exim4-base state=absent
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=exim4-base state=absent
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=exim4-config state=absent
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=exim4-config state=absent
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=git
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=git
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=htop
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=htop
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=iotop
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=iotop
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=lm-sensors
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=lm-sensors
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=lynx
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=lynx
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mosh
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mosh
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=ncdu
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=ncdu
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=silversearcher-ag update_cache=yes
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=silversearcher-ag update_cache=yes
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=screen
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=screen
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=sshfs
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=sshfs
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=sudo
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=sudo
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=tmux
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=tmux
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=vim-nox
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=vim-nox
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

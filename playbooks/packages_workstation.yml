@@ -73,6 +73,9 @@
   - pacman: name=pavucontrol
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
+  - pacman: name=perl
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
   - pacman: name=quassel-client
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
@@ -186,6 +189,9 @@
   - apt: name=pavucontrol
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
+  - apt: name=perl
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
   - apt: name=quassel-client
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
@@ -221,3 +227,110 @@
 
   - apt: name=xsel
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+
+  ## Fedora
+  - dnf: name=asunder
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=banshee
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=brasero
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=cmus
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=conky
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=easytag
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=exfat-utils
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=filezilla
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=freerdp
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=galculator
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=geany
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=gimp
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=gparted
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=gtk2-engines
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=gtk-recordmydesktop
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=guake
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=keepassx
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=libreoffice-calc
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=libreoffice-draw
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=libreoffice-writer
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mpv
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=pavucontrol
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=perl
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=quassel-client
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=rdesktop
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=remmina
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=roxterm
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=rxvt-unicode-256color
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=shutter
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=smbclient
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=terminator
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=terminus-fonts
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=transmission-gtk
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=vlc
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=xsel
+    when: ansible_distribution == 'Fedora'

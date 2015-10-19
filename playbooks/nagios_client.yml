@@ -4,47 +4,50 @@
   tasks:
 
   ## Install packages
-    - pacman: name=nrpe
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - dnf: nagios-plugins
+    when: ansible_distribution == 'Fedora'
 
-    - pacman: name=monitoring-plugins
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - dnf: nrpe
+    when: ansible_distribution == 'Fedora'
+  
+  - pacman: name=nrpe
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - yum: name=nrpe
-      when: ansible_distribution == 'CentOS'
+  - pacman: name=monitoring-plugins
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - yum: name=monitoring-plugins
-      when: ansible_distribution == 'CentOS'
+  - yum: name=nrpe
+    when: ansible_distribution == 'CentOS'
 
-    - apt: name=nagios-nrpe-server
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - yum: name=monitoring-plugins
+    when: ansible_distribution == 'CentOS'
 
-    - apt: name=nagios-nrpe-plugin
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=nagios-nrpe-server
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=nagios-nrpe-plugin
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
   ## Copy nrpe.cfg
-    - name: Copy nrpe.cfg
-      copy: src=files/nrpe/nrpe_arch.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      copy: src=files/nrpe/nrpe_centos.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
-      when: ansible_distribution == 'CentOS'
-      copy: src=files/nrpe/nrpe_debian.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - copy: src=files/nrpe/nrpe_arch.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - copy: src=files/nrpe/nrpe_fedora.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+    when: ansible_distribution == 'Fedora'
+  - copy: src=files/nrpe/nrpe_centos.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+    when: ansible_distribution == 'CentOS'
+  - copy: src=files/nrpe/nrpe_debian.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
   ## Copy plugins
-    - name: Copy nrpe plugins
-      copy: src=files/nrpe/check_ram dest=/usr/lib64/nagios/plugins/check_ram owner=root group=root mode=644
-      when: ansible_distribution == 'CentOS'
-      copy: src=files/nrpe/check_ram dest=/usr/lib/nagios/plugins/check_ram owner=root group=root mode=644
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - copy: src=files/nrpe/check_ram dest=/usr/lib64/nagios/plugins/check_ram owner=root group=root mode=644
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora'
+  - copy: src=files/nrpe/check_ram dest=/usr/lib/nagios/plugins/check_ram owner=root group=root mode=644
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 
   ## Set up the daemon
-    - service: name=nrpe enabled=yes state=started
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - service: name=nrpe enabled=yes state=started
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'
 
-    - service: name=nrpe enabled=yes state=started
-      when: ansible_distribution == 'CentOS'
-
-    - service: name=nagios-nrpe-server enabled=yes state=started
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - service: name=nagios-nrpe-server enabled=yes state=started
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

@@ -3,7 +3,6 @@
   sudo: True
   tasks:
 
-
   ## Copy script files
   - copy: src=files/server_scripts/email-params dest=/usr/local/bin/.email-params owner=root group=root mode=755
   - copy: src=files/server_scripts/email_etc_backup dest=/usr/local/bin/email_etc_backup owner=root group=root mode=755
@@ -17,6 +16,12 @@
   ## Ensure cron is available
   - pacman: name=cronie
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - apt: name=cron
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - dnf: name=cronie
+    when: ansible_distribution == 'Fedora'
 
 
   ## Set up the crontab

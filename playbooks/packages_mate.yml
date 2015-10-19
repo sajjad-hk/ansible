@@ -4,119 +4,162 @@
   tasks:
 
   ## Archlinux and Manjarolinux
-    - pacman: name=atril
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=atril
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=caja
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=caja
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mate-applets
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mate-applets
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mate-backgrounds
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mate-backgrounds
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mate-control-center
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mate-control-center
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mate-desktop
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mate-desktop
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mate-icon-theme
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mate-icon-theme
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mate-media
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mate-media
+    When: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mate-menus
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mate-menus
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
       
-    - pacman: name=mate-notification-daemon
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mate-notification-daemon
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mate-system-monitor
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mate-system-monitor
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mate-terminal
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mate-terminal
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mate-themes
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mate-themes
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=mozo
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=mozo
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: name=pluma
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=pluma
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
 
   ## Debian and Ubuntu
-    - apt: name=atril
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=atril
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=caja
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=caja
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-applets
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-applets
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-backgrounds
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-backgrounds
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-control-center
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-control-center
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-desktop
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-desktop
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-icon-theme
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-icon-theme
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-media
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-media
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-media-pulse
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-media-pulse
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-menus
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-menus
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-notification-daemon
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-notification-daemon
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-panel
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-panel
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-polkit
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-polkit
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-power-manager
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-power-manager
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-session-manager
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-session-manager
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-settings-daemon
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-settings-daemon
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-settings-daemon-pulse
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-settings-daemon-pulse
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-system-monitor
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-system-monitor
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-terminal
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-terminal
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mate-themes
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mate-themes
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=mozo
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=mozo
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=pluma
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
-
+  - apt: name=pluma
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 
+  ## Fedora
+  - dnf: name=atril
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=caja
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mate-applets
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mate-backgrounds
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mate-control-center
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mate-desktop
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mate-icon-theme
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mate-media
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mate-menus
+    when: ansible_distribution == 'Fedora'
+      
+  - dnf: name=mate-notification-daemon
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mate-system-monitor
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mate-terminal
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mate-themes
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=mozo
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=pluma
+    when: ansible_distribution == 'Fedora'
