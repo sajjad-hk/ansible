@@ -4,22 +4,27 @@
   tasks:
 
   ## Archlinux
-  - name: Install dev packages on Arch
+  - pacman: name=python2-pip
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    - pacman: name=python2-pip
-    - pacman: name=tig
+
+  - pacman: name=tig
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
 
   ## Fedora
-  - name: Install dev packages on Fedora
+  - dnf: name=python-pip
     when: ansible_distribution == 'Fedora'
-    - dnf: name=python-pip
-    - dnf: name=tig
+
+  - dnf: name=tig
+    when: ansible_distribution == 'Fedora'
 
 
   ## Debian and Ubuntu
-  - name: Install dev packages on Debian or Ubuntu
+  - apt: name=python-dev
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-    - apt: name=python-dev
-    - apt: name=python-pip
-    - apt: name=tig
+
+  - apt: name=python-pip
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=tig
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
