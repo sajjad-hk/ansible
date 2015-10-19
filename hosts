@@ -23,6 +23,9 @@ testserver ansible_ssh_host=10.10.99.165 ansible_ssh_port=22
 [workstations-arch]
 
 
+[workstations-games]
+
+
 [workstations-gnome]
 
 
