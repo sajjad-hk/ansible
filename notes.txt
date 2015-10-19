@@ -6,7 +6,7 @@ Fedora:
  directories
  users_jay
  kvm
- repositories: some kind of problem installing local RPMs
+ repositories
 
 
 To do:
