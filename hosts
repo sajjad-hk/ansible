@@ -1,3 +1,12 @@
+[kvm_hosts]
+
+
+[openssh_p22]
+
+
+[openssh_p65001]
+
+
 [servers]
 #localhost ansible_connection=local
 #galaxy ansible_ssh_host=10.10.96.4 ansible_ssh_port=22
@@ -11,6 +20,10 @@
 #upsmon ansible_ssh_host=10.10.96.100 ansible_ssh_port=65001
 #localhost ansible_connection=local
 testserver ansible_ssh_host=10.10.99.165 ansible_ssh_port=22 ansible_python_interpreter=/usr/bin/python2
+
+
+[ups_controlled]
+
 
 
 [workstations]
@@ -33,3 +46,7 @@ testserver ansible_ssh_host=10.10.99.165 ansible_ssh_port=22 ansible_python_inte
 
 
 [workstations-openbox]
+
+
+
+# Note: Add localhost when this is added to a dedicated server.
