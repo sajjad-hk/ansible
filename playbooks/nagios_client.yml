@@ -4,12 +4,12 @@
   tasks:
 
   ## Install packages
-  - dnf: nagios-plugins
+  - dnf: name=nagios-plugins
     when: ansible_distribution == 'Fedora'
 
-  - dnf: nrpe
+  - dnf: name=nrpe
     when: ansible_distribution == 'Fedora'
-  
+
   - pacman: name=nrpe
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 

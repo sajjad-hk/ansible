@@ -30,7 +30,7 @@
 
   - pacman: name=gnome-tweak-tool
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
+
   - pacman: name=nautilus
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
@@ -86,14 +86,11 @@
   - dnf: name=gnome-shell
     when: ansible_distribution == 'Fedora'
 
-  - dnf: name=gnome-shell-extensions
-    when: ansible_distribution == 'Fedora'
-
   - dnf: name=gnome-terminal
     when: ansible_distribution == 'Fedora'
 
   - dnf: name=gnome-tweak-tool
     when: ansible_distribution == 'Fedora'
-    
+
   - dnf: name=nautilus
     when: ansible_distribution == 'Fedora'

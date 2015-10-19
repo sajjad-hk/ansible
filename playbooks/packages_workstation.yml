@@ -239,8 +239,8 @@
   - dnf: name=brasero
     when: ansible_distribution == 'Fedora'
 
-  - dnf: name=cmus
-    when: ansible_distribution == 'Fedora'
+  #- dnf: name=cmus # Currently not available in Fedora, check this later
+  #  when: ansible_distribution == 'Fedora'
 
   - dnf: name=conky
     when: ansible_distribution == 'Fedora'
@@ -317,8 +317,8 @@
   - dnf: name=shutter
     when: ansible_distribution == 'Fedora'
 
-  - dnf: name=smbclient
-    when: ansible_distribution == 'Fedora'
+  #- dnf: name=smbclient # Package not available, may not be needed.
+  #  when: ansible_distribution == 'Fedora'
 
   - dnf: name=terminator
     when: ansible_distribution == 'Fedora'

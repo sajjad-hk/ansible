@@ -7,6 +7,10 @@ Fedora:
  users_jay
  kvm
  repositories
+ packages_workstation
+ packages_gnome
+ packages_games
+
 
 
 To do:

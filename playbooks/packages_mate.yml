@@ -26,11 +26,11 @@
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
   - pacman: name=mate-media
-    When: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
   - pacman: name=mate-menus
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      
+
   - pacman: name=mate-notification-daemon
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
@@ -145,7 +145,7 @@
 
   - dnf: name=mate-menus
     when: ansible_distribution == 'Fedora'
-      
+
   - dnf: name=mate-notification-daemon
     when: ansible_distribution == 'Fedora'
 

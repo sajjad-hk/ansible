@@ -93,7 +93,7 @@
   - dnf: name=tmux
     when: ansible_distribution == 'Fedora'
 
-  - dnf: name=vim-python3
+  - dnf: name=vim-enhanced
     when: ansible_distribution == 'Fedora'
 
 

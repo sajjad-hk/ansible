@@ -17,7 +17,7 @@ testserver ansible_ssh_host=10.10.99.165 ansible_ssh_port=22 ansible_python_inte
 #localhost ansible_connection=local
 #crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001
 #ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
-testserver ansible_ssh_host=10.10.99.165 ansible_ssh_port=22
+testserver ansible_ssh_host=10.10.99.165 ansible_ssh_port=22 ansible_python_interpreter=/usr/bin/python2
 
 
 [workstations-arch]
