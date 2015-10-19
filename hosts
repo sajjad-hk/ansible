@@ -7,19 +7,23 @@
 [openssh_p65001]
 
 
+[raspbian]
+upsmon ansible_ssh_host=10.10.96.100 ansible_ssh_port=22
+pi-dev-1 ansible_ssh_host=10.10.97.100 ansible_ssh_port=22
+pi-dev-2 ansible_ssh_host=10.10.97.101 ansible_ssh_port=22
+
+
 [servers]
 #localhost ansible_connection=local
-#galaxy ansible_ssh_host=10.10.96.4 ansible_ssh_port=22
-#hermes ansible_ssh_host=10.10.96.1 ansible_ssh_port=65001
-#jaylacroix.com ansible_ssh_host=jaylacroix.com ansible_ssh_port=65001
-#nagios ansible_ssh_host=10.10.96.3 ansible_ssh_port=22
-#neptune ansible_ssh_host=neptune.jaylacroix.com ansible_ssh_port=22
-#pi-dev-1 ansible_ssh_host=10.10.97.100 ansible_ssh_port=65001
-#pi-dev-2 ansible_ssh_host=10.10.97.101 ansible_ssh_port=65001
-#pluto ansible_ssh_host=10.10.96.10 ansible_ssh_port=65001
-#upsmon ansible_ssh_host=10.10.96.100 ansible_ssh_port=65001
-#localhost ansible_connection=local
-testserver ansible_ssh_host=10.10.99.165 ansible_ssh_port=22 ansible_python_interpreter=/usr/bin/python2
+galaxy ansible_ssh_host=10.10.96.4 ansible_ssh_port=22
+hermes ansible_ssh_host=10.10.96.1 ansible_ssh_port=65001
+jaylacroix.com ansible_ssh_host=jaylacroix.com ansible_ssh_port=65001
+nagios ansible_ssh_host=10.10.96.3 ansible_ssh_port=22
+neptune ansible_ssh_host=neptune.jaylacroix.com ansible_ssh_port=22
+pi-dev-1 ansible_ssh_host=10.10.97.100 ansible_ssh_port=22
+pi-dev-2 ansible_ssh_host=10.10.97.101 ansible_ssh_port=22
+pluto ansible_ssh_host=10.10.96.10 ansible_ssh_port=22
+upsmon ansible_ssh_host=10.10.96.100 ansible_ssh_port=22
 
 
 [ups_controlled]
@@ -50,3 +54,5 @@ testserver ansible_ssh_host=10.10.99.165 ansible_ssh_port=22 ansible_python_inte
 
 
 # Note: Add localhost when this is added to a dedicated server.
+
+# Note: Add the following to use python2: ansible_python_interpreter=/usr/bin/python2
