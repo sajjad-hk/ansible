@@ -47,16 +47,16 @@
     - pacman: name=scrot
       when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: tint2
+    - pacman: name=tint2
       when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: volumeicon
+    - pacman: name=volumeicon
       when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: xarchiver
+    - pacman: name=xarchiver
       when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: xscreensaver
+    - pacman: name=xscreensaver
       when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
 

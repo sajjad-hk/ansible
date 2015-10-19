@@ -14,6 +14,11 @@
   - copy: src=files/server_scripts/sendemail dest=/usr/local/bin/sendemail owner=root group=root mode=755
 
 
+  ## Ensure cron is available
+  - pacman: name=cronie
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+
   ## Set up the crontab
   - cron: name="weekly_update" minute="0" hour="1" day="5" job="/usr/local/bin/weekly_update > /dev/null"
   - cron: name="email_etc_backup" minute="0" hour="2" day="5" job="/usr/local/bin/email_etc_backup > /dev/null"

@@ -46,7 +46,7 @@
     - pacman: name=tmux
       when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - pacman: vim-python3
+    - pacman: name=vim-python3
       when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
 

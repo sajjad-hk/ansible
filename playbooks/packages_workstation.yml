@@ -2,222 +2,222 @@
   hosts: workstations
   sudo: True
   tasks:
-  
+
   ## Arch Linux
-    - apt: name=asunder
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=asunder
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - apt: name=banshee
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=banshee
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - apt: name=brasero
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=brasero
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - apt: name=cmus
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'    
+  - pacman: name=cmus
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - apt: name=conky
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      
-    - apt: name=pdmenu
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
-    - apt: name=easytag
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=conky
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - apt: name=exfat-utils
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
-    - apt: name=filezilla
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      
-    - apt: name=freerdp
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=pdmenu
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - apt: name=galculator
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=easytag
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - apt: name=geany
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
-    - apt: name=geany-plugins
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=exfat-utils
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - apt: name=gimp
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'   
-    
-    - apt: name=gparted
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      
-    - apt: name=gtk-engine-aurora
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      
-    - apt: name=gtk-engine-murrine
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      
-    - apt: name=gtk-recordmydesktop
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      
-    - apt: name=guake
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      
-    - apt: name=keepassx
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
-    - apt: name=libreoffice-still
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=filezilla
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - apt: name=mpv
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
-    - apt: name=pavucontrol
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
-    - apt: name=quassel-client
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
-    - apt: name=rdesktop
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
-    - apt: name=remmina
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
-    - apt: name=roxterm
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux' 
-    
-    - apt: name=rxvt-unicode # To do: Unable to install the proper package, rxvt-unicode-pixbuf, via yaourt
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
-    - apt: name=shutter
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      
-    - apt: name=smbclient
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux' 
-    
-    - apt: name=terminator
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
-    - apt: name=terminus-font
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    
-    - apt: name=transmission-gtk
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-      
-    - apt: name=vlc
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=freerdp
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
-    - apt: name=xsel
-      when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+  - pacman: name=galculator
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=geany
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=geany-plugins
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=gimp
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=gparted
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=gtk-engine-aurora
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=gtk-engine-murrine
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=gtk-recordmydesktop
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=guake
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=keepassx
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=libreoffice-still
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=mpv
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=pavucontrol
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=quassel-client
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=rdesktop
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=remmina
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=roxterm
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=rxvt-unicode # To do: Unable to install the proper package, rxvt-unicode-pixbuf, via yaourt
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=shutter
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=smbclient
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=terminator
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=terminus-font
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=transmission-gtk
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=vlc
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
+  - pacman: name=xsel
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
 
   ## Debian
-    - apt: name=asunder
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=banshee
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=brasero
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=cmus
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=conky
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=pdmenu
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=easytag
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-    
-    - apt: name=exfat-utils
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=filezilla
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=freerdp-x11
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=galculator
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=geany
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=asunder
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=geany-plugins
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=gimp
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=banshee
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=gparted
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=gtk-recordmydesktop
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=gtk2-engines-aurora
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=gtk2-engines-murrine
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=guake
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=keepassx
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=brasero
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=libreoffice-writer
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=libreoffice-calc
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=libreoffice-impress
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=mpv
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=pavucontrol
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=quassel-client
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=cmus
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=rdesktop
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=remmina
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=conky
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=roxterm
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=pdmenu
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=rxvt-unicode-256color
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=shutter
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=smbclient
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=terminator
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=transmission-gtk
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=vlc
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-      
-    - apt: name=xfonts-terminus
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=easytag
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - apt: name=xsel  
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - apt: name=exfat-utils
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=filezilla
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=freerdp-x11
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=galculator
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=geany
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=geany-plugins
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=gimp
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=gparted
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=gtk-recordmydesktop
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=gtk2-engines-aurora
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=gtk2-engines-murrine
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=guake
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=keepassx
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=libreoffice-writer
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=libreoffice-calc
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=libreoffice-impress
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=mpv
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=pavucontrol
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=quassel-client
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=rdesktop
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=remmina
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=roxterm
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=rxvt-unicode-256color
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=shutter
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=smbclient
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=terminator
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=transmission-gtk
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=vlc
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=xfonts-terminus
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=xsel
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

@@ -1,4 +1,4 @@
-- name: Install scripts on servers
+- name: Install UPS check script
   hosts: servers
   sudo: True
   tasks:
@@ -6,6 +6,11 @@
   ## Copy script files
   - name: Copy script
     copy: src=files/ups_check/ups_check dest=/usr/local/bin/ups_check owner=root group=root mode=755
+
+
+  ## Ensure cron is available
+  - pacman: name=cronie
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
 
   ## Set up the crontab
