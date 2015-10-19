@@ -10,6 +10,18 @@
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
 
+  ## Fedora
+  - name: Install RPM fusion free
+    dnf: name=files/rpm/rpmfusion-free-release-22.noarch.rpm state=present
+    notify: fedora-update
+    when: ansible_distribution == 'Fedora'
+
+  - name: Install RPM fusion non-free
+    dnf: name=files/rpm/rpmfusion-nonfree-release-22.noarch.rpm state=present
+    notify: fedora-update
+    when: ansible_distribution == 'Fedora'
+
+
   ## Debian
   - name: Enable 32-bit packages
     copy: src=files/repositories/arch dest=/var/lib/dpkg/arch owner=root group=root mode=644
@@ -43,3 +55,8 @@
   ## Update pacman
   - name: arch-update
     pacman: update_cache=yes
+
+
+  ## Update Fedora
+  - name: fedora-update
+    dnf: update_cache=yes

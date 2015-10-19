@@ -1,0 +1,24 @@
+Debian: Done
+Ubuntu: Done
+Arch: Done
+
+Fedora:
+ directories
+ users_jay
+ kvm
+ repositories: some kind of problem installing local RPMs
+
+
+To do:
+ - Arch-specific puppet configs -> ansible
+ - Login managers
+
+Untested:
+ - packages_raspbian
+
+
+Descriptions wrong on some?
+
+
+
+gnome users group

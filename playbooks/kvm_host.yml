@@ -20,6 +20,23 @@
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
 
+  ## Fedora
+  - dnf: name=bridge-utils
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=dnsmasq
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=ebtables
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=libvirt
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=qemu
+    when: ansible_distribution == 'Fedora'
+
+
   ## Debian and Ubuntu
   - apt: name=bridge-utils
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
@@ -62,7 +79,7 @@
   ## libvirt daemon
   - name: Enable libvirt
     service: name=libvirtd enabled=yes state=started
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Debian' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Debian' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'
     service: name=libvirt-bin enabled=yes state=started
     when: ansible_distribution == 'Ubuntu'
 
@@ -70,6 +87,6 @@
   handlers:
   - name: restart libvirt
     service: name=libvirtd state=restarted
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Debian' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Fedora' or ansible_distribution == 'Debian' or ansible_distribution == 'Manjarolinux'
     service: name=libvirt-bin state=restarted
     when: ansible_distribution == 'Ubuntu'
