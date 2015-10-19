@@ -1,5 +1,5 @@
 - name: Configure OpenSSH server on port 65001
-  hosts: servers
+  hosts: openssh_p65001
   sudo: True
   tasks:
 

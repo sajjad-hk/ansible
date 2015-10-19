@@ -6,6 +6,7 @@
   ## Raspbian packages to install
     ## Packages specific to raspbian can go here
 
+
   ## Raspbian packages to purge
     - apt: name=exim4-base state=absent
     - apt: name=aspell state=absent

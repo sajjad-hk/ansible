@@ -1,5 +1,5 @@
 - name: Install UPS check script
-  hosts: servers
+  hosts: ups_controlled
   sudo: True
   tasks:
 

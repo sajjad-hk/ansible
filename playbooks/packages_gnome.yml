@@ -1,5 +1,5 @@
 - name: Install GNOME packages on hosts
-  hosts: workstations
+  hosts: workstations-gnome
   sudo: True
   tasks:
 

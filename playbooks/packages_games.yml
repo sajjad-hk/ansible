@@ -1,5 +1,5 @@
 - name: Install game packages
-  hosts: workstations
+  hosts: workstations-games
   sudo: True
   tasks:
 

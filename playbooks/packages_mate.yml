@@ -1,5 +1,5 @@
 - name: Install MATE packages on hosts
-  hosts: workstations
+  hosts: workstations-mate
   sudo: True
   tasks:
 

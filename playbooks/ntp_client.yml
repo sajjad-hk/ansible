@@ -1,5 +1,5 @@
 - name: Configure NTP client
-  hosts: servers
+  hosts: all
   sudo: True
   tasks:
 

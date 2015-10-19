@@ -1,5 +1,5 @@
 - name: Set up software repositories
-  hosts: servers
+  hosts: workstations
   sudo: True
   tasks:
 

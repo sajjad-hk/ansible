@@ -1,15 +1,33 @@
 - name: Set up user jay
-  hosts: servers
+  hosts: servers,workstations
   sudo: True
   tasks:
 
   ## Create user group
   - name: create jay group
     group: name=jay state=present gid=1000
+  
+  ## Ensure sudo package is installed
+  - apt: name=sudo
+    when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
 
-  ## Create user
-  - name: create jay user
-    user: name=jay state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="jay" uid=1000  shell=/bin/bash
+  - dnf: name=sudo
+    when: ansible_distribution == "Fedora"
+
+  - pacman: name=sudo
+    when: ansible_distribution == "Archlinux" or ansible_distribution == "Manjarolinux"
+
+  - yum: name=sudo
+    when: ansible_distribution == "CentOS"
+
+  ## Create user and add to groups
+  - name: create user jay
+    user: name=jay state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="jay" uid=1000 shell=/bin/bash groups=wheel append=yes
+    when: ansible_distribution == "Archlinux" or ansible_distribution == "CentOS" or ansible_distribution == "Fedora" or ansible_distribution = "Manjarolinux"
+
+  - name: create user jay
+    user: name=jay state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="jay" uid=1000 shell=/bin/bash groups=wheel append=yes
+    when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
 
   ## Create .ssh directory
   - name: Create .ssh directory

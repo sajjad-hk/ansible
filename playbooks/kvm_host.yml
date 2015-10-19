@@ -1,5 +1,5 @@
 - name: Install KVM virtualization host
-  hosts: servers
+  hosts: kvm_hosts
   sudo: True
   tasks:
 

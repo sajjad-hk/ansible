@@ -1,5 +1,5 @@
 - name: Install base packages on hosts
-  hosts: workstations
+  hosts: servers,workstations
   sudo: True
   tasks:
 

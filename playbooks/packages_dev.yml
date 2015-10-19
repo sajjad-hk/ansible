@@ -1,30 +1,25 @@
 - name: Install base packages on Debian hosts
-  hosts: servers
+  hosts: servers,workstations
   sudo: True
   tasks:
 
   ## Archlinux
-  - pacman: name=python2-pip
+  - name: Install dev packages on Arch
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-
-  - pacman: name=tig
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    - pacman: name=python2-pip
+    - pacman: name=tig
 
 
   ## Fedora
-  - dnf: name=python-pip
+  - name: Install dev packages on Fedora
     when: ansible_distribution == 'Fedora'
-
-  - dnf: name=tig
-    when: ansible_distribution == 'Fedora'
+    - dnf: name=python-pip
+    - dnf: name=tig
 
 
   ## Debian and Ubuntu
-  - apt: name=python-dev
+  - name: Install dev packages on Debian or Ubuntu
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
-  - apt: name=python-pip
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
-  - apt: name=tig
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    - apt: name=python-dev
+    - apt: name=python-pip
+    - apt: name=tig
