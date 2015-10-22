@@ -6,7 +6,7 @@
   ## Create user group
   - name: create jay group
     group: name=jay state=present gid=1000
-  
+
   ## Ensure sudo package is installed
   - apt: name=sudo
     when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
@@ -34,5 +34,5 @@
     file: path=/home/jay/.ssh state=directory owner=jay group=users mode=700
 
   ## Populate .ssh directory
-  - copy: src=files/jlacroix/config dest=/home/jay/.ssh/config owner=jay group=users mode=600
-  - copy: src=files/jlacroix/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=users mode=600
+  - copy: src=files/jay/config dest=/home/jay/.ssh/config owner=jay group=users mode=600
+  - copy: src=files/jay/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=users mode=600
