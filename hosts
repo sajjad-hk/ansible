@@ -26,7 +26,7 @@ upsmon ansible_ssh_host=10.10.96.100 ansible_ssh_port=22
 
 
 [servers]
-#localhost ansible_connection=local
+localhost ansible_connection=local
 galaxy ansible_ssh_host=10.10.96.4 ansible_ssh_port=22
 hermes ansible_ssh_host=10.10.96.1 ansible_ssh_port=65001
 jaylacroix.com ansible_ssh_host=jaylacroix.com ansible_ssh_port=65001
