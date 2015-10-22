@@ -1,0 +1,8 @@
+- name: Main module
+  hosts: ups_controlled
+  sudo: True
+  tasks:
+
+  -include playbooks/repositories.yml
+  -include playbooks/users_jay.yml
+  -include directories.yml
