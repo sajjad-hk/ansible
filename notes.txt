@@ -1,21 +1,9 @@
-Debian: Done
-Ubuntu: Done
-Arch: Done
-
-Fedora:
- directories
- users_jay
- kvm
- repositories
- packages_workstation
- packages_gnome
- packages_games
-
-
-
 To do:
  - Arch-specific puppet configs -> ansible
  - Login managers
+
+Issues:
+ - ansible user complains it is in use when ran
 
 Untested:
  - packages_raspbian

@@ -9,6 +9,7 @@ nagios ansible_ssh_host=10.10.96.3 ansible_ssh_port=22
 pi-dev ansible_ssh_host=10.10.97.100 ansible_ssh_port=22
 pluto ansible_ssh_host=10.10.96.10 ansible_ssh_port=22
 upsmon ansible_ssh_host=10.10.96.100 ansible_ssh_port=22
+ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
 [openssh_p65001]
@@ -38,6 +39,7 @@ upsmon ansible_ssh_host=10.10.96.100 ansible_ssh_port=22
 [ups_controlled]
 hermes ansible_ssh_host=10.10.96.1 ansible_ssh_port=65001
 pluto ansible_ssh_host=10.10.96.10 ansible_ssh_port=22
+galaxy ansible_ssh_host=10.10.96.4 ansible_ssh_port=22
 
 
 [workstations]

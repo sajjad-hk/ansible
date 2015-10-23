@@ -29,7 +29,7 @@
     group: name=admins system=yes state=present
 
   - name: make sure we can sudo as admin group
-    lineinfile: "dest=/etc/sudoers.tmp state=present regexp='^%admin' line='%admin ALL=(ALL) NOPASSWD: ALL'"
+    lineinfile: "dest=/etc/sudoers.tmp state=present regexp='^%admin' line='%admins ALL=(ALL) NOPASSWD: ALL'"
 
   - name: Final sudoers file check
     shell: visudo -q -c -f /etc/sudoers.tmp && cp -f /etc/sudoers.tmp /etc/sudoers
