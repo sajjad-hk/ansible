@@ -101,43 +101,43 @@
   - yum: name=colordiff
     when: ansible_distribution == 'CentOS'
 
-  - yum: curl
+  - yum: name=curl
     when: ansible_distribution == 'CentOS'
 
-  - yum: fuse-sshfs
+  - yum: name=fuse-sshfs
     when: ansible_distribution == 'CentOS'
 
-  - yum: git
+  - yum: name=git
     when: ansible_distribution == 'CentOS'
 
-  - yum: htop
+  - yum: name=htop
     when: ansible_distribution == 'CentOS'
 
-  - yum: iotop
+  - yum: name=iotop
     when: ansible_distribution == 'CentOS'
 
-  - yum: lm_sensors
+  - yum: name=lm_sensors
     when: ansible_distribution == 'CentOS'
 
-  - yum: lynx
+  - yum: name=lynx
     when: ansible_distribution == 'CentOS'
 
-  - yum: mosh
+  - yum: name=mosh
     when: ansible_distribution == 'CentOS'
 
-  - yum: ncdu
+  - yum: name=ncdu
     when: ansible_distribution == 'CentOS'
 
-  - yum: screen
+  - yum: name=screen
     when: ansible_distribution == 'CentOS'
 
-  - yum: sudo
+  - yum: name=sudo
     when: ansible_distribution == 'CentOS'
 
-  - yum: tmux
+  - yum: name=tmux
     when: ansible_distribution == 'CentOS'
 
-  - yum: vim-enhanced
+  - yum: name=vim-enhanced
     when: ansible_distribution == 'CentOS'
 
 
