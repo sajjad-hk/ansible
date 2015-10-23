@@ -16,9 +16,9 @@
 
   ## Create .ssh directory
   - name: Create .ssh directory
-    file: path=/home/jay/.ssh state=directory owner=jay group=users mode=700
+    file: path=/home/jay/.ssh state=directory owner=jay group=jay mode=700
 
 
   ## Populate .ssh directory
-  - copy: src=files/users_jay/config dest=/home/jay/.ssh/config owner=jay group=users mode=600
-  - copy: src=files/users_jay/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=users mode=600
+  - copy: src=files/users_jay/config dest=/home/jay/.ssh/config owner=jay group=jay mode=600
+  - copy: src=files/users_jay/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=jay mode=600
