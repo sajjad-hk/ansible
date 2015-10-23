@@ -1,14 +1,14 @@
 - include: repositories.yml
 - include: sudoers.yml
-- inxlude: users_ansible.yml
+- include: users_ansible.yml
 - include: users_jay.yml
 - include: server_scripts.yml
 - include: ups_check.yml
 - include: directories.yml
-#  - include: nagios_client.yml
-#  - include: ntp_client.yml
-#  - include: openssh_p22.yml
-#  - include: openssh_p65001.yml
+- include: nagios_client.yml
+- include: ntp_client.yml
+- include: openssh_p22.yml
+- include: openssh_p65001.yml
 #  - include: packages_base.yml
 #  - include: packages_dev.yml
 #  - include: packages_games.yml
