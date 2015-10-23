@@ -4,6 +4,7 @@ To do:
 
 Issues:
  - ansible user complains it is in use when ran
+ - silver search isn't available on raspbian
 
 Untested:
  - packages_raspbian
