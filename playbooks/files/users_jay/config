@@ -50,12 +50,6 @@ Host neptune
     Port 22
     User jay
 
-Host puppet
-    Hostname puppet.jaylacroix.com
-    # IP address: 104.236.61.63
-    Port 65001
-    User jay
-
 Host pi-dev
     Hostname 10.10.97.100
     Port 22
