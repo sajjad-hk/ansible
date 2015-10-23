@@ -1,0 +1,24 @@
+- name: Set up user ansible
+  hosts: workstations:servers
+  sudo: True
+  tasks:
+
+
+  ## Create user group
+  - name: create ansible group
+    group: name=ansible state=present gid=900
+
+
+  ## Create user and add to groups
+  - name: create user ansible
+    user: name=ansible state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="ansible" uid=900 shell=/bin/bash groups=admins append=yes
+
+
+  ## Create .ssh directory
+  - name: Create .ssh directory
+    file: path=/home/ansible/.ssh state=directory owner=ansible group=users mode=700
+
+
+  ## Populate .ssh directory
+  - copy: src=files/users_ansible/config dest=/home/ansible/.ssh/config owner=ansible group=users mode=600
+  - copy: src=files/users_ansible/authorized_keys dest=/home/ansible/.ssh/authorized_keys owner=ansible group=users mode=600

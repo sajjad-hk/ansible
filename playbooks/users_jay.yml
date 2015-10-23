@@ -1,38 +1,24 @@
 - name: Set up user jay
-  hosts: servers,workstations
+  hosts: workstations:servers
   sudo: True
   tasks:
+
 
   ## Create user group
   - name: create jay group
     group: name=jay state=present gid=1000
 
-  ## Ensure sudo package is installed
-  - apt: name=sudo
-    when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
-
-  - dnf: name=sudo
-    when: ansible_distribution == "Fedora"
-
-  - pacman: name=sudo
-    when: ansible_distribution == "Archlinux" or ansible_distribution == "Manjarolinux"
-
-  - yum: name=sudo
-    when: ansible_distribution == "CentOS"
 
   ## Create user and add to groups
   - name: create user jay
-    user: name=jay state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="jay" uid=1000 shell=/bin/bash groups=wheel append=yes
-    when: ansible_distribution == "Archlinux" or ansible_distribution == "CentOS" or ansible_distribution == "Fedora" or ansible_distribution = "Manjarolinux"
+    user: name=jay state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="jay" uid=1000 shell=/bin/bash groups=admins append=yes
 
-  - name: create user jay
-    user: name=jay state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="jay" uid=1000 shell=/bin/bash groups=wheel append=yes
-    when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
 
   ## Create .ssh directory
   - name: Create .ssh directory
     file: path=/home/jay/.ssh state=directory owner=jay group=users mode=700
 
+
   ## Populate .ssh directory
-  - copy: src=files/jay/config dest=/home/jay/.ssh/config owner=jay group=users mode=600
-  - copy: src=files/jay/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=users mode=600
+  - copy: src=files/users_jay/config dest=/home/jay/.ssh/config owner=jay group=users mode=600
+  - copy: src=files/users_jay/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=users mode=600
