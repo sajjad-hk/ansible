@@ -9,11 +9,11 @@
 - include: ntp_client.yml
 - include: openssh_p22.yml
 - include: openssh_p65001.yml
-#  - include: packages_base.yml
-#  - include: packages_dev.yml
-#  - include: packages_games.yml
-#  - include: packages_gnome.yml
-#  - include: packages_mate.yml
-#  - include: packages_openbox.yml
-#  - include: packages_raspbian.yml
-#  - include: packages_workstation.yml
+- include: packages_base.yml
+- include: packages_dev.yml
+- include: packages_games.yml
+- include: packages_gnome.yml
+- include: packages_mate.yml
+- include: packages_openbox.yml
+- include: packages_raspbian.yml
+- include: packages_workstation.yml
