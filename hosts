@@ -6,9 +6,9 @@ ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 [openssh_p22]
 galaxy ansible_ssh_host=10.10.96.4 ansible_ssh_port=22
 nagios ansible_ssh_host=10.10.96.3 ansible_ssh_port=22
-pi-dev ansible_ssh_host=10.10.97.100 ansible_ssh_port=22
+pi-dev ansible_ssh_host=10.10.96.8 ansible_ssh_port=22
 pluto ansible_ssh_host=10.10.96.10 ansible_ssh_port=22
-upsmon ansible_ssh_host=10.10.96.100 ansible_ssh_port=22
+upsmon ansible_ssh_host=10.10.96.7 ansible_ssh_port=22
 ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
@@ -19,9 +19,10 @@ jaylacroix.com ansible_ssh_host=jaylacroix.com ansible_ssh_port=65001
 
 
 [raspbian]
+localhost ansible_connection=local
 nagios ansible_ssh_host=10.10.96.3 ansible_ssh_port=22
-pi-dev ansible_ssh_host=10.10.97.100 ansible_ssh_port=22
-upsmon ansible_ssh_host=10.10.96.100 ansible_ssh_port=22
+pi-dev ansible_ssh_host=10.10.96.8 ansible_ssh_port=22
+upsmon ansible_ssh_host=10.10.96.7 ansible_ssh_port=22
 
 
 [servers]
@@ -31,9 +32,9 @@ hermes ansible_ssh_host=10.10.96.1 ansible_ssh_port=65001
 jaylacroix.com ansible_ssh_host=jaylacroix.com ansible_ssh_port=65001
 nagios ansible_ssh_host=10.10.96.3 ansible_ssh_port=22
 neptune ansible_ssh_host=neptune.jaylacroix.com ansible_ssh_port=22
-pi-dev ansible_ssh_host=10.10.97.100 ansible_ssh_port=22
+pi-dev ansible_ssh_host=10.10.96.8 ansible_ssh_port=22
 pluto ansible_ssh_host=10.10.96.10 ansible_ssh_port=22
-upsmon ansible_ssh_host=10.10.96.100 ansible_ssh_port=22
+upsmon ansible_ssh_host=10.10.96.7 ansible_ssh_port=22
 
 
 [ups_controlled]
