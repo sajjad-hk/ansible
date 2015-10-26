@@ -2,7 +2,7 @@
 - include: sudoers.yml
 - include: users_ansible.yml
 - include: users_jay.yml
-- include: server_scripts.yml
+- include: scripts_server.yml
 - include: ups_check.yml
 - include: directories.yml
 - include: nagios_client.yml

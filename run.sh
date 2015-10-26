@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/usr/local/bin/ansible-playbook playbooks/main.yml
+cd /git/ansible && /usr/local/bin/ansible-playbook playbooks/main.yml

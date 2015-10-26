@@ -51,7 +51,7 @@ Host neptune
     User jay
 
 Host pi-dev
-    Hostname 10.10.97.100
+    Hostname 10.10.96.8
     Port 22
     User jay
 
@@ -66,6 +66,6 @@ Host ragnarok
     User jay
 
 Host upsmon
-    Hostname 10.10.96.100
+    Hostname 10.10.96.7
     Port 22
     User jay

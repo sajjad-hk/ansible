@@ -1,0 +1,15 @@
+- name: Install scripts on servers
+  hosts: raspbian
+  sudo: True
+  tasks:
+
+  ## Copy wifi_check script
+  - copy: src=files/scripts_raspbian/wifi_check dest=/usr/local/bin/wifi_check owner=root group=root mode=755
+
+  ## Ensure cron is available
+  - apt: name=cron
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+
+  ## Set up the crontab
+  - cron: name="wifi_check" minute="*/2" hour="*" day="*" job="/usr/local/bin/wifi_check > /dev/null"
