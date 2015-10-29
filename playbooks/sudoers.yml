@@ -26,7 +26,7 @@
     command: cp -f /etc/sudoers /etc/sudoers.bak
 
   - name: Create admins group
-    group: name=admins system=yes state=present
+    group: name=admins system=yes state=present gid=901
 
   - name: make sure we can sudo as admin group
     lineinfile: "dest=/etc/sudoers.tmp state=present regexp='^%admin' line='%admins ALL=(ALL) NOPASSWD: ALL'"

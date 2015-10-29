@@ -1,5 +1,5 @@
 [kvm_hosts]
-crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
 ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
@@ -13,7 +13,7 @@ ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
 [openssh_p65001]
-crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
 hermes ansible_ssh_host=10.10.96.1 ansible_ssh_port=65001
 jaylacroix.com ansible_ssh_host=jaylacroix.com ansible_ssh_port=65001
 
@@ -44,7 +44,7 @@ galaxy ansible_ssh_host=10.10.96.4 ansible_ssh_port=22
 
 
 [workstations]
-crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
 ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
@@ -52,22 +52,22 @@ ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
 [workstations-games]
-crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
 ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
 [workstations-gnome]
-crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
 ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
 [workstations-mate]
-crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
 ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
 [workstations-openbox]
-crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
 ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 

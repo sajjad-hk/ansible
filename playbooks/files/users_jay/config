@@ -11,7 +11,7 @@ Host ceres
 
 Host crusader
     Hostname 10.10.97.4
-    Port 22
+    Port 65001
     User jay
 
 Host galaxy
