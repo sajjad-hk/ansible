@@ -1,6 +1,5 @@
 To do:
- - Arch-specific puppet configs -> ansible
- - Login managers
+ - slim config
 
 Issues:
  - ansible user complains it is in use when ran
@@ -8,10 +7,7 @@ Issues:
 
 Untested:
  - packages_raspbian
+ - lightdm
+ - gdm
+ - arch-video-*
 
-
-Descriptions wrong on some?
-
-
-
-gnome users group

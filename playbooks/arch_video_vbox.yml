@@ -1,0 +1,17 @@
+- name: Video - Virtualbox
+  hosts: arch-workstations-vbox-video
+  sudo: True
+  tasks:
+
+  # Install packages
+  - pacman: name=virtualbox-guest-utils
+  - pacman: name=lib32-libgl
+  - pacman: name=lib32-mesa
+  - pacman: name=mesa
+  - pacman: name=mesa-libgl
+  - pacman: name=xorg-server
+  - pacman: name=xorg-xinit
+  - pacman: name=xorg-server-utils
+
+  # Configure driver
+  - copy: src=files/video_vbox/virtualbox.conf dest=/etc/modules-load.d/virtualbox.conf owner=root group=root mode=644

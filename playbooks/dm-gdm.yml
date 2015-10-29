@@ -1,0 +1,18 @@
+- name: GDM
+  hosts: dm-gdm
+  sudo: True
+  tasks:
+
+  - pacman: name=gdm
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjaro'
+
+  - apt: name=gdm3
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - service: name=gdm enabled=yes
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjaro'
+
+  - service: name=gdm3 enabled=yes
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - service: name=lightdm enabled=no

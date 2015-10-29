@@ -18,3 +18,8 @@
 - include: packages_openbox.yml
 - include: packages_raspbian.yml
 - include: packages_workstation.yml
+- include: arch_video_intel.yml
+- include: arch_video_nvidia.yml
+- include: arch_video_vbox.yml
+- include: dm-gdm.yml
+- include: dm-lightdm.yml 

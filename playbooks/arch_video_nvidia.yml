@@ -1,0 +1,12 @@
+- name: Video - Nvidia
+  hosts: arch-workstations-nvidia-video
+  sudo: True
+  tasks:
+
+  - pacman: name=lib32-nvidia-libgl
+  - pacman: name=mesa
+  - pacman: name=nvidia
+  - pacman: name=xf86-input-synaptics
+  - pacman: name=xorg-server
+  - pacman: name=xorg-xinit
+  - pacman: name=xorg-server-utils

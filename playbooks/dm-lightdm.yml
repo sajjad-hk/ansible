@@ -1,0 +1,24 @@
+- name: Light DM
+  hosts: dm-lightdm
+  sudo: True
+  tasks:
+
+  - apt: name=lightdm
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - pacman: name=apcid
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjaro'
+
+  - pacman: name=lightdm
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjaro'
+
+  - pacman: name=lightdm-gtk-greeter
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjaro'
+
+  - service: name=gdm enabled=no
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjaro'
+
+  - service: name=gdm3 enabled=no
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - service: name=lightdm enabled=yes

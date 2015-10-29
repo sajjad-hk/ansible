@@ -1,0 +1,15 @@
+- name: Video - Intel
+  hosts: arch-workstations-intel-video
+  sudo: True
+  tasks:
+
+  - pacman: name=lib32-intel-dri
+  - pacman: name=lib32-libgl
+  - pacman: name=lib32-mesa
+  - pacman: name=mesa
+  - pacman: name=mesa-libgl
+  - pacman: name=xf86-input-synaptics
+  - pacman: name=xf86-video-intel
+  - pacman: name=xorg-server
+  - pacman: name=xorg-xinit
+  - pacman: name=xorg-server-utils

@@ -1,3 +1,15 @@
+[dm-gdm]
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
+
+
+[dm-lightdm]
+# Unused
+
+
+[dm-slim]
+# Unused
+
+
 [kvm_hosts]
 crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
 ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
@@ -49,7 +61,7 @@ ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
 [workstations-arch]
-
+# Unused
 
 [workstations-games]
 crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
@@ -69,6 +81,18 @@ ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 [workstations-openbox]
 crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
 ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
+
+
+[arch-intel-video]
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
+
+
+[arch-nvidia-video]
+# Unused
+
+
+[arch-vbox-video]
+# Unused
 
 
 # Note: Add localhost when this is added to a dedicated server.

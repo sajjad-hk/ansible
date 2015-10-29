@@ -19,6 +19,12 @@
   - pacman: name=iotop
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
+  - pacman: name=linux-lts
+    when: ansible_distribution == 'Archlinux'
+
+  - pacman: name=linux-lts-headers
+    when: ansible_distribution == 'Archlinux'
+
   - pacman: name=lm_sensors
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
