@@ -4,14 +4,14 @@
   tasks:
 
 
-  ## Create user group
-  - name: create jay group
-    group: name=jay state=present gid=1000
-
-
   ## Create user and add to groups
   - name: create user jay
     user: name=jay state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="jay" uid=1000 shell=/bin/bash groups=admins append=yes
+
+
+  ## Make sure jay's group is the correct gid
+  - name: create jay group
+    group: name=jay state=present gid=1000
 
 
   ## Create .ssh directory
