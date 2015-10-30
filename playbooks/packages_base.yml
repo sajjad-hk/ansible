@@ -37,6 +37,9 @@
   - pacman: name=ncdu
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
+  - pacman: name=rsync
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
   - pacman: name=screen
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
@@ -82,6 +85,9 @@
     when: ansible_distribution == 'Fedora'
 
   - dnf: name=ncdu
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=rsync
     when: ansible_distribution == 'Fedora'
 
   - dnf: name=screen
@@ -132,6 +138,9 @@
     when: ansible_distribution == 'CentOS'
 
   - yum: name=ncdu
+    when: ansible_distribution == 'CentOS'
+
+  - yum: name=rsync
     when: ansible_distribution == 'CentOS'
 
   - yum: name=screen
@@ -185,6 +194,9 @@
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
   - apt: name=silversearcher-ag update_cache=yes
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=rsync
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
   - apt: name=screen
