@@ -61,7 +61,8 @@ ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
 [workstations-arch]
-# Unused
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
+
 
 [workstations-games]
 crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
