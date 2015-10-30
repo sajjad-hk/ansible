@@ -1,0 +1,17 @@
+- name: Arch - Network Manager
+  hosts: workstations-arch
+  sudo: True
+  tasks:
+
+  - pacman: name=dialog
+  - pacman: name=network-manager-applet
+  - pacman: name=networkmanager
+  - pacman: name=networkmanager-openvpn
+  - pacman: name=networkmanager-pptp
+  - pacman: name=networkmanager-vpnc
+  - pacman: name=wireless_tools
+  - pacman: name=wpa_supplicant
+  - pacman: name=wpa_actiond
+
+  # Enable service
+  - service: name=NetworkManager enabled=yes
