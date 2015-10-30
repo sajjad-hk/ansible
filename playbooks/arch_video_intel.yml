@@ -1,5 +1,5 @@
 - name: Video - Intel
-  hosts: arch-workstations-intel-video
+  hosts: arch-intel-video
   sudo: True
   tasks:
 
