@@ -16,6 +16,9 @@
   - pacman: name=lib32-gcc-libs
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
+  - pacman: name=lib32-libpulse
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
   - pacman: name=mednafen
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
