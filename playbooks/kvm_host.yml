@@ -19,6 +19,9 @@
   - pacman: name=qemu
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
+  - pacman: name=virt-manager
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+
 
   ## Fedora
   - dnf: name=bridge-utils
@@ -36,6 +39,9 @@
   - dnf: name=qemu
     when: ansible_distribution == 'Fedora'
 
+  - dnf: name=virt-manager
+    when: ansible_distribution == 'Fedora'
+
 
   ## Debian and Ubuntu
   - apt: name=bridge-utils
@@ -48,6 +54,9 @@
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
   - apt: name=qemu-system
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=virt-manager
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
   - apt: name=virt-top
