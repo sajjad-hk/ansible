@@ -19,4 +19,7 @@
   - file: path=/mnt/pluto/videos state=directory owner=jay group=users mode=700
   - file: path=/share state=directory owner=jay group=users mode=700
   - file: path=/share/android state=directory owner=jay group=users mode=700
-  - file: path=/share/camera state=directory owner=jay group=users mode=700
+  - file: path=/share/android/camera state=directory owner=jay group=users mode=700
+
+  ## Temporary, remove this later
+  - file: path=/share/camera state=absent
