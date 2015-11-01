@@ -18,6 +18,7 @@
 - include: packages_openbox.yml
 - include: packages_raspbian.yml
 - include: packages_workstation.yml
+- include: kvm_host.yml
 - include: arch_video_intel.yml
 - include: arch_video_nvidia.yml
 - include: arch_video_vbox.yml
