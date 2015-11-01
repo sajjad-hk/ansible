@@ -39,6 +39,11 @@ Host jaylacroix.com
     Port 65001
     User jay
 
+host mail
+    Hostname mail.jaylacroix.me
+    Port 65001
+    User jay
+
 Host nagios
     Hostname 10.10.96.3
     Port 22
