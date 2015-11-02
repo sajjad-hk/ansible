@@ -2,6 +2,7 @@
 - include: sudoers.yml
 - include: users_ansible.yml
 - include: users_jay.yml
+- include: dotfiles_minimal.yml
 - include: scripts_server.yml
 - include: scripts_raspbian.yml
 - include: ups_check.yml
