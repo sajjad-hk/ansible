@@ -113,4 +113,4 @@
     file: path=/etc/mame state=directory owner=root group=root mode=755
 
   - name: Copy mame.ini
-    copy: src=files/games/mame.ini dest=/etc/mame.ini owner=root group=users mode=644
+    copy: src=files/packages_games/mame.ini dest=/etc/mame.ini owner=root group=users mode=644

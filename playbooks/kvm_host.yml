@@ -75,13 +75,13 @@
 
 
   ## Copy configuration files
-  - copy: src=files/libvirt/libvirtd.conf dest=/etc/libvirt/libvirtd.conf owner=root group=root mode=644
+  - copy: src=files/kvm_host/libvirtd.conf dest=/etc/libvirt/libvirtd.conf owner=root group=root mode=644
     notify: restart libvirt
 
-  - copy: src=files/libvirt/default.xml dest=/etc/libvirt/storage/default.xml owner=root group=root mode=644
+  - copy: src=files/kvm_host/default.xml dest=/etc/libvirt/storage/default.xml owner=root group=root mode=644
     notify: restart libvirt
 
-  - copy: src=files/libvirt/iso.xml dest=/etc/libvirt/storage/iso.xml owner=root group=root mode=644
+  - copy: src=files/kvm_host/iso.xml dest=/etc/libvirt/storage/iso.xml owner=root group=root mode=644
     notify: restart libvirt
 
 
