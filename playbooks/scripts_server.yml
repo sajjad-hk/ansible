@@ -25,6 +25,6 @@
 
 
   ## Set up the crontab
-  - cron: name="weekly_update" minute="0" hour="1" day="5" job="/usr/local/bin/weekly_update > /dev/null"
-  - cron: name="email_etc_backup" minute="0" hour="2" day="5" job="/usr/local/bin/email_etc_backup > /dev/null"
-  - cron: name="email_package_list" minute="0" hour="3" day="5" job="/usr/local/bin/email_package_list > /dev/null"
+  - cron: name="weekly_update" minute="0" hour="1" weekday="4" job="/usr/local/bin/weekly_update > /dev/null"
+  - cron: name="email_etc_backup" minute="0" hour="2" weekday="4" job="/usr/local/bin/email_etc_backup > /dev/null"
+  - cron: name="email_package_list" minute="0" hour="3" weekday="4" job="/usr/local/bin/email_package_list > /dev/null"
