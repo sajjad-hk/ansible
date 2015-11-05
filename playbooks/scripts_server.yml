@@ -4,13 +4,13 @@
   tasks:
 
   ## Copy script files
-  - copy: src=files/server_scripts/email-params dest=/usr/local/bin/.email-params owner=root group=root mode=755
-  - copy: src=files/server_scripts/email_etc_backup dest=/usr/local/bin/email_etc_backup owner=root group=root mode=755
-  - copy: src=files/server_scripts/email_package_list dest=/usr/local/bin/email_package_list owner=root group=root mode=755
-  - copy: src=files/server_scripts/process_check.py dest=/usr/local/bin/process_check.py owner=root group=root mode=755
-  - copy: src=files/server_scripts/update dest=/usr/local/bin/update owner=root group=root mode=755
-  - copy: src=files/server_scripts/weekly_update dest=/usr/local/bin/weekly_update owner=root group=root mode=755
-  - copy: src=files/server_scripts/sendemail dest=/usr/local/bin/sendemail owner=root group=root mode=755
+  - copy: src=files/scripts_server/email-params dest=/usr/local/bin/.email-params owner=root group=root mode=755
+  - copy: src=files/scripts_server/email_etc_backup dest=/usr/local/bin/email_etc_backup owner=root group=root mode=755
+  - copy: src=files/scripts_server/email_package_list dest=/usr/local/bin/email_package_list owner=root group=root mode=755
+  - copy: src=files/scripts_server/process_check.py dest=/usr/local/bin/process_check.py owner=root group=root mode=755
+  - copy: src=files/scripts_server/update dest=/usr/local/bin/update owner=root group=root mode=755
+  - copy: src=files/scripts_server/weekly_update dest=/usr/local/bin/weekly_update owner=root group=root mode=755
+  - copy: src=files/scripts_server/sendemail dest=/usr/local/bin/sendemail owner=root group=root mode=755
 
 
   ## Ensure cron is available
