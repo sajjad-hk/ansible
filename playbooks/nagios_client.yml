@@ -19,7 +19,7 @@
   - yum: name=nrpe
     when: ansible_distribution == 'CentOS'
 
-  - yum: name=monitoring-plugins
+  - yum: name=nagios-plugins
     when: ansible_distribution == 'CentOS'
 
   - apt: name=nagios-nrpe-server
