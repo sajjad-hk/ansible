@@ -193,8 +193,8 @@
   - apt: name=ncdu
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-  - apt: name=silversearcher-ag update_cache=yes
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  #- apt: name=silversearcher-ag update_cache=yes # Not currently available on some versions of raspbian
+  #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
   - apt: name=rsync
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
