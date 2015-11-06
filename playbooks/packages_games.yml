@@ -48,7 +48,7 @@
   - dnf: name=frozen-bubble
     when: ansible_distribution == 'Fedora'
 
-  - dnf: name=libgcc.i686
+  - dnf: name=glibc.i686
     when: ansible_distribution == 'Fedora'
 
   - dnf: name=mame
@@ -57,7 +57,13 @@
   - dnf: name=mednafen
     when: ansible_distribution == 'Fedora'
 
+  - dnf: name=mesa-dri-drivers.i686
+    when: ansible_distribution == 'Fedora'
+
   - dnf: name=neverball
+    when: ansible_distribution == 'Fedora'
+
+  - dnf: name=pulseaudio-libs.i686
     when: ansible_distribution == 'Fedora'
 
   - dnf: name=supertux
