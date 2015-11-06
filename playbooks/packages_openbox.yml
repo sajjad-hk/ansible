@@ -134,9 +134,6 @@
     - dnf: name=clipit
       when: ansible_distribution == 'Fedora'
 
-    - dnf: name=gksu-polkit
-      when: ansible_distribution == 'Fedora'
-
     - dnf: name=gmrun
       when: ansible_distribution == 'Fedora'
 
@@ -146,8 +143,8 @@
     - dnf: name=gnome-themes-standard
       when: ansible_distribution == 'Fedora'
 
-    #- dnf: name=gsimplecal # Not available for Fedora, need equivelant
-    #  when: ansible_distribution == 'Fedora'
+    - dnf: name=gsimplecal
+      when: ansible_distribution == 'Fedora'
 
     - dnf: name=lxappearance
       when: ansible_distribution == 'Fedora'
