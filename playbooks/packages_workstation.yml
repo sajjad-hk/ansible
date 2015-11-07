@@ -290,8 +290,8 @@
   - dnf: name=libreoffice-writer
     when: ansible_distribution == 'Fedora'
 
-  - dnf: name=mpv
-    when: ansible_distribution == 'Fedora'
+  #- dnf: name=mpv # Package not found
+  #  when: ansible_distribution == 'Fedora'
 
   - dnf: name=pavucontrol
     when: ansible_distribution == 'Fedora'

@@ -12,7 +12,7 @@ cd /etc
 sudo tar -zcvf /tmp/etc.tar.gz *
 
 ## Email the archive:
-/usr/local/bin/sendemail -f $SMTPFROM -t $SMTPTO -u $SUBJECT -m $BODY -a $ATTACHMENT -s $SMTPSERVER -xu $SMTPUSER -xp $SMTPPASS -o tls=no
+/bin/echo $BODY | /usr/bin/mailx -r $SMTPFROM -s "$SUBJECT" -a $ATTACHMENT -S smtp="$SMTPSERVER" -S smtp-use-starttls -S smtp-auth=login -S smtp-auth-user="$SMTPUSER" -S smtp-auth-password="$SMTPPASS" -S ssl-verify=ignore $SMTPTO
 
 ## Remove the file since we're done with it:
 sudo rm /tmp/etc.tar.gz

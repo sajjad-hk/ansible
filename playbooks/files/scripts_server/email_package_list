@@ -2,7 +2,6 @@
 
 ## Parameters for sending email:
 source /usr/local/bin/.email-params
-SMTPPASS=iyEEkTzZ3HPk
 SUBJECT="Installed packages on $HOSTNAME"
 
 ## Insert message body:
@@ -18,7 +17,7 @@ then
 	aptitude search '~i !~M' -F %p >> /tmp/installed_packages.txt
 
 	## Email the output file:
-	/usr/local/bin/sendemail -f $SMTPFROM -t $SMTPTO -u $SUBJECT -o message-file=/tmp/installed_packages.txt -s $SMTPSERVER -xu $SMTPUSER -xp $SMTPPASS -o tls=no
+	/bin/echo $BODY | /usr/bin/mailx -v $SMTPFROM -s "$SUBJECT" -a "/tmp/installed_packages.txt" -S smtp="$SMTPSERVER" -S smtp-use-starttls -S smtp-auth=login -S smtp-auth-user="$SMTPUSER" -S smtp-auth-password="$SMTPPASS" -S ssl-verify=ignore $SMTPTO
 fi
 
 ## Arch Linux version:

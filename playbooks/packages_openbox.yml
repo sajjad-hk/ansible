@@ -143,8 +143,8 @@
     - dnf: name=gnome-themes-standard
       when: ansible_distribution == 'Fedora'
 
-    - dnf: name=gsimplecal
-      when: ansible_distribution == 'Fedora'
+    #- dnf: name=gsimplecal # Package not available
+    #  when: ansible_distribution == 'Fedora'
 
     - dnf: name=lxappearance
       when: ansible_distribution == 'Fedora'

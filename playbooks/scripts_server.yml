@@ -10,7 +10,7 @@
   - copy: src=files/scripts_server/process_check.py dest=/usr/local/bin/process_check.py owner=root group=root mode=755
   - copy: src=files/scripts_server/update dest=/usr/local/bin/update owner=root group=root mode=755
   - copy: src=files/scripts_server/weekly_update dest=/usr/local/bin/weekly_update owner=root group=root mode=755
-  - copy: src=files/scripts_server/sendemail dest=/usr/local/bin/sendemail owner=root group=root mode=755
+  - file: path=/usr/local/bin/sendemail state=absent
 
 
   ## Ensure cron is available

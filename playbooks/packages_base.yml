@@ -81,6 +81,9 @@
   - dnf: name=lynx
     when: ansible_distribution == 'Fedora'
 
+  - dnf: name=mailx
+    when: ansible_distribution == 'Fedora'
+
   - dnf: name=mosh
     when: ansible_distribution == 'Fedora'
 
@@ -173,6 +176,9 @@
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
   - apt: name=git
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - apt: name=heirloom-mailx
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
   - apt: name=htop

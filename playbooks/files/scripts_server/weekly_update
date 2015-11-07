@@ -3,6 +3,7 @@
 ## Import parameters for sending email:
 source /usr/local/bin/.email-params
 SUBJECT="$HOSTNAME weekly update"
+BODY="Update results attached."
 
 ## Insert the message body:
 echo "The results of this week's update are as follows:" > /tmp/update.txt
@@ -24,25 +25,8 @@ then
 	sudo pacman -Su --noconfirm >> /tmp/update.txt
 fi
 
-## Check to see if a reboot is required, and if so, reboot the local host:
-if [ -f /var/run/reboot-required ]; then
+## Send the update notification:
+/bin/echo $BODY | /usr/bin/mailx -r $SMTPFROM -s "$SUBJECT" -a "/tmp/update.txt" -S smtp="$SMTPSERVER" -S smtp-use-starttls -S smtp-auth=login -S smtp-auth-user="$SMTPUSER" -S smtp-auth-password="$SMTPPASS" -S ssl-verify=ignore $SMTPTO
 
-	## Alter the message to contain notification of a reboot:
-	echo " " >> /tmp/update.txt
-     echo "System reboot initiated." >> /tmp/update.txt
-
-     ## Send the update notification:
-	/usr/local/bin/sendemail -f $SMTPFROM -t $SMTPTO -u $SUBJECT -o message-file=/tmp/update.txt -s $SMTPSERVER -xu $SMTPUSER -xp $SMTPPASS -o tls=no
-
-	## Remove the output file, since we're done with it:
-	sudo rm /tmp/update.txt
-
-	## Reboot the local host:
-	sudo reboot
-else
-	## Send the update notification:
-	/usr/local/bin/sendemail -f $SMTPFROM -t $SMTPTO -u $SUBJECT -o message-file=/tmp/update.txt -s $SMTPSERVER -xu $SMTPUSER -xp $SMTPPASS -o tls=no
-
-	## Remove the output file, since we're done with it:
-	sudo rm /tmp/update.txt
-fi
+## Remove the output file, since we're done with it:
+sudo rm /tmp/update.txt
