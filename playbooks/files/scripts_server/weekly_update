@@ -4,6 +4,7 @@
 source /usr/local/bin/.email-params
 SUBJECT="$HOSTNAME weekly update"
 BODY="Update results attached."
+ATTACHMENT="/tmp/update.txt"
 
 ## Insert the message body:
 echo "The results of this week's update are as follows:" > /tmp/update.txt
@@ -26,7 +27,7 @@ then
 fi
 
 ## Send the update notification:
-/bin/echo $BODY | /usr/bin/mailx -r $SMTPFROM -s "$SUBJECT" -a "/tmp/update.txt" -S smtp="$SMTPSERVER" -S smtp-use-starttls -S smtp-auth=login -S smtp-auth-user="$SMTPUSER" -S smtp-auth-password="$SMTPPASS" -S ssl-verify=ignore $SMTPTO
+/bin/echo $BODY | /usr/bin/mailx -r $SMTPFROM -s "$SUBJECT" -a $ATTACHMENT -S smtp="$SMTPSERVER" -S smtp-use-starttls -S smtp-auth=login -S smtp-auth-user="$SMTPUSER" -S smtp-auth-password="$SMTPPASS" -S ssl-verify=ignore $SMTPTO
 
 ## Remove the output file, since we're done with it:
 sudo rm /tmp/update.txt
