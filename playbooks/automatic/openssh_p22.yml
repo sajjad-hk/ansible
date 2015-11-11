@@ -23,6 +23,20 @@
     notify: restart sshd
 
 
+  ## Copy /etc/issue.net
+  - name: Copy issue.net
+    copy: src=../files/openssh/issue.net dest=/etc/issue.net owner=root group=root mode=644
+
+
+  ## Install /etc/motd update script
+  - name: Copy motd script
+    copy: src=../files/openssh/system_stats.sh dest=/usr/local/bin/system_stats.sh owner=root group=root mode=755
+
+
+  ## Set up the crontab for system_stats.sh script
+  - cron: name="update_stats" job="/usr/local/bin/system_stats.sh > /dev/null"
+
+
   ## Set up the daemon
   - service: name=sshd enabled=yes state=started
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'
