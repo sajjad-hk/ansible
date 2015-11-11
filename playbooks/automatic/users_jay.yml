@@ -22,7 +22,7 @@
 
   ## Set user directories
   - name: copy user-dirs.dirs
-    copy: src=files/users_jay/user-dirs.dirs dest=/home/jay/.config/user-dirs.dirs owner=jay group=jay mode=600
+    copy: src=../files/users_jay/user-dirs.dirs dest=/home/jay/.config/user-dirs.dirs owner=jay group=jay mode=600
 
   ## Create .ssh directory
   - name: Create .ssh directory
@@ -30,8 +30,8 @@
 
 
   ## Populate .ssh directory
-  - copy: src=files/users_jay/config dest=/home/jay/.ssh/config owner=jay group=jay mode=600
-  - copy: src=files/users_jay/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=jay mode=600
+  - copy: src=../files/users_jay/config dest=/home/jay/.ssh/config owner=jay group=jay mode=600
+  - copy: src=../files/users_jay/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=jay mode=600
 
 
   handlers:

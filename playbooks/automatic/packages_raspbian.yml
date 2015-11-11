@@ -1,0 +1,7 @@
+- name: Install packages on Raspbian hosts
+  hosts: raspbian
+  sudo: True
+  tasks:
+
+  ## Raspbian packages to install
+    ## Packages specific to raspbian can go here

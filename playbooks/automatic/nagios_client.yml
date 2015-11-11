@@ -29,19 +29,19 @@
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
   ## Copy nrpe.cfg
-  - copy: src=files/nagios_client/nrpe_arch.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+  - copy: src=../files/nagios_client/nrpe_arch.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-  - copy: src=files/nagios_client/nrpe_fedora.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+  - copy: src=../files/nagios_client/nrpe_fedora.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
     when: ansible_distribution == 'Fedora'
-  - copy: src=files/nagios_client/nrpe_centos.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+  - copy: src=../files/nagios_client/nrpe_centos.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
     when: ansible_distribution == 'CentOS'
-  - copy: src=files/nagios_client/nrpe_debian.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+  - copy: src=../files/nagios_client/nrpe_debian.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
   ## Copy plugins
-  - copy: src=files/nagios_client/check_ram dest=/usr/lib64/nagios/plugins/check_ram owner=root group=root mode=644
+  - copy: src=../files/nagios_client/check_ram dest=/usr/lib64/nagios/plugins/check_ram owner=root group=root mode=644
     when: ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora'
-  - copy: src=files/nagios_client/check_ram dest=/usr/lib/nagios/plugins/check_ram owner=root group=root mode=644
+  - copy: src=../files/nagios_client/check_ram dest=/usr/lib/nagios/plugins/check_ram owner=root group=root mode=644
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 

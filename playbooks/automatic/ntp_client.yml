@@ -19,7 +19,7 @@
 
   ## Copy ntp.conf
   - name: Copy ntp.conf
-    copy: src=files/ntp_client/ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
+    copy: src=../files/ntp_client/ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
     notify: restart ntp
 
 

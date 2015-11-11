@@ -5,7 +5,7 @@
 
   ## Arch Linux
   - name: Copy Arch pacman.conf
-    copy: src=files/repositories/pacman.conf dest=/etc/pacman.conf owner=root group=root mode=644
+    copy: src=../files/repositories/pacman.conf dest=/etc/pacman.conf owner=root group=root mode=644
     notify: arch-update
     when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
 
@@ -24,24 +24,24 @@
 
   ## Debian
   - name: Enable 32-bit packages
-    copy: src=files/repositories/arch dest=/var/lib/dpkg/arch owner=root group=root mode=644
+    copy: src=../files/repositories/arch dest=/var/lib/dpkg/arch owner=root group=root mode=644
     notify: apt-update
     when: ansible_distribution == 'Debian'
 
   - name: Enable backports
-    copy: src=files/repositories/backports.list dest=/etc/apt/sources.list.d/backports.list owner=root group=root mode=644
+    copy: src=../files/repositories/backports.list dest=/etc/apt/sources.list.d/backports.list owner=root group=root mode=644
     notify: apt-update
     when: ansible_distribution == 'Debian'
 
   - name: Install sources
-    copy: src=files/repositories/sources.list dest=/etc/apt/sources.list owner=root group=root mode=644
+    copy: src=../files/repositories/sources.list dest=/etc/apt/sources.list owner=root group=root mode=644
     notify: apt-update
     when: ansible_distribution == 'Debian'
 
 
   ## Ubuntu
   - name: Enable 32-bit packages
-    copy: src=files/repositories/arch dest=/var/lib/dpkg/arch owner=root group=root mode=644
+    copy: src=../files/repositories/arch dest=/var/lib/dpkg/arch owner=root group=root mode=644
     notify: apt-update
     when: ansible_distribution == 'Ubuntu'
 

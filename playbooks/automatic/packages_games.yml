@@ -83,9 +83,6 @@
   - apt: name=frozen-bubble
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-  #- apt: name=libasound2:1386
-  #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
   - apt: name=libasound2-data
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
@@ -119,4 +116,4 @@
     file: path=/etc/mame state=directory owner=root group=root mode=755
 
   - name: Copy mame.ini
-    copy: src=files/packages_games/mame.ini dest=/etc/mame.ini owner=root group=users mode=644
+    copy: src=../files/packages_games/mame.ini dest=/etc/mame.ini owner=root group=users mode=644

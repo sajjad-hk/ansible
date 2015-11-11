@@ -24,4 +24,4 @@
 - include: arch_video_nvidia.yml
 - include: arch_video_vbox.yml
 - include: dm-gdm.yml
-- include: dm-lightdm.yml 
+- include: dm-lightdm.yml

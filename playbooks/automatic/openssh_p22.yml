@@ -1,5 +1,5 @@
-- name: Configure OpenSSH server on port 65001
-  hosts: openssh_p65001
+- name: Configure OpenSSH server on port 22
+  hosts: openssh_p22
   sudo: True
   tasks:
 
@@ -19,7 +19,7 @@
 
   ## Copy sshd_config
   - name: Copy sshd_config
-    copy: src=files/openssh/sshd_config_p65001 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+    copy: src=../files/openssh/sshd_config_p22 dest=/etc/ssh/sshd_config owner=root group=root mode=644
     notify: restart sshd
 
 

@@ -1,10 +1,7 @@
-- name: Configure raspbian hosts
+- name: Remove unneeded packages from Raspbian hosts
   hosts: raspbian
   sudo: True
   tasks:
-
-  ## Raspbian packages to install
-    ## Packages specific to raspbian can go here
 
 
   ## Raspbian packages to purge

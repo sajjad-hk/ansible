@@ -1,4 +1,4 @@
-- name: Install base packages on Debian hosts
+- name: Install development tools on hosts
   hosts: servers:workstations
   sudo: True
   tasks:
