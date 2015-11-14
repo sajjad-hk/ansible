@@ -20,12 +20,22 @@
   ## Copy ntp.conf
   - name: Copy ntp.conf
     copy: src=../files/ntp_client/ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'
+    notify: restart ntpd
+
+  - name: Copy ntp.conf
+    copy: src=../files/ntp_client/ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
     notify: restart ntp
 
 
   ## Set up the daemon
   - service: name=ntpd enabled=yes state=started
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'
+    #when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Fedora', 'Archlinux', CentOS']
+
+  - service: name=ntpd enabled=yes state=started
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora'
 
   - service: name=ntp enabled=yes state=started
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
@@ -34,6 +44,6 @@
   handlers:
   - name: restart ntp
     service: name=ntp state=restarted
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+  - name: restart ntpd
     service: name=ntpd state=restarted
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'

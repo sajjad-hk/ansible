@@ -21,6 +21,14 @@
   - name: Copy sshd_config
     copy: src=../files/openssh/sshd_config_p65001 dest=/etc/ssh/sshd_config owner=root group=root mode=644
     notify: restart sshd
+    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'
+
+
+  ## Copy sshd_config
+  - name: Copy sshd_config
+    copy: src=../files/openssh/sshd_config_p65001 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+    notify: restart ssh
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 
   ## Copy /etc/issue.net
@@ -44,9 +52,10 @@
   - service: name=ssh enabled=yes state=started
     when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
+
   handlers:
+  - name: restart ssh
+    service: name=ssh state=restarted
+
   - name: restart sshd
     service: name=sshd state=restarted
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'
-    service: name=ssh state=restarted
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
