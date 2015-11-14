@@ -5,37 +5,37 @@
 
   ## Archlinux
   - pacman: name=chromium-bsu
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=frozen-bubble
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=lib32-alsa-lib
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=lib32-gcc-libs
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=lib32-libpulse
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=mednafen
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=neverball
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=sdlmame
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=supertux
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=supertuxkart
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=wesnoth
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
 
   ## Fedora
@@ -78,37 +78,37 @@
 
   ## Debian and Ubuntu
   - apt: name=chromium-bsu
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=frozen-bubble
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=libasound2-data
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=libasound2-plugins:i386
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=libc6:i386
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=mame
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=mednafen
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=neverball
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=supertux
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=supertuxkart
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=wesnoth
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
 
 ## Install mame.ini

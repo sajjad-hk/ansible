@@ -5,13 +5,13 @@
 
   ## Install packages
   - pacman: name=ntp
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - dnf: name=ntp
     when: ansible_distribution == 'Fedora'
 
   - apt: name=ntp
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - yum: name=ntp
     when: ansible_distribution == 'CentOS'
@@ -20,25 +20,21 @@
   ## Copy ntp.conf
   - name: Copy ntp.conf
     copy: src=../files/ntp_client/ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
     notify: restart ntpd
 
   - name: Copy ntp.conf
     copy: src=../files/ntp_client/ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
     notify: restart ntp
 
 
   ## Set up the daemon
   - service: name=ntpd enabled=yes state=started
-    #when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
-    when: ansible_distribution in ['Fedora', 'Archlinux', 'CentOS']
-
-  - service: name=ntpd enabled=yes state=started
-    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora'
+    when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
 
   - service: name=ntp enabled=yes state=started
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
 
   handlers:

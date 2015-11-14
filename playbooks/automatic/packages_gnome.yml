@@ -3,68 +3,68 @@
   sudo: True
   tasks:
 
-  ## Archlinux and Manjarolinux
+  ## Archlinux and Manjaro
   - pacman: name=file-roller
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=gedit
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=gnome-control-center
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=gnome-music
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=gnome-power-manager
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=gnome-shell
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=gnome-shell-extensions
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=gnome-terminal
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=gnome-tweak-tool
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=nautilus
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
 
   ## Debian and Ubuntu
   - apt: name=file-roller
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=gedit
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=gnome-control-center
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=gnome-music
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=gnome-power-manager
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=gnome-shell
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=gnome-shell-extensions
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=gnome-terminal
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=gnome-tweak-tool
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=nautilus
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
 
   ## Fedora

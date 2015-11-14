@@ -4,21 +4,21 @@
   tasks:
 
   - apt: name=lightdm
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - pacman: name=apcid
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjaro'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=lightdm
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjaro'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=lightdm-gtk-greeter
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjaro'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - service: name=gdm enabled=no
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjaro'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - service: name=gdm3 enabled=no
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - service: name=lightdm enabled=yes

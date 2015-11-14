@@ -7,7 +7,7 @@
   - name: Copy Arch pacman.conf
     copy: src=../files/repositories/pacman.conf dest=/etc/pacman.conf owner=root group=root mode=644
     notify: arch-update
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
 
   ## Fedora

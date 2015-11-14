@@ -3,21 +3,21 @@
   sudo: True
   tasks:
 
-  ## Archlinux and Manjarolinux
+  ## Archlinux and Manjaro
   - pacman: name=colordiff
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=curl
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=git
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=htop
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=iotop
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=linux-lts
     when: ansible_distribution == 'Archlinux'
@@ -26,37 +26,37 @@
     when: ansible_distribution == 'Archlinux'
 
   - pacman: name=lm_sensors
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=lynx
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=mosh
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=ncdu
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=rsync
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=screen
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=sshfs
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=sudo
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=the_silver_searcher
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=tmux
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - pacman: name=vim-python3
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
 
   ## Fedora
@@ -161,61 +161,61 @@
 
    ## Debian and Ubuntu
   - apt: name=colordiff
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=curl
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=exim4 state=absent
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=exim4-base state=absent
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=exim4-config state=absent
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=git
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=heirloom-mailx
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=htop
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=iotop
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=lm-sensors
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=lynx
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=mosh
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=ncdu
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   #- apt: name=silversearcher-ag update_cache=yes # Not currently available on some versions of raspbian
-  #  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  #  when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=rsync
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=screen
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=sshfs
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=sudo
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=tmux
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - apt: name=vim-nox
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']

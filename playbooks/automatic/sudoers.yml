@@ -6,13 +6,13 @@
 
   ## Ensure sudo package is installed
   - apt: name=sudo
-    when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - dnf: name=sudo
     when: ansible_distribution == "Fedora"
 
   - pacman: name=sudo
-    when: ansible_distribution == "Archlinux" or ansible_distribution == "Manjarolinux"
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - yum: name=sudo
     when: ansible_distribution == "CentOS"

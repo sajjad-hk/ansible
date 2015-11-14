@@ -5,7 +5,7 @@
 
   ## Install packages
   - pacman: name=openssh
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - dnf: name=openssh
     when: ansible_distribution == 'Fedora'
@@ -14,21 +14,21 @@
     when: ansible_distribution == 'CentOS'
 
   - apt: name=openssh-server
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
 
   ## Copy sshd_config
   - name: Copy sshd_config
     copy: src=../files/openssh/sshd_config_p65001 dest=/etc/ssh/sshd_config owner=root group=root mode=644
     notify: restart sshd
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
 
 
   ## Copy sshd_config
   - name: Copy sshd_config
     copy: src=../files/openssh/sshd_config_p65001 dest=/etc/ssh/sshd_config owner=root group=root mode=644
     notify: restart ssh
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
 
   ## Copy /etc/issue.net
@@ -47,10 +47,10 @@
 
   ## Set up the daemon
   - service: name=sshd enabled=yes state=started
-    when: ansible_distribution == 'Archlinux' or ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Manjarolinux'
+    when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
 
   - service: name=ssh enabled=yes state=started
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
 
 
   handlers:

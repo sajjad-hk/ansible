@@ -7,8 +7,14 @@
   - copy: src=../files/scripts_raspbian/wifi_check dest=/usr/local/bin/wifi_check owner=root group=root mode=755
 
   ## Ensure cron is available
+  - pacman: name=cronie
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
+
   - apt: name=cron
-    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Debian', 'Ubuntu']
+
+  - dnf: name=cronie
+    when: ansible_distribution == 'Fedora'
 
 
   ## Set up the crontab
