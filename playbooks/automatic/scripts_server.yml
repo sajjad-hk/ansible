@@ -20,7 +20,7 @@
     when: ansible_distribution in ['Debian', 'Ubuntu']
 
   - dnf: name=cronie
-    when: ansible_distribution == 'Fedora
+    when: ansible_distribution == 'Fedora'
 
 
   ## Set up the crontab
