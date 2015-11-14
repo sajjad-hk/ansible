@@ -13,17 +13,17 @@ echo "----------" >> /tmp/update.txt
 ## Check if the local host is Debian-based:
 if [ -d /etc/apt ]
 then
-	## Run the Debian version of the update commands:
-	sudo apt-get update
-	sudo apt-get dist-upgrade -y >> /tmp/update.txt
+    ## Run the Debian version of the update commands:
+    sudo apt-get update
+    sudo apt-get dist-upgrade -y >> /tmp/update.txt
 fi
 
 ## Check if the local host is Arch-based:
 if [ -f /etc/pacman.conf ]
 then
-	## Run the Arch version of the update commands:
-	sudo pacman -Syyy
-	sudo pacman -Su --noconfirm >> /tmp/update.txt
+    ## Run the Arch version of the update commands:
+    sudo pacman -Syyy
+    sudo pacman -Su --noconfirm >> /tmp/update.txt
 fi
 
 ## Send the update notification:

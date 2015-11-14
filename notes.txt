@@ -1,13 +1,2 @@
 To do:
  - slim config
-
-Issues:
- - ansible user complains it is in use when ran
- - silver search isn't available on raspbian
-
-Untested:
- - packages_raspbian
- - lightdm
- - gdm
- - arch-video-*
-

@@ -6,9 +6,9 @@ SUBJECT="/etc backup from $HOSTNAME"
 BODY="The attached archive contains a current backup of /etc from $HOSTNAME."
 ATTACHMENT="/tmp/etc.tar.gz"
 
-cd /etc
 
 ## Create the Archive:
+cd /etc
 sudo tar -zcvf /tmp/etc.tar.gz *
 
 ## Email the archive:
