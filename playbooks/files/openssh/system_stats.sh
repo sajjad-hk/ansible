@@ -11,7 +11,7 @@ System Summary (collected `date`)
  - Swap in use               = `free -m | tail -n 1 | awk {'print $3'}` Mb
  - System Uptime             = `echo $UP`
  - Public IP                 = `dig +short myip.opendns.com @resolver1.opendns.com`
- - Disk Space Used           = `df -h / | awk '{ a = $4 } END { print a }'`
- - Disk Space Free           = `df -h / | awk '{ a = $3 } END { print a }'`
+ - Disk Space Used           = `df -h / | awk '{ a = $3 } END { print a }'`
+ - Disk Space Free           = `df -h / | awk '{ a = $4 } END { print a }'`
 
 " > /etc/motd
