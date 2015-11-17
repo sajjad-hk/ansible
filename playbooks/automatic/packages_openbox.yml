@@ -4,174 +4,78 @@
   tasks:
 
   ## Archlinux and Manjaro
-    #package compton is only available in AUR at this time, so omitted here.
-    - pacman: name=acpid
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=cantarell-fonts
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=clipit
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=gksu
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=gmrun
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=gnome-keyring
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=gnome-themes-standard
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=gsimplecal
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=lxappearance
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=mousepad
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=obconf
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=obmenu
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=pcmanfm
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=scrot
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=tint2
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=volumeicon
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=xarchiver
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-    - pacman: name=xscreensaver
-      when: ansible_distribution in ['Archlinux', 'Manjaro']
+  - name: Install Openbox (Arch)
+    pacman: name={{item}} state=installed
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    with_items:
+      - acpid
+      - cantarell-fonts
+      - clipit
+      # - compton # Not currently available, only in AUR
+      - gksu
+      - gmrun
+      - gnome-keyring
+      - gnome-themes-standard
+      - gsimplecal
+      - lxappearance
+      - mousepad
+      - obconf
+      - obmenu
+      - pcmanfm
+      - scrot
+      - tint2
+      - volumeicon
+      - xarchiver
+      - xscreensaver
 
 
    ## Debian and Ubuntu
-    - apt: name=acpid
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=clipit
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=compton
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=fonts-cantarell
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=gksu
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=gmrun
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=gnome-keyring
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=gnome-themes-standard
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=gsimplecal
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=lxappearance
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=mousepad
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=obconf
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=obmenu
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=openbox
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=pcmanfm
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=scrot
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=tint2
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=volumeicon-alsa
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=xarchiver
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - apt: name=xscreensaver
-      when: ansible_distribution in ['Debian', 'Ubuntu']
+  - name: Install Openbox (Debian and Ubuntu)
+    apt: name={{item}} state=installed
+    when: ansible_distribution in ['Debian', 'Ubuntu']
+    with_items:
+      - acpid
+      - clipit
+      - compton
+      - fonts-cantarell
+      - gksu
+      - gmrun
+      - gnome-keyring
+      - gnome-themes-standard
+      - gsimplecal
+      - lxappearance
+      - mousepad
+      - obconf
+      - obmenu
+      - openbox
+      - pcmanfm
+      - scrot
+      - tint2
+      - volumeicon-alsa
+      - xarchiver
+      - xscreensaver
 
 
   ## Fedora
-    #package compton is not available, so omitted here.
-
-    - dnf: name=abattis-cantarell-fonts
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=acpid
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=clipit
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=gmrun
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=gnome-keyring
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=gnome-themes-standard
-      when: ansible_distribution == 'Fedora'
-
-    #- dnf: name=gsimplecal # Package not available
-    #  when: ansible_distribution == 'Fedora'
-
-    - dnf: name=lxappearance
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=mousepad
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=obconf
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=obmenu
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=pcmanfm
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=scrot
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=tint2
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=volumeicon
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=xarchiver
-      when: ansible_distribution == 'Fedora'
-
-    - dnf: name=xscreensaver
-      when: ansible_distribution == 'Fedora'
+  - name: Install Openbox (Fedora)
+    dnf: name={{item}} state=installed
+    when: ansible_distribution == 'Fedora'
+    with_items:
+      - abattis-cantarell-fonts
+      - acpid
+      - clipit
+      #- compton # Not available
+      - gmrun
+      - gnome-keyring
+      - gnome-themes-standard
+      #- gsimplecal # Package not available
+      - lxappearance
+      - mousepad
+      - obconf
+      - obmenu
+      - pcmanfm
+      - scrot
+      - tint2
+      - volumeicon
+      - xarchiver
+      - xscreensaver

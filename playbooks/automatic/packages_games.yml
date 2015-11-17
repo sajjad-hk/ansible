@@ -4,111 +4,57 @@
   tasks:
 
   ## Archlinux
-  - pacman: name=chromium-bsu
+  - name: Install games on Archlinux hosts
+    pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=frozen-bubble
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=lib32-alsa-lib
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=lib32-gcc-libs
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=lib32-libpulse
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mednafen
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=neverball
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=sdlmame
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=supertux
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=supertuxkart
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=wesnoth
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    with_items:
+      - chromium-bsu
+      - frozen-bubble
+      - lib32-gcc-libs
+      - lib32-libpulse
+      - mednafen
+      - neverball
+      - sdlmame
+      - supertux
+      - supertuxkart
+      - wesnoth
 
 
   ## Fedora
-  - dnf: name=alsa-lib.i686
+  - name: Install games on Fedora hosts
+    dnf: name={{item}} state=installed
     when: ansible_distribution == 'Fedora'
-
-  - dnf: name=chromium-bsu
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=frozen-bubble
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=glibc.i686
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mame
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mednafen
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mesa-dri-drivers.i686
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=neverball
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=pulseaudio-libs.i686
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=supertux
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=supertuxkart
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=wesnoth
-    when: ansible_distribution == 'Fedora'
+    with_items:
+      - alsa-lib.i686
+      - chromium-bsu
+      - frozen-bubble
+      - glibc.i686
+      - mame
+      - mednafen
+      - mesa-dri-drivers.i686
+      - neverball
+      - pulseaudio-libs.i686
+      - supertux
+      - supertuxkart
+      - wesnoth
 
 
   ## Debian and Ubuntu
-  - apt: name=chromium-bsu
+  - name: Install games on Debian or Ubuntu hosts
+    apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=frozen-bubble
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=libasound2-data
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=libasound2-plugins:i386
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=libc6:i386
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mame
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mednafen
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=neverball
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=supertux
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=supertuxkart
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=wesnoth
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    with_items:
+      - chromium-bsu
+      - frozen-bubble
+      - libasound2-data
+      - libasound2-plugins:i386
+      - libc6:i386
+      - mame
+      - mednafen
+      - neverball
+      - supertux
+      - supertuxkart
+      - wesnoth
 
 
 ## Install mame.ini

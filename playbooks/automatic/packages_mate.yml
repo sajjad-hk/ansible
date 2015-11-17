@@ -4,162 +4,73 @@
   tasks:
 
   ## Archlinux and Manjaro
-  - pacman: name=atril
+  - name: Install MATE (Arch)
+    pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=caja
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mate-applets
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mate-backgrounds
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mate-control-center
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mate-desktop
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mate-icon-theme
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mate-media
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mate-menus
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mate-notification-daemon
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mate-system-monitor
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mate-terminal
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mate-themes
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mozo
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=pluma
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    with_items:
+      - atril
+      - caja
+      - mate-applets
+      - mate-backgrounds
+      - mate-control-center
+      - mate-desktop
+      - mate-icon-theme
+      - mate-media
+      - mate-menus
+      - mate-notification-daemon
+      - mate-system-monitor
+      - mate-terminal
+      - mate-themes
+      - mozo
+      - pluma
 
 
   ## Debian and Ubuntu
-  - apt: name=atril
+  - name: Install MATE (Debian)
+    apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=caja
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-applets
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-backgrounds
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-control-center
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-desktop
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-icon-theme
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-media
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-media-pulse
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-menus
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-notification-daemon
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-panel
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-polkit
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-power-manager
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-session-manager
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-settings-daemon
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-settings-daemon-pulse
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-system-monitor
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-terminal
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mate-themes
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mozo
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=pluma
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    with_items:
+      - atril
+      - caja
+      - mate-applets
+      - mate-backgrounds
+      - mate-control-center
+      - mate-desktop
+      - mate-icon-theme
+      - mate-media
+      - mate-media-pulse
+      - mate-menus
+      - mate-notification-daemon
+      - mate-panel
+      - mate-polkit
+      - mate-power-manager
+      - mate-session-manager
+      - mate-settings-daemon
+      - mate-settings-daemon-pulse
+      - mate-system-monitor
+      - mate-terminal
+      - mate-themes
+      - mozo
+      - pluma
 
 
   ## Fedora
-  - dnf: name=atril
+  - name: Install MATE (Fedora)
+    dnf: name={{item}} state=installed
     when: ansible_distribution == 'Fedora'
-
-  - dnf: name=caja
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mate-applets
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mate-backgrounds
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mate-control-center
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mate-desktop
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mate-icon-theme
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mate-media
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mate-menus
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mate-notification-daemon
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mate-system-monitor
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mate-terminal
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mate-themes
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=mozo
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=pluma
-    when: ansible_distribution == 'Fedora'
+    with_items:
+      - atril
+      - caja
+      - mate-applets
+      - mate-backgrounds
+      - mate-control-center
+      - mate-desktop
+      - mate-icon-theme
+      - mate-media
+      - mate-menus
+      - mate-notification-daemon
+      - mate-system-monitor
+      - mate-terminal
+      - mate-themes
+      - mozo
+      - pluma

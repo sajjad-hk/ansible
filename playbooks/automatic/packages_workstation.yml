@@ -4,330 +4,129 @@
   tasks:
 
   ## Arch Linux
-  - pacman: name=asunder
+  - name: Install workstation packages (Arch)
+    pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=banshee
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=brasero
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=cmus
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=conky
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=pdmenu
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=easytag
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=exfat-utils
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=filezilla
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=freerdp
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=galculator
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=geany
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=geany-plugins
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gimp
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gparted
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gtk-engine-aurora
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gtk-engine-murrine
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gtk-recordmydesktop
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=guake
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=keepassx
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=libreoffice-still
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=mpv
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=pavucontrol
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=perl
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=quassel-client
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=rdesktop
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=remmina
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=roxterm
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=rxvt-unicode # To do: Unable to install the proper package, rxvt-unicode-pixbuf, via yaourt
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=shutter
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=smbclient
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=terminator
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=terminus-font
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=transmission-gtk
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=vlc
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=xsel
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    with_items:
+      - asunder
+      - banshee
+      - brasero
+      - cmus
+      - conky
+      - pdmenu
+      - easytag
+      - exfat-utils
+      - filezilla
+      - freerdp
+      - galculator
+      - geany
+      - geany-plugins
+      - gimp
+      - gparted
+      - gtk-engine-aurora
+      - gtk-engine-murrine
+      - gtk-recordmydesktop
+      - guake
+      - keepassx
+      - libreoffice-still
+      - mpv
+      - pavucontrol
+      - perl
+      - quassel-client
+      - rdesktop
+      - remmina
+      - roxterm
+      - rxvt-unicode # To do: Unable to install the proper package, rxvt-unicode-pixbuf, via yaourt
+      - shutter
+      - smbclient
+      - terminator
+      - terminus-font
+      - transmission-gtk
+      - vlc
+      - xsel
 
 
   ## Debian
-  - apt: name=asunder
+  - name: Install workstation packages (Debian and Ubuntu)
+    apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=banshee
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=brasero
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=cmus
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=conky
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=pdmenu
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=easytag
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=exfat-utils
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=filezilla
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=freerdp-x11
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=galculator
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=geany
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=geany-plugins
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gimp
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gparted
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gtk-recordmydesktop
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gtk2-engines-aurora
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gtk2-engines-murrine
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=guake
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=keepassx
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=libreoffice-writer
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=libreoffice-calc
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=libreoffice-impress
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=mpv
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=pavucontrol
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=perl
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=quassel-client
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=rdesktop
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=remmina
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=roxterm
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=rxvt-unicode-256color
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=shutter
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=smbclient
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=terminator
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=transmission-gtk
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=vlc
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=xfonts-terminus
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=xsel
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    with_items:
+      - asunder
+      - banshee
+      - brasero
+      - cmus
+      - conky
+      - pdmenu
+      - easytag
+      - exfat-utils
+      - filezilla
+      - freerdp-x11
+      - galculator
+      - geany
+      - geany-plugins
+      - gimp
+      - gparted
+      - gtk-recordmydesktop
+      - gtk2-engines-aurora
+      - gtk2-engines-murrine
+      - guake
+      - keepassx
+      - libreoffice-writer
+      - libreoffice-calc
+      - libreoffice-impress
+      - mpv
+      - pavucontrol
+      - perl
+      - quassel-client
+      - rdesktop
+      - remmina
+      - roxterm
+      - rxvt-unicode-256color
+      - shutter
+      - smbclient
+      - terminator
+      - transmission-gtk
+      - vlc
+      - xfonts-terminus
+      - xsel
 
 
   ## Fedora
-  - dnf: name=asunder
+  - name: Install workstation packages (Fedora)
+    dnf: name={{item}} state=installed
     when: ansible_distribution == 'Fedora'
-
-  - dnf: name=banshee
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=brasero
-    when: ansible_distribution == 'Fedora'
-
-  #- dnf: name=cmus # Currently not available in Fedora, check this later
-  #  when: ansible_distribution == 'Fedora'
-
-  - dnf: name=conky
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=easytag
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=exfat-utils
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=filezilla
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=freerdp
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=galculator
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=geany
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=gimp
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=gparted
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=gtk2-engines
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=gtk-recordmydesktop
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=guake
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=keepassx
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=libreoffice-calc
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=libreoffice-draw
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=libreoffice-writer
-    when: ansible_distribution == 'Fedora'
-
-  #- dnf: name=mpv # Package not found
-  #  when: ansible_distribution == 'Fedora'
-
-  - dnf: name=pavucontrol
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=perl
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=quassel-client
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=rdesktop
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=remmina
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=roxterm
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=rxvt-unicode-256color
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=shutter
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=terminator
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=terminus-fonts
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=transmission-gtk
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=vlc
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=xsel
-    when: ansible_distribution == 'Fedora'
+    with_items:
+      - asunder
+      - banshee
+      - brasero
+      #- cmus # Currently not available in Fedora, check this later
+      - conky
+      - easytag
+      - exfat-utils
+      - filezilla
+      - freerdp
+      - galculator
+      - geany
+      - gimp
+      - gparted
+      - gtk2-engines
+      - gtk-recordmydesktop
+      - guake
+      - keepassx
+      - libreoffice-calc
+      - libreoffice-draw
+      - libreoffice-writer
+      #- mpv # Package not found
+      - pavucontrol
+      - perl
+      - quassel-client
+      - rdesktop
+      - remmina
+      - roxterm
+      - rxvt-unicode-256color
+      - shutter
+      - terminator
+      - terminus-fonts
+      - transmission-gtk
+      - vlc
+      - xsel

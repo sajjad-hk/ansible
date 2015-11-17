@@ -5,8 +5,8 @@
 
 
   ## Archlinux and Manjaro
-  - name: Install Archlinux base packages
-    apt: name={{item}} state=installed
+  - name: Install base packages (Arch)
+    pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
     with_items:
       - colordiff
@@ -29,7 +29,7 @@
 
 
   ## Fedora packages
-  - name: Install Fedora base packages
+  - name: Install base packages (Fedora)
     dnf: name={{item}} state=installed
     when: ansible_distribution == 'Fedora'
     with_items:
@@ -52,7 +52,7 @@
 
 
     ## CentOS packages
-  - name: Install CentOS base packages
+  - name: Install base packages (CentOS)
     yum: name={{item}} state=installed
     when: ansible_distribution == 'CentOS'
     with_items:
@@ -73,7 +73,7 @@
 
 
    ## Debian and Ubuntu
-  - name: Install Debian base packages
+  - name: Install base packages (Debian & Ubuntu)
     apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Ubuntu']
     with_items:
@@ -102,4 +102,3 @@
       - exim4
       - exim4-base
       - exim4-config
-

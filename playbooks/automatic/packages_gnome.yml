@@ -4,93 +4,50 @@
   tasks:
 
   ## Archlinux and Manjaro
-  - pacman: name=file-roller
+  - name: Install GNOME (Arch)
+    pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gedit
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gnome-control-center
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gnome-music
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gnome-power-manager
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gnome-shell
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gnome-shell-extensions
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gnome-terminal
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=gnome-tweak-tool
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=nautilus
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    with_items:
+      - file-roller
+      - gedit
+      - gnome-control-center
+      - gnome-music
+      - gnome-power-manager
+      - gnome-shell
+      - gnome-shell-extensions
+      - gnome-terminal
+      - gnome-tweak-tool
+      - nautilus
 
 
   ## Debian and Ubuntu
-  - apt: name=file-roller
+  - name: Install GNOME (Debian)
+    apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gedit
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gnome-control-center
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gnome-music
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gnome-power-manager
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gnome-shell
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gnome-shell-extensions
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gnome-terminal
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=gnome-tweak-tool
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=nautilus
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    with_items:
+      - file-roller
+      - gedit
+      - gnome-control-center
+      - gnome-music
+      - gnome-power-manager
+      - gnome-shell
+      - gnome-shell-extensions
+      - gnome-terminal
+      - gnome-tweak-tool
+      - nautilus
 
 
   ## Fedora
-  - dnf: name=control-center
+  - name: Install GNOME (Fedora)
+    dnf: name={{item}} state=installed
     when: ansible_distribution == 'Fedora'
-
-  - dnf: name=file-roller
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=gedit
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=gnome-music
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=gnome-power-manager
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=gnome-shell
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=gnome-terminal
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=gnome-tweak-tool
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=nautilus
-    when: ansible_distribution == 'Fedora'
+    with_items:
+      - control-center
+      - file-roller
+      - gedit
+      - gnome-music
+      - gnome-power-manager
+      - gnome-shell
+      - gnome-terminal
+      - gnome-tweak-tool
+      - nautilus

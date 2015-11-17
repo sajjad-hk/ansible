@@ -4,70 +4,56 @@
   tasks:
 
   ## Arch Linux
-  - pacman: name=bridge-utils
+  - name: Install KVM packages (Arch)
+    pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=dnsmasq
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=ebtables
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=libvirt
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=qemu
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - pacman: name=virt-manager
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    with_items:
+      - bridge-utils
+      - dnsmasq
+      - ebtables
+      - libvirt
+      - qemu
+      - virt-manager
 
 
   ## Fedora
-  - dnf: name=bridge-utils
+  - name: Install KVM packages (Fedora)
+    dnf: name={{item}} state=installed
     when: ansible_distribution == 'Fedora'
-
-  - dnf: name=dnsmasq
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=ebtables
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=libvirt
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=qemu
-    when: ansible_distribution == 'Fedora'
-
-  - dnf: name=virt-manager
-    when: ansible_distribution == 'Fedora'
+    with_items:
+      - bridge-utils
+      - dnsmasq
+      - ebtables
+      - libvirt
+      - qemu
+      - virt-manager
 
 
   ## Debian and Ubuntu
-  - apt: name=bridge-utils
+  - name: Install KVM packages (Debian & Ubuntu)
+    apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=libvirt-bin
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=qemu-kvm
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=qemu-system
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=virt-manager
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=virt-top
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-
-  - apt: name=virtinst
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    with_items:
+      - bridge-utils
+      - libvirt-bin
+      - qemu-kvm
+      - qemu-system
+      - virt-manager
+      - virt-top
+      - virtinst
 
 
   ## Create required directories
-  - name: Create libvirt directory
+  - name: Create /vm_store directory
+    file: path=/vm_store state=directory owner=root group=kvm mode=770
+
+  - name: Create /vm_store/kvm directory
+    file: path=/vm_store/kvm state=directory owner=root group=kvm mode=770
+
+  - name: Create /vm_store/iso_images directory
+    file: path=/vm_store/iso_images state=directory owner=root group=kvm mode=770
+
+  - name: Create /etc/libvirt directory
     file: path=/etc/libvirt state=directory owner=root group=root mode=755
 
   - name: Create storage directory
@@ -104,6 +90,7 @@
     copy: src=../files/kvm_host/iso.xml dest=/etc/libvirt/storage/iso.xml owner=root group=root mode=644
     notify: restart libvirt-bin
     when: ansible_distribution == 'Ubuntu'
+
 
   ## libvirt daemon
   - name: Enable libvirtd
