@@ -3,6 +3,7 @@
   sudo: True
   tasks:
 
+
   ## Install packages
   - pacman: name=openssh
     when: ansible_distribution in ['Archlinux', 'Manjaro']
@@ -39,6 +40,17 @@
   ## Install /etc/motd update script
   - name: Copy motd script
     copy: src=../files/openssh/system_stats.sh dest=/usr/local/bin/system_stats.sh owner=root group=root mode=755
+
+
+  ## Ensure cron is available
+  - pacman: name=cronie
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
+
+  - apt: name=cron
+    when: ansible_distribution in ['Debian', 'Ubuntu']
+
+  - dnf: name=cronie
+    when: ansible_distribution == 'Fedora'
 
 
   ## Set up the crontab for system_stats.sh script

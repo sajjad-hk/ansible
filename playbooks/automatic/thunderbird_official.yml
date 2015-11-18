@@ -1,0 +1,33 @@
+- name: Install official Thunderbird
+  hosts: workstations
+  sudo: True
+
+  vars:
+    thunderbird_version: 38.3.0
+    thunderbird_url: https://ftp.mozilla.org/pub/thunderbird/releases/{{thunderbird_version}}/linux-x86_64/en-US/thunderbird-{{thunderbird_version}}.tar.bz2
+    thunderbird_dest: /home/jay/bin/apps
+
+
+  tasks:
+
+  - name: Create local applications directory
+    file: path=/home/jay/.local/share/applications state=directory recurse=true owner=jay group=jay
+
+  - name: Copy application launcher
+    copy: src=../files/mozilla/thunderbird.desktop dest=/home/jay/.local/share/applications/thunderbird.desktop
+
+  - name: Create Thunderbird directory
+    file: path={{thunderbird_dest}}/thunderbird state=directory recurse=true owner=jay group=jay
+    register: directory
+
+  - name: download Thunderbird
+    get_url: url="{{thunderbird_url}}" dest="/tmp/thunderbird-{{thunderbird_version}}.bz2"
+    when: directory.changed
+
+  - name: Extract Thunderbird
+    unarchive: src=/tmp/thunderbird-{{thunderbird_version}}.tar.bz2 dest={{thunderbird_dest}} copy=no
+    when: directory.changed
+
+  - name: Correct ownership
+    command: chown jay:jay -R {{thunderbird_dest}}
+    when: directory.changed

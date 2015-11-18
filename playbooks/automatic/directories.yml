@@ -4,7 +4,10 @@
   tasks:
 
   ## Set up directories
+  - file: path=/home/jay/bin state=directory owner=jay group=users mode=700
+  - file: path=/home/jay/desktop state=directory owner=jay group=users mode=700
   - file: path=/home/jay/documents state=directory owner=jay group=users mode=700
+  - file: path=/home/jay/downloads state=directory owner=jay group=users mode=700
   - file: path=/home/jay/games state=directory owner=jay group=users mode=700
   - file: path=/home/jay/music state=directory owner=jay group=users mode=700
   - file: path=/home/jay/pictures state=directory owner=jay group=users mode=700
@@ -20,3 +23,15 @@
   - file: path=/share state=directory owner=jay group=users mode=700
   - file: path=/share/android state=directory owner=jay group=users mode=700
   - file: path=/share/android/camera state=directory owner=jay group=users mode=700
+
+
+  ## Remove default directories
+  - file: path=/home/jay/Desktop state=absent
+  - file: path=/home/jay/Documents state=absent
+  - file: path=/home/jay/Downloads state=absent
+  - file: path=/home/jay/Music state=absent
+  - file: path=/home/jay/Pictures state=absent
+  - file: path=/home/jay/Public state=absent
+  - file: path=/home/jay/Templates state=absent
+  - file: path=/home/jay/Videos state=absent
+

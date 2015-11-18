@@ -1,0 +1,33 @@
+- name: Install official Firefox
+  hosts: mozilla apps
+  sudo: True
+
+  vars:
+    firefox_version: 42.0
+    firefox_url: https://ftp.mozilla.org/pub/firefox/releases/{{firefox_version}}/linux-x86_64/en-US/firefox-{{firefox_version}}.tar.bz2
+    firefox_dest: /home/jay/bin/apps
+
+
+  tasks:
+
+  - name: Create local applications directory
+    file: path=/home/jay/.local/share/applications state=directory recurse=true owner=jay group=jay
+
+  - name: Copy application launcher
+    copy: src=../files/mozilla/firefox.desktop dest=/home/jay/.local/share/applications/firefox.desktop
+
+  - name: Create Firefox directory
+    file: path={{firefox_dest}} state=directory recurse=true owner=jay group=jay
+    register: directory
+
+  - name: download Firefox
+    get_url: url="{{firefox_url}}" dest="/tmp/firefox-{{firefox_version}}.bz2"
+    when: directory.changed
+
+  - name: Extract Firefox
+    unarchive: src=/tmp/firefox-{{firefox_version}}.tar.bz2 dest={{firefox_dest}} copy=no
+    when: directory.changed
+
+  - name: Correct ownership
+    command: chown jay:jay -R {{firefox_dest}}
+    when: directory.changed

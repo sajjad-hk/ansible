@@ -8,8 +8,6 @@
 - include: directories.yml
 - include: nagios_client.yml
 - include: ntp_client.yml
-- include: openssh_p22.yml
-- include: openssh_p65001.yml
 - include: packages_base.yml
 - include: packages_dev.yml
 - include: packages_games.yml
@@ -25,3 +23,6 @@
 - include: arch_video_vbox.yml
 - include: dm-gdm.yml
 - include: dm-lightdm.yml
+- include: openssh_p22.yml
+- include: openssh_p65001.yml
+

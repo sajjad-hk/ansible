@@ -1,4 +1,4 @@
-- name: Install default dotfiles_minimal on servers
+- name: Install default dotfiles on servers
   hosts: servers
   sudo: True
   tasks:

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Firefox
+Categories=Network;WebBrowser;
+Exec=/home/jay/bin/apps/firefox/firefox %u
+Icon=/home/jay/bin/apps/firefox/browser/icons/mozicon128.png
+Path=/home/jay/bin/apps/firefox/
+Terminal=false

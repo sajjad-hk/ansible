@@ -64,7 +64,7 @@ ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
 [workstations-arch]
-#crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
 
 
 [workstations-games]
@@ -74,21 +74,21 @@ ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 [workstations-gnome]
 crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
-ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
+#ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
 [workstations-mate]
 crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
-ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
+#ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
 [workstations-openbox]
 crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
-ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
+#ragnarok ansible_ssh_host=10.10.97.1 ansible_ssh_port=22
 
 
 [arch-intel-video]
-# Unused
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
 
 
 [arch-nvidia-video]
