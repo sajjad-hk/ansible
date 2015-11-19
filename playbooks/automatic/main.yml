@@ -1,13 +1,17 @@
 - include: repositories.yml
 - include: sudoers.yml
-- include: users_jay.yml
 - include: dotfiles_minimal.yml
 - include: scripts_server.yml
-#- include: scripts_raspbian.yml # Disabled: No longer using wi-fi check
+- include: scripts_raspbian.yml
 - include: ups_check.yml
-- include: directories.yml
 - include: nagios_client.yml
 - include: ntp_client.yml
+- include: users_jay.yml
+- include: users_jay_directories.yml
+- include: users_jay_apps_firefox.yml
+- include: users_jay_apps_thunderbird.yml
+- include: users_jay_apps_syncthing.yml
+- include: users_jay_apps_telegram.yml
 - include: packages_base.yml
 - include: packages_dev.yml
 - include: packages_games.yml
@@ -21,8 +25,7 @@
 - include: arch_video_intel.yml
 - include: arch_video_nvidia.yml
 - include: arch_video_vbox.yml
-- include: dm-gdm.yml
-- include: dm-lightdm.yml
+- include: dm_gdm.yml
+- include: dm_lightdm.yml
 - include: openssh_p22.yml
 - include: openssh_p65001.yml
-
