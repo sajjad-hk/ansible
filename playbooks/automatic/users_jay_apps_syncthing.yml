@@ -23,7 +23,11 @@
     when: client.changed
 
   - name: extract syncthing
-    unarchive: src=/tmp/syncthing_{{syncthing_version}}.tar.gz dest={{app_dir}} copy=no
+    unarchive: src=/tmp/syncthing_{{syncthing_version}}.tar.gz dest=/tmp copy=no
+    when: client.changed
+
+  - name: install syncthing
+    shell: cp /tmp/syncthing-*/syncthing {{app_dir}}/syncthing
     when: client.changed
 
 
