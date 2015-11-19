@@ -3,19 +3,13 @@
   sudo: True
   tasks:
 
-  ## Copy wifi_check script
-  - copy: src=../files/scripts_raspbian/wifi_check dest=/usr/local/bin/wifi_check owner=root group=root mode=755
+  ## Copy network_check script
+  - copy: src=../files/scripts_raspbian/network_check dest=/usr/local/bin/network_check owner=root group=root mode=755
 
   ## Ensure cron is available
-  - pacman: name=cronie
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
   - apt: name=cron
     when: ansible_distribution in ['Debian', 'Ubuntu']
 
-  - dnf: name=cronie
-    when: ansible_distribution == 'Fedora'
-
 
   ## Set up the crontab
-  - cron: name="wifi_check" minute="*/2" hour="*" day="*" job="/usr/local/bin/wifi_check > /dev/null"
+  - cron: name="network_check" minute="*/2" hour="*" day="*" job="/usr/local/bin/network_check > /dev/null"
