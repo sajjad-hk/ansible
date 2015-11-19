@@ -14,10 +14,10 @@
     register: directory
 
   - name: Copy application launcher
-    copy: src=../files/telegram/telegram.desktop dest=/home/jay/.local/share/applications/telegram.desktop
+    copy: src=../files/users_jay/telegram.desktop dest=/home/jay/.local/share/applications/telegram.desktop
 
   - name: Copy application icon
-    copy: src=../files/telegram/telegram.png dest=/home/jay/bin/apps/Telegram/telegram.png
+    copy: src=../files/users_jay/telegram.png dest=/home/jay/bin/apps/Telegram/telegram.png
 
   - name: Download Telegram
     shell: "wget https://tdesktop.com/linux -O /tmp/telegram.tar.xz"

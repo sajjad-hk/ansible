@@ -14,7 +14,7 @@
     file: path=/home/jay/.local/share/applications state=directory recurse=true owner=jay group=jay
 
   - name: Copy application launcher
-    copy: src=../files/mozilla/firefox.desktop dest=/home/jay/.local/share/applications/firefox.desktop
+    copy: src=../files/users_jay/firefox.desktop dest=/home/jay/.local/share/applications/firefox.desktop
 
   - name: Create Firefox directory
     file: path={{firefox_dest}}/firefox state=directory recurse=true owner=jay group=jay

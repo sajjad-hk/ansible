@@ -16,7 +16,7 @@
     register: client
 
   ## Copy syncthing startup script
-  - copy: src=../files/syncthing/systemd_syncthing dest=/etc/systemd/system/syncthing.service owner=root group=root mode=644
+  - copy: src=../files/users_jay/systemd_syncthing dest=/etc/systemd/system/syncthing.service owner=root group=root mode=644
 
   - name: download syncthing
     get_url: url="{{syncthing_url}}" dest=/tmp/syncthing_{{syncthing_version}}.tar.gz
