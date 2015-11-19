@@ -4,4 +4,7 @@
   tasks:
 
   ## Raspbian packages to install
-    ## Packages specific to raspbian can go here
+  - apt: name=dhcpcd5
+
+  ## Ensure dhcpcd5 is running
+  - service: name=dhcpcd enabled=yes state=started
