@@ -99,6 +99,10 @@ crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_inter
 # Unused
 
 
+[mozilla apps]
+crusader ansible_ssh_host=10.10.97.4 ansible_ssh_port=65001 ansible_python_interpreter=/usr/bin/python2
+
+
 # Note: Add localhost when this is added to a dedicated server.
 
 # Note: Add the following to use python2: ansible_python_interpreter=/usr/bin/python2

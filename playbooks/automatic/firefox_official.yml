@@ -17,11 +17,11 @@
     copy: src=../files/mozilla/firefox.desktop dest=/home/jay/.local/share/applications/firefox.desktop
 
   - name: Create Firefox directory
-    file: path={{firefox_dest}} state=directory recurse=true owner=jay group=jay
+    file: path={{firefox_dest}}/firefox state=directory recurse=true owner=jay group=jay
     register: directory
 
   - name: download Firefox
-    get_url: url="{{firefox_url}}" dest="/tmp/firefox-{{firefox_version}}.bz2"
+    get_url: url="{{firefox_url}}" dest="/tmp/firefox-{{firefox_version}}.tar.bz2"
     when: directory.changed
 
   - name: Extract Firefox

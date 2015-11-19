@@ -1,5 +1,5 @@
 - name: Install official Thunderbird
-  hosts: workstations
+  hosts: mozilla apps
   sudo: True
 
   vars:
@@ -21,7 +21,7 @@
     register: directory
 
   - name: download Thunderbird
-    get_url: url="{{thunderbird_url}}" dest="/tmp/thunderbird-{{thunderbird_version}}.bz2"
+    get_url: url="{{thunderbird_url}}" dest="/tmp/thunderbird-{{thunderbird_version}}.tar.bz2"
     when: directory.changed
 
   - name: Extract Thunderbird

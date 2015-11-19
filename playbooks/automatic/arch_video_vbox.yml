@@ -9,6 +9,7 @@
   - pacman: name=lib32-mesa
   - pacman: name=mesa
   - pacman: name=mesa-libgl
+  - pacman: xf86-input-libinput
   - pacman: name=xorg-server
   - pacman: name=xorg-xinit
   - pacman: name=xorg-server-utils

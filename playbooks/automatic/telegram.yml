@@ -1,0 +1,29 @@
+- name: Install Telegram
+  hosts: workstations
+  sudo: True
+
+  vars:
+    app_dir: /home/jay/bin/apps
+
+
+  tasks:
+  - name: Create local applications directory
+    file: path=/home/jay/.local/share/applications state=directory recurse=true owner=jay group=jay
+
+    file: path={{app_dir}}/Telegram state=directory recurse=true owner=jay group=jay
+    register: directory
+
+#  - name: Copy application launcher (Need to create this manually)
+#    copy: src=../files/telegram/telegram.desktop dest=/home/jay/.local/share/applications/telegram.desktop
+
+  - name: Download Telegram
+    shell: "wget https://tdesktop.com/linux -O /tmp/telegram.tar.xz"
+    when: directory.changed
+
+  - name: Extract Telegram
+    unarchive: src=/tmp/telegram.tar.xz dest={{app_dir}} copy=no
+    when: directory.changed
+
+  - name: Correct ownership
+    command: chown jay:jay -R {{app_dir}}
+    when: directory.changed

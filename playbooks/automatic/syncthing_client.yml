@@ -5,13 +5,14 @@
   vars:
     syncthing_version: 0.12.3
     syncthing_url: https://github.com/syncthing/syncthing/releases/download/v{{syncthing_version}}/syncthing-linux-amd64-v{{syncthing_version}}.tar.gz
-    syncthing_home: /home/jay/.config/syncthing
+    app_dir: /home/jay/bin/apps
+    syncthing_config: /home/jay/.config/syncthing/config.xml
 
 
   tasks:
 
   - name: Create syncthing directory
-    file: path={{syncthing_home}} state=directory owner=jay group=jay mode=700
+    file: path={{app_dir}}/syncthing state=directory owner=jay group=jay mode=700
     register: client
 
   ## Copy syncthing startup script
@@ -22,13 +23,8 @@
     when: client.changed
 
   - name: extract syncthing
-    command: tar xvzf /tmp/syncthing_{{syncthing_version}}.tar.gz -C /tmp
+    unarchive: src=/tmp/syncthing_{{syncthing_version}}.tar.gz dest={{app_dir}} copy=no
     when: client.changed
-
-  - name: install syncthing
-    shell: cp /tmp/syncthing-*{{syncthing_version}}/syncthing {{syncthing_home}}/syncthing
-    when: client.changed
-
 
 
   ## Set up the daemon
@@ -36,18 +32,18 @@
 
 
   - name: wait for config.xml to be generated
-    wait_for: path={{syncthing_home}}/config.xml
+    wait_for: path={{syncthing_config}}
 
 
   - name: config.xml | webinterface address
-    lineinfile: dest={{syncthing_home}}/config.xml
+    lineinfile: dest={{syncthing_config}}
                 regexp="<address>[^<]+</address>"
                 line="        <address>0.0.0.0:8324</address>"
     notify: restart syncthing
 
 
   - name: config.xml | upnpEnabled
-    lineinfile: dest={{syncthing_home}}/config.xml
+    lineinfile: dest={{syncthing_config}}
                 regexp="<upnpEnabled>[^<]+</upnpEnabled>"
                 line="        <upnpEnabled>false</upnpEnabled>"
     notify: restart syncthing
@@ -56,3 +52,6 @@
   handlers:
     - name: restart syncthing
       service: name=syncthing state=restarted
+
+    - name: correct ownership
+      command: chown jay:jay -R {{syncthing_home}}

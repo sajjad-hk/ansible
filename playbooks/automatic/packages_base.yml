@@ -26,6 +26,7 @@
       - the_silver_searcher
       - tmux
       - vim-python3
+      - wget
 
 
   ## Fedora packages
@@ -49,6 +50,7 @@
       - the_silver_searcher
       - tmux
       - vim-enhanced
+      - wget
 
 
     ## CentOS packages
@@ -70,6 +72,7 @@
       - screen
       - tmux
       - vim-enhanced
+      - wget
 
 
    ## Debian and Ubuntu
@@ -93,6 +96,7 @@
       - sshfs
       - tmux
       - vim-nox
+      - wget
 
 
   - name: Remove unneeded Debian packages
