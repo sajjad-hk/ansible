@@ -11,7 +11,7 @@
 
   ## Create user and add to groups
   - name: create user jay
-    user: name=jay state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="jay" uid=1000 shell=/bin/bash groups=admins append=yes
+    user: name=jay state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="jay" uid=1000 shell=/bin/bash
     notify: change_ownership
 
 

@@ -30,3 +30,6 @@
   - name: Correct ownership
     command: chown jay:jay -R {{app_dir}}
     when: directory.changed
+
+  - name: Correct permissions
+    command: chmod g-rwx,o-rwx -R {{app_dir}}

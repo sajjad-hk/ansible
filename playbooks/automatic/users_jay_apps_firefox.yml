@@ -5,7 +5,7 @@
   vars:
     firefox_version: 42.0
     firefox_url: https://ftp.mozilla.org/pub/firefox/releases/{{firefox_version}}/linux-x86_64/en-US/firefox-{{firefox_version}}.tar.bz2
-    firefox_dest: /home/jay/bin/apps
+    app_dir: /home/jay/bin/apps
 
 
   tasks:
@@ -17,7 +17,7 @@
     copy: src=../files/users_jay/firefox.desktop dest=/home/jay/.local/share/applications/firefox.desktop
 
   - name: Create Firefox directory
-    file: path={{firefox_dest}}/firefox state=directory recurse=true owner=jay group=jay
+    file: path={{app_dir}}/firefox state=directory recurse=true owner=jay group=jay
     register: directory
 
   - name: download Firefox
@@ -25,9 +25,13 @@
     when: directory.changed
 
   - name: Extract Firefox
-    unarchive: src=/tmp/firefox-{{firefox_version}}.tar.bz2 dest={{firefox_dest}} copy=no
+    unarchive: src=/tmp/firefox-{{firefox_version}}.tar.bz2 dest={{app_dir}} copy=no
     when: directory.changed
 
   - name: Correct ownership
-    command: chown jay:jay -R {{firefox_dest}}
+    command: chown jay:jay -R {{app_dir}}
+    when: directory.changed
+
+  - name: correct permissions
+    command: chmod g-rwx,o-rwx -R {{app_dir}}
     when: directory.changed

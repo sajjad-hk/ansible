@@ -5,7 +5,7 @@
   vars:
     thunderbird_version: 38.3.0
     thunderbird_url: https://ftp.mozilla.org/pub/thunderbird/releases/{{thunderbird_version}}/linux-x86_64/en-US/thunderbird-{{thunderbird_version}}.tar.bz2
-    thunderbird_dest: /home/jay/bin/apps
+    app_dir: /home/jay/bin/apps
 
 
   tasks:
@@ -17,7 +17,7 @@
     copy: src=../files/users_jay/thunderbird.desktop dest=/home/jay/.local/share/applications/thunderbird.desktop
 
   - name: Create Thunderbird directory
-    file: path={{thunderbird_dest}}/thunderbird state=directory recurse=true owner=jay group=jay
+    file: path={{app_dir}}/thunderbird state=directory recurse=true owner=jay group=jay
     register: directory
 
   - name: download Thunderbird
@@ -25,9 +25,13 @@
     when: directory.changed
 
   - name: Extract Thunderbird
-    unarchive: src=/tmp/thunderbird-{{thunderbird_version}}.tar.bz2 dest={{thunderbird_dest}} copy=no
+    unarchive: src=/tmp/thunderbird-{{thunderbird_version}}.tar.bz2 dest={{app_dir}} copy=no
     when: directory.changed
 
   - name: Correct ownership
-    command: chown jay:jay -R {{thunderbird_dest}}
+    command: chown jay:jay -R {{app_dir}}
+    when: directory.changed
+
+  - name: Correct permissions
+    command: chmod g-rwx,o-rwx -R {{app_dir}}
     when: directory.changed

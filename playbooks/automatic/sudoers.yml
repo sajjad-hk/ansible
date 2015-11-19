@@ -19,17 +19,14 @@
 
 
   ## Manage sudoers file
-  - name: Copy sudoers file for safety
-    command: cp -f /etc/sudoers /etc/sudoers.tmp
-
-  - name: Create sudoers file backup
-    command: cp -f /etc/sudoers /etc/sudoers.bak
-
   - name: Create admins group
     group: name=admins system=yes state=present gid=901
 
-  - name: make sure we can sudo as admin group
-    lineinfile: "dest=/etc/sudoers.tmp state=present regexp='^%admin' line='%admins ALL=(ALL) NOPASSWD: ALL'"
+  - name: Add jay to admins group
+    user: name=jay groups=admins append=yes
 
-  - name: Final sudoers file check
-    shell: visudo -q -c -f /etc/sudoers.tmp && cp -f /etc/sudoers.tmp /etc/sudoers
+  - name: Make sure admin group is allowed in sudoers
+    lineinfile: "dest=/etc/sudoers
+                state=present
+                regexp='^%admin' line='%admins ALL=(ALL) NOPASSWD: ALL'
+                validate='/usr/sbin/visudo -cf %s'"

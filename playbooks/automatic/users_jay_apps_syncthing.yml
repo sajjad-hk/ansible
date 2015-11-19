@@ -11,12 +11,12 @@
 
   tasks:
 
-  - name: Create syncthing directory
-    file: path={{app_dir}}/syncthing state=directory owner=jay group=jay mode=700
-    register: client
+  - name: Copy syncthing startup script
+    copy: src=../files/users_jay/systemd_syncthing dest=/etc/systemd/system/syncthing.service owner=root group=root mode=644
 
-  ## Copy syncthing startup script
-  - copy: src=../files/users_jay/systemd_syncthing dest=/etc/systemd/system/syncthing.service owner=root group=root mode=644
+  - name: Create syncthing directory
+    file: path={{app_dir}}/syncthing state=directory owner=jay group=jay mode=700 recurse=true
+    register: client
 
   - name: download syncthing
     get_url: url="{{syncthing_url}}" dest=/tmp/syncthing_{{syncthing_version}}.tar.gz
@@ -28,6 +28,14 @@
 
   - name: install syncthing
     shell: cp /tmp/syncthing-*/syncthing {{app_dir}}/syncthing
+    when: client.changed
+
+  - name: correct ownership
+    command: chown jay:jay -R {{app_dir}}
+    when: client.changed
+
+  - name: correct permissions
+    command: chmod g-rwx,o-rwx -R {{app_dir}}
     when: client.changed
 
 
@@ -56,6 +64,3 @@
   handlers:
     - name: restart syncthing
       service: name=syncthing state=restarted
-
-    - name: correct ownership
-      command: chown jay:jay -R {{syncthing_home}}
