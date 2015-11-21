@@ -84,6 +84,11 @@
     notify: restart libvirtd
     when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro']
 
+  - name: Copy qemu.conf
+    copy: src=../files/kvm_host/qemu.conf dest=/etc/libvirt/qemu.conf owner=root group=root mode=600
+    notify: restart libvirtd
+    when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro']
+
   - name: Copy libvirtd.conf
     copy: src=../files/kvm_host/libvirtd.conf dest=/etc/libvirt/libvirtd.conf owner=root group=root mode=644
     notify: restart libvirt-bin
@@ -93,9 +98,14 @@
     copy: src=../files/kvm_host/default.xml dest=/etc/libvirt/storage/default.xml owner=root group=root mode=644
     notify: restart libvirt-bin
     when: ansible_distribution == 'Ubuntu'
-    
+
   - name: Copy iso.xml
     copy: src=../files/kvm_host/iso.xml dest=/etc/libvirt/storage/iso.xml owner=root group=root mode=644
+    notify: restart libvirt-bin
+    when: ansible_distribution == 'Ubuntu'
+
+  - name: Copy qemu.conf
+    copy: src=../files/kvm_host/qemu.conf dest=/etc/libvirt/qemu.conf owner=root group=root mode=600
     notify: restart libvirt-bin
     when: ansible_distribution == 'Ubuntu'
 
