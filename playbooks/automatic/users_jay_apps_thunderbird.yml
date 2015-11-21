@@ -14,7 +14,7 @@
     file: path=/home/jay/.local/share/applications state=directory recurse=true owner=jay group=jay
 
   - name: Copy application launcher
-    copy: src=../files/users_jay/thunderbird.desktop dest=/home/jay/.local/share/applications/thunderbird.desktop
+    copy: src=../files/users_jay/thunderbird.desktop dest=/home/jay/.local/share/applications/thunderbird.desktop owner=jay group=jay
 
   - name: Create Thunderbird directory
     file: path={{app_dir}}/thunderbird state=directory recurse=true owner=jay group=jay

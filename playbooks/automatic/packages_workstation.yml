@@ -13,7 +13,7 @@
       - brasero
       - cmus
       - conky
-      - pdmenu
+      - dmenu
       - easytag
       - exfat-utils
       - filezilla
@@ -51,12 +51,12 @@
     apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Ubuntu']
     with_items:
+      - aptitude
       - asunder
       - banshee
       - brasero
       - cmus
       - conky
-      - pdmenu
       - easytag
       - exfat-utils
       - filezilla
@@ -84,6 +84,8 @@
       - rxvt-unicode-256color
       - shutter
       - smbclient
+      - suckless-tools
+      - synaptic
       - terminator
       - transmission-gtk
       - vlc

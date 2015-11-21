@@ -10,14 +10,14 @@
   - name: Create local applications directory
     file: path=/home/jay/.local/share/applications state=directory recurse=true owner=jay group=jay
 
-    file: path={{app_dir}}/Telegram state=directory recurse=true owner=jay group=jay
+  - file: path={{app_dir}}/Telegram state=directory recurse=true owner=jay group=jay
     register: directory
 
   - name: Copy application launcher
-    copy: src=../files/users_jay/telegram.desktop dest=/home/jay/.local/share/applications/telegram.desktop
+    copy: src=../files/users_jay/telegram.desktop dest=/home/jay/.local/share/applications/telegram.desktop owner=jay group=jay
 
   - name: Copy application icon
-    copy: src=../files/users_jay/telegram.png dest=/home/jay/bin/apps/Telegram/telegram.png
+    copy: src=../files/users_jay/telegram.png dest=/home/jay/bin/apps/Telegram/telegram.png owner=jay group=jay
 
   - name: Download Telegram
     shell: "wget https://tdesktop.com/linux -O /tmp/telegram.tar.xz"
@@ -33,3 +33,4 @@
 
   - name: Correct permissions
     command: chmod g-rwx,o-rwx -R {{app_dir}}
+    when: directory.changed
