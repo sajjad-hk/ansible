@@ -43,6 +43,14 @@
       - virtinst
 
 
+  ## Manage kvm group
+  - name: Create kvm group
+    group: name=kvm system=yes state=present
+
+  - name: Add user to kvm group
+    user: name=jay groups=kvm append=yes
+
+
   ## Create required directories
   - name: Create /vm_store directory
     file: path=/vm_store state=directory owner=root group=kvm mode=770
