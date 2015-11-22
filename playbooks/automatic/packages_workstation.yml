@@ -79,6 +79,7 @@
       - mpv
       - pavucontrol
       - perl
+      - pyrenamer
       - quassel-client
       - rdesktop
       - remmina
@@ -123,6 +124,7 @@
       #- mpv # Package not found
       - pavucontrol
       - perl
+      - pyrenamer
       - quassel-client
       - rdesktop
       - remmina
