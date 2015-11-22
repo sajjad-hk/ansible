@@ -44,6 +44,7 @@
       - terminus-font
       - transmission-gtk
       - vlc
+      - vorbis-tools
       - xsel
 
 
@@ -92,6 +93,7 @@
       - terminator
       - transmission-gtk
       - vlc
+      - vorbis-tools
       - xfonts-terminus
       - xsel
 
@@ -135,4 +137,5 @@
       - terminus-fonts
       - transmission-gtk
       - vlc
+      - vorbis-tools
       - xsel
