@@ -21,14 +21,14 @@
   ## Copy sshd_config
   - name: Copy sshd_config
     copy: src=../files/openssh/sshd_config_p22 dest=/etc/ssh/sshd_config owner=root group=root mode=644
-    notify: restart sshd
+    notify: Restart sshd
     when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
 
 
   ## Copy sshd_config
   - name: Copy sshd_config
     copy: src=../files/openssh/sshd_config_p22 dest=/etc/ssh/sshd_config owner=root group=root mode=644
-    notify: restart ssh
+    notify: Restart ssh
     when: ansible_distribution in ['Debian', 'Ubuntu']
 
 
@@ -66,8 +66,8 @@
 
 
   handlers:
-  - name: restart ssh
+  - name: Restart ssh
     service: name=ssh state=restarted
 
-  - name: restart sshd
+  - name: Restart sshd
     service: name=sshd state=restarted

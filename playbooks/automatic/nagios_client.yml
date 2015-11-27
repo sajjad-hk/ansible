@@ -28,19 +28,31 @@
   - apt: name=nagios-nrpe-plugin
     when: ansible_distribution in ['Debian', 'Ubuntu']
 
+
   ## Copy nrpe.cfg
   - copy: src=../files/nagios_client/nrpe_arch.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
     when: ansible_distribution in ['Archlinux', 'Manjaro']
+    notify: Restart nrpe
+
   - copy: src=../files/nagios_client/nrpe_fedora.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
     when: ansible_distribution == 'Fedora'
+    notify: Restart nrpe
+
+
   - copy: src=../files/nagios_client/nrpe_centos.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
     when: ansible_distribution == 'CentOS'
+    notify: Restart nrpe
+
+
   - copy: src=../files/nagios_client/nrpe_debian.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
     when: ansible_distribution in ['Debian', 'Ubuntu']
+    notify: Restart nagios-nrpe-server
+
 
   ## Copy plugins
   - copy: src=../files/nagios_client/check_ram dest=/usr/lib64/nagios/plugins/check_ram owner=root group=root mode=644
     when: ansible_distribution in ['CentOS', 'Fedora']
+
   - copy: src=../files/nagios_client/check_ram dest=/usr/lib/nagios/plugins/check_ram owner=root group=root mode=644
     when: ansible_distribution in ['Debian', 'Ubuntu']
 
@@ -51,3 +63,11 @@
 
   - service: name=nagios-nrpe-server enabled=yes state=started
     when: ansible_distribution in ['Debian', 'Ubuntu']
+
+
+  handlers:
+  - name: Restart nrpe
+    service: name=nrpe state=restarted
+
+  - name: Restart nagios-nrpe-server
+    service: name=nagios-nrpe-server state=restarted  
