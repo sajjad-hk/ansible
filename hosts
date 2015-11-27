@@ -13,6 +13,7 @@ crusader ansible_python_interpreter=/usr/bin/python2
 [kvm_hosts]
 crusader ansible_python_interpreter=/usr/bin/python2
 ragnarok
+galaxy
 
 
 [openssh_p22]
