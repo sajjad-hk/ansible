@@ -11,6 +11,7 @@
     with_items:
       - colordiff
       - curl
+      - dnsutils
       - git
       - htop
       - iotop
