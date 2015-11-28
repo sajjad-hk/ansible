@@ -19,10 +19,12 @@
   - file: path=/mnt/pluto/backup state=directory owner=jay group=users mode=700
   - file: path=/mnt/pluto/downloads state=directory owner=jay group=users mode=700
   - file: path=/mnt/pluto/private state=directory owner=jay group=users mode=700
+  - file: path=/mnt/pluto/public state=directory owner=jay group=users mode=700
   - file: path=/mnt/pluto/videos state=directory owner=jay group=users mode=700
   - file: path=/share state=directory owner=jay group=users mode=700
   - file: path=/share/android state=directory owner=jay group=users mode=700
   - file: path=/share/android/camera state=directory owner=jay group=users mode=700
+  - file: path=/share/android/pictures state=directory owner=jay group=users mode=700
 
 
   ## Remove default directories
