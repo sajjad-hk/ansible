@@ -102,6 +102,7 @@ crusader ansible_python_interpreter=/usr/bin/python2
 
 [mozilla apps]
 crusader ansible_python_interpreter=/usr/bin/python2
+ragnarok
 
 
 # Note: Add the following to use python2: ansible_python_interpreter=/usr/bin/python2

@@ -3,7 +3,7 @@
   sudo: True
 
   vars:
-    syncthing_version: 0.12.3
+    syncthing_version: 0.12.4
     syncthing_url: https://github.com/syncthing/syncthing/releases/download/v{{syncthing_version}}/syncthing-linux-amd64-v{{syncthing_version}}.tar.gz
     app_dir: /home/jay/bin/apps
     syncthing_config: /home/jay/.config/syncthing/config.xml
@@ -11,11 +11,16 @@
 
   tasks:
 
-  - name: Copy syncthing startup script
+  - name: Copy syncthing startup script (systemd)
     copy: src=../files/users_jay/systemd_syncthing dest=/etc/systemd/system/syncthing.service owner=root group=root mode=644
+    when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro']
+
+  - name: Copy syncthing startup script (sysv)
+    copy: src=../files/users_jay/sysv_syncthing dest=/etc/init.d/syncthing owner=root group=root mode=755
+    when: ansible_distribution in ['Linuxmint']
 
   - name: Create syncthing directory
-    file: path={{app_dir}}/syncthing state=directory owner=jay group=jay mode=700 recurse=true
+    file: path={{app_dir}}/syncthing state=directory owner=jay group=jay recurse=true
     register: client
 
   - name: download syncthing
@@ -38,6 +43,9 @@
     command: chmod g-rwx,o-rwx -R {{app_dir}}
     when: client.changed
 
+  - name: cleanup
+    command: rm -rf /tmp/syncthing*
+    when: client.changed
 
   ## Set up the daemon
   - service: name=syncthing enabled=yes state=started

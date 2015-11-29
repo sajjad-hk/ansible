@@ -1,2 +1,2 @@
-To do:
- - slim config
+ - create slim dm playbook
+ - Remove sysv version of syncthing once Linux Mint moves to systemd

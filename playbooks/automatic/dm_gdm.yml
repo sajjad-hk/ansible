@@ -7,12 +7,12 @@
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - apt: name=gdm3
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
   - service: name=gdm enabled=yes
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - service: name=gdm3 enabled=yes
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
   - service: name=lightdm enabled=no

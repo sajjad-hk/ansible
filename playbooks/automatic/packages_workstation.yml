@@ -51,7 +51,7 @@
   ## Debian
   - name: Install workstation packages (Debian and Ubuntu)
     apt: name={{item}} state=installed
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
       - aptitude
       - asunder

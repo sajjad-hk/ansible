@@ -30,9 +30,9 @@
 
 
   ## Debian and Ubuntu
-  - name: Install KVM packages (Debian & Ubuntu)
+  - name: Install KVM packages (Debian-based)
     apt: name={{item}} state=installed
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
       - bridge-utils
       - libvirt-bin
@@ -92,22 +92,22 @@
   - name: Copy libvirtd.conf
     copy: src=../files/kvm_host/libvirtd.conf dest=/etc/libvirt/libvirtd.conf owner=root group=root mode=644
     notify: restart libvirt-bin
-    when: ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Linuxmint', 'Ubuntu']
 
   - name: Copy default.xml
     copy: src=../files/kvm_host/default.xml dest=/etc/libvirt/storage/default.xml owner=root group=root mode=644
     notify: restart libvirt-bin
-    when: ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Linuxmint', 'Ubuntu']
 
   - name: Copy iso.xml
     copy: src=../files/kvm_host/iso.xml dest=/etc/libvirt/storage/iso.xml owner=root group=root mode=644
     notify: restart libvirt-bin
-    when: ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Linuxmint', 'Ubuntu']
 
   - name: Copy qemu.conf
     copy: src=../files/kvm_host/qemu.conf dest=/etc/libvirt/qemu.conf owner=root group=root mode=600
     notify: restart libvirt-bin
-    when: ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Linuxmint', 'Ubuntu']
 
 
   ## libvirt daemon
@@ -117,7 +117,7 @@
     
   - name: Enable libvirt-bin
     service: name=libvirt-bin enabled=yes state=started
-    when: ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Linuxmint', 'Ubuntu']
 
 
   handlers:

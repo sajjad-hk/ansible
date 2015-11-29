@@ -6,7 +6,7 @@
 
   ## Ensure sudo package is installed
   - apt: name=sudo
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
   - dnf: name=sudo
     when: ansible_distribution == "Fedora"

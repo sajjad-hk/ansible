@@ -77,9 +77,9 @@
 
 
    ## Debian and Ubuntu
-  - name: Install base packages (Debian & Ubuntu)
+  - name: Install base packages (Debian-based)
     apt: name={{item}} state=installed
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
       - colordiff
       - curl
@@ -102,7 +102,7 @@
 
   - name: Remove unneeded Debian packages
     apt: name={{ item }} state=absent
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
       - exim4
       - exim4-base

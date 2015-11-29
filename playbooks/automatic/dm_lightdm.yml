@@ -4,7 +4,7 @@
   tasks:
 
   - apt: name=lightdm
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
   - pacman: name=apcid
     when: ansible_distribution in ['Archlinux', 'Manjaro']
@@ -19,6 +19,6 @@
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - service: name=gdm3 enabled=no
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
   - service: name=lightdm enabled=yes

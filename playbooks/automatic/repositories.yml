@@ -43,7 +43,7 @@
   - name: Enable 32-bit packages
     copy: src=../files/repositories/arch dest=/var/lib/dpkg/arch owner=root group=root mode=644
     notify: apt-update
-    when: ansible_distribution == 'Ubuntu'
+    when: ansible_distribution in ['Linuxmint', 'Ubuntu']
 
 
   ## Update apt sources

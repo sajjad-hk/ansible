@@ -11,7 +11,7 @@
     when: ansible_distribution == 'Fedora'
 
   - apt: name=ntp
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
   - yum: name=ntp
     when: ansible_distribution == 'CentOS'
@@ -25,16 +25,18 @@
 
   - name: Copy ntp.conf
     copy: src=../files/ntp_client/ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     notify: restart ntp
 
 
   ## Set up the daemon
-  - service: name=ntpd enabled=yes state=started
+  - name: Enable and start daemon (ntpd)
+    service: name=ntpd enabled=yes state=started
     when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
 
-  - service: name=ntp enabled=yes state=started
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+  - name: Enable and start daemon (ntp)
+    service: name=ntp enabled=yes state=started
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
 
   handlers:

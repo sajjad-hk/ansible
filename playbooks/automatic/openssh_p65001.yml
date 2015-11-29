@@ -4,17 +4,21 @@
   tasks:
 
   ## Install packages
-  - pacman: name=openssh
+  - name: Install Openssh (Arch)
+    pacman: name=openssh
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - dnf: name=openssh
+  - name: Install Openssh (Fedora)
+    dnf: name=openssh
     when: ansible_distribution == 'Fedora'
 
-  - yum: name=openssh-server
+  - name: Install Openssh (CentOS)
+    yum: name=openssh-server
     when: ansible_distribution == 'CentOS'
 
-  - apt: name=openssh-server
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+  - name: Install Openssh (Debian-based)
+    apt: name=openssh-server
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
 
   ## Copy sshd_config
@@ -28,7 +32,7 @@
   - name: Copy sshd_config
     copy: src=../files/openssh/sshd_config_p65001 dest=/etc/ssh/sshd_config owner=root group=root mode=644
     notify: Restart ssh
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
 
   ## Copy /etc/issue.net
@@ -42,26 +46,32 @@
 
 
   ## Ensure cron is available
-  - pacman: name=cronie
+  - name: Install cronie (Arch)
+    pacman: name=cronie
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - apt: name=cron
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+  - name: Install cron (Debian-based)
+    apt: name=cron
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
-  - dnf: name=cronie
+  - name: Install cronie (Fedora)
+    dnf: name=cronie
     when: ansible_distribution == 'Fedora'
 
 
   ## Set up the crontab for system_stats.sh script
-  - cron: name="update_stats" job="/usr/local/bin/system_stats.sh > /dev/null"
+  - name: Add crontab entry for system_stats.sh
+    cron: name="update_stats" job="/usr/local/bin/system_stats.sh > /dev/null"
 
 
   ## Set up the daemon
-  - service: name=sshd enabled=yes state=started
+  - name: Enable sshd
+    service: name=sshd enabled=yes state=started
     when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
 
-  - service: name=ssh enabled=yes state=started
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+  - name: Enable ssh
+    service: name=ssh enabled=yes state=started
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
 
   handlers:

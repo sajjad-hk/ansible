@@ -13,7 +13,7 @@
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
   - apt: name=cron
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
   - dnf: name=cronie
     when: ansible_distribution == 'Fedora'

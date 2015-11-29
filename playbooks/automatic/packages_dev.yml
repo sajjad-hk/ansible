@@ -22,9 +22,9 @@
 
 
   ## Debian and Ubuntu
-  - name: Install dev packages (Debian and Ubuntu)
+  - name: Install dev packages (Debian-based)
     apt: name={{item}} state=installed
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
       - python-dev
       - python-pip

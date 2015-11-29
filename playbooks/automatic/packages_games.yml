@@ -40,9 +40,9 @@
 
 
   ## Debian and Ubuntu
-  - name: Install games on Debian or Ubuntu hosts
+  - name: Install games on Debian-based hosts
     apt: name={{item}} state=installed
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
       - chromium-bsu
       - frozen-bubble
@@ -58,13 +58,13 @@
 
 
 ## Install mame.ini
-  - name: Create mame directory (Debian, Ubuntu)
+  - name: Create mame directory (Debian-based)
     file: path=/etc/mame state=directory owner=root group=root mode=755
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
    
-  - name: Copy mame.ini (Debian, Ubuntu)
+  - name: Copy mame.ini (Debian-based)
     copy: src=../files/packages_games/mame.ini dest=/etc/mame/mame.ini owner=root group=users mode=644
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
   - name: Create mame directory (Arch)
     file: path=/home/jay/.mame state=directory owner=jay group=jay mode=700

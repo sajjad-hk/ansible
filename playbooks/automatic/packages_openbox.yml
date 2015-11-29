@@ -30,9 +30,9 @@
 
 
    ## Debian and Ubuntu
-  - name: Install Openbox (Debian and Ubuntu)
+  - name: Install Openbox (Debian-based)
     apt: name={{item}} state=installed
-    when: ansible_distribution in ['Debian', 'Ubuntu']
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
       - acpid
       - clipit
