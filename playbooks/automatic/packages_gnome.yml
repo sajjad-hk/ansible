@@ -15,6 +15,7 @@
       - gnome-power-manager
       - gnome-shell
       - gnome-shell-extensions
+      - gnome-system-monitor
       - gnome-terminal
       - gnome-tweak-tool
       - nautilus
@@ -32,6 +33,7 @@
       - gnome-power-manager
       - gnome-shell
       - gnome-shell-extensions
+      - gnome-system-monitor
       - gnome-terminal
       - gnome-tweak-tool
       - nautilus
@@ -48,6 +50,7 @@
       - gnome-music
       - gnome-power-manager
       - gnome-shell
+      - gnome-system-monitor
       - gnome-terminal
       - gnome-tweak-tool
       - nautilus

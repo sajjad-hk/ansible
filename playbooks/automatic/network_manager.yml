@@ -1,0 +1,37 @@
+- name: Network Manager
+  hosts: workstations
+  sudo: True
+  tasks:
+
+  - name: Install Network Manager packages (Arch)
+    pacman: name={{item}} state=installed
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    with_items:
+     - dialog
+     - network-manager-applet
+     - networkmanager
+     - networkmanager-openvpn
+     - networkmanager-pptp
+     - networkmanager-vpnc
+     - wireless_tools
+     - wpa_supplicant
+     - wpa_actiond
+
+  - name: Install Network Manager packages (Debian)
+    apt: name={{item}} state=installed
+    when: ansible_distribution in ['Debian']
+    with_items:
+     - firmware-iwlwifi
+     - network-manager
+     - network-manager-openvpn
+     - network-manager-openvpn-gnome
+     - network-manager-pptp
+     - network-manager-vpnc
+
+
+  - name: Enable devices for network manager (Debian)
+    lineinfile: dest=/etc/NetworkManager/NetworkManager.conf regexp=^managed= line=managed=true
+
+
+  # Enable service
+  - service: name=NetworkManager enabled=yes

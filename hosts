@@ -1,5 +1,6 @@
 [dm-gdm]
 crusader ansible_python_interpreter=/usr/bin/python2
+ragnarok
 
 
 [dm-lightdm]
@@ -75,17 +76,17 @@ ragnarok
 
 [workstations-gnome]
 crusader ansible_python_interpreter=/usr/bin/python2
-#ragnarok
+ragnarok
 
 
 [workstations-mate]
 crusader ansible_python_interpreter=/usr/bin/python2
-#ragnarok
+ragnarok
 
 
 [workstations-openbox]
 crusader ansible_python_interpreter=/usr/bin/python2
-#ragnarok
+ragnarok
 
 
 [arch-intel-video]
