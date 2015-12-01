@@ -1,16 +1,43 @@
-" Set color scheme
+" Set color scheme. Other good ones are bubblegum-256-dark, sorcerer, and zenburn
 colorscheme xoria256
+
+" keyboard shortcuts
+let mapleader = ','
+noremap <silent> <leader>r :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" Switch buffers using F5
+nnoremap <F5> :buffers<CR>:buffer<Space>
+
+" Set keyboard shortcut for paste toggle.
+set pastetoggle=<F10>
+
+map <F12> :call TrimWhiteSpace()<CR>
+" Removes trailing spaces
+func! TrimWhiteSpace()
+  %s/\s*$//
+  ''
+:endfunction
+
+" Clear search highlight with c-l
+noremap <silent> <c-l> :nohls<cr><c-l>
+
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+map <c-space> ?
 
 " Highlight trailing whitespace in red
 match ErrorMsg /\s\+\%#\@<!$/
+
+" Enable pathogen
+runtime bundle/pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
+let c_space_errors = 1
 
 " Fix tmux background color
 if &term =~ '256color'
     set t_ut=
 endif
-
-" Set keyboard shortcut for paste toggle.
-set pastetoggle=<F10>
 
 " Show line numbers
 set number
@@ -39,10 +66,6 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" Linebreak on 500 characters
-set lbr
-set tw=500
-
 set ai "Auto indent
 set si "Smart indent
 
@@ -51,9 +74,6 @@ set ignorecase
 
 " Highlight search results
 set hlsearch
-
-" Clear search highlight with c-l
-noremap <silent> <c-l> :nohls<cr><c-l>
 
 " Makes search act like search in modern browsers
 set incsearch
@@ -68,10 +88,6 @@ set ffs=unix,dos,mac
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
-
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
 
 " Return to the last edit position when opening files.
 augroup vimrcEx
@@ -115,35 +131,10 @@ cnoremap w!! %!sudo tee > /dev/null %
 
 " Set the cursorline
 set cursorline
+
 "hi cursorline gui=none
 augroup CursorlineOnlyInActiveWindow
     autocmd!
     autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
 augroup END
-
-function! SetTabsToSpaces()
-  setlocal tabstop=4
-  setlocal softtabstop=4
-  setlocal shiftwidth=4
-  setlocal smarttab
-  setlocal expandtab
-:endfunction
-
-function! SetSpacesToTabs()
-  setlocal tabstop=5
-  setlocal softtabstop=5
-  setlocal shiftwidth=5
-  setlocal smarttab
-  setlocal noexpandtab
-:endfunction
-
-map <silent> <F2> :call SetTabsToSpaces()<CR>
-map <silent> <F4> :call SetSpacesToTabs()<CR>
-
-map <F12> :call TrimWhiteSpace()<CR>
-" Removes trailing spaces
-func! TrimWhiteSpace()
-  %s/\s*$//
-  ''
-:endfunction
