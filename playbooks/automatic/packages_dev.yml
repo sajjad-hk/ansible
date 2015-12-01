@@ -8,7 +8,11 @@
     pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
     with_items:
+      - flake8
+      - python-pyflakes
+      - python2-flake8
       - python2-pip
+      - python2-pyflakes
       - tig
 
 
@@ -17,6 +21,12 @@
     dnf: name={{item}} state=installed
     when: ansible_distribution == 'Fedora'
     with_items:
+      - pyflakes
+      - python-flake8
+      - python3-flake8
+      - python-pep8
+      - python3-pep8
+      - python3-pyflakes
       - python-pip
       - tig
 
@@ -26,6 +36,9 @@
     apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
+      - pyflakes
       - python-dev
-      - python-pip
+      - python-flake8
+      - python3-flake8
+      - python-pid
       - tig
