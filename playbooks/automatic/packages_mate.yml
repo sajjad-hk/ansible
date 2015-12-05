@@ -18,6 +18,8 @@
       - mate-media
       - mate-menus
       - mate-notification-daemon
+      - mate-screensaver
+      - mate-screensaver-hacks
       - mate-system-monitor
       - mate-terminal
       - mate-themes
@@ -44,6 +46,7 @@
       - mate-panel
       - mate-polkit
       - mate-power-manager
+      - mate-screensaver
       - mate-session-manager
       - mate-settings-daemon
       - mate-settings-daemon-pulse
@@ -69,6 +72,7 @@
       - mate-media
       - mate-menus
       - mate-notification-daemon
+      - mate-screensaver
       - mate-system-monitor
       - mate-terminal
       - mate-themes
