@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=jay
 Environment=STNORESTART=yes
-ExecStart=/home/jay/bin/apps/syncthing/syncthing
+ExecStart=/home/jay/bin/syncthing/syncthing
 #Restart=on-success
 Restart=always
 SuccessExitStatus=3

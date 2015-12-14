@@ -5,7 +5,7 @@
   vars:
     thunderbird_version: 38.3.0
     thunderbird_url: https://ftp.mozilla.org/pub/thunderbird/releases/{{thunderbird_version}}/linux-x86_64/en-US/thunderbird-{{thunderbird_version}}.tar.bz2
-    app_dir: /home/jay/bin/apps
+    app_dir: /home/jay/bin
 
 
   tasks:

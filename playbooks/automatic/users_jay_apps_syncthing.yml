@@ -5,7 +5,7 @@
   vars:
     syncthing_version: 0.12.4
     syncthing_url: https://github.com/syncthing/syncthing/releases/download/v{{syncthing_version}}/syncthing-linux-amd64-v{{syncthing_version}}.tar.gz
-    app_dir: /home/jay/bin/apps
+    app_dir: /home/jay/bin
     syncthing_config: /home/jay/.config/syncthing/config.xml
 
 

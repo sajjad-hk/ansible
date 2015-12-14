@@ -13,7 +13,7 @@
 
 # Replace with users you want to run syncthing clients for
 syncthing_user=jay
-DAEMON=/home/jay/bin/apps/syncthing/syncthing
+DAEMON=/home/jay/bin/syncthing/syncthing
 
 startd() {
   for stuser in $syncthing_user; do

@@ -8,7 +8,7 @@ ragnarok
 
 
 [dm-slim]
-# Unused
+crusader ansible_python_interpreter=/usr/bin/python2
 
 
 [kvm_hosts]
@@ -18,7 +18,6 @@ galaxy
 
 
 [openssh_p22]
-crusader ansible_python_interpreter=/usr/bin/python2
 galaxy
 nagios
 #neptune ansible_ssh_host=neptune.jaylacroix.com ansible_ssh_port=22 # Needs to be open for password auth, for now at least
@@ -29,6 +28,7 @@ ragnarok
 
 
 [openssh_p65001]
+crusader ansible_python_interpreter=/usr/bin/python2
 hermes ansible_ssh_port=65001
 jaylacroix.com ansible_ssh_port=65001
 mail.jaylacroix.me ansible_ssh_port=65001

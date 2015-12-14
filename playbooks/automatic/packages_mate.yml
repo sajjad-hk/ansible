@@ -21,6 +21,7 @@
       - mate-notification-daemon
       - mate-screensaver
       - mate-screensaver-hacks
+      - mate-session-manager
       - mate-system-monitor
       - mate-terminal
       - mate-themes

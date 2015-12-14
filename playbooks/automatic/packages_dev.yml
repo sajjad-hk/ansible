@@ -8,6 +8,7 @@
     pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
     with_items:
+      - base-devel
       - flake8
       - python-pyflakes
       - python2-flake8

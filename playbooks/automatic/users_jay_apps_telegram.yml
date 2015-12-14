@@ -3,28 +3,32 @@
   sudo: True
 
   vars:
-    app_dir: /home/jay/bin/apps
+    app_dir: /home/jay/bin
 
 
   tasks:
   - name: Create local applications directory
     file: path=/home/jay/.local/share/applications state=directory recurse=true owner=jay group=jay
 
-  - file: path={{app_dir}}/Telegram state=directory recurse=true owner=jay group=jay
+  - file: path={{app_dir}}/telegram state=directory recurse=true owner=jay group=jay
     register: directory
 
   - name: Copy application launcher
     copy: src=../files/users_jay/telegram.desktop dest=/home/jay/.local/share/applications/telegram.desktop owner=jay group=jay
 
   - name: Copy application icon
-    copy: src=../files/users_jay/telegram.png dest=/home/jay/bin/apps/Telegram/telegram.png owner=jay group=jay
+    copy: src=../files/users_jay/telegram.png dest=/home/jay/bin/telegram/telegram.png owner=jay group=jay
 
   - name: Download Telegram
     shell: "wget https://tdesktop.com/linux -O /tmp/telegram.tar.xz"
     when: directory.changed
 
   - name: Extract Telegram
-    unarchive: src=/tmp/telegram.tar.xz dest={{app_dir}} copy=no
+    unarchive: src=/tmp/telegram.tar.xz dest=/tmp copy=no
+    when: directory.changed
+
+  - name: Move Telegram
+    shell: mv /tmp/Telegram/* {{app_dir}}/telegram
     when: directory.changed
 
   - name: Correct ownership
