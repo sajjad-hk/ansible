@@ -74,9 +74,10 @@
       - gtk2-engines-murrine
       - guake
       - keepassx
-      - libreoffice-writer
       - libreoffice-calc
+      - libreoffice-gnome
       - libreoffice-impress
+      - libreoffice-writer
       - mpv
       - pavucontrol
       - perl
