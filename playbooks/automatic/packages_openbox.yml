@@ -19,6 +19,7 @@
       - gsimplecal
       - lxappearance
       - mousepad
+      - nitrogen
       - obconf
       - obmenu
       - pcmanfm
@@ -45,6 +46,7 @@
       - gsimplecal
       - lxappearance
       - mousepad
+      - nitrogen
       - obconf
       - obmenu
       - openbox
@@ -71,6 +73,7 @@
       #- gsimplecal # Package not available
       - lxappearance
       - mousepad
+      - nitrogen
       - obconf
       - obmenu
       - pcmanfm
