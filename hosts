@@ -4,10 +4,6 @@ ragnarok
 
 
 [dm-lightdm]
-# Unused
-
-
-[dm-slim]
 crusader ansible_python_interpreter=/usr/bin/python2
 
 

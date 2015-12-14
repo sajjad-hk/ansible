@@ -31,6 +31,11 @@
       - xscreensaver
 
 
+  - name: Copy oblogout.conf (Arch)
+    copy: src=../files/packages_openbox/oblogout.conf dest=/etc/oblogout.conf owner=root group=root mode=644
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
+
+
    ## Debian and Ubuntu
   - name: Install Openbox (Debian-based)
     apt: name={{item}} state=installed
