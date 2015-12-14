@@ -10,6 +10,7 @@
     with_items:
       - atril
       - caja
+      - eom
       - mate-applets
       - mate-backgrounds
       - mate-control-center
@@ -34,6 +35,7 @@
     with_items:
       - atril
       - caja
+      - eom
       - mate-applets
       - mate-backgrounds
       - mate-control-center
@@ -64,6 +66,7 @@
     with_items:
       - atril
       - caja
+      - eom
       - mate-applets
       - mate-backgrounds
       - mate-control-center
