@@ -45,6 +45,7 @@
       - transmission-gtk
       - vlc
       - vorbis-tools
+      - xorg-xbacklight
       - xsel
 
 
@@ -95,6 +96,7 @@
       - transmission-gtk
       - vlc
       - vorbis-tools
+      - xbacklight
       - xfonts-terminus
       - xsel
 
@@ -139,4 +141,5 @@
       - transmission-gtk
       - vlc
       - vorbis-tools
+      - xbacklight
       - xsel
