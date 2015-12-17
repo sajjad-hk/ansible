@@ -4,7 +4,7 @@ ragnarok
 
 
 [dm-lightdm]
-crusader ansible_python_interpreter=/usr/bin/python2
+#crusader ansible_python_interpreter=/usr/bin/python2
 
 
 [kvm_hosts]

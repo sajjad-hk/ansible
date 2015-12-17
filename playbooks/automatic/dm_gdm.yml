@@ -9,6 +9,8 @@
   - apt: name=gdm3
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
+  - service: name=lightdm enabled=no
+
   - service: name=gdm enabled=yes
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
