@@ -17,7 +17,7 @@
 - include: packages_gnome.yml
 - include: packages_mate.yml
 - include: packages_openbox.yml
-- include: packages_raspbian.yml
+- include: packages_pi.yml
 - include: packages_workstation.yml
 - include: kvm_host.yml
 - include: arch_video_intel.yml
