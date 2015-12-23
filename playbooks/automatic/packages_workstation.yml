@@ -23,6 +23,7 @@
       - geany
       - geany-plugins
       - gimp
+      - gnome-keyring
       - gparted
       - gtk-engine-aurora
       - gtk-engine-murrine
@@ -69,6 +70,7 @@
       - geany
       - geany-plugins
       - gimp
+      - gnome-keyring
       - gparted
       - gtk-recordmydesktop
       - gtk2-engines-aurora
@@ -118,6 +120,7 @@
       - galculator
       - geany
       - gimp
+      - gnome-keyring
       - gparted
       - gtk2-engines
       - gtk-recordmydesktop
