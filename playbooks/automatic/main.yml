@@ -13,7 +13,6 @@
 - include: users_jay_apps_thunderbird.yml
 - include: users_jay_apps_syncthing.yml
 - include: users_jay_apps_telegram.yml
-- include: packages_dev.yml
 - include: packages_games.yml
 - include: packages_gnome.yml
 - include: packages_mate.yml

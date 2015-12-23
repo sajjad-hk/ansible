@@ -9,9 +9,11 @@
     pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
     with_items:
+      - base-devel
       - colordiff
       - curl
       - dnsutils
+      - flake8
       - git
       - htop
       - iotop
@@ -21,10 +23,18 @@
       - lynx
       - mosh
       - ncdu
+      - python-pyflakes
+      - python-virtualenv
+      - python2-flake8
+      - python2-pip
+      - python2-pyflakes
+      - python2-virtualenv
       - rsync
+      - ruby
       - screen
       - sshfs
       - the_silver_searcher
+      - tig
       - tmux
       - vim-python3
       - wget
@@ -45,10 +55,20 @@
       - mailx
       - mosh
       - ncdu
+      - pyflakes
+      - python-flake8
+      - python-pep8
+      - python-pip
+      - python-virtualenv
+      - python3-flake8
+      - python3-pep8
+      - python3-pyflakes
       - rsync
+      - ruby
       - screen
       - sshfs
       - the_silver_searcher
+      - tig
       - tmux
       - vim-enhanced
       - wget
@@ -81,6 +101,7 @@
     apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
+      - aptitude
       - colordiff
       - curl
       - git
@@ -91,10 +112,20 @@
       - lynx
       - mosh
       - ncdu
+      - pyflakes
+      - python-dev
+      - python-flake8
+      - python-pip
+      - python-virtualenv
+      - python3-flake8
+      - rake
       - rsync
+      - ruby
+      - ruby-dev
       - screen
-      # silversearcher-ag # Not currently available on some versions of raspbian
+      - silversearcher-ag
       - sshfs
+      - tig
       - tmux
       - vim-nox
       - wget
