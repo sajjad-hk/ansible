@@ -3,6 +3,7 @@
   sudo: True
   tasks:
 
+
   ## Archlinux and Manjaro
   - name: Install Openbox (Arch)
     pacman: name={{item}} state=installed
@@ -14,7 +15,6 @@
       # - compton # Not currently available, only in AUR
       - gksu
       - gmrun
-      - gnome-keyring
       - gnome-themes-standard
       - gsimplecal
       - lxappearance
@@ -47,7 +47,6 @@
       - fonts-cantarell
       - gksu
       - gmrun
-      - gnome-keyring
       - gnome-themes-standard
       - gsimplecal
       - lxappearance
@@ -74,7 +73,6 @@
       - clipit
       #- compton # Not available
       - gmrun
-      - gnome-keyring
       - gnome-themes-standard
       #- gsimplecal # Package not available
       - lxappearance
@@ -88,3 +86,9 @@
       - volumeicon
       - xarchiver
       - xscreensaver
+
+
+  # Copy config files
+  - name: Copy oblogout.conf (Arch)
+    copy: src=../files/packages_openbox/oblogout.conf dest=/etc/oblogout.conf owner=root group=root mode=644
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
