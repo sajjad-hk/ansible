@@ -9,10 +9,7 @@
 - include: ntp_client.yml
 - include: users_jay.yml
 - include: users_jay_directories.yml
-- include: users_jay_apps_firefox.yml
-- include: users_jay_apps_thunderbird.yml
-- include: users_jay_apps_syncthing.yml
-- include: users_jay_apps_telegram.yml
+- include: users_jay_apps.yml
 - include: packages_games.yml
 - include: packages_gnome.yml
 - include: packages_mate.yml
@@ -27,4 +24,3 @@
 - include: dm_lightdm.yml
 - include: openssh_p22.yml
 - include: openssh_p65001.yml
-- include: network_manager.yml
