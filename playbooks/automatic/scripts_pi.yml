@@ -1,10 +1,10 @@
 - name: Install scripts on servers
-  hosts: raspbian
+  hosts: raspberry-pi
   sudo: True
   tasks:
 
   ## Copy network_check script
-  - copy: src=../files/scripts_raspbian/network_check dest=/usr/local/bin/network_check owner=root group=root mode=755
+  - copy: src=../files/scripts_pi/network_check dest=/usr/local/bin/network_check owner=root group=root mode=755
 
   ## Ensure cron is available
   - apt: name=cron

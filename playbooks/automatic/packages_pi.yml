@@ -1,5 +1,5 @@
-- name: Manage packages on Raspbian hosts
-  hosts: raspbian
+- name: Configure Raspberry Pi hosts
+  hosts: raspberry-pi
   sudo: True
   tasks:
 
@@ -11,93 +11,15 @@
 
   ## Ensure dhcpcd5 is running
   - service: name=dhcpcd enabled=yes state=started
- 
-  ## Raspbian packages to purge
-  - name: Remove unneeded packages from raspbian hosts
-    apt: name={{item}} state=absent
-    with_items:
-      - adwaita-icon-theme
-      - aspell
-      - aspell-en
-      - avahi-daemon
-      - desktop-base
-      - desktop-file-utils
-      - epiphany-browser
-      - epiphany-browser-data
-      - esound-common
-      - exim4-base
-      - fonts-droid
-      - fonts-robooto
-      - freepats
-      - galculator
-      - gnome-desktop3-data
-      - gnome-icon-theme
-      - gnome-icon-themes-standard-data
-      - gnome-themes-standard-data
-      - gpicview
-      - gstreamer0.10-alsa
-      - gstreamer0.10-plugins-base
-      - gstreamer1.0-alsa
-      - gstreamer1.0-libav
-      - gstreamer1.0-omx
-      - gstreamer1.0-plugins-bad
-      - gstreamer1.0-plugins-base
-      - gstreamer1.0-plugins-good
-      - gstreamer1.0-x
-      - gtk2-engines
-      - jackd
-      - jackd2
-      - leafpad
-      - libgtk-3-common
-      - lightdm
-      - lightdm-gtk-greeter
-      - lxde
-      - lxappearance
-      - lxde-common
-      - lxde-core
-      - lxde-icon-theme
-      - lxinput
-      - lxmenu-data
-      - lxpanel
-      - lxpanel-data
-      - lxpolkit
-      - lxrandr
-      - lxsession-edit
-      - lxshortcut
-      - lxtask
-      - lxterminal
-      - minecraft-pi
-      - nano
-      - netsurf-gtk
-      - obconf
-      - omxplayer
-      - openbox
-      - pcmanfm
-      - penguinspuzzle
-      - pistore
-      - python3-picamera
-      - python-minecraftpi
-      - raspberrypi-artwork
-      - raspberrypi-ui-mods
-      - sonic-pi
-      - supercollider
-      - supercollider-common
-      - supercollider-server
-      - timidity
-      - v4l-utils
-      - weston
-      - whiptail
-      - wolfram-engine
-      - x11-xserver-utils
-      - xarchiver
-      - xfce4-keyboard-shortcuts
-      - xfce4-mixer
-      - xpdf
-      - xserver-xorg
-      - xserver-xorg-core
-      - xserver-xorg-input-all
-      - xserver-xorg-input-evdev
-      - xserver-xorg-input-synaptics
-      - xserver-xorg-video-fbdev
-      - xserver-xorg-video-fbturbo
-      - zenity
+
+  ## Copy network_check script
+  - name: Copy network_check script (Pi)
+    copy: src=../files/scripts_pi/network_check dest=/usr/local/bin/network_check owner=root group=root mode=755
+
+  ## Ensure cron is available
+  - name: Ensure cron is installed
+    apt: name=cron
+    when: ansible_distribution in ['Debian', 'Ubuntu']
+
+  ## Set up the crontab
+  - cron: name="network_check" minute="*/2" hour="*" day="*" job="/usr/local/bin/network_check > /dev/null"

@@ -3,7 +3,7 @@
 - include: sudoers.yml
 - include: dotfiles_minimal.yml
 - include: scripts_server.yml
-- include: scripts_raspbian.yml
+- include: scripts_pi.yml
 - include: ups_check.yml
 - include: nagios_client.yml
 - include: ntp_client.yml
@@ -11,9 +11,9 @@
 - include: users_jay_directories.yml
 - include: users_jay_apps.yml
 - include: packages_games.yml
-- include: packages_gnome.yml
-- include: packages_mate.yml
-- include: packages_openbox.yml
+- include: de_gnome.yml
+- include: de_mate.yml
+- include: wm_openbox.yml
 - include: packages_pi.yml
 - include: packages_workstation.yml
 - include: kvm_host.yml
