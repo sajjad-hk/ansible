@@ -1,0 +1,56 @@
+- name: Install GNOME packages on hosts
+  hosts: workstations-gnome
+  sudo: True
+  tasks:
+
+  ## Archlinux and Manjaro
+  - name: Install GNOME (Arch)
+    pacman: name={{item}} state=installed
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    with_items:
+      - file-roller
+      - gedit
+      - gnome-control-center
+      - gnome-music
+      - gnome-power-manager
+      - gnome-shell
+      - gnome-shell-extensions
+      - gnome-system-monitor
+      - gnome-terminal
+      - gnome-tweak-tool
+      - nautilus
+
+
+  ## Debian and Ubuntu
+  - name: Install GNOME (Debian-based)
+    apt: name={{item}} state=installed
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+    with_items:
+      - file-roller
+      - gedit
+      - gnome-control-center
+      - gnome-music
+      - gnome-power-manager
+      - gnome-shell
+      - gnome-shell-extensions
+      - gnome-system-monitor
+      - gnome-terminal
+      - gnome-tweak-tool
+      - nautilus
+
+
+  ## Fedora
+  - name: Install GNOME (Fedora)
+    dnf: name={{item}} state=installed
+    when: ansible_distribution == 'Fedora'
+    with_items:
+      - control-center
+      - file-roller
+      - gedit
+      - gnome-music
+      - gnome-power-manager
+      - gnome-shell
+      - gnome-system-monitor
+      - gnome-terminal
+      - gnome-tweak-tool
+      - nautilus

@@ -1,0 +1,94 @@
+- name: Install Openbox packages on hosts
+  hosts: workstations-openbox
+  sudo: True
+  tasks:
+
+
+  ## Archlinux and Manjaro
+  - name: Install Openbox (Arch)
+    pacman: name={{item}} state=installed
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    with_items:
+      - acpid
+      - cantarell-fonts
+      - clipit
+      # - compton # Not currently available, only in AUR
+      - gksu
+      - gmrun
+      - gnome-themes-standard
+      - gsimplecal
+      - lxappearance
+      - mousepad
+      - nitrogen
+      - obconf
+      - oblogout
+      - obmenu
+      - pcmanfm
+      - scrot
+      - tint2
+      - volumeicon
+      - xarchiver
+      - xscreensaver
+
+
+  - name: Copy oblogout.conf (Arch)
+    copy: src=../files/openbox/oblogout.conf dest=/etc/oblogout.conf owner=root group=root mode=644
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
+
+
+   ## Debian and Ubuntu
+  - name: Install Openbox (Debian-based)
+    apt: name={{item}} state=installed
+    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+    with_items:
+      - acpid
+      - clipit
+      - compton
+      - fonts-cantarell
+      - gksu
+      - gmrun
+      - gnome-themes-standard
+      - gsimplecal
+      - lxappearance
+      - mousepad
+      - nitrogen
+      - obconf
+      - obmenu
+      - openbox
+      - pcmanfm
+      - scrot
+      - tint2
+      - volumeicon-alsa
+      - xarchiver
+      - xscreensaver
+
+
+  ## Fedora
+  - name: Install Openbox (Fedora)
+    dnf: name={{item}} state=installed
+    when: ansible_distribution == 'Fedora'
+    with_items:
+      - abattis-cantarell-fonts
+      - acpid
+      - clipit
+      #- compton # Not available
+      - gmrun
+      - gnome-themes-standard
+      #- gsimplecal # Package not available
+      - lxappearance
+      - mousepad
+      - nitrogen
+      - obconf
+      - obmenu
+      - pcmanfm
+      - scrot
+      - tint2
+      - volumeicon
+      - xarchiver
+      - xscreensaver
+
+
+  # Copy config files
+  - name: Copy oblogout.conf (Arch)
+    copy: src=../files/packages_openbox/oblogout.conf dest=/etc/oblogout.conf owner=root group=root mode=644
+    when: ansible_distribution in ['Archlinux', 'Manjaro']

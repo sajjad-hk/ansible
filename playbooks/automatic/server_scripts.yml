@@ -3,6 +3,7 @@
   sudo: True
   tasks:
 
+
   ## Copy script files
   - copy: src=../files/scripts_server/email-params dest=/usr/local/bin/.email-params owner=root group=root mode=755
   - copy: src=../files/scripts_server/email_etc_backup dest=/usr/local/bin/email_etc_backup owner=root group=root mode=755
