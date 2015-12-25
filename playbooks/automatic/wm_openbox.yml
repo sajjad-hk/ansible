@@ -90,5 +90,5 @@
 
   # Copy config files
   - name: Copy oblogout.conf (Arch)
-    copy: src=../files/packages_openbox/oblogout.conf dest=/etc/oblogout.conf owner=root group=root mode=644
+    copy: src=../files/openbox/oblogout.conf dest=/etc/oblogout.conf owner=root group=root mode=644
     when: ansible_distribution in ['Archlinux', 'Manjaro']

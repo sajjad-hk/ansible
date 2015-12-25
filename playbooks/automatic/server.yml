@@ -1,0 +1,49 @@
+- name: Configure servers
+  hosts: servers
+  sudo: True
+  tasks:
+
+
+  ## Ensure cron is available
+  - name: Install cron (Arch)
+    pacman: name=cronie
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
+
+  - name: Install cron (Debian-based)
+    apt: name=cron
+    when: ansible_distribution in ['Debian', 'Ubuntu']
+
+  - name: Install cron (Fedora)
+    dnf: name=cronie
+    when: ansible_distribution == 'Fedora'
+
+
+  ## Copy script files
+  - name: Copy .email-params
+    copy: src=../files/server/email-params dest=/usr/local/bin/.email-params owner=root group=root mode=755
+
+  - name: Copy email_etc_backup script
+    copy: src=../files/server/email_etc_backup dest=/usr/local/bin/email_etc_backup owner=root group=root mode=755
+
+  - name: Copy email_package_list script
+    copy: src=../files/server/email_package_list dest=/usr/local/bin/email_package_list owner=root group=root mode=755
+
+  - name: Copy process_check.py script
+    copy: src=../files/server/process_check.py dest=/usr/local/bin/process_check.py owner=root group=root mode=755
+
+  - name: Copy update script
+    copy: src=../files/server/update dest=/usr/local/bin/update owner=root group=root mode=755
+
+  - name: Copy weekly_update script
+    copy: src=../files/server/weekly_update dest=/usr/local/bin/weekly_update owner=root group=root mode=755
+
+
+  ## Set up the crontab
+  - name: Install cron job (weekly_update)
+    cron: name="weekly_update" minute="0" hour="1" weekday="5" job="/usr/local/bin/weekly_update > /dev/null"
+
+  - name: Install cron job (email_etc_backup)
+    cron: name="email_etc_backup" minute="0" hour="2" weekday="5" job="/usr/local/bin/email_etc_backup > /dev/null"
+
+  - name: Install cron job (email_package_list)
+    cron: name="email_package_list" minute="0" hour="3" weekday="5" job="/usr/local/bin/email_package_list > /dev/null"

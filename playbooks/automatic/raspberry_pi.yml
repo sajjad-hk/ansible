@@ -14,7 +14,7 @@
 
   ## Copy network_check script
   - name: Copy network_check script (Pi)
-    copy: src=../files/scripts_pi/network_check dest=/usr/local/bin/network_check owner=root group=root mode=755
+    copy: src=../files/pi/network_check dest=/usr/local/bin/network_check owner=root group=root mode=755
 
   ## Ensure cron is available
   - name: Ensure cron is installed

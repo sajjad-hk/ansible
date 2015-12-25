@@ -2,7 +2,7 @@
 - include: packages_base.yml
 - include: sudoers.yml
 - include: dotfiles_minimal.yml
-- include: server_scripts.yml
+- include: server.yml
 - include: ups_check.yml
 - include: nagios_client.yml
 - include: ntp_client.yml
