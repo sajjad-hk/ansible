@@ -61,10 +61,6 @@ crusader ansible_python_interpreter=/usr/bin/python2
 ragnarok
 
 
-# May not be needed anymore
-#[workstations-arch]
-#crusader ansible_python_interpreter=/usr/bin/python2
-
 
 [workstations-games]
 crusader ansible_python_interpreter=/usr/bin/python2
