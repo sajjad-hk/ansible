@@ -46,20 +46,6 @@
     copy: src=../files/openssh/system_stats.sh dest=/usr/local/bin/system_stats.sh owner=root group=root mode=755
 
 
-  ## Ensure cron is available
-  - name: Install cronie (Arch)
-    pacman: name=cronie
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - name: Install cron (Debian-based)
-    apt: name=cron
-    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
-
-  - name: Install cronie (Fedora)
-    dnf: name=cronie
-    when: ansible_distribution == 'Fedora'
-
-
   ## Set up the crontab for system_stats.sh script
   - name: Add crontab entry for system_stats.sh
     cron: name="update_stats" job="/usr/local/bin/system_stats.sh > /dev/null"

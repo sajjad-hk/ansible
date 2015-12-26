@@ -8,16 +8,5 @@
     copy: src=../files/ups_check/ups_check dest=/usr/local/bin/ups_check owner=root group=root mode=755
 
 
-  ## Ensure cron is available
-  - pacman: name=cronie
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
-
-  - apt: name=cron
-    when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
-
-  - dnf: name=cronie
-    when: ansible_distribution == 'Fedora'
-
-
   ## Set up the crontab
   - cron: name="ups_check" minute="*/2" job="/usr/local/bin/ups_check > /dev/null"
