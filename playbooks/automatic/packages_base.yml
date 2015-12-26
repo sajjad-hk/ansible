@@ -11,6 +11,7 @@
     with_items:
       - base-devel
       - colordiff
+      - cronie
       - curl
       - dnsutils
       - flake8
@@ -46,6 +47,7 @@
     when: ansible_distribution == 'Fedora'
     with_items:
       - colordiff
+      - cronie
       - curl
       - git
       - htop
@@ -80,6 +82,7 @@
     when: ansible_distribution == 'CentOS'
     with_items:
       - colordiff
+      - cronie
       - curl
       - fuse-sshfs
       - git
@@ -103,6 +106,7 @@
     with_items:
       - aptitude
       - colordiff
+      - cron
       - curl
       - git
       - heirloom-mailx
