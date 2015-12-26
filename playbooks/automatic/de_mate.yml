@@ -19,6 +19,7 @@
       - mate-media
       - mate-menus
       - mate-notification-daemon
+      - mate-power-manager
       - mate-screensaver
       - mate-screensaver-hacks
       - mate-session-manager
