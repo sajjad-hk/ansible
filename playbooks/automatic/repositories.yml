@@ -1,5 +1,5 @@
 - name: Set up software repositories
-  hosts: workstations
+  hosts: servers:workstations
   sudo: True
   tasks:
 
@@ -28,13 +28,13 @@
     notify: apt-update
     when: ansible_distribution == 'Debian'
 
-  - name: Enable backports
-    copy: src=../files/repositories/backports.list dest=/etc/apt/sources.list.d/backports.list owner=root group=root mode=644
+  - name: Install sources.list
+    copy: src=../files/repositories/sources.list dest=/etc/apt/sources.list owner=root group=root mode=644
     notify: apt-update
     when: ansible_distribution == 'Debian'
 
-  - name: Install sources
-    copy: src=../files/repositories/sources.list dest=/etc/apt/sources.list owner=root group=root mode=644
+  - name: Enable backports
+    copy: src=../files/repositories/backports.list dest=/etc/apt/sources.list.d/backports.list owner=root group=root mode=644
     notify: apt-update
     when: ansible_distribution == 'Debian'
 
