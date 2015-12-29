@@ -30,6 +30,8 @@
       - gtk-engine-murrine
       - gtk-recordmydesktop
       - guake
+      - hunspell-en
+      - hyphen-en
       - keepassx
       - libreoffice-still
       - mpv
@@ -86,6 +88,8 @@
       - gtk2-engines-aurora
       - gtk2-engines-murrine
       - guake
+      - hunspell-en-us
+      - hyphen-en-us
       - keepassx
       - libreoffice-calc
       - libreoffice-gnome
