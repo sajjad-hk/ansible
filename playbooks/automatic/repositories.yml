@@ -28,15 +28,20 @@
     notify: apt-update
     when: ansible_distribution == 'Debian'
 
-  - name: Install sources.list
-    copy: src=../files/repositories/sources.list dest=/etc/apt/sources.list owner=root group=root mode=644
+  - name: Install sources.list (Jessie)
+    copy: src=../files/repositories/sources.list.jessie dest=/etc/apt/sources.list owner=root group=root mode=644
     notify: apt-update
-    when: ansible_distribution == 'Debian'
+    when: ansible_distribution_release == 'jessie'
 
-  - name: Enable backports
+  - name: Install sources.list (Stretch)
+    copy: src=../files/repositories/sources.list.stretch dest=/etc/apt/sources.list owner=root group=root mode=644
+    notify: apt-update
+    when: ansible_distribution_release == 'stretch'
+
+  - name: Enable backports (Jessie)
     copy: src=../files/repositories/backports.list dest=/etc/apt/sources.list.d/backports.list owner=root group=root mode=644
     notify: apt-update
-    when: ansible_distribution == 'Debian'
+    when: ansible_distribution_release == 'jessie'
 
 
   ## Ubuntu
