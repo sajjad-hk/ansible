@@ -125,6 +125,8 @@
     when: thunderbird_dir.changed
     register: app_installed
 
+
+  ## Correct ownership
   - name: Correct ownership
     command: chown jay:jay -R {{app_dir}}
     when: app_installed.changed
