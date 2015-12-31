@@ -73,6 +73,7 @@
       - cmus
       - conky
       - cryptsetup
+      - dmenu
       - easytag
       - exfat-utils
       - filezilla
@@ -132,6 +133,7 @@
       - brasero
       #- cmus # Currently not available in Fedora, check this later
       - conky
+      - dmenu
       - easytag
       - exfat-utils
       - filezilla
