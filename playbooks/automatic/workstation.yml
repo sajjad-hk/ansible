@@ -142,6 +142,10 @@
       - gimp
       - gnome-keyring
       - gparted
+      - gstreamer-plugins-bad
+      - gstreamer-plugins-good
+      - gstreamer-plugins-ugly
+      - gstreamer1-plugins-ugly # To do: Which gstreamer packages are actually necessary?
       - gtk2-engines
       - gtk-recordmydesktop
       - guake
