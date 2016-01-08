@@ -74,3 +74,8 @@ Host upsmon
     Hostname 10.10.96.7
     Port 22
     User jay
+
+Host work-vm
+    Hostname 10.10.96.100
+    Port 22
+    User jay
