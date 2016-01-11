@@ -20,8 +20,9 @@ nagios
 #neptune ansible_ssh_host=neptune.jaylacroix.com ansible_ssh_port=22 # Needs to be open for password auth, for now at least
 pi-dev
 pluto
-upsmon
 ragnarok
+upsmon
+work-vm
 
 
 [openssh_p65001]
@@ -48,6 +49,7 @@ pi-dev
 pluto
 upsmon
 mail.jaylacroix.me ansible_ssh_port=65001
+work-vm
 
 
 [ups_controlled]
@@ -73,17 +75,17 @@ ragnarok
 
 
 [workstations-mate]
-#crusader ansible_python_interpreter=/usr/bin/python2
-ragnarok
+crusader ansible_python_interpreter=/usr/bin/python2
+#ragnarok
 
 
 [workstations-openbox]
 #crusader ansible_python_interpreter=/usr/bin/python2
-ragnarok
+#ragnarok
 
 
 [arch-intel-video]
-#crusader ansible_python_interpreter=/usr/bin/python2
+crusader ansible_python_interpreter=/usr/bin/python2
 
 
 [arch-nvidia-video]
