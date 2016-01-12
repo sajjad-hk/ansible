@@ -109,6 +109,10 @@
     unarchive: src=/tmp/telegram.tar.xz dest=/tmp copy=no
     when: telegram_dir.changed
 
+  - name: Add Telegram icon
+    copy: src=../files/users_jay/telegram.png dest={{app_dir}}/telegram
+    when: telegram_dir.changed
+
   - name: Move Telegram
     shell: mv /tmp/Telegram/* {{app_dir}}/telegram
     when: telegram_dir.changed
