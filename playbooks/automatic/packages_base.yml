@@ -10,10 +10,10 @@
     when: ansible_distribution in ['Archlinux', 'Manjaro']
     with_items:
       - base-devel
+      - bind-tools
       - colordiff
       - cronie
       - curl
-      - dnsutils
       - flake8
       - git
       - htop
