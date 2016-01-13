@@ -9,21 +9,39 @@
     pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
     with_items:
-      - base-devel
+      - autoconf
+      - automake
       - bind-tools
+      - binutils
+      - bison
       - colordiff
       - cronie
       - curl
+      - fakeroot
+      - file
+      - findutils
       - flake8
+      - flex
+      - gawk
+      - gcc
+      - gettext
       - git
+      - grep
+      - groff
+      - gzip
       - htop
       - iotop
+      - libtool
       - linux-lts
       - linux-lts-headers
       - lm_sensors
       - lynx
+      - m4
+      - make
       - mosh
       - ncdu
+      - patch
+      - pkg-config
       - python-pyflakes
       - python-virtualenv
       - python2-flake8
@@ -33,12 +51,16 @@
       - rsync
       - ruby
       - screen
+      - sed
       - sshfs
+      - texinfo
       - the_silver_searcher
       - tig
       - tmux
+      - util-linux
       - vim-python3
       - wget
+      - which
 
 
   ## Fedora packages
