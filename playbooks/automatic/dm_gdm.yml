@@ -3,18 +3,21 @@
   become: True
   tasks:
 
-  - pacman: name=gdm
+  - name: Install GDM (Arch)
+    pacman: name=gdm
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - apt: name=gdm3
+  - name: Install GDM (Debian-based)
+    apt: name=gdm3
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
-  - service: name=lightdm enabled=no
+  - name: Disable Lightdm
+    service: name=lightdm enabled=no
 
-  - service: name=gdm enabled=yes
+  - name: Enable gdm (Arch)
+    service: name=gdm enabled=yes
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - service: name=gdm3 enabled=yes
+  - name: Enable gdm3 (Debian-based)
+    service: name=gdm3 enabled=yes
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
-
-  - service: name=lightdm enabled=no

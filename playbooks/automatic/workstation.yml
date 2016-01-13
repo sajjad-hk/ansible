@@ -184,36 +184,91 @@
 
 
   ## Set up directories
-  - file: path=/home/jay/bin state=directory owner=jay group=users mode=700
-  - file: path=/home/jay/desktop state=directory owner=jay group=users mode=700
-  - file: path=/home/jay/documents state=directory owner=jay group=users mode=700
-  - file: path=/home/jay/downloads state=directory owner=jay group=users mode=700
-  - file: path=/home/jay/games state=directory owner=jay group=users mode=700
-  - file: path=/home/jay/music state=directory owner=jay group=users mode=700
-  - file: path=/home/jay/pictures state=directory owner=jay group=users mode=700
-  - file: path=/home/jay/projects state=directory owner=jay group=users mode=700
-  - file: path=/home/jay/templates state=directory owner=jay group=users mode=700
-  - file: path=/home/jay/videos state=directory owner=jay group=users mode=700
-  - file: path=/mnt/pluto state=directory owner=jay group=users mode=700
-  - file: path=/mnt/pluto/archive state=directory owner=jay group=users mode=700
-  - file: path=/mnt/pluto/backup state=directory owner=jay group=users mode=700
-  - file: path=/mnt/pluto/downloads state=directory owner=jay group=users mode=700
-  - file: path=/mnt/pluto/private state=directory owner=jay group=users mode=700
-  - file: path=/mnt/pluto/public state=directory owner=jay group=users mode=700
-  - file: path=/mnt/pluto/videos state=directory owner=jay group=users mode=700
-  - file: path=/share state=directory owner=jay group=users mode=700
-  - file: path=/share/android state=directory owner=jay group=users mode=700
-  - file: path=/share/android/camera state=directory owner=jay group=users mode=700
-  - file: path=/share/android/pictures state=directory owner=jay group=users mode=700
+  - name: Create ~/bin
+    file: path=/home/jay/bin state=directory owner=jay group=users mode=700
+
+  - name: Create ~/desktop
+    file: path=/home/jay/desktop state=directory owner=jay group=users mode=700
+
+  - name: Create ~/documents
+    file: path=/home/jay/documents state=directory owner=jay group=users mode=700
+
+  - name: Create ~/downloads
+    file: path=/home/jay/downloads state=directory owner=jay group=users mode=700
+
+  - name: Create ~/games
+    file: path=/home/jay/games state=directory owner=jay group=users mode=700
+
+  - name: Create ~/music
+    file: path=/home/jay/music state=directory owner=jay group=users mode=700
+
+  - name: Create ~/pictures
+    file: path=/home/jay/pictures state=directory owner=jay group=users mode=700
+
+  - name: Create ~/projects
+    file: path=/home/jay/projects state=directory owner=jay group=users mode=700
+
+  - name: Create ~/templates
+    file: path=/home/jay/templates state=directory owner=jay group=users mode=700
+
+  - name: Create ~/videos
+    file: path=/home/jay/videos state=directory owner=jay group=users mode=700
+
+  - name: Create /mnt/pluto
+    file: path=/mnt/pluto state=directory owner=jay group=users mode=700
+
+  - name: Create /mnt/pluto/archive
+    file: path=/mnt/pluto/archive state=directory owner=jay group=users mode=700
+
+  - name: Create /mnt/pluto/backup
+    file: path=/mnt/pluto/backup state=directory owner=jay group=users mode=700
+
+  - name: Create /mnt/pluto/downloads
+    file: path=/mnt/pluto/downloads state=directory owner=jay group=users mode=700
+
+  - name: Create /mnt/pluto/private
+    file: path=/mnt/pluto/private state=directory owner=jay group=users mode=700
+
+  - name: Create /mnt/pluto/public
+    file: path=/mnt/pluto/public state=directory owner=jay group=users mode=700
+
+  - name: Create /mnt/pluto/videos
+    file: path=/mnt/pluto/videos state=directory owner=jay group=users mode=700
+
+  - name: Create /share
+    file: path=/share state=directory owner=jay group=users mode=700
+
+  - name: Create /share/android
+    file: path=/share/android state=directory owner=jay group=users mode=700
+
+  - name: Create /share/android/camera
+    file: path=/share/android/camera state=directory owner=jay group=users mode=700
+
+  - name: Create /share/android/pictures
+    file: path=/share/android/pictures state=directory owner=jay group=users mode=700
 
 
   ## Remove default directories
-  - file: path=/home/jay/Desktop state=absent
-  - file: path=/home/jay/Documents state=absent
-  - file: path=/home/jay/Downloads state=absent
-  - file: path=/home/jay/Music state=absent
-  - file: path=/home/jay/Pictures state=absent
-  - file: path=/home/jay/Public state=absent
-  - file: path=/home/jay/Templates state=absent
-  - file: path=/home/jay/Videos state=absent
+  - name: Remove ~/Desktop
+    file: path=/home/jay/Desktop state=absent
 
+  - name: Remove ~/Documents
+    file: path=/home/jay/Documents state=absent
+
+  - name: Remove ~/Downloads
+    file: path=/home/jay/Downloads state=absent
+
+  - name: Remove ~/Music
+    file: path=/home/jay/Music state=absent
+
+  - name: Remove ~/Pictures
+    file: path=/home/jay/Pictures state=absent
+
+  - name: Remove ~/Public
+    file: path=/home/jay/Public state=absent
+
+  - name: Remove ~/Templates
+    file: path=/home/jay/Templates state=absent
+
+  - name: Remove ~/Videos
+    file: path=/home/jay/Videos state=absent

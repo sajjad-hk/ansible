@@ -10,7 +10,8 @@
       - dhcpcd5
 
   ## Ensure dhcpcd5 is running
-  - service: name=dhcpcd enabled=yes state=started
+  - name: Start and enable dhcpcd
+    service: name=dhcpcd enabled=yes state=started
 
   ## Copy network_check script
   - name: Copy network_check script (Pi)
@@ -22,4 +23,5 @@
     when: ansible_distribution in ['Debian', 'Ubuntu']
 
   ## Set up the crontab
-  - cron: name="network_check" minute="*/2" hour="*" day="*" job="/usr/local/bin/network_check > /dev/null"
+  - Add network_check cron job
+    cron: name="network_check" minute="*/2" hour="*" day="*" job="/usr/local/bin/network_check > /dev/null"

@@ -30,8 +30,11 @@
 
 
   ## Populate .ssh directory
-  - copy: src=../files/users_jay/config dest=/home/jay/.ssh/config owner=jay group=jay mode=600
-  - copy: src=../files/users_jay/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=jay mode=600
+  - name: Copy ssh config file
+    copy: src=../files/users_jay/config dest=/home/jay/.ssh/config owner=jay group=jay mode=600
+
+  - name: Copy ssh authorized_keys file
+    copy: src=../files/users_jay/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=jay mode=600
 
 
   handlers:

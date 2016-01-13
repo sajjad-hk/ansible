@@ -4,16 +4,20 @@
   tasks:
 
   ## Install packages
-  - pacman: name=ntp
+  - name: Install NTP (Arch)
+    pacman: name=ntp
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - dnf: name=ntp
+  - name: Install NTP (Fedora)
+    dnf: name=ntp
     when: ansible_distribution == 'Fedora'
 
-  - apt: name=ntp
+  - name: Install NTP (Debian-based)
+    apt: name=ntp
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
-  - yum: name=ntp
+  - name: Install NTP (CentOS)
+    yum: name=ntp
     when: ansible_distribution == 'CentOS'
 
 
