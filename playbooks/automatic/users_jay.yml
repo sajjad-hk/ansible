@@ -14,11 +14,12 @@
     user: name=jay state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="jay" uid=1000 shell=/bin/bash
     notify: change_ownership
 
+  - name: Add jay to admins group
+    user: name=jay groups=admins append=yes
 
   ## Create .config directory
   - name: create .config directory
     file: path=/home/jay/.config state=directory owner=jay group=jay mode=700
-
 
   ## Set user directories
   - name: copy user-dirs.dirs
