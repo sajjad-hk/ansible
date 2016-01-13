@@ -1,6 +1,6 @@
 - name: Configure Nagios client
   hosts: servers
-  sudo: True
+  become: True
   tasks:
 
   ## Install packages

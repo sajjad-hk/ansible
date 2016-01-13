@@ -1,6 +1,6 @@
 - name: Configure sudoers
   hosts: workstations:servers
-  sudo: True
+  become: True
   tasks:
 
 

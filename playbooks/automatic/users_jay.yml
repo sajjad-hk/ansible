@@ -1,6 +1,6 @@
 - name: Set up user jay
   hosts: workstations:servers
-  sudo: True
+  become: True
   tasks:
 
 

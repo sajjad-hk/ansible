@@ -1,6 +1,6 @@
 - name: Install default dotfiles on servers
   hosts: servers
-  sudo: True
+  become: True
   tasks:
 
   ## Set up default files and directories

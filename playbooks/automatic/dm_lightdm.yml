@@ -1,6 +1,6 @@
 - name: Light DM
   hosts: dm-lightdm
-  sudo: True
+  become: True
   tasks:
 
   - apt: name=lightdm

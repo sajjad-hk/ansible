@@ -1,6 +1,6 @@
 - name: Install MATE packages on hosts
   hosts: workstations-mate
-  sudo: True
+  become: True
   tasks:
 
   ## Archlinux and Manjaro

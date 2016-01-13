@@ -1,6 +1,6 @@
 - name: Install UPS check script
   hosts: ups_controlled
-  sudo: True
+  become: True
   tasks:
 
   ## Copy script files

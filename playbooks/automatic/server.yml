@@ -1,6 +1,6 @@
 - name: Configure servers
   hosts: servers
-  sudo: True
+  become: True
   tasks:
 
 

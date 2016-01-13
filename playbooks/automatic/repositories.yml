@@ -1,6 +1,6 @@
 - name: Set up software repositories
   hosts: workstations
-  sudo: True
+  become: True
   tasks:
 
   ## Arch Linux

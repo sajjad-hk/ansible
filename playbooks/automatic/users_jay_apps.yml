@@ -1,6 +1,6 @@
 - name: Install apps
   hosts: workstations
-  sudo: True
+  become: True
 
 
   vars:

@@ -1,6 +1,6 @@
 - name: GDM
   hosts: dm-gdm
-  sudo: True
+  become: True
   tasks:
 
   - pacman: name=gdm

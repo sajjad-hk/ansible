@@ -1,6 +1,6 @@
 - name: Configure OpenSSH server on port 22
   hosts: openssh_p22
-  sudo: True
+  become: True
   tasks:
 
 

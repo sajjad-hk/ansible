@@ -1,6 +1,6 @@
 - name: Install KVM virtualization host
   hosts: kvm_hosts
-  sudo: True
+  become: True
   tasks:
 
   ## Arch Linux

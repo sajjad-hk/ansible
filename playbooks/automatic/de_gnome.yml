@@ -1,6 +1,6 @@
 - name: Install GNOME packages on hosts
   hosts: workstations-gnome
-  sudo: True
+  become: True
   tasks:
 
   ## Archlinux and Manjaro

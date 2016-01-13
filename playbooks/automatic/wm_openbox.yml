@@ -1,6 +1,6 @@
 - name: Install Openbox packages on hosts
   hosts: workstations-openbox
-  sudo: True
+  become: True
   tasks:
 
 

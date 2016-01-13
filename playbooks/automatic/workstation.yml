@@ -1,6 +1,6 @@
 - name: Set up workstation hosts
   hosts: workstations
-  sudo: True
+  become: True
   tasks:
 
   ## Arch Linux

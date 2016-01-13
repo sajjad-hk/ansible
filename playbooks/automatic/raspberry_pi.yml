@@ -1,6 +1,6 @@
 - name: Configure Raspberry Pi hosts
   hosts: raspberry-pi
-  sudo: True
+  become: True
   tasks:
 
   ## Raspbian packages to install

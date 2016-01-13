@@ -1,6 +1,6 @@
 - name: Install game packages
   hosts: workstations-games
-  sudo: True
+  become: True
   tasks:
 
   ## Archlinux

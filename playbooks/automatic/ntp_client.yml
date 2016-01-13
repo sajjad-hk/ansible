@@ -1,6 +1,6 @@
 - name: Configure NTP client
   hosts: all
-  sudo: True
+  become: True
   tasks:
 
   ## Install packages
