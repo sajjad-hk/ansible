@@ -1,23 +1,23 @@
-- name: GDM
+- name: set up gnome display manager
   hosts: dm-gdm
   become: True
   tasks:
 
-  - name: Install GDM (Arch)
+  - name: install gdm (arch)
     pacman: name=gdm
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - name: Install GDM (Debian-based)
+  - name: install gdm (debian-based)
     apt: name=gdm3
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
-  - name: Disable Lightdm
+  - name: disable lightdm
     service: name=lightdm enabled=no
 
-  - name: Enable gdm (Arch)
+  - name: enable gdm (arch)
     service: name=gdm enabled=yes
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - name: Enable gdm3 (Debian-based)
+  - name: enable gdm3 (debian-based)
     service: name=gdm3 enabled=yes
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']

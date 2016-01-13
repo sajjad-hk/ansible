@@ -1,28 +1,32 @@
-- name: Configure sudoers
+- name: configure sudoers
   hosts: workstations:servers
   become: True
   tasks:
 
 
   ## Ensure sudo package is installed
-  - apt: name=sudo
+  - name: install sudo (debian-based)
+    apt: name=sudo
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
-  - dnf: name=sudo
+  - name: install sudo (fedora)
+    dnf: name=sudo
     when: ansible_distribution == "Fedora"
 
-  - pacman: name=sudo
+  - name: install sudo (arch)
+    pacman: name=sudo
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - yum: name=sudo
+  - name: install sudo (centos)
+    yum: name=sudo
     when: ansible_distribution == "CentOS"
 
 
   ## Manage sudoers file
-  - name: Create admins group
+  - name: create admins group
     group: name=admins system=yes state=present gid=901
 
-  - name: Make sure admin group is allowed in sudoers
+  - name: make sure admin group is allowed in sudoers
     lineinfile: "dest=/etc/sudoers
                 state=present
                 regexp='^%admin' line='%admins ALL=(ALL) NOPASSWD: ALL'

@@ -1,24 +1,31 @@
-- name: Light DM
+- name: set up light display manager
   hosts: dm-lightdm
   become: True
   tasks:
 
-  - apt: name=lightdm
+  - name: install lightdm (debian-based)
+    apt: name=lightdm
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
-  - pacman: name=acpid
+  - name: install lightdm (arch)
+    pacman: name=lightdm
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - pacman: name=lightdm
+  - name: install acpid (arch)
+    pacman: name=acpid
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - pacman: name=lightdm-gtk-greeter
+  - name: install lightdm-gtk-greeter (arch)
+    pacman: name=lightdm-gtk-greeter
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - service: name=gdm enabled=no
+  - name: enable gdm (arch)
+    service: name=gdm enabled=no
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - service: name=gdm3 enabled=no
+  - name: enable gdm3 (debian-based)
+    service: name=gdm3 enabled=no
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
-  - service: name=lightdm enabled=yes
+  - name: enable lightdm
+    service: name=lightdm enabled=yes

@@ -1,10 +1,10 @@
-- name: Install MATE packages on hosts
+- name: install mate packages on hosts
   hosts: workstations-mate
   become: True
   tasks:
 
   ## Archlinux and Manjaro
-  - name: Install MATE (Arch)
+  - name: install mate (arch)
     pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
     with_items:
@@ -31,7 +31,7 @@
 
 
   ## Debian and Ubuntu
-  - name: Install MATE (Debian-based)
+  - name: install mate (debian-based)
     apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
@@ -62,7 +62,7 @@
 
 
   ## Fedora
-  - name: Install MATE (Fedora)
+  - name: install mate (fedora)
     dnf: name={{item}} state=installed
     when: ansible_distribution == 'Fedora'
     with_items:

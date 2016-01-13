@@ -1,11 +1,11 @@
-- name: Install base packages on hosts
+- name: install base packages on hosts
   hosts: servers:workstations
   become: True
   tasks:
 
 
   ## Archlinux and Manjaro
-  - name: Install base packages (Arch)
+  - name: install base packages (arch)
     pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
     with_items:
@@ -64,7 +64,7 @@
 
 
   ## Fedora packages
-  - name: Install base packages (Fedora)
+  - name: install base packages (fedora)
     dnf: name={{item}} state=installed
     when: ansible_distribution == 'Fedora'
     with_items:
@@ -99,7 +99,7 @@
 
 
     ## CentOS packages
-  - name: Install base packages (CentOS)
+  - name: install base packages (centos)
     yum: name={{item}} state=installed
     when: ansible_distribution == 'CentOS'
     with_items:
@@ -122,7 +122,7 @@
 
 
    ## Debian and Ubuntu
-  - name: Install base packages (Debian-based)
+  - name: install base packages (debian-based)
     apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
@@ -157,8 +157,8 @@
       - wget
 
 
-  - name: Remove unneeded Debian packages
-    apt: name={{ item }} state=absent
+  - name: remove unneeded debian packages
+    apt: name={{item}} state=absent
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
       - exim4

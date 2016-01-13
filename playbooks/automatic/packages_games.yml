@@ -1,10 +1,10 @@
-- name: Install game packages
+- name: install game packages
   hosts: workstations-games
   become: True
   tasks:
 
   ## Archlinux
-  - name: Install games on Archlinux hosts
+  - name: install games on archlinux hosts
     pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
     with_items:
@@ -21,7 +21,7 @@
 
 
   ## Fedora
-  - name: Install games on Fedora hosts
+  - name: install games on fedora hosts
     dnf: name={{item}} state=installed
     when: ansible_distribution == 'Fedora'
     with_items:
@@ -40,7 +40,7 @@
 
 
   ## Debian and Ubuntu
-  - name: Install games on Debian-based hosts
+  - name: install games on debian-based hosts
     apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
@@ -58,19 +58,19 @@
 
 
 ## Install mame.ini
-  - name: Create mame directory (Debian-based)
+  - name: create mame directory (debian-based)
     file: path=/etc/mame state=directory owner=root group=root mode=755
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
    
-  - name: Copy mame.ini (Debian-based)
+  - name: copy mame.ini (debian-based)
     copy: src=../files/packages_games/mame.ini dest=/etc/mame/mame.ini owner=root group=users mode=644
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
-  - name: Create mame directory (Arch)
+  - name: create mame directory (arch)
     file: path=/home/jay/.mame state=directory owner=jay group=jay mode=700
     when: ansible_distribution in ['Archlinux', 'Manjaro']
    
-  - name: Copy mame.ini (Arch)
+  - name: copy mame.ini (arch)
     copy: src=../files/packages_games/mame.ini dest=/home/jay/.mame/mame.ini owner=jay group=jay mode=600
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 

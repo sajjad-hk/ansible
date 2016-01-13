@@ -1,68 +1,68 @@
-- name: Configure OpenSSH server on port 65001
+- name: configure openssh server on port 65001
   hosts: openssh_p65001
   become: True
   tasks:
 
   ## Install packages
-  - name: Install Openssh (Arch)
+  - name: install openssh (arch)
     pacman: name=openssh
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - name: Install Openssh (Fedora)
+  - name: install openssh (fedora)
     dnf: name=openssh
     when: ansible_distribution == 'Fedora'
 
-  - name: Install Openssh (CentOS)
+  - name: install openssh (centos)
     yum: name=openssh-server
     when: ansible_distribution == 'CentOS'
 
-  - name: Install Openssh (Debian-based)
+  - name: install openssh (debian-based)
     apt: name=openssh-server
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
 
   ## Copy sshd_config
-  - name: Copy sshd_config
+  - name: copy sshd_config
     copy: src=../files/openssh/sshd_config_p65001 dest=/etc/ssh/sshd_config owner=root group=root mode=644
     notify: Restart sshd
     when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
 
 
   ## Copy sshd_config
-  - name: Copy sshd_config
+  - name: copy sshd_config
     copy: src=../files/openssh/sshd_config_p65001 dest=/etc/ssh/sshd_config owner=root group=root mode=644
     notify: Restart ssh
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
 
   ## Copy /etc/issue.net
-  - name: Copy issue.net
+  - name: copy issue.net
     copy: src=../files/openssh/issue.net dest=/etc/issue.net owner=root group=root mode=644
 
 
   ## Install /etc/motd update script
-  - name: Copy motd script
+  - name: copy motd script
     copy: src=../files/openssh/system_stats.sh dest=/usr/local/bin/system_stats.sh owner=root group=root mode=755
 
 
   ## Set up the crontab for system_stats.sh script
-  - name: Add crontab entry for system_stats.sh
+  - name: add crontab entry for system_stats.sh
     cron: name="update_stats" job="/usr/local/bin/system_stats.sh > /dev/null"
 
 
   ## Set up the daemon
-  - name: Enable sshd
+  - name: enable sshd
     service: name=sshd enabled=yes state=started
     when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
 
-  - name: Enable ssh
+  - name: enable ssh
     service: name=ssh enabled=yes state=started
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
 
   handlers:
-  - name: Restart ssh
+  - name: restart ssh
     service: name=ssh state=restarted
 
-  - name: Restart sshd
+  - name: restart sshd
     service: name=sshd state=restarted

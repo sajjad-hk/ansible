@@ -1,4 +1,4 @@
-- name: Configure Nagios client
+- name: configure nagios client
   hosts: servers
   become: True
   tasks:

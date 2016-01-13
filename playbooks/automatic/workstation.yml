@@ -1,10 +1,10 @@
-- name: Set up workstation hosts
+- name: set up workstation hosts
   hosts: workstations
   become: True
   tasks:
 
   ## Arch Linux
-  - name: Install workstation packages (Arch)
+  - name: install workstation packages (arch)
     pacman: name={{item}} state=installed
     when: ansible_distribution in ['Archlinux', 'Manjaro']
     with_items:
@@ -62,7 +62,7 @@
 
 
   ## Debian
-  - name: Install workstation packages (Debian and Ubuntu)
+  - name: install workstation packages (debian-based)
     apt: name={{item}} state=installed
     when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
     with_items:
@@ -123,7 +123,7 @@
 
 
   ## Fedora
-  - name: Install workstation packages (Fedora)
+  - name: install workstation packages (fedora)
     dnf: name={{item}} state=installed
     when: ansible_distribution == 'Fedora'
     with_items:
@@ -174,101 +174,101 @@
 
 # Configure Network Manager
 
-  - name: Enable devices for network manager (Debian)
+  - name: enable devices for network manager (debian)
     lineinfile: dest=/etc/NetworkManager/NetworkManager.conf regexp=^managed= line=managed=true
 
 
   # Enable service
-  - name: Enable Network Manager service
+  - name: enable network manager service
     service: name=NetworkManager enabled=yes
 
 
   ## Set up directories
-  - name: Create ~/bin
+  - name: create ~/bin
     file: path=/home/jay/bin state=directory owner=jay group=users mode=700
 
-  - name: Create ~/desktop
+  - name: create ~/desktop
     file: path=/home/jay/desktop state=directory owner=jay group=users mode=700
 
-  - name: Create ~/documents
+  - name: create ~/documents
     file: path=/home/jay/documents state=directory owner=jay group=users mode=700
 
-  - name: Create ~/downloads
+  - name: create ~/downloads
     file: path=/home/jay/downloads state=directory owner=jay group=users mode=700
 
-  - name: Create ~/games
+  - name: create ~/games
     file: path=/home/jay/games state=directory owner=jay group=users mode=700
 
-  - name: Create ~/music
+  - name: create ~/music
     file: path=/home/jay/music state=directory owner=jay group=users mode=700
 
-  - name: Create ~/pictures
+  - name: create ~/pictures
     file: path=/home/jay/pictures state=directory owner=jay group=users mode=700
 
-  - name: Create ~/projects
+  - name: create ~/projects
     file: path=/home/jay/projects state=directory owner=jay group=users mode=700
 
-  - name: Create ~/templates
+  - name: create ~/templates
     file: path=/home/jay/templates state=directory owner=jay group=users mode=700
 
-  - name: Create ~/videos
+  - name: create ~/videos
     file: path=/home/jay/videos state=directory owner=jay group=users mode=700
 
-  - name: Create /mnt/pluto
+  - name: create /mnt/pluto
     file: path=/mnt/pluto state=directory owner=jay group=users mode=700
 
-  - name: Create /mnt/pluto/archive
+  - name: create /mnt/pluto/archive
     file: path=/mnt/pluto/archive state=directory owner=jay group=users mode=700
 
-  - name: Create /mnt/pluto/backup
+  - name: create /mnt/pluto/backup
     file: path=/mnt/pluto/backup state=directory owner=jay group=users mode=700
 
-  - name: Create /mnt/pluto/downloads
+  - name: create /mnt/pluto/downloads
     file: path=/mnt/pluto/downloads state=directory owner=jay group=users mode=700
 
-  - name: Create /mnt/pluto/private
+  - name: create /mnt/pluto/private
     file: path=/mnt/pluto/private state=directory owner=jay group=users mode=700
 
-  - name: Create /mnt/pluto/public
+  - name: create /mnt/pluto/public
     file: path=/mnt/pluto/public state=directory owner=jay group=users mode=700
 
-  - name: Create /mnt/pluto/videos
+  - name: create /mnt/pluto/videos
     file: path=/mnt/pluto/videos state=directory owner=jay group=users mode=700
 
-  - name: Create /share
+  - name: create /share
     file: path=/share state=directory owner=jay group=users mode=700
 
-  - name: Create /share/android
+  - name: create /share/android
     file: path=/share/android state=directory owner=jay group=users mode=700
 
-  - name: Create /share/android/camera
+  - name: create /share/android/camera
     file: path=/share/android/camera state=directory owner=jay group=users mode=700
 
-  - name: Create /share/android/pictures
+  - name: create /share/android/pictures
     file: path=/share/android/pictures state=directory owner=jay group=users mode=700
 
 
   ## Remove default directories
-  - name: Remove ~/Desktop
+  - name: remove ~/Desktop
     file: path=/home/jay/Desktop state=absent
 
-  - name: Remove ~/Documents
+  - name: remove ~/Documents
     file: path=/home/jay/Documents state=absent
 
-  - name: Remove ~/Downloads
+  - name: remove ~/Downloads
     file: path=/home/jay/Downloads state=absent
 
-  - name: Remove ~/Music
+  - name: remove ~/Music
     file: path=/home/jay/Music state=absent
 
-  - name: Remove ~/Pictures
+  - name: remove ~/Pictures
     file: path=/home/jay/Pictures state=absent
 
-  - name: Remove ~/Public
+  - name: remove ~/Public
     file: path=/home/jay/Public state=absent
 
-  - name: Remove ~/Templates
+  - name: remove ~/Templates
     file: path=/home/jay/Templates state=absent
 
-  - name: Remove ~/Videos
+  - name: remove ~/Videos
     file: path=/home/jay/Videos state=absent

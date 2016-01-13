@@ -1,27 +1,27 @@
-- name: Configure Raspberry Pi hosts
+- name: configure raspberry pi hosts
   hosts: raspberry-pi
   become: True
   tasks:
 
   ## Raspbian packages to install
-  - name: Install packages on Raspbian hosts
+  - name: install packages on raspbian hosts
     apt: name={{item}} state=installed
     with_items:
       - dhcpcd5
 
   ## Ensure dhcpcd5 is running
-  - name: Start and enable dhcpcd
+  - name: start and enable dhcpcd
     service: name=dhcpcd enabled=yes state=started
 
   ## Copy network_check script
-  - name: Copy network_check script (Pi)
+  - name: copy network_check script
     copy: src=../files/pi/network_check dest=/usr/local/bin/network_check owner=root group=root mode=755
 
   ## Ensure cron is available
-  - name: Ensure cron is installed
+  - name: ensure cron is installed
     apt: name=cron
     when: ansible_distribution in ['Debian', 'Ubuntu']
 
   ## Set up the crontab
-  - Add network_check cron job
+  - name: add network_check cron job
     cron: name="network_check" minute="*/2" hour="*" day="*" job="/usr/local/bin/network_check > /dev/null"

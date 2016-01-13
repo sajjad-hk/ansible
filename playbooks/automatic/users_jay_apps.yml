@@ -1,4 +1,4 @@
-- name: Install apps
+- name: install apps
   hosts: workstations
   become: True
 
@@ -16,22 +16,22 @@
 
   tasks:
   #### Set up directories ####
-  - name: Create local applications directory
+  - name: create local applications directory
     file: path=/home/jay/.local/share/applications state=directory recurse=true owner=jay group=jay
 
-  - name: Create Firefox directory
+  - name: create Firefox directory
     file: path={{app_dir}}/firefox state=directory recurse=true owner=jay group=jay
     register: firefox_dir
 
-  - name: Create Syncthing directory
+  - name: create Syncthing directory
     file: path={{app_dir}}/syncthing state=directory owner=jay group=jay recurse=true
     register: syncthing_dir
 
-  - name: Create Telegram directory
+  - name: create Telegram directory
     file: path={{app_dir}}/telegram state=directory recurse=true owner=jay group=jay
     register: telegram_dir
 
-  - name: Create Thunderbird directory
+  - name: create Thunderbird directory
     file: path={{app_dir}}/thunderbird state=directory recurse=true owner=jay group=jay
     register: thunderbird_dir
 
@@ -41,7 +41,7 @@
     get_url: url="{{firefox_url}}" dest="/tmp/firefox-{{firefox_version}}.tar.bz2"
     when: firefox_dir.changed
 
-  - name: Extract Firefox
+  - name: extract Firefox
     unarchive: src=/tmp/firefox-{{firefox_version}}.tar.bz2 dest={{app_dir}} copy=no
     when: firefox_dir.changed
     register: app_installed
@@ -61,19 +61,19 @@
     when: syncthing_dir.changed
     register: app_installed
 
-  - name: Syncthing cleanup
+  - name: syncthing cleanup
     command: rm -rf /tmp/syncthing*
     when: syncthing_dir.changed
 
-  - name: Copy syncthing startup script (systemd)
+  - name: copy syncthing startup script (systemd)
     copy: src=../files/users_jay/systemd_syncthing dest=/etc/systemd/system/syncthing.service owner=root group=root mode=644
     when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro']
 
-  - name: Copy syncthing startup script (sysv)
+  - name: copy syncthing startup script (sysv)
     copy: src=../files/users_jay/sysv_syncthing dest=/etc/init.d/syncthing owner=root group=root mode=755
     when: ansible_distribution in ['Linuxmint']
 
-  - name: Enable and start Syncthing daemon
+  - name: enable and start syncthing daemon
     service: name=syncthing enabled=yes state=started
 
   - name: wait for config.xml to be generated
@@ -91,63 +91,63 @@
                 line="        <upnpEnabled>false</upnpEnabled>"
     notify: restart syncthing
 
-  - name: Copy syncthing startup script (systemd)
+  - name: copy syncthing startup script (systemd)
     copy: src=../files/users_jay/systemd_syncthing dest=/etc/systemd/system/syncthing.service owner=root group=root mode=644
     when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro']
 
-  - name: Copy syncthing startup script (sysv)
+  - name: copy syncthing startup script (sysv)
     copy: src=../files/users_jay/sysv_syncthing dest=/etc/init.d/syncthing owner=root group=root mode=755
     when: ansible_distribution in ['Linuxmint']
 
 
   #### Set up Telegram ####
-  - name: Download Telegram
+  - name: download telegram
     shell: "wget https://tdesktop.com/linux -O /tmp/telegram.tar.xz"
     when: telegram_dir.changed
 
-  - name: Extract Telegram
+  - name: extract telegram
     unarchive: src=/tmp/telegram.tar.xz dest=/tmp copy=no
     when: telegram_dir.changed
 
-  - name: Add Telegram icon
+  - name: add telegram.png
     copy: src=../files/users_jay/telegram.png dest={{app_dir}}/telegram
     when: telegram_dir.changed
 
-  - name: Move Telegram
+  - name: move telegram
     shell: mv /tmp/Telegram/* {{app_dir}}/telegram
     when: telegram_dir.changed
     register: app_installed
 
 
   #### Set up Thunderbird ####
-  - name: download Thunderbird
+  - name: download thunderbird
     get_url: url="{{thunderbird_url}}" dest="/tmp/thunderbird-{{thunderbird_version}}.tar.bz2"
     when: thunderbird_dir.changed
 
-  - name: Extract Thunderbird
+  - name: extract thunderbird
     unarchive: src=/tmp/thunderbird-{{thunderbird_version}}.tar.bz2 dest={{app_dir}} copy=no
     when: thunderbird_dir.changed
     register: app_installed
 
 
   ## Correct ownership
-  - name: Correct ownership
+  - name: correct ownership
     command: chown jay:jay -R {{app_dir}}
     when: app_installed.changed
 
-  - name: Correct permissions
+  - name: correct permissions
     command: chmod g-rwx,o-rwx -R {{app_dir}}
     when: app_installed.changed
 
 
   #### Create applications launchers ####
-  - name: Copy Firefox application launcher
+  - name: copy firefox application launcher
     copy: src=../files/users_jay/firefox.desktop dest=/home/jay/.local/share/applications/firefox.desktop owner=jay group=jay
 
-  - name: Copy Telegram application launcher
+  - name: copy telegram application launcher
     copy: src=../files/users_jay/telegram.desktop dest=/home/jay/.local/share/applications/telegram.desktop owner=jay group=jay
 
-  - name: Copy Thunderbird application launcher
+  - name: copy thunderbird application launcher
     copy: src=../files/users_jay/thunderbird.desktop dest=/home/jay/.local/share/applications/thunderbird.desktop owner=jay group=jay
 
 

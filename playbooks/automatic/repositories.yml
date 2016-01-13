@@ -1,51 +1,51 @@
-- name: Set up software repositories
+- name: set up software repositories
   hosts: workstations
   become: True
   tasks:
 
   ## Arch Linux
-  - name: Copy Arch pacman.conf
+  - name: copy arch pacman.conf
     copy: src=../files/repositories/pacman.conf dest=/etc/pacman.conf owner=root group=root mode=644
     notify: arch-update
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
 
   ## Fedora
-  - name: Install RPM fusion free
+  - name: install rpm fusion free
     dnf: name=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-23.noarch.rpm state=present
     #notify: fedora-update # Currently not available with dnf module
     when: ansible_distribution == 'Fedora'
 
-  - name: Install RPM fusion non-free
+  - name: install rpm fusion non-free
     dnf: name=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-23.noarch.rpm state=present
     #notify: fedora-update # Currently not available with dnf module
     when: ansible_distribution == 'Fedora'
 
 
   ## Debian
-  - name: Enable 32-bit packages
+  - name: enable 32-bit packages
     copy: src=../files/repositories/arch dest=/var/lib/dpkg/arch owner=root group=root mode=644
     notify: apt-update
     when: ansible_distribution == 'Debian'
 
-  - name: Install sources.list (Jessie)
+  - name: install sources.list (jessie)
     copy: src=../files/repositories/sources.list.jessie dest=/etc/apt/sources.list owner=root group=root mode=644
     notify: apt-update
     when: ansible_distribution_release == 'jessie'
 
-  - name: Install sources.list (Stretch)
+  - name: install sources.list (stretch)
     copy: src=../files/repositories/sources.list.stretch dest=/etc/apt/sources.list owner=root group=root mode=644
     notify: apt-update
     when: ansible_distribution_release == 'stretch'
 
-  - name: Enable backports (Jessie)
+  - name: enable backports (jessie)
     copy: src=../files/repositories/backports.list dest=/etc/apt/sources.list.d/backports.list owner=root group=root mode=644
     notify: apt-update
     when: ansible_distribution_release == 'jessie'
 
 
   ## Ubuntu
-  - name: Enable 32-bit packages
+  - name: enable 32-bit packages
     copy: src=../files/repositories/arch dest=/var/lib/dpkg/arch owner=root group=root mode=644
     notify: apt-update
     when: ansible_distribution in ['Linuxmint', 'Ubuntu']
