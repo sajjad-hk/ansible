@@ -3,13 +3,17 @@
   become: True
   tasks:
 
-  - pacman: name=lib32-intel-dri
-  - pacman: name=lib32-libgl
-  - pacman: name=lib32-mesa
-  - pacman: name=mesa
-  - pacman: name=mesa-libgl
-  - pacman: name=xf86-input-libinput
-  - pacman: name=xf86-video-intel
-  - pacman: name=xorg-server
-  - pacman: name=xorg-xinit
-  - pacman: name=xorg-server-utils
+  - name: install packages for intel video (arch)
+    pacman: name={{item}} state=installed
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    with_items:
+      - lib32-intel-dri
+      - lib32-libgl
+      - lib32-mesa
+      - mesa
+      - mesa-libgl
+      - xf86-input-libinput
+      - xf86-video-intel
+      - xorg-server
+      - xorg-xinit
+      - xorg-server-utils

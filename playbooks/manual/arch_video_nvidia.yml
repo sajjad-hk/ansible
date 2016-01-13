@@ -3,10 +3,14 @@
   become: True
   tasks:
 
-  - pacman: name=lib32-nvidia-libgl
-  - pacman: name=mesa
-  - pacman: name=nvidia
-  - pacman: name=xf86-input-libinput
-  - pacman: name=xorg-server
-  - pacman: name=xorg-xinit
-  - pacman: name=xorg-server-utils
+  - name: install packages for nvidia video (arch)
+    pacman: name={{item}} state=installed
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    with_items:
+      - pacman: name=lib32-nvidia-libgl
+      - pacman: name=mesa
+      - pacman: name=nvidia
+      - pacman: name=xf86-input-libinput
+      - pacman: name=xorg-server
+      - pacman: name=xorg-xinit
+      - pacman: name=xorg-server-utils

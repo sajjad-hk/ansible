@@ -3,16 +3,20 @@
   become: True
   tasks:
 
-  # Install packages
-  - pacman: name=virtualbox-guest-utils
-  - pacman: name=lib32-libgl
-  - pacman: name=lib32-mesa
-  - pacman: name=mesa
-  - pacman: name=mesa-libgl
-  - pacman: xf86-input-libinput
-  - pacman: name=xorg-server
-  - pacman: name=xorg-xinit
-  - pacman: name=xorg-server-utils
+  - name: install packages for vbox guest video (arch)
+    pacman: name={{item}} state=installed
+    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    with_items:
+      - lib32-libgl
+      - lib32-mesa
+      - mesa
+      - mesa-libgl
+      - virtualbox-guest-utils
+      - xf86-input-libinput
+      - xorg-server
+      - xorg-server-utils
+      - xorg-xinit
 
   # Configure driver
-  - copy: src=../files/arch_video_vbox/virtualbox.conf dest=/etc/modules-load.d/virtualbox.conf owner=root group=root mode=644
+  - name: Copy virtualbox.conf to /etc/modules-load.d
+    copy: src=../files/arch_video_vbox/virtualbox.conf dest=/etc/modules-load.d/virtualbox.conf owner=root group=root mode=644
