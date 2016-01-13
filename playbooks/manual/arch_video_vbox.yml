@@ -1,6 +1,6 @@
 - name: Video - Virtualbox
   hosts: arch-workstations-vbox-video
-  sudo: True
+  become: True
   tasks:
 
   # Install packages

@@ -1,6 +1,6 @@
 - name: Video - Intel
   hosts: arch-intel-video
-  sudo: True
+  become: True
   tasks:
 
   - pacman: name=lib32-intel-dri

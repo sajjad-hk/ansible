@@ -1,6 +1,6 @@
 - name: Video - Nvidia
   hosts: arch-workstations-nvidia-video
-  sudo: True
+  become: True
   tasks:
 
   - pacman: name=lib32-nvidia-libgl
