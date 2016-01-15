@@ -2,25 +2,6 @@
  - Remove sysv version of syncthing once Linux Mint moves to systemd
  - combine nagios client into server playbook?
 
-https://www.digitalocean.com/community/tutorials/how-to-use-ansible-roles-to-abstract-your-infrastructure-environment
-
-Converted:
- server
- nagios
- workstation
- openssh (wip, need to differentiate p22 and p65001 somehow)
- repositories (consolidated into workstation)
- ntp (consolidated into all)
- packages_base (consolidated into all)
- sudoers (consolidated into all)
- users_jay (now in users)
- users_jay_apps (now users)
- sudoers (now in all)
- raspberry_pi
- openssh_p22 (copied into all)
- openssh_p65001 (copied into all)
- kvm_host
-
 jay_apps hasn't been executed yet!
 Is oblogout still used in Arch?
 figure out better way of openbox screen locking, change package to that
