@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Telegram
+Categories=Network;
+Exec=/home/jay/bin/telegram/Telegram
+Icon=/home/jay/bin/telegram/telegram.png
+Path=/home/jay/bin/telegram/
+Terminal=false

@@ -1,0 +1,6 @@
+- include: openssh_package.yml
+- include: sshd_config_22.yml
+- include: sshd_config_65001.yml
+- include: motd.yml
+- inclute: issue.net
+- include: service.yml

@@ -1,0 +1,10 @@
+- name: copy sshd_config (triggers sshd)
+  copy: src=sshd_config_p22 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+  notify: Restart sshd
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
+
+
+- name: copy sshd_config (triggers ssh)
+  copy: src=sshd_config_p22 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+  notify: Restart ssh
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']

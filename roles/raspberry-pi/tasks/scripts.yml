@@ -1,0 +1,9 @@
+- name: copy network_check script
+  copy: src=network_check dest=/usr/local/bin/network_check owner=root group=root mode=755
+
+- name: ensure cron is installed
+  apt: name=cron
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: add network_check cron job
+  cron: name="network_check" minute="*/2" hour="*" day="*" job="/usr/local/bin/network_check > /dev/null"

@@ -1,0 +1,33 @@
+- name: install ntp (arch)
+  pacman: name=ntp
+  when: ansible_distribution in ['Archlinux', 'Manjaro']
+
+- name: install ntp (fedora)
+  dnf: name=ntp
+  when: ansible_distribution == 'Fedora'
+
+- name: install ntp (debian-based)
+  apt: name=ntp
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+
+- name: install ntp (centos)
+  yum: name=ntp
+  when: ansible_distribution == 'CentOS'
+
+- name: copy ntp.conf
+  copy: src=ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
+  notify: restart ntpd
+
+- name: copy ntp.conf
+  copy: src=ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  notify: restart ntp
+
+- name: enable and start daemon (ntpd)
+  service: name=ntpd enabled=yes state=started
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
+
+- name: enable and start daemon (ntp)
+  service: name=ntp enabled=yes state=started
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']

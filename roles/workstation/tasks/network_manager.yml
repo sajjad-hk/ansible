@@ -1,0 +1,5 @@
+- name: enable devices for network manager (debian)
+  lineinfile: dest=/etc/NetworkManager/NetworkManager.conf regexp=^managed= line=managed=true
+
+- name: enable network manager service
+  service: name=NetworkManager enabled=yes

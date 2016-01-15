@@ -1,0 +1,111 @@
+vars:
+  firefox_version: 43.0.2
+  syncthing_version: 0.12.9
+  thunderbird_version: 38.5.0
+  syncthing_url: https://github.com/syncthing/syncthing/releases/download/v{{syncthing_version}}/syncthing-linux-amd64-v{{syncthing_version}}.tar.gz
+  syncthing_config: /home/jay/.config/syncthing/config.xml
+  firefox_url: https://ftp.mozilla.org/pub/firefox/releases/{{firefox_version}}/linux-x86_64/en-US/firefox-{{firefox_version}}.tar.bz2
+  thunderbird_url: https://ftp.mozilla.org/pub/thunderbird/releases/{{thunderbird_version}}/linux-x86_64/en-US/thunderbird-{{thunderbird_version}}.tar.bz2
+  app_dir: /home/jay/bin
+
+
+- name: create local applications directory
+  file: path=/home/jay/.local/share/applications state=directory recurse=true owner=jay group=jay
+
+- name: create Firefox directory
+  file: path={{app_dir}}/firefox state=directory recurse=true owner=jay group=jay
+  register: firefox_dir
+
+- name: create Syncthing directory
+  file: path={{app_dir}}/syncthing state=directory owner=jay group=jay recurse=true
+  register: syncthing_dir
+
+- name: create Telegram directory
+  file: path={{app_dir}}/telegram state=directory recurse=true owner=jay group=jay
+  register: telegram_dir
+
+- name: create Thunderbird directory
+  file: path={{app_dir}}/thunderbird state=directory recurse=true owner=jay group=jay
+  register: thunderbird_dir
+
+
+- name: download Firefox
+  get_url: url="{{firefox_url}}" dest="/tmp/firefox-{{firefox_version}}.tar.bz2"
+  when: firefox_dir.changed
+
+- name: extract Firefox
+  unarchive: src=/tmp/firefox-{{firefox_version}}.tar.bz2 dest={{app_dir}} copy=no
+  when: firefox_dir.changed
+  register: app_installed
+
+
+- name: download syncthing
+  get_url: url="{{syncthing_url}}" dest=/tmp/syncthing_{{syncthing_version}}.tar.gz
+  when: syncthing_dir.changed
+
+- name: extract syncthing
+  unarchive: src=/tmp/syncthing_{{syncthing_version}}.tar.gz dest=/tmp copy=no
+  when: syncthing_dir.changed
+
+- name: install syncthing
+  shell: cp /tmp/syncthing-*/syncthing {{app_dir}}/syncthing
+  when: syncthing_dir.changed
+  register: app_installed
+
+- name: syncthing cleanup
+  command: rm -rf /tmp/syncthing*
+  when: syncthing_dir.changed
+
+- name: copy syncthing startup script (systemd)
+  copy: src=jay_systemd_syncthing dest=/etc/systemd/system/syncthing.service owner=root group=root mode=644
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro']
+
+- name: copy syncthing startup script (sysv)
+  copy: src=jay_sysv_syncthing dest=/etc/init.d/syncthing owner=root group=root mode=755
+  when: ansible_distribution in ['Linuxmint']
+
+
+- name: download telegram
+  shell: "wget https://tdesktop.com/linux -O /tmp/telegram.tar.xz"
+  when: telegram_dir.changed
+
+- name: extract telegram
+  unarchive: src=/tmp/telegram.tar.xz dest=/tmp copy=no
+  when: telegram_dir.changed
+
+- name: add telegram.png
+  copy: src=jay_telegram.png dest={{app_dir}}/telegram
+  when: telegram_dir.changed
+
+- name: move telegram
+  shell: mv /tmp/Telegram/* {{app_dir}}/telegram
+  when: telegram_dir.changed
+  register: app_installed
+
+
+- name: download thunderbird
+  get_url: url="{{thunderbird_url}}" dest="/tmp/thunderbird-{{thunderbird_version}}.tar.bz2"
+  when: thunderbird_dir.changed
+
+- name: extract thunderbird
+  unarchive: src=/tmp/thunderbird-{{thunderbird_version}}.tar.bz2 dest={{app_dir}} copy=no
+  when: thunderbird_dir.changed
+  register: app_installed
+
+- name: correct ownership
+  command: chown jay:jay -R {{app_dir}}
+  when: app_installed.changed
+
+- name: correct permissions
+  command: chmod g-rwx,o-rwx -R {{app_dir}}
+  when: app_installed.changed
+
+
+- name: copy firefox application launcher
+  copy: src=jay_firefox.desktop dest=/home/jay/.local/share/applications/firefox.desktop owner=jay group=jay
+
+- name: copy telegram application launcher
+  copy: src=jay_telegram.desktop dest=/home/jay/.local/share/applications/telegram.desktop owner=jay group=jay
+
+- name: copy thunderbird application launcher
+  copy: src=jay_thunderbird.desktop dest=/home/jay/.local/share/applications/thunderbird.desktop owner=jay group=jay

@@ -1,0 +1,7 @@
+- name: enable sshd
+  service: name=sshd enabled=yes state=started
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
+
+- name: enable ssh
+  service: name=ssh enabled=yes state=started
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']

@@ -1,0 +1,3 @@
+- include: dotfiles.yml
+- include: scripts.yml
+- include: nagios.yml

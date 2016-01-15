@@ -1,0 +1,26 @@
+- name: copy .email-params
+  copy: src=email-params dest=/usr/local/bin/.email-params owner=root group=root mode=755
+
+- name: copy email_etc_backup script
+  copy: src=script_email_etc_backup dest=/usr/local/bin/email_etc_backup owner=root group=root mode=755
+
+- name: copy email_package_list script
+  copy: src=script_email_package_list dest=/usr/local/bin/email_package_list owner=root group=root mode=755
+
+- name: copy process_check.py script
+  copy: src=script_process_check.py dest=/usr/local/bin/process_check.py owner=root group=root mode=755
+
+- name: copy update script
+  copy: src=script_update dest=/usr/local/bin/update owner=root group=root mode=755
+
+- name: copy weekly_update script
+  copy: src=script_weekly_update dest=/usr/local/bin/weekly_update owner=root group=root mode=755
+
+- name: install cron job (weekly_update)
+  cron: name="weekly_update" minute="0" hour="1" weekday="5" job="/usr/local/bin/weekly_update > /dev/null"
+
+- name: install cron job (email_etc_backup)
+  cron: name="email_etc_backup" minute="0" hour="2" weekday="5" job="/usr/local/bin/email_etc_backup > /dev/null"
+
+- name: install cron job (email_package_list)
+  cron: name="email_package_list" minute="0" hour="3" weekday="5" job="/usr/local/bin/email_package_list > /dev/null"

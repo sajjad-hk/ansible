@@ -1,0 +1,5 @@
+- name: copy motd script
+  copy: src=system_stats.sh dest=/usr/local/bin/system_stats.sh owner=root group=root mode=755
+
+- name: add crontab entry for system_stats.sh
+  cron: name="update_stats" job="/usr/local/bin/system_stats.sh > /dev/null"

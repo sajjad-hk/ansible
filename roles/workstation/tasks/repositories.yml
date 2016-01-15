@@ -1,0 +1,34 @@
+- name: copy arch pacman.conf
+  copy: src=pacman.conf dest=/etc/pacman.conf owner=root group=root mode=644
+  notify: arch-update
+  when: ansible_distribution in ['Archlinux', 'Manjaro']
+
+- name: install rpm fusion free
+  dnf: name=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-23.noarch.rpm state=present
+  #notify: fedora-update # Currently not available with dnf module
+  when: ansible_distribution == 'Fedora'
+
+- name: install rpm fusion non-free
+  dnf: name=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-23.noarch.rpm state=present
+  #notify: fedora-update # Currently not available with dnf module
+  when: ansible_distribution == 'Fedora'
+
+- name: install sources.list (jessie)
+  copy: src=sources.list.jessie dest=/etc/apt/sources.list owner=root group=root mode=644
+  notify: apt-update
+  when: ansible_distribution_release == 'jessie'
+
+- name: install sources.list (stretch)
+  copy: src=sources.list.stretch dest=/etc/apt/sources.list owner=root group=root mode=644
+  notify: apt-update
+  when: ansible_distribution_release == 'stretch'
+
+- name: enable backports (jessie)
+  copy: src=jessie_backports.list dest=/etc/apt/sources.list.d/backports.list owner=root group=root mode=644
+  notify: apt-update
+  when: ansible_distribution_release == 'jessie'
+
+- name: enable 32-bit packages (debian-based)
+  copy: src=arch dest=/var/lib/dpkg/arch owner=root group=root mode=644
+  notify: apt-update
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']

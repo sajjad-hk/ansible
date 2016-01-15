@@ -1,0 +1,31 @@
+# TO DO: SET CORRECT ORDER!
+
+- hosts: raspberry-pi
+  become: true
+  roles:
+    - role: raspberry-pi
+
+#- hosts: all
+#  become: true
+#  roles:
+#    - role: all
+
+#- hosts: workstations
+#  become: True
+#  roles:
+#    - role: workstation
+
+#- hosts: servers
+#  become: true
+#  roles:
+#    - role: server
+
+#- hosts: servers
+#  become: true
+#  roles:
+#    - role: server
+
+#- hosts: workstations
+#  become: true
+#  roles:
+#    - role: users
