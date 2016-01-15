@@ -1,0 +1,14 @@
+- name: create /vm_store directory
+  file: path=/vm_store state=directory owner=root group=kvm mode=770
+
+- name: create /vm_store/kvm directory
+  file: path=/vm_store/kvm state=directory owner=root group=kvm mode=770
+
+- name: create /vm_store/iso_images directory
+  file: path=/vm_store/iso_images state=directory owner=root group=kvm mode=770
+
+- name: create /etc/libvirt directory
+  file: path=/etc/libvirt state=directory owner=root group=root mode=755
+
+- name: create storage directory
+  file: path=/etc/libvirt/storage state=directory owner=root group=root mode=755

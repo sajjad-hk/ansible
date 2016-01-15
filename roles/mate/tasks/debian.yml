@@ -1,0 +1,28 @@
+- name: install mate (debian-based)
+  apt: name={{item}} state=installed
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  with_items:
+    - atril
+    - caja
+    - eom
+    - mate-applets
+    - mate-backgrounds
+    - mate-control-center
+    - mate-desktop
+    - mate-icon-theme
+    - mate-media
+    - mate-media-pulse
+    - mate-menus
+    - mate-notification-daemon
+    - mate-panel
+    - mate-polkit
+    - mate-power-manager
+    - mate-screensaver
+    - mate-session-manager
+    - mate-settings-daemon
+    - mate-settings-daemon-pulse
+    - mate-system-monitor
+    - mate-terminal
+    - mate-themes
+    - mozo
+    - pluma

@@ -1,0 +1,19 @@
+- name: install ntp (arch)
+  pacman: name=ntp state=latest
+  when: ansible_distribution in ['Archlinux', 'Manjaro']
+  notify: restart_ntpd
+
+- name: install ntp (fedora)
+  dnf: name=ntp state=latest
+  when: ansible_distribution == 'Fedora'
+  notify: restart_ntpd
+
+- name: install ntp (debian-based)
+  apt: name=ntp state=latest
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  notify: restart_ntp
+
+- name: install ntp (centos)
+  yum: name=ntp state=latest
+  when: ansible_distribution == 'CentOS'
+  notify: restart_ntpd

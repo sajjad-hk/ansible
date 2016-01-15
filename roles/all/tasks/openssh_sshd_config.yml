@@ -1,0 +1,12 @@
+- name: copy sshd_config (triggers sshd)
+  template: src=sshd_config.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+  notify: restart_sshd
+  #validate='/usr/sbin/sshd -T -f %s'
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
+
+
+- name: copy sshd_config (triggers ssh)
+  template: src=sshd_config.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+  notify: restart_ssh
+  #validate='/usr/sbin/ssh -T -f %s'
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']

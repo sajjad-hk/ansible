@@ -1,0 +1,15 @@
+- name: install lightdm (debian-based)
+  apt: name=lightdm
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+
+- name: install lightdm (arch)
+  pacman: name=lightdm
+  when: ansible_distribution in ['Archlinux', 'Manjaro']
+
+- name: install lightdm-gtk-greeter (arch)
+  pacman: name=lightdm-gtk-greeter
+  when: ansible_distribution in ['Archlinux', 'Manjaro']
+
+- name: install acpid (arch)
+  pacman: name=acpid
+  when: ansible_distribution in ['Archlinux', 'Manjaro']

@@ -1,0 +1,4 @@
+- include: packages_arch.yml
+- include: packages_debian.yml
+- include: packages_fedora.yml
+- include: mame.ini.yml

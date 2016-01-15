@@ -1,0 +1,5 @@
+- name: create kvm group
+  group: name=kvm system=yes state=present
+
+- name: add user to kvm group
+  user: name=jay groups=kvm append=yes

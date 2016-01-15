@@ -1,6 +1,5 @@
  - create slim dm playbook
  - Remove sysv version of syncthing once Linux Mint moves to systemd
- - move kvm group addition out of kvm and into users_jay
  - combine nagios client into server playbook?
 
 https://www.digitalocean.com/community/tutorials/how-to-use-ansible-roles-to-abstract-your-infrastructure-environment
@@ -18,5 +17,10 @@ Converted:
  users_jay_apps (now users)
  sudoers (now in all)
  raspberry_pi
+ openssh_p22 (copied into all)
+ openssh_p65001 (copied into all)
+ kvm_host
 
 jay_apps hasn't been executed yet!
+Is oblogout still used in Arch?
+figure out better way of openbox screen locking, change package to that

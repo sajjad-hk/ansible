@@ -1,0 +1,19 @@
+- name: install openssh (arch)
+  pacman: name=openssh state=latest
+  notify: restart_sshd
+  when: ansible_distribution in ['Archlinux', 'Manjaro']
+
+- name: install openssh (fedora)
+  dnf: name=openssh state=latest
+  notify: restart_sshd
+  when: ansible_distribution == 'Fedora'
+
+- name: install openssh (centos)
+  yum: name=openssh-server state=latest
+  notify: restart_sshd
+  when: ansible_distribution == 'CentOS'
+
+- name: install openssh (debian-based)
+  apt: name=openssh-server state=latest
+  notify: restart_ssh
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']

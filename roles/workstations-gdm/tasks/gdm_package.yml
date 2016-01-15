@@ -1,0 +1,13 @@
+- name: install gdm (arch)
+  pacman: name=gdm
+  when: ansible_distribution in ['Archlinux', 'Manjaro']
+
+
+- name: install gdm (debian-based)
+  apt: name=gdm3
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+
+
+- name: install gdm (fedora)
+  dnf: name=gdm
+  when: ansible_distribution in ['Fedora']

@@ -1,2 +1,0 @@
-- name: copy issue.net
-  copy: src=../files/openssh/issue.net dest=/etc/issue.net owner=root group=root mode=644

@@ -1,3 +1,10 @@
-#- include: packages.yml
-#- include: ntp_client.yml
+- include: base_packages.yml
+- include: ntp_package.yml
+- include: ntp_service.yml
+- include: ntp_config.yml
 - include: sudoers.yml
+- include: openssh_package.yml
+- include: openssh_sshd_config.yml
+- include: openssh_issue.yml
+- include: openssh_motd.yml
+- include: openssh_service.yml

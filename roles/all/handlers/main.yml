@@ -1,0 +1,11 @@
+- name: restart_ssh
+  service: name=ssh state=restarted
+
+- name: restart_sshd
+  service: name=sshd state=restarted
+
+- name: restart_ntp
+  service: name=ntp state=restarted
+
+- name: restart_ntpd
+  service: name=ntpd state=restarted

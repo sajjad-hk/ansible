@@ -1,0 +1,7 @@
+- name: enable libvirtd
+  service: name=libvirtd enabled=yes state=started
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro']
+    
+- name: enable libvirt-bin
+  service: name=libvirt-bin enabled=yes state=started
+  when: ansible_distribution in ['Linuxmint', 'Ubuntu']

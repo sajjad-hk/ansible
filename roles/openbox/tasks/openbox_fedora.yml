@@ -1,0 +1,22 @@
+- name: install openbox (fedora)
+  dnf: name={{item}} state=installed
+  when: ansible_distribution == 'Fedora'
+  with_items:
+    - abattis-cantarell-fonts
+    - acpid
+    - clipit
+    #- compton # Not available
+    - gmrun
+    - gnome-themes-standard
+    #- gsimplecal # Package not available
+    - lxappearance
+    - mousepad
+    - nitrogen
+    - obconf
+    - obmenu
+    - pcmanfm
+    - scrot
+    - tint2
+    - volumeicon
+    - xarchiver
+    - xscreensaver

@@ -1,99 +1,66 @@
-[dm-gdm]
-crusader ansible_python_interpreter=/usr/bin/python2
-ragnarok
-
-
-[dm-lightdm]
-#crusader ansible_python_interpreter=/usr/bin/python2
-
-
-[kvm_hosts]
-crusader ansible_python_interpreter=/usr/bin/python2
-ragnarok
-galaxy
-
-
-[openssh_p22]
-crusader ansible_python_interpreter=/usr/bin/python2
-galaxy
-nagios
-#neptune ansible_ssh_host=neptune.jaylacroix.com ansible_ssh_port=22 # Needs to be open for password auth, for now at least
-pi-dev
-pluto
-ragnarok
-upsmon
-work-vm
-
-
-[openssh_p65001]
-hermes ansible_ssh_port=65001
-jaylacroix.com ansible_ssh_port=65001
-mail.jaylacroix.me ansible_ssh_port=65001
-
-
-[raspberry-pi]
-localhost ansible_connection=local
-nagios
-pi-dev
-upsmon
-
-
-[servers]
-localhost ansible_connection=local
-galaxy
-hermes ansible_ssh_port=65001
-jaylacroix.com ansible_ssh_port=65001
-nagios
-neptune.jaylacroix.com
-pi-dev
-pluto
-upsmon
-mail.jaylacroix.me ansible_ssh_port=65001
-work-vm
-
-
-[ups_controlled]
-hermes ansible_ssh_port=65001
-pluto
-galaxy
-
-
-[workstations]
-crusader ansible_python_interpreter=/usr/bin/python2
-ragnarok
-
-
-
-[workstations-games]
-crusader ansible_python_interpreter=/usr/bin/python2
-ragnarok
-
-
-[workstations-gnome]
-crusader ansible_python_interpreter=/usr/bin/python2
-ragnarok
-
-
-[workstations-mate]
-crusader ansible_python_interpreter=/usr/bin/python2
-#ragnarok
-
-
-[workstations-openbox]
-#crusader ansible_python_interpreter=/usr/bin/python2
-#ragnarok
-
-
 [arch-intel-video]
-crusader ansible_python_interpreter=/usr/bin/python2
-
+crusader:22 ansible_python_interpreter=/usr/bin/python2
 
 [arch-nvidia-video]
 # Unused
 
-
 [arch-vbox-video]
 # Unused
 
+[kvm_hosts]
+crusader:22 ansible_python_interpreter=/usr/bin/python2
+ragnarok:22
+galaxy:22
+
+[raspberry-pi]
+localhost:22 ansible_connection=local
+nagios:22
+pi-dev:22
+upsmon:22
+
+[servers]
+localhost:22 ansible_connection=local
+galaxy:22
+hermes:65001 ansible_ssh_port=65001
+jaylacroix.com:65001
+nagios:22
+neptune:22
+pi-dev:22
+pluto:22
+upsmon:22
+mail.jaylacroix.me:65001
+work-vm:22
+
+[ups_controlled]
+hermes:65001
+pluto:22
+galaxy:22
+
+[workstations]
+crusader:22 ansible_python_interpreter=/usr/bin/python2
+ragnarok:22
+
+[workstations-games]
+crusader:22 ansible_python_interpreter=/usr/bin/python2
+ragnarok:22
+
+[workstations-gdm]
+crusader:22 ansible_python_interpreter=/usr/bin/python2
+ragnarok:22
+
+[workstations-gnome]
+crusader:22 ansible_python_interpreter=/usr/bin/python2
+ragnarok:22
+
+[workstations-lightdm]
+#crusader:22 ansible_python_interpreter=/usr/bin/python2
+
+[workstations-mate]
+crusader:22 ansible_python_interpreter=/usr/bin/python2
+#ragnarok:22
+
+[workstations-openbox]
+crusader:22 ansible_python_interpreter=/usr/bin/python2
+#ragnarok:22
 
 # Note: Add the following to use python2: ansible_python_interpreter=/usr/bin/python2

@@ -1,0 +1,14 @@
+- name: install gnome (fedora)
+  dnf: name={{item}} state=installed
+  when: ansible_distribution == 'Fedora'
+  with_items:
+    - control-center
+    - file-roller
+    - gedit
+    - gnome-music
+    - gnome-power-manager
+    - gnome-shell
+    - gnome-system-monitor
+    - gnome-terminal
+    - gnome-tweak-tool
+    - nautilus

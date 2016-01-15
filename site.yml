@@ -1,31 +1,71 @@
-# TO DO: SET CORRECT ORDER!
+- hosts: servers
+  become: true
+  roles:
+    - role: servers
+
+
+- hosts: workstations
+  become: true
+  roles:
+    - role: workstations
+
+
+- hosts: workstations-games
+  become: true
+  roles:
+    - role: workstations-games
+
+
+- hosts: workstations-gnome
+  become: true
+  roles:
+    - role: workstations-gnome
+
+
+- hosts: workstations-mate
+  become: true
+  roles:
+    - role: mate
+
+
+- hosts: workstations-openbox
+  become: true
+  roles:
+    - role: openbox
+
+
+- hosts: workstations-gdm
+  become: true
+  roles:
+    - role: workstations-gdm
+
+
+- hosts: workstations-lightdm
+  become: true
+  roles:
+    - role: lightdm
+
+
+- hosts: ups_controlled
+  become: true
+  roles:
+    - role: ups_controlled
+
 
 - hosts: raspberry-pi
   become: true
   roles:
     - role: raspberry-pi
 
-#- hosts: all
-#  become: true
-#  roles:
-#    - role: all
 
-#- hosts: workstations
-#  become: True
-#  roles:
-#    - role: workstation
+- hosts: kvm_hosts
+  become: true
+  roles:
+    - role: kvm_host
 
-#- hosts: servers
-#  become: true
-#  roles:
-#    - role: server
 
-#- hosts: servers
-#  become: true
-#  roles:
-#    - role: server
+- hosts: all
+  become: true
+  roles:
+    - role: all
 
-#- hosts: workstations
-#  become: true
-#  roles:
-#    - role: users

@@ -1,0 +1,16 @@
+- name: install games on fedora hosts
+  dnf: name={{item}} state=installed
+  when: ansible_distribution == 'Fedora'
+  with_items:
+    - alsa-lib.i686
+    - chromium-bsu
+    - frozen-bubble
+    - glibc.i686
+    - mame
+    - mednafen
+    - mesa-dri-drivers.i686
+    - neverball
+    - pulseaudio-libs.i686
+    - supertux
+    - supertuxkart
+    - wesnoth

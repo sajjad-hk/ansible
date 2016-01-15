@@ -1,0 +1,15 @@
+- name: install games on debian-based hosts
+  apt: name={{item}} state=installed
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  with_items:
+    - chromium-bsu
+    - frozen-bubble
+    - libasound2-data
+    - libasound2-plugins:i386
+    - libc6:i386
+    - mame
+    - mednafen
+    - neverball
+    - supertux
+    - supertuxkart
+    - wesnoth

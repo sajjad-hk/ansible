@@ -1,0 +1,2 @@
+- include: lightdm_package.yml
+- include: lightdm_service.yml

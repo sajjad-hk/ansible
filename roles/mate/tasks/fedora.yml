@@ -1,0 +1,21 @@
+- name: install mate (fedora)
+  dnf: name={{item}} state=installed
+  when: ansible_distribution == 'Fedora'
+  with_items:
+    - atril
+    - caja
+    - eom
+    - mate-applets
+    - mate-backgrounds
+    - mate-control-center
+    - mate-desktop
+    - mate-icon-theme
+    - mate-media
+    - mate-menus
+    - mate-notification-daemon
+    - mate-screensaver
+    - mate-system-monitor
+    - mate-terminal
+    - mate-themes
+    - mozo
+    - pluma

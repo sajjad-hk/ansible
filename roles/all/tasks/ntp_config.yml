@@ -1,0 +1,9 @@
+- name: copy ntp.conf
+  copy: src=ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
+  notify: restart_ntpd
+
+- name: copy ntp.conf
+  copy: src=ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  notify: restart_ntp

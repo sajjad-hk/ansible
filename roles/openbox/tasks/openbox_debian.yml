@@ -1,0 +1,24 @@
+- name: install openbox (debian-based)
+  apt: name={{item}} state=installed
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  with_items:
+    - acpid
+    - clipit
+    - compton
+    - fonts-cantarell
+    - gksu
+    - gmrun
+    - gnome-themes-standard
+    - gsimplecal
+    - lxappearance
+    - mousepad
+    - nitrogen
+    - obconf
+    - obmenu
+    - openbox
+    - pcmanfm
+    - scrot
+    - tint2
+    - volumeicon-alsa
+    - xarchiver
+    - xscreensaver

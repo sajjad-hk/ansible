@@ -1,0 +1,5 @@
+- name: restart libvirtd
+  service: name=libvirtd state=restarted
+    
+- name: restart libvirt-bin
+  service: name=libvirt-bin state=restarted
