@@ -26,6 +26,9 @@
   - name: create admins group
     group: name=admins system=yes state=present gid=901
 
+  - name: add jay to admins group
+    user: name=jay groups=admins append=yes
+
   - name: make sure admin group is allowed in sudoers
     lineinfile: "dest=/etc/sudoers
                 state=present

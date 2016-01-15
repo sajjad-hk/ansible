@@ -4,64 +4,79 @@
   tasks:
 
   ## Install packages
-  - dnf: name=nagios-plugins
+  - name: install nagios-plugins package (fedora)
+    dnf: name=nagios-plugins
     when: ansible_distribution == 'Fedora'
 
-  - dnf: name=nrpe
+  - name: install nrpe package (fedora)
+    dnf: name=nrpe
     when: ansible_distribution == 'Fedora'
 
-  - pacman: name=nrpe
+  - name: install nrpe package (arch)
+    pacman: name=nrpe
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - pacman: name=monitoring-plugins
+  - name: install monitoring-plugins package (arch)
+    pacman: name=monitoring-plugins
     when: ansible_distribution in ['Archlinux', 'Manjaro']
 
-  - yum: name=nrpe
+  - name: install nrpe package (centos)
+    yum: name=nrpe
     when: ansible_distribution == 'CentOS'
 
-  - yum: name=nagios-plugins
+  - name: install nagios-plugins package (centos)
+    yum: name=nagios-plugins
     when: ansible_distribution == 'CentOS'
 
-  - apt: name=nagios-nrpe-server
+  - name: install nagios-nrpe-server package (debian-based)
+    apt: name=nagios-nrpe-server
     when: ansible_distribution in ['Debian', 'Ubuntu']
 
-  - apt: name=nagios-nrpe-plugin
+  - name: install nagios-nrpe-plugin package (debian-based)
+    apt: name=nagios-nrpe-plugin
     when: ansible_distribution in ['Debian', 'Ubuntu']
 
 
   ## Copy nrpe.cfg
-  - copy: src=../files/nagios_client/nrpe_arch.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+  - name: copy nrpe.cfg (arch)
+    copy: src=../files/nagios_client/nrpe_arch.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
     when: ansible_distribution in ['Archlinux', 'Manjaro']
     notify: restart_nrpe
 
-  - copy: src=../files/nagios_client/nrpe_fedora.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+  - name: copy nrpe.cfg (fedora)
+    copy: src=../files/nagios_client/nrpe_fedora.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
     when: ansible_distribution == 'Fedora'
     notify: restart_nrpe
 
 
-  - copy: src=../files/nagios_client/nrpe_centos.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+  - name: copy nrpe.cfg (centos)
+    copy: src=../files/nagios_client/nrpe_centos.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
     when: ansible_distribution == 'CentOS'
     notify: restart_nrpe
 
-
-  - copy: src=../files/nagios_client/nrpe_debian.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+  - name: copy nrpe.cfg (debian-based)
+    copy: src=../files/nagios_client/nrpe_debian.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
     when: ansible_distribution in ['Debian', 'Ubuntu']
     notify: restart_nagios-nrpe-server
 
 
   ## Copy plugins
-  - copy: src=../files/nagios_client/check_ram dest=/usr/lib64/nagios/plugins/check_ram owner=root group=root mode=644
+  - name: copy check_ram plugin (centos, fedora)
+    copy: src=../files/nagios_client/check_ram dest=/usr/lib64/nagios/plugins/check_ram owner=root group=root mode=644
     when: ansible_distribution in ['CentOS', 'Fedora']
 
-  - copy: src=../files/nagios_client/check_ram dest=/usr/lib/nagios/plugins/check_ram owner=root group=root mode=644
+  - name: copy check_ram plugin (debian-based)
+    copy: src=../files/nagios_client/check_ram dest=/usr/lib/nagios/plugins/check_ram owner=root group=root mode=644
     when: ansible_distribution in ['Debian', 'Ubuntu']
 
 
   ## Set up the daemon
-  - service: name=nrpe enabled=yes state=started
+  - name: enable nrpe daemon (arch, centos, fedora)
+    service: name=nrpe enabled=yes state=started
     when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro']
 
-  - service: name=nagios-nrpe-server enabled=yes state=started
+  - name: enable nagios-nrpe-server daemon (debian-based)
+    service: name=nagios-nrpe-server enabled=yes state=started
     when: ansible_distribution in ['Debian', 'Ubuntu']
 
 
