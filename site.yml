@@ -10,6 +10,12 @@
     - role: workstations
 
 
+- hosts: workstations
+  become: true
+  roles:
+    - role: workstations-custom-apps
+
+
 - hosts: workstations-games
   become: true
   roles:
