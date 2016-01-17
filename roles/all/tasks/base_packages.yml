@@ -51,7 +51,7 @@
     - tig
     - tmux
     - util-linux
-    - vim-python3
+    - vim
     - wget
     - which
 
