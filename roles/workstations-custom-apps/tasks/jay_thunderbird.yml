@@ -1,0 +1,15 @@
+- name: create Thunderbird directory
+  file: path={{app_dir}}/thunderbird state=directory recurse=true owner=jay group=jay
+  register: thunderbird_dir
+
+- name: download thunderbird
+  get_url: url="{{thunderbird_url}}" dest="/tmp/thunderbird-{{thunderbird_version}}.tar.bz2"
+  when: thunderbird_dir.changed
+
+- name: extract thunderbird
+  unarchive: src=/tmp/thunderbird-{{thunderbird_version}}.tar.bz2 dest={{app_dir}} copy=no
+  when: thunderbird_dir.changed
+  register: app_installed
+
+- name: copy thunderbird application launcher
+  copy: src=jay_thunderbird.desktop dest=/home/jay/.local/share/applications/thunderbird.desktop owner=jay group=jay

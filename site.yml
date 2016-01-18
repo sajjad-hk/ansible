@@ -1,3 +1,9 @@
+- hosts: all
+  become: true
+  roles:
+  - role: users
+
+
 - hosts: servers
   become: true
   roles:

@@ -49,11 +49,10 @@ crusader:22 ansible_python_interpreter=/usr/bin/python2
 ragnarok:22
 
 [workstations-gnome]
-crusader:22 ansible_python_interpreter=/usr/bin/python2
 ragnarok:22
 
 [workstations-lightdm]
-#crusader:22 ansible_python_interpreter=/usr/bin/python2
+crusader:22 ansible_python_interpreter=/usr/bin/python2
 
 [workstations-mate]
 crusader:22 ansible_python_interpreter=/usr/bin/python2

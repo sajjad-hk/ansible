@@ -1,4 +1,3 @@
-- include: users_jay.yml
 - include: base_packages.yml
 - include: ntp_package.yml
 - include: ntp_service.yml

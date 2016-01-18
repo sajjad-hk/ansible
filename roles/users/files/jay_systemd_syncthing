@@ -1,0 +1,14 @@
+[Unit]
+Description=syncthing service for %i
+After=network.target
+
+[Service]
+User=jay
+Environment=STNORESTART=yes
+ExecStart=/home/jay/bin/syncthing/syncthing
+#Restart=on-success
+Restart=always
+SuccessExitStatus=3
+
+[Install]
+WantedBy=multi-user.target

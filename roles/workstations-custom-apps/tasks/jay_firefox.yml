@@ -1,0 +1,15 @@
+- name: create Firefox directory
+  file: path={{app_dir}}/firefox state=directory recurse=true owner=jay group=jay
+  register: firefox_dir
+
+- name: download Firefox
+  get_url: url="{{firefox_url}}" dest="/tmp/firefox-{{firefox_version}}.tar.bz2"
+  when: firefox_dir.changed
+
+- name: extract Firefox
+  unarchive: src=/tmp/firefox-{{firefox_version}}.tar.bz2 dest={{app_dir}} copy=no
+  when: firefox_dir.changed
+  register: app_installed
+
+- name: copy firefox application launcher
+  copy: src=jay_firefox.desktop dest=/home/jay/.local/share/applications/firefox.desktop owner=jay group=jay

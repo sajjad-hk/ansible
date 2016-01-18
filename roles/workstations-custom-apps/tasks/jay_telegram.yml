@@ -1,0 +1,23 @@
+- name: create telegram directory
+  file: path={{app_dir}}/telegram state=directory recurse=true owner=jay group=jay
+  register: telegram_dir
+
+- name: download telegram
+  shell: "wget https://tdesktop.com/linux -O /tmp/telegram.tar.xz"
+  when: telegram_dir.changed
+
+- name: extract telegram
+  unarchive: src=/tmp/telegram.tar.xz dest=/tmp copy=no
+  when: telegram_dir.changed
+
+- name: add telegram.png
+  copy: src=jay_telegram.png dest={{app_dir}}/telegram
+  when: telegram_dir.changed
+
+- name: move telegram
+  shell: mv /tmp/Telegram/* {{app_dir}}/telegram
+  when: telegram_dir.changed
+  register: app_installed
+
+- name: copy telegram application launcher
+  copy: src=jay_telegram.desktop dest=/home/jay/.local/share/applications/telegram.desktop owner=jay group=jay
