@@ -40,25 +40,25 @@ galaxy:22
 crusader:22 ansible_python_interpreter=/usr/bin/python2
 ragnarok:22
 
-[workstations-games]
+[games]
 crusader:22 ansible_python_interpreter=/usr/bin/python2
 ragnarok:22
 
-[workstations-gdm]
+[gdm]
 crusader:22 ansible_python_interpreter=/usr/bin/python2
 ragnarok:22
 
-[workstations-gnome]
+[gnome]
 ragnarok:22
 
-[workstations-lightdm]
+[lightdm]
 crusader:22 ansible_python_interpreter=/usr/bin/python2
 
-[workstations-mate]
+[mate]
 crusader:22 ansible_python_interpreter=/usr/bin/python2
 #ragnarok:22
 
-[workstations-openbox]
+[openbox]
 crusader:22 ansible_python_interpreter=/usr/bin/python2
 #ragnarok:22
 

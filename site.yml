@@ -19,40 +19,40 @@
 - hosts: workstations
   become: true
   roles:
-    - role: workstations-custom-apps
+    - role: custom_apps
 
 
-- hosts: workstations-games
+- hosts: games
   become: true
   roles:
-    - role: workstations-games
+    - role: games
 
 
-- hosts: workstations-gnome
+- hosts: gnome
   become: true
   roles:
-    - role: workstations-gnome
+    - role: gnome
 
 
-- hosts: workstations-mate
+- hosts: mate
   become: true
   roles:
     - role: mate
 
 
-- hosts: workstations-openbox
+- hosts: openbox
   become: true
   roles:
     - role: openbox
 
 
-- hosts: workstations-gdm
+- hosts: gdm
   become: true
   roles:
-    - role: workstations-gdm
+    - role: gdm
 
 
-- hosts: workstations-lightdm
+- hosts: lightdm
   become: true
   roles:
     - role: lightdm
