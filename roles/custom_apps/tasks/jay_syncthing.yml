@@ -16,12 +16,12 @@
   register: app_installed
 
 - name: syncthing cleanup
-  command: rm -rf /tmp/syncthing*
+  file: path=/tmp/syncthing state=absent
   when: syncthing_dir.changed
 
 - name: copy syncthing startup script (systemd)
   copy: src=jay_systemd_syncthing dest=/etc/systemd/system/syncthing.service owner=root group=root mode=644
-  when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro']
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro', 'Ubuntu']
 
 - name: copy syncthing startup script (sysv)
   copy: src=jay_sysv_syncthing dest=/etc/init.d/syncthing owner=root group=root mode=755

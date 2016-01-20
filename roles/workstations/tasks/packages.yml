@@ -69,7 +69,6 @@
     - easytag
     - exfat-utils
     - filezilla
-    - firmware-iwlwifi
     - freerdp-x11
     - galculator
     - geany
@@ -113,6 +112,11 @@
     - xbacklight
     - xfonts-terminus
     - xsel
+
+
+- name: install iwlwifi driver (debian)
+  apt: name=firmware-iwlwifi
+  when: ansible_distribution == 'debian'
 
 
 - name: install workstation packages (fedora)
