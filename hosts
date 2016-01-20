@@ -1,5 +1,5 @@
 [arch-intel-video]
-crusader:22 ansible_python_interpreter=/usr/bin/python2
+# Unused
 
 [arch-nvidia-video]
 # Unused
@@ -45,21 +45,19 @@ crusader:22 ansible_python_interpreter=/usr/bin/python2
 ragnarok:22
 
 [gdm]
-crusader:22 ansible_python_interpreter=/usr/bin/python2
 ragnarok:22
 
 [gnome]
 ragnarok:22
 
 [lightdm]
-crusader:22 ansible_python_interpreter=/usr/bin/python2
+# Unused
 
 [mate]
 crusader:22 ansible_python_interpreter=/usr/bin/python2
 #ragnarok:22
 
 [openbox]
-crusader:22 ansible_python_interpreter=/usr/bin/python2
-#ragnarok:22
+# Unused
 
 # Note: Add the following to use python2: ansible_python_interpreter=/usr/bin/python2

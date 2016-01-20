@@ -14,11 +14,6 @@
   become: true
   roles:
     - role: workstations
-
-
-- hosts: workstations
-  become: true
-  roles:
     - role: custom_apps
 
 
