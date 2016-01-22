@@ -11,7 +11,6 @@
     - mate-desktop
     - mate-icon-theme
     - mate-media
-    - mate-media-pulse
     - mate-menus
     - mate-notification-daemon
     - mate-panel
@@ -20,9 +19,16 @@
     - mate-screensaver
     - mate-session-manager
     - mate-settings-daemon
-    - mate-settings-daemon-pulse
     - mate-system-monitor
     - mate-terminal
     - mate-themes
     - mozo
     - pluma
+
+- name: install mate-media-pulse (debian)
+  apt: name=mate-media-pulse
+  when: ansible_distribution == 'debian'
+
+- name: install mate-media-pulse (debian)
+  apt: name=mate-media-settings-daemon-pulse
+  when: ansible_distribution == 'debian'
