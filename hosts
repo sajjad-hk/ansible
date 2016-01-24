@@ -7,8 +7,12 @@
 [arch-vbox-video]
 # Unused
 
+[custom_apps]
+crusader:22
+ragnarok:22
+
 [kvm_hosts]
-crusader:22 ansible_python_interpreter=/usr/bin/python2
+crusader:22
 ragnarok:22
 galaxy:22
 
@@ -20,6 +24,7 @@ upsmon:22
 
 [servers]
 localhost:22 ansible_connection=local
+dev:65012
 galaxy:22
 hermes:65001 ansible_ssh_port=65001
 jaylacroix.com:65001
@@ -37,25 +42,24 @@ pluto:22
 galaxy:22
 
 [workstations]
-crusader:22 ansible_python_interpreter=/usr/bin/python2
+crusader:22
 ragnarok:22
 
 [games]
-crusader:22 ansible_python_interpreter=/usr/bin/python2
+crusader:22
 ragnarok:22
 
 [gdm]
-ragnarok:22
+# unused
 
 [gnome]
-ragnarok:22
+# unused
 
 [lightdm]
 # Unused
 
 [mate]
-crusader:22 ansible_python_interpreter=/usr/bin/python2
-#ragnarok:22
+# Unused
 
 [openbox]
 # Unused

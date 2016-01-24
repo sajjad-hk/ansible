@@ -14,6 +14,11 @@ Host crusader
     Port 22
     User jay
 
+Host dev
+    Hostname 192.241.246.188
+    Port 65012
+    User jay
+
 Host galaxy
     Hostname 10.10.96.4
     Port 22
