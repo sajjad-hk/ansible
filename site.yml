@@ -73,4 +73,4 @@
 - hosts: all
   become: true
   roles:
-    - role: all
+    - role: base
