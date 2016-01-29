@@ -1,8 +1,0 @@
-- name: create local applications directory
-  file: path=/home/jay/.local/share/applications state=directory recurse=true owner=jay group=jay
-
-- include: jay_firefox.yml
-- include: jay_syncthing.yml
-- include: jay_telegram.yml
-- include: jay_thunderbird.yml
-- include: jay_dir_permissions.yml

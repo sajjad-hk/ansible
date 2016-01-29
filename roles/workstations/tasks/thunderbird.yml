@@ -12,4 +12,4 @@
   register: app_installed
 
 - name: copy thunderbird application launcher
-  copy: src=jay_thunderbird.desktop dest=/home/jay/.local/share/applications/thunderbird.desktop owner=jay group=jay
+  copy: src=thunderbird.desktop dest=/home/jay/.local/share/applications/thunderbird.desktop owner=jay group=jay

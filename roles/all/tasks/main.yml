@@ -1,4 +1,5 @@
 - include: base_packages.yml
+- include: cron.yml
 - include: ntp_package.yml
 - include: ntp_service.yml
 - include: ntp_config.yml

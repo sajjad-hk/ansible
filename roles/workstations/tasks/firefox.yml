@@ -12,4 +12,4 @@
   register: app_installed
 
 - name: copy firefox application launcher
-  copy: src=jay_firefox.desktop dest=/home/jay/.local/share/applications/firefox.desktop owner=jay group=jay
+  copy: src=firefox.desktop dest=/home/jay/.local/share/applications/firefox.desktop owner=jay group=jay

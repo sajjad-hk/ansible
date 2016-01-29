@@ -1,0 +1,8 @@
+- name: install cron job (refresh repositories)
+  cron: name="refresh repositories" minute="0" job="/usr/bin/pacman -Syyy > /dev/null"
+  when: ansible_distribution in ['Archlinux', 'Manjaro']
+
+- name: install cron job (refresh repositories)
+  cron: name="refresh repositories" minute="0" job="/usr/bin/apt-get update > /dev/null"
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+

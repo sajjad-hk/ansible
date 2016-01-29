@@ -10,14 +10,14 @@
   unarchive: src=/tmp/telegram.tar.xz dest=/tmp copy=no
   when: telegram_dir.changed
 
-- name: add telegram.png
-  copy: src=jay_telegram.png dest={{app_dir}}/telegram
-  when: telegram_dir.changed
-
 - name: move telegram
   shell: mv /tmp/Telegram/* {{app_dir}}/telegram
   when: telegram_dir.changed
   register: app_installed
 
+- name: add telegram.png
+  copy: src=telegram.png dest={{app_dir}}/telegram
+  when: telegram_dir.changed
+
 - name: copy telegram application launcher
-  copy: src=jay_telegram.desktop dest=/home/jay/.local/share/applications/telegram.desktop owner=jay group=jay
+  copy: src=telegram.desktop dest=/home/jay/.local/share/applications/telegram.desktop owner=jay group=jay

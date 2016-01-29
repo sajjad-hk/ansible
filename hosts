@@ -26,7 +26,7 @@ upsmon:22
 localhost:22 ansible_connection=local
 dev:65012
 galaxy:22
-hermes:65001 ansible_ssh_port=65001
+hermes:65001
 jaylacroix.com:65001
 nagios:22
 neptune:22
