@@ -1,0 +1,2 @@
+# Correct local time
+- file:  src=/usr/share/zoneinfo/America/Detroit dest=/etc/localtime state=link force=yes
