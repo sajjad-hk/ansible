@@ -1,27 +1,62 @@
 - name: install syncthing (arch)
   pacman: name=syncthing state=latest
   when: ansible_distribution in ['Archlinux', 'Manjaro']
+  register: syncthing
 
 - name: install syncthing (debian-based)
   apt: name=syncthing state=latest
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  register: syncthing
 
-# - name: enable and start syncthing daemon
-#  service: name=syncthing enabled=yes state=started
-#  register: syncthing
+- name: enable syncthing
+  command: systemctl enable syncthing@jay.service
+  when: syncthing.changed
 
-#- name: wait for config.xml to be generated
-#  wait_for: path=/home/jay/.config/syncthing/config.xml
+- name: start syncthing
+  command: systemctl start syncthing@jay.service
+  when: syncthing.changed
 
-#- name: config.xml | webinterface address
-#  lineinfile: dest={{syncthing_config}}
-#              regexp="<address>[^<]+</address>"
-#              line="        <address>0.0.0.0:8324</address>"
-#  notify: restart syncthing
-#  when: syncthing.changed
+- name: wait for config.xml to be generated
+  wait_for: path=/home/jay/.config/syncthing/config.xml
+  when: syncthing.changed
 
-#- name: config.xml | upnpEnabled
-#  lineinfile: dest={{syncthing_config}}
-#              regexp="<upnpEnabled>[^<]+</upnpEnabled>"
-#              line="        <upnpEnabled>false</upnpEnabled>"
-#  notify: restart syncthing
+- name: config.xml | webinterface address
+  lineinfile: dest={{syncthing_config}}
+              regexp="<address>[^<]+</address>"
+              line="        <address>0.0.0.0:8324</address>"
+  notify: restart syncthing
+  register: config
+
+- name: config.xml | upnpEnabled
+  lineinfile: dest={{syncthing_config}}
+              regexp="<upnpEnabled>[^<]+</upnpEnabled>"
+              line="        <upnpEnabled>false</upnpEnabled>"
+  register: config
+
+- name: config.xml | browser
+  lineinfile: dest={{syncthing_config}}
+              regexp="<startBrowser>[^<]+</startBrowser>"
+              line="        <startBrowser>false</startBrowser>"
+  register: config
+
+- name: config.xml | user
+  lineinfile: dest={{syncthing_config}}
+              regexp="<user>[^<]+</user>"
+              line="        <user>jay</user>"
+  register: config
+
+- name: config.xml | password
+  lineinfile: dest={{syncthing_config}}
+              regexp="<password>[^<]+</password>"
+              line="        <password>$2a$10$z./2IPglPKK0oHKT8nSdQeNc9.CgsL0UgoKYtmNGqJYdHmDbs5zja</password>"
+  register: config
+
+- name: config.xml | autoupgrade
+  lineinfile: dest={{syncthing_config}}
+              regexp="<autoUpgradeIntervalH>[^<]+</autoUpgradeIntervalH>"
+              line="        <autoUpgradeIntervalH>0</autoUpgradeIntervalH>"
+  register: config
+
+- name: restart syncthing
+  command: systemctl restart syncthing@jay.service
+  when: config.changed
