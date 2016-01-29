@@ -7,6 +7,7 @@
     - ebtables
     - libvirt
     - qemu
+    - ssh-askpass
     - virt-manager
 
 
@@ -30,6 +31,7 @@
     - libvirt-bin
     - qemu-kvm
     - qemu-system
+    - ssh-askpass
     - virt-manager
     - virt-top
     - virtinst
