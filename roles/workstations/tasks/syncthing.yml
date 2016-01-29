@@ -3,7 +3,7 @@
   when: ansible_distribution in ['Archlinux', 'Manjaro']
   register: syncthing
 
-- name: install syncthing (debian-based)
+- name: install or upgrade syncthing (debian-based)
   apt: name=syncthing state=latest
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
   register: syncthing
@@ -57,6 +57,16 @@
               line="        <autoUpgradeIntervalH>0</autoUpgradeIntervalH>"
   register: config
 
-- name: restart syncthing
+- name: config.xml | anonymous data
+  lineinfile: dest={{syncthing_config}}
+              regexp="<urAccepted>[^<]+</urAccepted>"
+              line="        <urAccepted>-1</urAccepted>"
+  register: config
+
+- name: restart syncthing (config was updated)
   command: systemctl restart syncthing@jay.service
   when: config.changed
+
+- name: restart syncthing (new version)
+  command: systemctl restart syncthing@jay.service
+  when: syncthing.changed
