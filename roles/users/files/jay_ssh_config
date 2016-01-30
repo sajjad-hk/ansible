@@ -19,6 +19,11 @@ Host dev
     Port 65012
     User jay
 
+Host eris
+    Hostname 10.10.98.8
+    Port 22
+    User mediauser
+
 Host galaxy
     Hostname 10.10.96.4
     Port 22
