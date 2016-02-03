@@ -14,15 +14,31 @@
   yum: name=sudo
   when: ansible_distribution == "CentOS"
 
-
 - name: create admins group
   group: name=admins system=yes state=present gid=901
 
 - name: add jay to admins group
   user: name=jay groups=admins append=yes
 
-- name: make sure admin group is allowed in sudoers
+- name: make sure admins group is allowed in sudoers
   lineinfile: "dest=/etc/sudoers
               state=present
-              regexp='^%admin' line='%admins ALL=(ALL) NOPASSWD: ALL'
+              line='%admins ALL=(ALL) NOPASSWD: ALL'
               validate='/usr/sbin/visudo -cf %s'"
+  register: sudoers
+
+- name: remove unused sudoers line
+  lineinfile: dest=/etc/sudoers state=absent line="%admin ALL=(ALL) ALL" validate='visudo -cf %s'
+  when: sudoers.changed
+
+- name: remove unsed sudoers line
+  lineinfile: dest=/etc/sudoers state=absent line="# Allow members of group sudo to execute any command" state=absent validate='visudo -cf %s'
+  when: sudoers.changed
+
+- name: remove unsed sudoers line
+  lineinfile: dest=/etc/sudoers state=absent line="# Members of the admin group may gain root privileges" state=absent validate='visudo -cf %s'
+  when: sudoers.changed
+
+- name: remove unsed sudoers line
+  lineinfile: dest=/etc/sudoers state=absent line="%admins ALL=(ALL:ALL) ALL" state=absent validate='visudo -cf %s'
+  when: sudoers.changed

@@ -1,5 +1,0 @@
- - create slim dm playbook
- - Remove sysv version of syncthing once Linux Mint moves to systemd
- - jay_apps hasn't been executed yet!
- - Is oblogout still used in Arch?
- - figure out better way of openbox screen locking, change package to that

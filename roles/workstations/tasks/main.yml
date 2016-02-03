@@ -1,9 +1,9 @@
-#- include: repositories.yml
-#- include: packages.yml
-#- include: syncthing.yml
-#- include: network_manager.yml
-#- include: directories.yml
-#- include: firefox.yml
-#- include: telegram.yml
-#- include: thunderbird.yml
+- include: repositories.yml
+- include: packages.yml
+- include: syncthing.yml
+- include: network_manager.yml
+- include: directories.yml
+- include: firefox.yml
+- include: telegram.yml
+- include: thunderbird.yml
 - include: firewall.yml

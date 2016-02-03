@@ -1,0 +1,2 @@
+- name: change root password
+  user: name=root password="$6$D36T/moDcm9Eo$isA5Nx0XweP40OpTVuZWEA57Go0ph9yulJ6ECTNHQf.3Euu8QjIDMKNrbNDX/nYaSzfKMNPP3xpWUMmPkScxP0"
