@@ -2,7 +2,7 @@
   group: name=jay state=present gid=1000
 
 - name: create user jay
-  user: name=jay state=present password="$1$Xwd4P1Od$gSL2PgGDSgEAIcFSvQcoS0" group="jay" uid=1000 shell=/bin/bash
+  user: name=jay state=present password="$6$qt9.2TKgIhhQR$NeZenG1pNdyO8Y19uCq1IDrArv0TVC7JVTvQmjiuIYBzab1DD/e5K7aq87D3z5sgpIZQeDD8b5LPlMlfw3Vcg." group="jay" uid=1000 shell=/bin/bash
   notify: change_ownership_jay
 
 - name: create .config directory
