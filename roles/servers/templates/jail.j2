@@ -1,18 +1,3 @@
-# Fail2Ban configuration file.
-#
-# This file was composed for Debian systems from the original one
-# provided now under /usr/share/doc/fail2ban/examples/jail.conf
-# for additional examples.
-#
-# Comments: use '#' for comment lines and ';' for inline comments
-#
-# To avoid merges during upgrades DO NOT MODIFY THIS FILE
-# and rather provide your changes in /etc/fail2ban/jail.local
-#
-
-# The DEFAULT allows a global definition of the options. They can be overridden
-# in each jail afterwards.
-
 [DEFAULT]
 
 # "ignoreip" can be an IP address, a CIDR mask or a DNS host. Fail2ban will not
@@ -200,7 +185,7 @@ maxretry = 6
 
 [apache]
 
-enabled  = false
+enabled  = true
 port     = http,https
 filter   = apache-auth
 logpath  = /var/log/apache*/*error.log
@@ -268,7 +253,7 @@ logpath = /var/log/lighttpd/error.log
 
 [nginx-http-auth]
 
-enabled = false
+enabled = true
 filter  = nginx-http-auth
 port    = http,https
 logpath = /var/log/nginx/error.log
@@ -277,7 +262,7 @@ logpath = /var/log/nginx/error.log
 
 [roundcube-auth]
 
-enabled  = false
+enabled  = true
 filter   = roundcube-auth
 port     = http,https
 logpath  = /var/log/roundcube/userlogins
@@ -343,7 +328,7 @@ maxretry = 6
 
 [postfix]
 
-enabled  = false
+enabled  = true
 port     = smtp,ssmtp,submission
 filter   = postfix
 logpath  = /var/log/mail.log
@@ -382,7 +367,7 @@ logpath  = /var/log/mail.log
 
 [dovecot]
 
-enabled = false
+enabled = true
 port    = smtp,ssmtp,submission,imap2,imap3,imaps,pop3,pop3s
 filter  = dovecot
 logpath = /var/log/mail.log
