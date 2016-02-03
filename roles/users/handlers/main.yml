@@ -1,6 +1,2 @@
 - name: change_ownership_jay
   command: chown jay:jay -R /home/jay
-
-- name: restart syncthing
-  service: name=syncthing state=restarted
-
