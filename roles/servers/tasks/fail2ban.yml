@@ -1,0 +1,21 @@
+- name: install fail2ban (arch)
+  pacman: name=fail2ban state=latest
+  notify: restart_fail2ban
+  when: ansible_distribution in ['Archlinux', 'Manjaro']
+
+- name: install fail2ban (centos)
+  dnf: name=fail2ban state=latest
+  notify: restart_fail2ban
+  when: ansible_distribution in ['CentOS']
+
+- name: install fail2ban (debian-based)
+  apt: name=fail2ban state=latest
+  notify: restart_fail2ban
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+
+- name: copy fail2ban jail.conf
+  template: src=jail.j2 dest=/etc/fail2ban/jail.conf owner=root group=root mode=644
+  notify: restart_fail2ban
+
+- name: start and enable fail2ban
+  service: name=fail2ban state=started enabled=yes
