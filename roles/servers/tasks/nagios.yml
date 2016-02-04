@@ -1,33 +1,33 @@
 - name: install nagios-plugins package (fedora)
-  dnf: name=nagios-plugins
+  dnf: name=nagios-plugins state=latest
   when: ansible_distribution == 'Fedora'
 
 - name: install nrpe package (fedora)
-  dnf: name=nrpe
+  dnf: name=nrpe state=latest
   when: ansible_distribution == 'Fedora'
 
 - name: install nrpe package (arch)
-  pacman: name=nrpe
+  pacman: name=nrpe state=latest
   when: ansible_distribution in ['Archlinux', 'Manjaro']
 
 - name: install monitoring-plugins package (arch)
-  pacman: name=monitoring-plugins
+  pacman: name=monitoring-plugins state=latest
   when: ansible_distribution in ['Archlinux', 'Manjaro']
 
 - name: install nrpe package (centos)
-  yum: name=nrpe
+  yum: name=nrpe state=latest
   when: ansible_distribution == 'CentOS'
 
 - name: install nagios-plugins package (centos)
-  yum: name=nagios-plugins
+  yum: name=nagios-plugins state=latest
   when: ansible_distribution == 'CentOS'
 
 - name: install nagios-nrpe-server package (debian-based)
-  apt: name=nagios-nrpe-server
+  apt: name=nagios-nrpe-server state=latest
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: install nagios-nrpe-plugin package (debian-based)
-  apt: name=nagios-nrpe-plugin
+  apt: name=nagios-nrpe-plugin state=latest
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: copy nrpe.cfg (arch)
