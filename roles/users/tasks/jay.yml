@@ -4,7 +4,7 @@
 - name: create user jay
   user: name=jay
         state=present
-        password="$6$qt9.2TKgIhhQR$NeZenG1pNdyO8Y19uCq1IDrArv0TVC7JVTvQmjiuIYBzab1DD/e5K7aq87D3z5sgpIZQeDD8b5LPlMlfw3Vcg."
+        password="$6$.oovVtp9LRVPLaDP$tCNQA8BkZ72YQgNkKnRVsKJcOGYKJlnQvfMrfgFjpZI0LP.0Dr68F3Yajkc3ClrSSl/ZPgb1M8WcYOCpH5f8f/"
         group="jay"
         uid=1000
         shell=/bin/bash
