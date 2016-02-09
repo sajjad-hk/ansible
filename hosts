@@ -9,12 +9,13 @@
 
 [custom_apps]
 crusader:22
+moogle:65102
 ragnarok:22
 
 [kvm_hosts]
 crusader:22
 ragnarok:22
-galaxy:22
+galaxy:65004
 
 [raspberry-pi]
 localhost:22 ansible_connection=local
@@ -25,9 +26,10 @@ upsmon:22
 [servers]
 localhost:22 ansible_connection=local
 dev:65012
-galaxy:22
+galaxy:65004
 hermes:65001
 jaylacroix.com:65001
+moogle:65102
 nagios:22
 neptune:22
 pi-dev:22
@@ -39,10 +41,11 @@ work-vm:22
 [ups_controlled]
 hermes:65001
 pluto:22
-galaxy:22
+galaxy:65004
 
 [workstations]
 crusader:22
+moogle:65102
 ragnarok:22
 
 [games]
