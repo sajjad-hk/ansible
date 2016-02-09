@@ -26,7 +26,7 @@ Host eris
 
 Host galaxy
     Hostname 10.10.96.4
-    Port 22
+    Port 65004
     User jay
 
 Host glycon
@@ -52,6 +52,11 @@ Host jaylacroix.com
 host mail
     Hostname mail.jaylacroix.me
     Port 65001
+    User jay
+
+host moogle
+    Hostname 10.10.96.102
+    Port 65006
     User jay
 
 Host nagios
