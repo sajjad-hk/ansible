@@ -56,7 +56,7 @@ host mail
 
 host moogle
     Hostname 10.10.96.102
-    Port 65006
+    Port 65102
     User jay
 
 Host nagios
