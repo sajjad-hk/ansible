@@ -9,7 +9,11 @@
 - name: extract thunderbird
   unarchive: src=/tmp/thunderbird-{{thunderbird_version}}.tar.bz2 dest={{app_dir}} copy=no
   when: thunderbird_dir.changed
-  register: app_installed
+  register: thunderbird_installed
 
 - name: copy thunderbird application launcher
   copy: src=thunderbird.desktop dest=/home/jay/.local/share/applications/thunderbird.desktop owner=jay group=jay
+
+- name: correct permissions (thunderbird)
+  command: chown jay:jay -R {{app_dir}}/thunderbird
+  when: thunderbird_installed.changed

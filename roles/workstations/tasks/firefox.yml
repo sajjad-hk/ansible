@@ -9,7 +9,11 @@
 - name: extract Firefox
   unarchive: src=/tmp/firefox-{{firefox_version}}.tar.bz2 dest={{app_dir}} copy=no
   when: firefox_dir.changed
-  register: app_installed
+  register: firefox_installed
 
 - name: copy firefox application launcher
   copy: src=firefox.desktop dest=/home/jay/.local/share/applications/firefox.desktop owner=jay group=jay
+
+- name: correct firefox permissions
+  command: chown jay:jay -R {{app_dir}}/firefox
+  when: firefox_installed.changed

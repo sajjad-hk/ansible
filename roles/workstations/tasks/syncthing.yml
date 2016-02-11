@@ -24,7 +24,6 @@
   lineinfile: dest={{syncthing_config}}
               regexp="<address>[^<]+</address>"
               line="        <address>0.0.0.0:8324</address>"
-  notify: restart syncthing
   register: config
 
 - name: config.xml | upnpEnabled
@@ -42,12 +41,14 @@
 - name: config.xml | user
   lineinfile: dest={{syncthing_config}}
               regexp="<user>[^<]+</user>"
+              insertbefore="</options>"
               line="        <user>jay</user>"
   register: config
 
 - name: config.xml | password
   lineinfile: dest={{syncthing_config}}
               regexp="<password>[^<]+</password>"
+              insertbefore="</options>"
               line="        <password>$2a$10$z./2IPglPKK0oHKT8nSdQeNc9.CgsL0UgoKYtmNGqJYdHmDbs5zja</password>"
   register: config
 
