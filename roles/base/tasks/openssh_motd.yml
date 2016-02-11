@@ -1,8 +1,0 @@
-- name: copy motd script
-  file: path=/usr/local/bin/system_stats.sh state=absent
-
-- name: copy motd script
-  copy: src=motd.sh dest=/etc/profile.d/motd.sh owner=root group=root mode=755
-
-- name: add crontab entry for system_stats.sh
-  cron: name="update_stats" job="/usr/local/bin/system_stats.sh > /dev/null" state=absent

@@ -120,6 +120,7 @@
     - colordiff
     - cron
     - curl
+    - dnsutils
     - git
     - heirloom-mailx
     - htop

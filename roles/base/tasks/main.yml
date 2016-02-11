@@ -1,11 +1,5 @@
-- include: base_packages.yml
+- include: packages.yml
 - include: cron.yml
-- include: ntp_package.yml
-- include: ntp_service.yml
-- include: ntp_config.yml
+- include: ntp.yml
 - include: sudoers.yml
-- include: openssh_package.yml
-- include: openssh_sshd_config.yml
-- include: openssh_issue.yml
-- include: openssh_motd.yml
-- include: openssh_service.yml
+- include: openssh.yml
