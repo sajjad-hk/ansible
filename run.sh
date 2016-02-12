@@ -9,4 +9,4 @@ cd /git/ansible
 
 find /var/log/ansible -type f -mtime +1 -delete
 
-rm -r /home/ansible/.ansible/tmp
+rm -r /home/ansible/.ansible
