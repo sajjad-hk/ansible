@@ -5,6 +5,8 @@ CURRDATE=$(date +%Y-%m-%d_%H%M)
 # Run playbooks
 cd /git/ansible 
 
+git pull
+
 /usr/local/bin/ansible-playbook site.yml >> "/var/log/ansible/ansible-$CURRDATE.log"
 
 find /var/log/ansible -type f -mtime +1 -delete
