@@ -16,6 +16,9 @@
 - name: copy user-dirs.dirs
   copy: src=jay_user-dirs.dirs dest=/home/jay/.config/user-dirs.dirs owner=jay group=jay mode=600
 
+- name: copy .gitconfig
+  copy: src=jay_gitconfig dest=/home/jay/.gitconfig owner=jay group=jay mode=600
+
 - name: create .ssh directory
   file: path=/home/jay/.ssh state=directory owner=jay group=jay mode=700
 
