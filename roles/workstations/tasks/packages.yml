@@ -2,6 +2,7 @@
   pacman: name={{item}} state=installed
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
   with_items:
+    - acpid
     - asunder
     - banshee
     - brasero
@@ -60,6 +61,7 @@
   apt: name={{item}} state=installed
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
   with_items:
+    - acpid
     - aptitude
     - asunder
     - banshee
@@ -124,6 +126,7 @@
   dnf: name={{item}} state=installed
   when: ansible_distribution == 'Fedora'
   with_items:
+    - acpid
     - asunder
     - banshee
     - brasero
