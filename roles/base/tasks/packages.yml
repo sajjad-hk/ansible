@@ -1,95 +1,3 @@
-- name: install base packages (arch)
-  pacman: name={{item}} state=installed
-  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
-  with_items:
-    - autoconf
-    - automake
-    - bind-tools
-    - binutils
-    - bison
-    - colordiff
-    - cronie
-    - curl
-    - fakeroot
-    - file
-    - findutils
-    - flake8
-    - flex
-    - gawk
-    - gcc
-    - gettext
-    - git
-    - grep
-    - groff
-    - gzip
-    - htop
-    - iotop
-    - libtool
-    - linux-lts
-    - linux-lts-headers
-    - lm_sensors
-    - lynx
-    - m4
-    - make
-    - mosh
-    - ncdu
-    - patch
-    - pkg-config
-    - python-pyflakes
-    - python-virtualenv
-    - python2-flake8
-    - python2-pip
-    - python2-pyflakes
-    - python2-virtualenv
-    - rsync
-    - ruby
-    - screen
-    - sed
-    - sshfs
-    - texinfo
-    - the_silver_searcher
-    - tig
-    - tmux
-    - util-linux
-    - vim
-    - wget
-    - which
-
-
-- name: install base packages (fedora)
-  dnf: name={{item}} state=installed
-  when: ansible_distribution == 'Fedora'
-  with_items:
-    - colordiff
-    - cronie
-    - curl
-    - git
-    - htop
-    - iotop
-    - lm_sensors
-    - lynx
-    - mailx
-    - mosh
-    - ncdu
-    - pyflakes
-    - python-flake8
-    - python-pep8
-    - python-pip
-    - python-virtualenv
-    - python3-flake8
-    - python3-pep8
-    - python3-pyflakes
-    - rsync
-    - ruby
-    - screen
-    - sshfs
-    - the_silver_searcher
-    - tig
-    - tmux
-    - vim-enhanced
-    - wget
-
-
 - name: install base packages (centos)
   yum: name={{item}} state=installed
   when: ansible_distribution == 'CentOS'
@@ -110,7 +18,6 @@
     - tmux
     - vim-enhanced
     - wget
-
 
 - name: install base packages (debian-based)
   apt: name={{item}} state=installed
@@ -147,7 +54,6 @@
     - vim-nox
     - wget
 
-
 - name: remove unneeded debian packages
   apt: name={{item}} state=absent
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
@@ -155,3 +61,36 @@
     - exim4
     - exim4-base
     - exim4-config
+
+- name: install base packages (fedora)
+  dnf: name={{item}} state=installed
+  when: ansible_distribution == 'Fedora'
+  with_items:
+    - colordiff
+    - cronie
+    - curl
+    - git
+    - htop
+    - iotop
+    - lm_sensors
+    - lynx
+    - mailx
+    - mosh
+    - ncdu
+    - pyflakes
+    - python-flake8
+    - python-pep8
+    - python-pip
+    - python-virtualenv
+    - python3-flake8
+    - python3-pep8
+    - python3-pyflakes
+    - rsync
+    - ruby
+    - screen
+    - sshfs
+    - the_silver_searcher
+    - tig
+    - tmux
+    - vim-enhanced
+    - wget

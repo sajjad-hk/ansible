@@ -1,28 +1,3 @@
-- name: install kvm packages (arch)
-  pacman: name={{item}} state=installed
-  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
-  with_items:
-    - bridge-utils
-    - dnsmasq
-    - ebtables
-    - libvirt
-    - qemu
-    - ssh-askpass
-    - virt-manager
-
-
-- name: install kvm packages (fedora)
-  dnf: name={{item}} state=installed
-  when: ansible_distribution == 'Fedora'
-  with_items:
-    - bridge-utils
-    - dnsmasq
-    - ebtables
-    - libvirt
-    - qemu
-    - virt-manager
-
-
 - name: install kvm packages (debian-based)
   apt: name={{item}} state=installed
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
@@ -35,3 +10,14 @@
     - virt-manager
     - virt-top
     - virtinst
+
+- name: install kvm packages (fedora)
+  dnf: name={{item}} state=installed
+  when: ansible_distribution == 'Fedora'
+  with_items:
+    - bridge-utils
+    - dnsmasq
+    - ebtables
+    - libvirt
+    - qemu
+    - virt-manager

@@ -1,11 +1,6 @@
-- name: install or update ntp (arch)
-  pacman: name=ntp state=latest
-  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
-  notify: restart_ntpd
-
-- name: install or update ntp (fedora)
-  dnf: name=ntp state=latest
-  when: ansible_distribution == 'Fedora'
+- name: install or update ntp (centos)
+  yum: name=ntp state=latest
+  when: ansible_distribution == 'CentOS'
   notify: restart_ntpd
 
 - name: install or update ntp (debian-based)
@@ -13,14 +8,14 @@
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
   notify: restart_ntp
 
-- name: install or update ntp (centos)
-  yum: name=ntp state=latest
-  when: ansible_distribution == 'CentOS'
+- name: install or update ntp (fedora)
+  dnf: name=ntp state=latest
+  when: ansible_distribution == 'Fedora'
   notify: restart_ntpd
 
 - name: copy ntp.conf
   copy: src=ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
-  when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro Linux']
+  when: ansible_distribution in ['CentOS', 'Fedora', 'Manjaro Linux']
   notify: restart_ntpd
 
 - name: copy ntp.conf
@@ -30,7 +25,7 @@
 
 - name: enable and start daemon (ntpd)
   service: name=ntpd enabled=yes state=started
-  when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro Linux']
+  when: ansible_distribution in ['CentOS', 'Fedora', 'Manjaro Linux']
 
 - name: enable and start daemon (ntp)
   service: name=ntp enabled=yes state=started

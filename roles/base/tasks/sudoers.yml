@@ -1,3 +1,7 @@
+- name: install sudo (centos)
+  yum: name=sudo
+  when: ansible_distribution == "CentOS"
+
 - name: install sudo (debian-based)
   apt: name=sudo
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
@@ -5,14 +9,6 @@
 - name: install sudo (fedora)
   dnf: name=sudo
   when: ansible_distribution == "Fedora"
-
-- name: install sudo (arch)
-  pacman: name=sudo
-  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
-
-- name: install sudo (centos)
-  yum: name=sudo
-  when: ansible_distribution == "CentOS"
 
 - name: create admins group
   group: name=admins system=yes state=present gid=901

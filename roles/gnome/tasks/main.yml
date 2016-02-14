@@ -1,3 +1,2 @@
-- include: arch.yml
 - include: debian.yml
 - include: fedora.yml

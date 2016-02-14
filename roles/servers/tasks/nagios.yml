@@ -6,14 +6,6 @@
   dnf: name=nrpe state=latest
   when: ansible_distribution == 'Fedora'
 
-- name: install nrpe package (arch)
-  pacman: name=nrpe state=latest
-  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
-
-- name: install monitoring-plugins package (arch)
-  pacman: name=monitoring-plugins state=latest
-  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
-
 - name: install nrpe package (centos)
   yum: name=nrpe state=latest
   when: ansible_distribution == 'CentOS'
@@ -29,11 +21,6 @@
 - name: install nagios-nrpe-plugin package (debian-based)
   apt: name=nagios-nrpe-plugin state=latest
   when: ansible_distribution in ['Debian', 'Ubuntu']
-
-- name: copy nrpe.cfg (arch)
-  copy: src=nrpe_arch.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
-  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
-  notify: restart_nrpe
 
 - name: copy nrpe.cfg (fedora)
   copy: src=nrpe_fedora.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
@@ -58,9 +45,9 @@
   copy: src=nrpe_check_ram dest=/usr/lib/nagios/plugins/check_ram owner=root group=root mode=644
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
-- name: enable nrpe daemon (arch, centos, fedora)
+- name: enable nrpe daemon (centos, fedora)
   service: name=nrpe enabled=yes state=started
-  when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro Linux']
+  when: ansible_distribution in ['CentOS', 'Fedora']
 
 - name: enable nagios-nrpe-server daemon (debian-based)
   service: name=nagios-nrpe-server enabled=yes state=started

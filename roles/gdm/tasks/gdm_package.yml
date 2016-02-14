@@ -1,7 +1,3 @@
-- name: install gdm (arch)
-  pacman: name=gdm
-  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
-
 - name: install gdm (debian-based)
   apt: name=gdm3
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
@@ -10,10 +6,6 @@
   dnf: name=gdm
   when: ansible_distribution in ['Fedora']
 
-- name: remove lightdm (arch)
-  pacman: name=lightdm state=absent
-  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
-
 - name: remove lightdm (debian-based)
   apt: name=lightdm state=absent
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
@@ -21,4 +13,3 @@
 - name: remove lightdm (fedora)
   pacman: name=lightdm state=absent
   when: ansible_distribution in ['Fedora']
-

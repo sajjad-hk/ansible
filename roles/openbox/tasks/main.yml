@@ -1,3 +1,2 @@
-- include: openbox_arch.yml
 - include: openbox_debian.yml
 - include: openbox_fedora.yml

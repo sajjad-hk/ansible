@@ -1,13 +1,3 @@
-- name: install or update openssh (arch)
-  pacman: name=openssh state=latest
-  notify: restart_sshd
-  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
-
-- name: install or update openssh (fedora)
-  dnf: name=openssh state=latest
-  notify: restart_sshd
-  when: ansible_distribution == 'Fedora'
-
 - name: install or update openssh (centos)
   yum: name=openssh-server state=latest
   notify: restart_sshd
@@ -18,9 +8,14 @@
   notify: restart_ssh
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
+- name: install or update openssh (fedora)
+  dnf: name=openssh state=latest
+  notify: restart_sshd
+  when: ansible_distribution == 'Fedora'
+
 - name: enable sshd
   service: name=sshd enabled=yes state=started
-  when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro Linux']
+  when: ansible_distribution in ['CentOS', 'Fedora', 'Manjaro Linux']
 
 - name: enable ssh
   service: name=ssh enabled=yes state=started
@@ -29,7 +24,7 @@
 - name: copy sshd_config (triggers sshd)
   template: src=sshd_config.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
   notify: restart_sshd
-  when: ansible_distribution in ['Archlinux', 'CentOS', 'Fedora', 'Manjaro Linux']
+  when: ansible_distribution in ['CentOS', 'Fedora', 'Manjaro Linux']
 
 - name: copy sshd_config (triggers ssh)
   template: src=sshd_config.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
