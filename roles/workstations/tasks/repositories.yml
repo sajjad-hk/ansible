@@ -1,6 +1,5 @@
 - name: copy arch pacman.conf
   copy: src=pacman.conf dest=/etc/pacman.conf owner=root group=root mode=644
-  register: pacman
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
 
 - name: install rpm fusion free
@@ -13,22 +12,18 @@
 
 - name: install sources.list (jessie)
   copy: src=sources.list.jessie dest=/etc/apt/sources.list owner=root group=root mode=644
-  register: apt
   when: ansible_distribution_release == 'jessie'
 
 - name: install sources.list (stretch)
   copy: src=sources.list.stretch dest=/etc/apt/sources.list owner=root group=root mode=644
-  register: apt
   when: ansible_distribution_release == 'stretch'
 
 - name: enable backports (jessie)
   copy: src=jessie_backports.list dest=/etc/apt/sources.list.d/backports.list owner=root group=root mode=644
-  register: apt
   when: ansible_distribution_release == 'jessie'
 
 - name: enable 32-bit packages (debian-based)
   copy: src=arch dest=/var/lib/dpkg/arch owner=root group=root mode=644
-  register: apt
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
 - name: add syncthing repository key (debian-based)
@@ -38,13 +33,15 @@
 - name: add syncthing repository (debian-based)
   #apt_repository: repo='deb http://apt.syncthing.net/ syncthing release' state=present filename='syncthing'
   copy: src=syncthing.list dest=/etc/apt/sources.list.d/syncthing.list owner=root group=root mode=644
-  register: apt
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
 
 - name: apt-update
   apt: update_cache=yes
-  when: apt.changed
+  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  changed_when: False
 
 - name: arch-update
   pacman: update_cache=yes
-  when: pacman.changed
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+  changed_when: False
+
