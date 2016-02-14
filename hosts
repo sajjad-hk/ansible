@@ -18,7 +18,6 @@ ragnarok:22
 galaxy:65004
 
 [raspberry-pi]
-nagios:22
 pi-dev:22
 upsmon:22
 
