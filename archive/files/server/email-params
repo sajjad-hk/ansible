@@ -1,5 +1,0 @@
-SMTPFROM=alerts@jaylacroix.me
-SMTPTO=notify@jaylacroix.me
-SMTPSERVER=mail.jaylacroix.me:587
-SMTPUSER=alerts@jaylacroix.me
-SMTPPASS=ILl2ysV9g3Yj8PTE6fYQhWqw
