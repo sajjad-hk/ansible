@@ -2,7 +2,6 @@
   pacman: name={{item}} state=installed
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
   with_items:
-    - acpid
     - cantarell-fonts
     - clipit
     # - compton # Not currently available, only in AUR

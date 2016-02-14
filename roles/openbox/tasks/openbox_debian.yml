@@ -2,7 +2,6 @@
   apt: name={{item}} state=installed
   when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
   with_items:
-    - acpid
     - clipit
     - compton
     - fonts-cantarell

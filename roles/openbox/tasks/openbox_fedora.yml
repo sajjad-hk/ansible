@@ -3,7 +3,6 @@
   when: ansible_distribution == 'Fedora'
   with_items:
     - abattis-cantarell-fonts
-    - acpid
     - clipit
     #- compton # Not available
     - gmrun
