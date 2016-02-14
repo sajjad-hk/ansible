@@ -61,6 +61,7 @@
     - exim4
     - exim4-base
     - exim4-config
+    - nano
 
 - name: install base packages (fedora)
   dnf: name={{item}} state=installed
