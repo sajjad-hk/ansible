@@ -37,10 +37,6 @@
 - name: copy motd script
   copy: src=motd.sh dest=/etc/profile.d/motd.sh owner=root group=root mode=755
 
-- name: copy motd file
-  copy: src=motd dest=/etc/motd owner=root group=root mode=755
-  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
-
 - name: disable standard-motd
   lineinfile: dest=/etc/pam.d/login
               regexp="session    optional   pam_motd.so"
