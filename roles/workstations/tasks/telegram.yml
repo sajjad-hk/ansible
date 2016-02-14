@@ -14,9 +14,3 @@
   shell: mv /tmp/Telegram/* {{app_dir}}/telegram
   when: telegram_dir.changed
   register: app_installed
-
-- name: add telegram.png
-  file: path={{app_dir}}/telegram/telegram.png state=absent
-
-- name: copy telegram application launcher
-  file: path=/home/jay/.local/share/applications/telegram.desktop state=absent
