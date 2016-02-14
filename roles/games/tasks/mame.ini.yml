@@ -8,9 +8,9 @@
 
 - name: create mame directory (arch)
   file: path=/home/jay/.mame state=directory owner=jay group=jay mode=700
-  when: ansible_distribution in ['Archlinux', 'Manjaro']
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
    
 - name: copy mame.ini (arch)
   copy: src=mame.ini dest=/home/jay/.mame/mame.ini owner=jay group=jay mode=600
-  when: ansible_distribution in ['Archlinux', 'Manjaro']
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
 

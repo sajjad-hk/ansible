@@ -1,5 +1,6 @@
 - name: enable devices for network manager (debian)
   lineinfile: dest=/etc/NetworkManager/NetworkManager.conf regexp=^managed= line=managed=true
+  when: ansible_distribution in ['Debian']
 
 - name: enable network manager service
   service: name=NetworkManager enabled=yes

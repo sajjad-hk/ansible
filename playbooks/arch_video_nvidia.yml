@@ -5,7 +5,7 @@
 
   - name: install packages for nvidia video (arch)
     pacman: name={{item}} state=installed
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
     with_items:
       - pacman: name=lib32-nvidia-libgl
       - pacman: name=mesa

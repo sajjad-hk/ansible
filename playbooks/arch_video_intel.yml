@@ -5,7 +5,7 @@
 
   - name: install packages for intel video (arch)
     pacman: name={{item}} state=installed
-    when: ansible_distribution in ['Archlinux', 'Manjaro']
+    when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
     with_items:
       - lib32-intel-dri
       - lib32-libgl

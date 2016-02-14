@@ -1,6 +1,6 @@
 - name: install ufw (arch)
   pacman: name=ufw state=latest
-  when: ansible_distribution in ['Archlinux', 'Manjaro']
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
 
 - name: install ufw (debian-based)
   apt: name=ufw state=latest
@@ -8,37 +8,37 @@
 
 - name: ufw - enable logging
   ufw: logging=on
-  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro', 'Ubuntu']
+  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro Linux', 'Ubuntu']
   register: firewall
 
 - name: ufw - enable ssh
   ufw: rule=allow port={{ansible_ssh_port}} proto=tcp
-  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro', 'Ubuntu']
+  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro Linux', 'Ubuntu']
   register: firewall
 
 - name: ufw - allow port 22000 for syncthing
   ufw: rule=allow port=22000 proto=tcp
-  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro', 'Ubuntu']
+  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro Linux', 'Ubuntu']
   register: firewall
 
 - name: ufw - allow port 21027 for syncthing
   ufw: rule=allow port=21027 proto=udp
-  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro', 'Ubuntu']
+  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro Linux', 'Ubuntu']
   register: firewall
 
 - name: ufw - allow port 8324 for syncthing
   ufw: rule=allow port=8324 proto=tcp
-  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro', 'Ubuntu']
+  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro Linux', 'Ubuntu']
   register: firewall
 
 - name: ufw - allow ports 60000:60003 for mosh
   ufw: rule=allow port=60000:60003 proto=udp
-  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro', 'Ubuntu']
+  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro Linux', 'Ubuntu']
   register: firewall
 
 - name: ufw - enable policy
   ufw: state=enabled policy=deny
-  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro', 'Ubuntu']
+  when: ansible_distribution in ['Archlinux', 'Debian', 'Linuxmint', 'Manjaro Linux', 'Ubuntu']
 
 - name: ufw - reload
   ufw: state=reloaded

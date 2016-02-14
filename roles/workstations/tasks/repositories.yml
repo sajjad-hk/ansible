@@ -1,7 +1,7 @@
 - name: copy arch pacman.conf
   copy: src=pacman.conf dest=/etc/pacman.conf owner=root group=root mode=644
   register: pacman
-  when: ansible_distribution in ['Archlinux', 'Manjaro']
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
 
 - name: install rpm fusion free
   dnf: name=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-23.noarch.rpm state=present

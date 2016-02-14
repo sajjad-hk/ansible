@@ -4,12 +4,12 @@
 
 - name: install lightdm (arch)
   pacman: name=lightdm
-  when: ansible_distribution in ['Archlinux', 'Manjaro']
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
 
 - name: install lightdm-gtk-greeter (arch)
   pacman: name=lightdm-gtk-greeter
-  when: ansible_distribution in ['Archlinux', 'Manjaro']
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
 
 - name: install acpid (arch)
   pacman: name=acpid
-  when: ansible_distribution in ['Archlinux', 'Manjaro']
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']

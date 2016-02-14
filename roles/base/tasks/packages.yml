@@ -1,6 +1,6 @@
 - name: install base packages (arch)
   pacman: name={{item}} state=installed
-  when: ansible_distribution in ['Archlinux', 'Manjaro']
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
   with_items:
     - autoconf
     - automake

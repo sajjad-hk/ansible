@@ -1,6 +1,6 @@
 - name: install gdm (arch)
   pacman: name=gdm
-  when: ansible_distribution in ['Archlinux', 'Manjaro']
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
 
 
 - name: install gdm (debian-based)
