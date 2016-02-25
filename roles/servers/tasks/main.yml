@@ -1,4 +1,3 @@
 - include: dotfiles.yml
 - include: scripts.yml
-- include: nagios.yml
 - include: fail2ban.yml

@@ -1,8 +1,2 @@
-- name: restart_nrpe
-  service: name=nrpe state=restarted
-
-- name: restart_nagios-nrpe-server
-  service: name=nagios-nrpe-server state=restarted
-
 - name: restart_fail2ban
   service: name=fail2ban state=restarted
