@@ -1,18 +1,9 @@
 # Current PS1:
-tty -s && export PS1="\[\033[38;5;0m\]\[\033[48;5;7m\][\u@\h]\\$\[$(tput sgr0)\]\[\033[38;5;15m\]\[\033[48;5;-1m\] \[$(tput sgr0)\]"
-
-# Old PS1 prompt
-#export PS1="\[\e[00;37m\][\u@\h \[\e[0m\]\[\e[00;32m\]\w\[\e[0m\]\[\e[00;37m\]]\\$ \[\e[0m\]"
+tty -s && export PS1="[\u@\h:\W]\\$ \[$(tput sgr0)\]"
 
 # Env
 export TERM=xterm-256color
 export EDITOR=vim
-
-# Add /home/jlacroix/bin to $PATH
-case :$PATH: in
-	*:/home/$USER/bin:*) ;;
-	*) PATH=/home/$USER/bin:$PATH ;;
-esac
 
 # Command aliases
 alias cd..='cd ..'
@@ -27,11 +18,6 @@ alias diff='colordiff'
 alias grep='grep --color=auto'
 alias mkdir='mkdir -pv'
 alias ports='netstat -tulanp'
-
-if [ -d /etc/pacman.d ]; then
-    alias update='yaourt -Syu --aur'
-    alias install='sudo pacman -S'
-fi
 
 if [ -d /etc/apt ]; then
     alias update='sudo apt-get update && sudo apt-get dist-upgrade'
