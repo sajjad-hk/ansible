@@ -1,0 +1,44 @@
+- name: copy .gitconfig
+  copy: src=ansible/gitconfig dest=/home/ansible/.gitconfig owner=ansible group=ansible mode=600
+
+- name: create .ssh directory
+  file: path=/home/ansible/.ssh state=directory owner=ansible group=ansible mode=700
+
+- name: copy ssh config file
+  copy: src=ansible/ssh_config dest=/home/ansible/.ssh/config owner=ansible group=ansible mode=600
+
+- name: copy .bash_profile (ansible)
+  copy: src=ansible/bash_profile dest=/home/ansible/.bash_profile owner=ansible group=ansible mode=600
+
+- name: copy .bashrc (ansible)
+  copy: src=ansible/bashrc dest=/home/ansible/.bashrc owner=ansible group=ansible mode=600
+
+- name: copy .profile (ansible)
+  copy: src=ansible/profile dest=/home/ansible/.profile owner=ansible group=ansible mode=600
+
+- name: copy .tmux.conf (ansible)
+  copy: src=ansible/tmux.conf dest=/home/ansible/.tmux.conf owner=ansible group=ansible mode=600
+
+- name: copy .vimrc (ansible)
+  copy: src=ansible/vimrc dest=/home/ansible/.vimrc owner=ansible group=ansible mode=600
+
+- name: create .vim directory (ansible)
+  file: path=/home/ansible/.vim state=directory owner=ansible group=ansible mode=700
+
+- name: create .vim/colors directory (ansible)
+  file: path=/home/ansible/.vim/colors state=directory owner=ansible group=ansible mode=700
+
+- name: copy bubblegum-256-dark.vim (ansible)
+  copy: src=shared/bubblegum-256-dark.vim dest=/home/ansible/.vim/colors/bubblegum-256-dark.vim owner=ansible group=users mode=600
+
+- name: copy darktango.vim (ansible)
+  copy: src=shared/darktango.vim dest=/home/ansible/.vim/colors/darktango.vim owner=ansible group=ansible mode=600
+
+- name: copy jellybeans.vim (ansible)
+  copy: src=shared/jellybeans.vim dest=/home/ansible/.vim/colors/jellybeans.vim owner=ansible group=ansible mode=600
+
+- name: copy xoria256.vim (ansible)
+  copy: src=shared/xoria256.vim dest=/home/ansible/.vim/colors/xoria256.vim owner=ansible group=ansible mode=600
+
+- name: copy zenburn.vim (ansible)
+  copy: src=shared/zenburn.vim dest=/home/ansible/.vim/colors/zenburn.vim owner=ansible group=ansible mode=600

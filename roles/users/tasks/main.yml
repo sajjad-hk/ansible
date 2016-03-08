@@ -1,2 +1,6 @@
+- include: ansible.yml
+- include: ansible_dotfiles.yml
 - include: jay.yml
+- include: jay_dotfiles.yml
 - include: root.yml
+- include: root_dotfiles.yml

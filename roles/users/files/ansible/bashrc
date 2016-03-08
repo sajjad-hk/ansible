@@ -1,0 +1,44 @@
+# Current PS1:
+tty -s && export PS1="\[\033[38;5;0m\]\[\033[48;5;7m\][\u@\h]\\$\[$(tput sgr0)\]\[\033[38;5;15m\]\[\033[48;5;-1m\] \[$(tput sgr0)\]"
+
+# Old PS1 prompt
+#export PS1="\[\e[00;37m\][\u@\h \[\e[0m\]\[\e[00;32m\]\w\[\e[0m\]\[\e[00;37m\]]\\$ \[\e[0m\]"
+
+# Env
+export TERM=xterm-256color
+export EDITOR=vim
+
+# Add /home/jlacroix/bin to $PATH
+case :$PATH: in
+	*:/home/$USER/bin:*) ;;
+	*) PATH=/home/$USER/bin:$PATH ;;
+esac
+
+# Command aliases
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias l.='ls -lha --time-style=long-iso --color=auto'
+alias ls='ls -lh --time-style=long-iso --color=auto'
+alias lsmount='mount |column -t'
+alias c='clear'
+alias diff='colordiff'
+alias grep='grep --color=auto'
+alias mkdir='mkdir -pv'
+alias ports='netstat -tulanp'
+
+if [ -d /etc/pacman.d ]; then
+    alias update='yaourt -Syu --aur'
+    alias install='sudo pacman -S'
+fi
+
+if [ -d /etc/apt ]; then
+    alias update='sudo apt-get update && sudo apt-get dist-upgrade'
+    alias install='sudo apt-get install'
+fi
+
+if [ -f /etc/yum.conf ]; then
+    alias update='sudo yum update'
+    alias install='sudo yum install'
+fi

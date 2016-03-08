@@ -1,0 +1,53 @@
+- name: create .config directory
+  file: path=/home/jay/.config state=directory owner=jay group=jay mode=700
+
+- name: copy user-dirs.dirs
+  copy: src=jay/user-dirs.dirs dest=/home/jay/.config/user-dirs.dirs owner=jay group=jay mode=600
+
+- name: copy .gitconfig
+  copy: src=jay/gitconfig dest=/home/jay/.gitconfig owner=jay group=jay mode=600
+
+- name: create .ssh directory
+  file: path=/home/jay/.ssh state=directory owner=jay group=jay mode=700
+
+- name: copy ssh config file
+  copy: src=jay/ssh_config dest=/home/jay/.ssh/config owner=jay group=jay mode=600
+
+- name: copy ssh authorized_keys file
+  copy: src=jay/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=jay mode=600
+
+- name: copy .bash_profile (jay)
+  copy: src=jay/bash_profile dest=/home/jay/.bash_profile owner=jay group=jay mode=600
+
+- name: copy .bashrc (jay)
+  copy: src=jay/bashrc dest=/home/jay/.bashrc owner=jay group=jay mode=600
+
+- name: copy .profile (jay)
+  copy: src=jay/profile dest=/home/jay/.profile owner=jay group=jay mode=600
+
+- name: copy .tmux.conf (jay)
+  copy: src=jay/tmux.conf dest=/home/jay/.tmux.conf owner=jay group=jay mode=600
+
+- name: copy .vimrc (jay)
+  copy: src=jay/vimrc dest=/home/jay/.vimrc owner=jay group=jay mode=600
+
+- name: create .vim directory (jay)
+  file: path=/home/jay/.vim state=directory owner=jay group=jay mode=700
+
+- name: create .vim/colors directory (jay)
+  file: path=/home/jay/.vim/colors state=directory owner=jay group=jay mode=700
+
+- name: copy bubblegum-256-dark.vim (jay)
+  copy: src=shared/bubblegum-256-dark.vim dest=/home/jay/.vim/colors/bubblegum-256-dark.vim owner=jay group=jay mode=600
+
+- name: copy darktango.vim (jay)
+  copy: src=shared/darktango.vim dest=/home/jay/.vim/colors/darktango.vim owner=jay group=jay mode=600
+
+- name: copy jellybeans.vim (jay)
+  copy: src=shared/jellybeans.vim dest=/home/jay/.vim/colors/jellybeans.vim owner=jay group=jay mode=600
+
+- name: copy xoria256.vim (jay)
+  copy: src=shared/xoria256.vim dest=/home/jay/.vim/colors/xoria256.vim owner=jay group=jay mode=600
+
+- name: copy zenburn.vim (jay)
+  copy: src=shared/zenburn.vim dest=/home/jay/.vim/colors/zenburn.vim owner=jay group=jay mode=600

@@ -3,7 +3,26 @@ colorscheme xoria256
 
 " keyboard shortcuts
 let mapleader = ','
+noremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+noremap <leader>p :CtrlP<CR>
+noremap <leader>P :CtrlPClearCache<CR>:CtrlP<CR>
 noremap <silent> <leader>r :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" Switch buffers using ctrl+left or ctrl+right
+map <C-left> <ESC>:bn<CR>
+map <C-right> <ESC>:bp<CR>
+
+" Move between windows easily
+noremap <leader><up> :wincmd k<CR>
+noremap <leader><down> :wincmd j<CR>
+noremap <leader><left> :wincmd h<CR>
+noremap <leader><right> :wincmd l<CR>
+noremap <leader>k :wincmd k<CR>
+noremap <leader>j :wincmd j<CR>
+noremap <leader>h :wincmd h<CR>
+noremap <leader>l :wincmd l<CR>
 
 " Switch buffers using F5
 nnoremap <F5> :buffers<CR>:buffer<Space>
@@ -17,6 +36,11 @@ func! TrimWhiteSpace()
   %s/\s*$//
   ''
 :endfunction
+
+" Airline
+"let g:airline_powerline_fonts=1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme='laederon'
 
 " Clear search highlight with c-l
 noremap <silent> <c-l> :nohls<cr><c-l>
@@ -134,3 +158,6 @@ augroup CursorlineOnlyInActiveWindow
     autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     autocmd WinLeave * setlocal nocursorline
 augroup END
+
+" Enhanced vim tweaks
+silent! source ~/.vimrc-extra
