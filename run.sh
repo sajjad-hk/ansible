@@ -9,6 +9,6 @@ git pull
 
 /usr/local/bin/ansible-playbook site.yml >> "/var/log/ansible/ansible-$CURRDATE.log"
 
-find /var/log/ansible -type f -mmin -360 -delete
+find /var/log/ansible -type f -mmin 360 -delete
 
 rm -r /home/ansible/.ansible
