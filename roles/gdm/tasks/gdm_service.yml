@@ -3,7 +3,7 @@
 
 - name: enable gdm3 (debian-based)
   service: name=gdm3 enabled=yes
-  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: enable gdm (fedora)
   service: name=gdm enabled=yes

@@ -21,19 +21,19 @@
 - name: copy libvirtd.conf
   copy: src=libvirtd.conf dest=/etc/libvirt/libvirtd.conf owner=root group=root mode=644
   notify: restart libvirt-bin
-  when: ansible_distribution in ['Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Ubuntu']
 
 - name: copy default.xml
   copy: src=default.xml dest=/etc/libvirt/storage/default.xml owner=root group=root mode=644
   notify: restart libvirt-bin
-  when: ansible_distribution in ['Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Ubuntu']
 
 - name: copy iso.xml
   copy: src=iso.xml dest=/etc/libvirt/storage/iso.xml owner=root group=root mode=644
   notify: restart libvirt-bin
-  when: ansible_distribution in ['Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Ubuntu']
 
 - name: copy qemu.conf
   copy: src=qemu.conf dest=/etc/libvirt/qemu.conf owner=root group=root mode=600
   notify: restart libvirt-bin
-  when: ansible_distribution in ['Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Ubuntu']

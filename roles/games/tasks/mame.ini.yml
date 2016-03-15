@@ -1,7 +1,7 @@
 - name: create mame directory (debian-based)
   file: path=/etc/mame state=directory owner=root group=root mode=755
-  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: copy mame.ini (debian-based)
   copy: src=mame.ini dest=/etc/mame/mame.ini owner=root group=users mode=644
-  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Debian', 'Ubuntu']

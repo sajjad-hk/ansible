@@ -1,6 +1,6 @@
 - name: install lightdm (debian-based)
   apt: name=lightdm
-  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: install lightdm (fedora)
   dnf: name=lightdm
@@ -8,11 +8,11 @@
 
 - name: remove gdm (debian-based)
   apt: name=gdm3 state=absent
-  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: remove gdm (debian-based)
   apt: name=gdm3 state=absent
-  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: remove gdm (fedora)
   dnf: name=gdm state=absent

@@ -4,7 +4,7 @@
 
 - name: install sudo (debian-based)
   apt: name=sudo
-  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: install sudo (fedora)
   dnf: name=sudo

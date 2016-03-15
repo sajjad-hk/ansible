@@ -1,6 +1,6 @@
 - name: install gnome (debian-based)
   apt: name={{item}} state=installed
-  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Debian', 'Ubuntu']
   with_items:
     - file-roller
     - gedit

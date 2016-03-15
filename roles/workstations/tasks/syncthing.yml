@@ -1,6 +1,6 @@
 - name: install or upgrade syncthing (debian-based)
   apt: name=syncthing state=latest
-  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Debian', 'Ubuntu']
   register: syncthing
 
 - name: enable syncthing

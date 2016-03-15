@@ -1,6 +1,6 @@
 - name: disable gdm3 (debian-based)
   service: name=gdm3 enabled=no
-  when: ansible_distribution in ['Debian', 'Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: disable gdm (fedora)
   service: name=gdm enabled=no

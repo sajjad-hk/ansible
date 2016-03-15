@@ -4,4 +4,4 @@
 
 - name: enable libvirt-bin
   service: name=libvirt-bin enabled=yes state=started
-  when: ansible_distribution in ['Linuxmint', 'Ubuntu']
+  when: ansible_distribution in ['Ubuntu']
