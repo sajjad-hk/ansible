@@ -1,18 +1,8 @@
-# Update repository cache, before running job.
-- hosts: all
-  tasks:
-  - name: apt-update
-    become: true
-    apt: update_cache=yes
-    when: ansible_distribution in ['Debian', 'Ubuntu']
-    changed_when: False
-
-
 - hosts: all
   become: true
   roles:
+  - role: base
   - role: users
-
 
 - hosts: servers
   become: true
@@ -84,9 +74,3 @@
   become: true
   roles:
     - role: kvm_host
-
-
-- hosts: all
-  become: true
-  roles:
-    - role: base
