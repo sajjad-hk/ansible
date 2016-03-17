@@ -18,7 +18,6 @@ galaxy:65004
 ragnarok:22
 
 [raspberry-pi]
-gateway:22
 localhost:22 ansible_connection=local
 pi-dev:22
 portal:22
@@ -52,6 +51,7 @@ nagios:22
 neptune:22
 pi-dev:22
 pluto:22
+portal:22
 ragnarok:22
 upsmon:22
 work-vm:22
