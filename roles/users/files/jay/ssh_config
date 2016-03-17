@@ -80,11 +80,6 @@ Host pluto
     Port 22
     User jay
 
-Host portal
-    Hostname 10.10.96.9
-    Port 22
-    User jay
-
 Host ragnarok
     Hostname 10.10.97.1
     Port 22
