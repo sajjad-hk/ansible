@@ -9,7 +9,7 @@ AllowUsers ansible jay
 ChallengeResponseAuthentication no
 HostbasedAuthentication no
 LoginGraceTime 120
-PasswordAuthentication no
+PasswordAuthentication {{ passwd_auth }}
 PermitEmptyPasswords no
 PermitRootLogin no
 PubkeyAuthentication yes

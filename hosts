@@ -8,64 +8,64 @@
 # Unused
 
 [custom_apps]
-crusader:22
-moogle:65102
-ragnarok:22
+crusader:22 passwd_auth=no
+moogle:65102 passwd_auth=no
+ragnarok:22 passwd_auth=no
 
 [kvm_hosts]
-crusader:22
-galaxy:65004
-ragnarok:22
+crusader:22 passwd_auth=no
+galaxy:65004 passwd_auth=no
+ragnarok:22 passwd_auth=no
 
 [raspberry-pi]
-localhost:22 ansible_connection=local
-pi-dev:22
-upsmon:22
+localhost:22 ansible_connection=local passwd_auth=no
+pi-dev:22 passwd_auth=no
+upsmon:22 passwd_auth=no
 
 [servers]
-dev:65012
-galaxy:65004
-hermes:65001
-jaylacroix.com:65001
-localhost:22 ansible_connection=local
-mail.jaylacroix.me:65001
-moogle:65102
-nagios:22
-neptune:22
-pi-dev:22
-pluto:22
-upsmon:22
-work-vm:22
+dev:65012 passwd_auth=no
+galaxy:65004 passwd_auth=no
+hermes:65001 passwd_auth=no
+jaylacroix.com:65001 passwd_auth=no
+localhost:22 ansible_connection=local passwd_auth=no
+mail.jaylacroix.me:65001 passwd_auth=no
+moogle:65102 passwd_auth=no
+nagios:22 passwd_auth=no
+neptune:22 passwd_auth=yes
+pi-dev:22 passwd_auth=no
+pluto:22 passwd_auth=no
+upsmon:22 passwd_auth=no
+work-vm:22 passwd_auth=no
 
 [nagios_monitored]
-dev:65012
-galaxy:65004
-hermes:65001
-jaylacroix.com:65001
-localhost:22 ansible_connection=local
-mail.jaylacroix.me:65001
-moogle:65102
-nagios:22
-neptune:22
-pi-dev:22
-pluto:22
-ragnarok:22
-upsmon:22
-work-vm:22
+dev:65012 passwd_auth=no
+galaxy:65004 passwd_auth=no
+hermes:65001 passwd_auth=no
+jaylacroix.com:65001 passwd_auth=no
+localhost:22 ansible_connection=local passwd_auth=no
+mail.jaylacroix.me:65001 passwd_auth=no
+moogle:65102 passwd_auth=no
+nagios:22 passwd_auth=no
+neptune:22 passwd_auth=yes
+pi-dev:22 passwd_auth=no
+pluto:22 passwd_auth=no
+ragnarok:22 passwd_auth=no
+upsmon:22 passwd_auth=no
+work-vm:22 passwd_auth=no
 
 [ups_controlled]
-galaxy:65004
-hermes:65001
-pluto:22
+galaxy:65004 passwd_auth=no
+hermes:65001 passwd_auth=no
+pluto:22 passwd_auth=no
 
 [workstations]
-crusader:22
-moogle:65102
-ragnarok:22
+crusader:22 passwd_auth=no
+moogle:65102 passwd_auth=no
+ragnarok:22 passwd_auth=no
 
 [games]
-crusader:22
-ragnarok:22
+crusader:22 passwd_auth=no
+ragnarok:22 passwd_auth=no
 
 [gdm]
 # unused
