@@ -44,6 +44,11 @@ Host home
     Port 65001
     User jay
 
+Host iris
+    Hostname 10.10.96.5
+    Port 22
+    User jay
+
 Host jaylacroix.com
     Hostname jaylacroix.com
     Port 65001
