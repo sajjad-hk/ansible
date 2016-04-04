@@ -23,6 +23,7 @@ pi-dev:22 passwd_auth=no
 upsmon:22 passwd_auth=no
 
 [servers]
+code:65001 passwd_auth=no
 dev:65012 passwd_auth=no
 galaxy:65004 passwd_auth=no
 hermes:65001 passwd_auth=no
@@ -35,10 +36,13 @@ nagios:22 passwd_auth=no
 neptune:22 passwd_auth=yes
 pi-dev:22 passwd_auth=no
 pluto:22 passwd_auth=no
+portal:22 passwd_auth=yes
 upsmon:22 passwd_auth=no
+web:65001 passwd_auth=no
 work-vm:22 passwd_auth=no
 
 [nagios_monitored]
+code:65001 passwd_auth=no
 dev:65012 passwd_auth=no
 galaxy:65004 passwd_auth=no
 hermes:65001 passwd_auth=no
@@ -51,8 +55,10 @@ nagios:22 passwd_auth=no
 neptune:22 passwd_auth=yes
 pi-dev:22 passwd_auth=no
 pluto:22 passwd_auth=no
+portal:22 passwd_auth=yes
 ragnarok:22 passwd_auth=no
 upsmon:22 passwd_auth=no
+web:65001 passwd_auth=no
 work-vm:22 passwd_auth=no
 
 [ups_controlled]
