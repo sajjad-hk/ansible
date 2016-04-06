@@ -9,6 +9,11 @@ Host ceres
     Port 22
     User mediauser
 
+Host code
+    Hostname 104.236.31.151
+    Port 65001
+    User jay
+
 Host crusader
     Hostname 10.10.97.4
     Port 22
@@ -42,6 +47,11 @@ Host hermes
 Host home
     Hostname jlacroix82.homelinux.com
     Port 65001
+    User jay
+
+Host iris
+    Hostname 10.10.96.5
+    Port 22
     User jay
 
 Host jaylacroix.com
@@ -80,6 +90,11 @@ Host pluto
     Port 22
     User jay
 
+Host portal
+    Hostname 104.131.53.76
+    Port 22
+    User jay
+
 Host ragnarok
     Hostname 10.10.97.1
     Port 22
@@ -88,6 +103,11 @@ Host ragnarok
 Host upsmon
     Hostname 10.10.96.7
     Port 22
+    User jay
+
+Host web
+    Hostname 159.203.69.140
+    Port 65001
     User jay
 
 Host work-vm
