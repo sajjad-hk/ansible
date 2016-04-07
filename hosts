@@ -1,87 +1,28 @@
-[arch-intel-video]
-# Unused
-
-[arch-nvidia-video]
-# Unused
-
-[arch-vbox-video]
-# Unused
-
-[custom_apps]
-crusader:22 passwd_auth=no
-moogle:65102 passwd_auth=no
-ragnarok:22 passwd_auth=no
+[custom_apps] # Provides custom installations of firefox, telegram, syncthing, & thunderbird
 
 [kvm_hosts]
-crusader:22 passwd_auth=no
-galaxy:65004 passwd_auth=no
-ragnarok:22 passwd_auth=no
 
 [raspberry-pi]
 localhost:22 ansible_connection=local passwd_auth=no
-pi-dev:22 passwd_auth=no
-upsmon:22 passwd_auth=no
 
 [servers]
-code:65001 passwd_auth=no
-galaxy:65004 passwd_auth=no
-hermes:65001 passwd_auth=no
-iris:22 passwd_auth=no
 localhost:22 ansible_connection=local passwd_auth=no
-mail.jaylacroix.me:65001 passwd_auth=no
-moogle:65102 passwd_auth=no
-nagios:22 passwd_auth=no
-pi-dev:22 passwd_auth=no
-pluto:22 passwd_auth=no
-portal:22 passwd_auth=yes
-upsmon:22 passwd_auth=no
-web:65001 passwd_auth=no
-work-vm:22 passwd_auth=no
 
 [nagios_monitored]
-code:65001 passwd_auth=no
-galaxy:65004 passwd_auth=no
-hermes:65001 passwd_auth=no
-iris:22 passwd_auth=no
 localhost:22 ansible_connection=local passwd_auth=no
-mail.jaylacroix.me:65001 passwd_auth=no
-moogle:65102 passwd_auth=no
-nagios:22 passwd_auth=no
-pi-dev:22 passwd_auth=no
-pluto:22 passwd_auth=no
-portal:22 passwd_auth=yes
-ragnarok:22 passwd_auth=no
-upsmon:22 passwd_auth=no
-web:65001 passwd_auth=no
-work-vm:22 passwd_auth=no
 
 [ups_controlled]
-galaxy:65004 passwd_auth=no
-hermes:65001 passwd_auth=no
-pluto:22 passwd_auth=no
 
 [workstations]
-crusader:22 passwd_auth=no
-moogle:65102 passwd_auth=no
-ragnarok:22 passwd_auth=no
 
 [games]
-crusader:22 passwd_auth=no
-ragnarok:22 passwd_auth=no
 
 [gdm]
-# unused
 
 [gnome]
-# unused
 
 [lightdm]
-# Unused
 
 [mate]
-# Unused
 
 [openbox]
-# Unused
-
-# Note: Add the following to use python2: ansible_python_interpreter=/usr/bin/python2

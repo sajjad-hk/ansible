@@ -3,7 +3,7 @@
 CURRDATE=$(date +%Y-%m-%d_%H%M)
 
 # Run playbooks
-cd /git/ansible
+cd /var/ansible
 
 git pull
 

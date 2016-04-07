@@ -18,9 +18,9 @@
 
 - name: make sure admins group is allowed in sudoers
   lineinfile: "dest=/etc/sudoers
-              state=present
-              line='%admins ALL=(ALL) NOPASSWD: ALL'
-              validate='/usr/sbin/visudo -cf %s'"
+               state=present
+               line='%admins ALL=(ALL:ALL) ALL'
+               validate='/usr/sbin/visudo -cf %s'"
   register: sudoers
 
 - name: remove unused sudoers line
