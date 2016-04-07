@@ -19,11 +19,6 @@ Host crusader
     Port 22
     User jay
 
-Host dev
-    Hostname 192.241.246.188
-    Port 65012
-    User jay
-
 Host eris
     Hostname 10.10.98.8
     Port 22
@@ -54,29 +49,18 @@ Host iris
     Port 22
     User jay
 
-Host jaylacroix.com
-    Hostname jaylacroix.com
-    Port 65001
-    User jay
-
-host mail
+Host mail
     Hostname mail.jaylacroix.me
     Port 65001
     User jay
 
-host moogle
+Host moogle
     Hostname 10.10.96.102
     Port 65102
     User jay
 
 Host nagios
     Hostname 10.10.96.3
-    Port 22
-    User jay
-
-Host neptune
-    Hostname neptune.jaylacroix.com
-    # IP address: 162.243.255.50
     Port 22
     User jay
 
