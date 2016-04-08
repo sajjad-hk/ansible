@@ -49,9 +49,6 @@ noremap <silent> <c-l> :nohls<cr><c-l>
 map <space> /
 map <c-space> ?
 
-" Highlight trailing whitespace in red
-match ErrorMsg /\s\+\%#\@<!$/
-
 let c_space_errors = 1
 
 " Fix tmux background color
