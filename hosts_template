@@ -1,15 +1,15 @@
+# Example entry:
+# localhost:22 ansible_connection=local passwd_auth=no
+
 [custom_apps] # Provides custom installations of firefox, telegram, syncthing, & thunderbird
 
 [kvm_hosts]
 
 [raspberry-pi]
-localhost:22 ansible_connection=local passwd_auth=no
 
 [servers]
-localhost:22 ansible_connection=local passwd_auth=no
 
 [nagios_monitored]
-localhost:22 ansible_connection=local passwd_auth=no
 
 [ups_controlled]
 
