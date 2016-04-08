@@ -15,19 +15,24 @@
 
 - name: enable sshd
   service: name=sshd enabled=yes state=started
-  when: ansible_distribution in ['CentOS', 'Fedora', 'Manjaro Linux']
+  when: ansible_distribution in ['CentOS', 'Fedora']
 
 - name: enable ssh
   service: name=ssh enabled=yes state=started
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
-- name: copy sshd_config (triggers sshd)
-  template: src=sshd_config.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+- name: copy sshd_config (centos)
+  template: src=sshd_config_centos.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
   notify: restart_sshd
-  when: ansible_distribution in ['CentOS', 'Fedora', 'Manjaro Linux']
+  when: ansible_distribution in ['CentOS']
 
-- name: copy sshd_config (triggers ssh)
-  template: src=sshd_config.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+- name: copy sshd_config (fedora)
+  template: src=sshd_config_fedora.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+  notify: restart_sshd
+  when: ansible_distribution in ['Fedora']
+
+- name: copy sshd_config (debian-based)
+  template: src=sshd_config_debian.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
   notify: restart_ssh
   when: ansible_distribution in ['Debian', 'Ubuntu']
 

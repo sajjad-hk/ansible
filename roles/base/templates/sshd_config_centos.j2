@@ -5,7 +5,7 @@ Port {{ ansible_ssh_port }}
 Protocol 2
 
 # Authentication:
-AllowUsers ansible jay
+AllowUsers jay
 ChallengeResponseAuthentication no
 HostbasedAuthentication no
 LoginGraceTime 120
@@ -31,7 +31,7 @@ UsePrivilegeSeparation yes
 # Misc. options
 AcceptEnv LANG LC_*
 TCPKeepAlive yes
-Subsystem sftp /usr/lib/openssh/sftp-server
+Subsystem sftp /usr/libexec/openssh/sftp-server
 
 # Logging
 SyslogFacility AUTH
