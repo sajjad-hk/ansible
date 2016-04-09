@@ -1,1 +1,2 @@
-# cron entries can be entered here to be placed in all systems.
+- name: install cron job (ansible run)
+  cron: user="ansible" name="ansible run" minute="0" hour="1" job="/var/ansibile/ansible.sh > /dev/null"
