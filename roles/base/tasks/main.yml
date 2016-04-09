@@ -3,7 +3,15 @@
   when: ansible_distribution in ['Debian', 'Ubuntu']
   changed_when: False
 
-- include: packages.yml
+- include: packages_centos.yml
+  when: ansible_distribution in ['CentOS']
+
+- include: packages_debian.yml
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- include: packages_fedora.yml
+  when: ansible_distribution in ['Fedora']
+
 - include: cron.yml
 - include: ntp.yml
 - include: sudoers.yml

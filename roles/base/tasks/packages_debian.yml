@@ -1,0 +1,43 @@
+- name: install base packages (debian-based)
+  apt: name={{item}} state=installed
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+  with_items:
+    - aptitude
+    - colordiff
+    - cron
+    - curl
+    - dnsutils
+    - git
+    - heirloom-mailx
+    - htop
+    - iotop
+    - lm-sensors
+    - lynx
+    - mosh
+    - ncdu
+    - pyflakes
+    - python-dev
+    - python-flake8
+    - python-pip
+    - python-virtualenv
+    - python3-flake8
+    - rake
+    - rsync
+    - ruby
+    - ruby-dev
+    - screen
+    - silversearcher-ag
+    - sshfs
+    - tig
+    - tmux
+    - vim-nox
+    - wget
+
+- name: remove unneeded debian packages
+  apt: name={{item}} state=absent
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+  with_items:
+    - exim4
+    - exim4-base
+    - exim4-config
+    - nano

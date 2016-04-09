@@ -1,0 +1,26 @@
+- name: install epel (centos)
+  yum: name={{item}} state=installed
+  when: ansible_distribution == 'CentOS'
+  with_items:
+    - epel-release
+
+- name: install base packages (centos)
+  yum: name={{item}} state=installed
+  when: ansible_distribution == 'CentOS'
+  with_items:
+    - colordiff
+    - cronie
+    - curl
+    - fuse-sshfs
+    - git
+    - htop
+    - iotop
+    - lm_sensors
+    - lynx
+    - mosh
+    - ncdu
+    - rsync
+    - screen
+    - tmux
+    - vim-enhanced
+    - wget

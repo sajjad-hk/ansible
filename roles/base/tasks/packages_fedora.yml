@@ -1,0 +1,32 @@
+- name: install base packages (fedora)
+  dnf: name={{item}} state=installed
+  when: ansible_distribution == 'Fedora'
+  with_items:
+    - colordiff
+    - cronie
+    - curl
+    - git
+    - htop
+    - iotop
+    - lm_sensors
+    - lynx
+    - mailx
+    - mosh
+    - ncdu
+    - pyflakes
+    - python-flake8
+    - python-pep8
+    - python-pip
+    - python-virtualenv
+    - python3-flake8
+    - python3-pep8
+    - python3-pyflakes
+    - rsync
+    - ruby
+    - screen
+    - sshfs
+    - the_silver_searcher
+    - tig
+    - tmux
+    - vim-enhanced
+    - wget
