@@ -1,0 +1,48 @@
+- name: install workstation packages (fedora)
+  dnf: name={{item}} state=installed
+  when: ansible_distribution == 'Fedora'
+  with_items:
+    - acpid
+    - asunder
+    - banshee
+    - brasero
+    #- cmus # Currently not available in Fedora, check this later
+    - conky
+    - dmenu
+    - easytag
+    - exfat-utils
+    - filezilla
+    - freerdp
+    - galculator
+    - geany
+    - gimp
+    - gnome-keyring
+    - gparted
+    - gstreamer-plugins-bad
+    - gstreamer-plugins-good
+    - gstreamer-plugins-ugly
+    - gstreamer1-plugins-ugly # To do: Which gstreamer packages are actually necessary?
+    - gtk2-engines
+    - gtk-recordmydesktop
+    - guake
+    - keepassx
+    - libreoffice-calc
+    - libreoffice-draw
+    - libreoffice-writer
+    #- mpv # Package not found
+    - pavucontrol
+    - perl
+    - pyrenamer
+    - quassel-client
+    - rdesktop
+    - remmina
+    - roxterm
+    - rxvt-unicode-256color
+    - shutter
+    - terminator
+    - terminus-fonts
+    - transmission-gtk
+    - vlc
+    - vorbis-tools
+    - xbacklight
+    - xsel
