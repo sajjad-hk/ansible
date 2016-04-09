@@ -5,7 +5,7 @@ BODY="Ansible results are attached."
 CURRDATE=$(date +%Y-%m-%d_%H%M)
 ATTACHMENT="/var/log/ansible/ansible-$CURRDATE.log"
 
-if [ -f /etc/apt/sources.list]
+if [ -f /etc/apt/sources.list ]
 then
     ANSIBLE="/usr/local/bin/ansible-playbook"
 else
