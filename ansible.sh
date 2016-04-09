@@ -20,8 +20,9 @@ then
     touch /tmp/ansible.lock
 
     cd /var/ansible; git pull
+    #$ANSIBLE site.yml >> "/var/log/ansible/ansible-$CURRDATE.log"
 
-    $ANSIBLE site.yml >> "/var/log/ansible/ansible-$CURRDATE.log"
+    ansible-playbook site.yml >> "/var/log/ansible/ansible-$CURRDATE.log"
     if [ $? -eq 0 ]
     then
         RESULT="Successful!"
