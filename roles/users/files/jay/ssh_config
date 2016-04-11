@@ -64,6 +64,11 @@ Host nagios
     Port 22
     User jay
 
+Host pandora
+    Hostname 10.10.97.5
+    Port 22
+    User jay
+
 Host pi-dev
     Hostname 10.10.96.8
     Port 22
