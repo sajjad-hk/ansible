@@ -16,3 +16,4 @@
 - include: ntp.yml
 - include: sudoers.yml
 - include: openssh.yml
+- include: scripts.yml
