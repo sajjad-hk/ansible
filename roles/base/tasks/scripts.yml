@@ -11,4 +11,4 @@
   copy: src=script_process_check.py dest=/usr/local/bin/process_check.py owner=root group=root mode=755
 
 - name: copy update script
-  copy: src=script_update dest=/usr/local/bin/update owner=root group=root mode=755
+  file: target=/usr/local/bin/update ensure=absent
