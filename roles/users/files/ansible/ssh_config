@@ -1,5 +1,3 @@
-# Hosts
-
 Host *
     ServerAliveInterval 15
     ServerAliveCountMax 5
@@ -27,11 +25,6 @@ Host eris
 Host galaxy
     Hostname 10.10.96.4
     Port 65004
-    User jay
-
-Host glycon
-    Hostname 10.10.96.6
-    Port 22
     User jay
 
 Host hermes
