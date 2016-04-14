@@ -9,6 +9,3 @@
 
 - name: copy process_check.py script
   copy: src=script_process_check.py dest=/usr/local/bin/process_check.py owner=root group=root mode=755
-
-- name: copy update script
-  file: path=/usr/local/bin/update state=absent
