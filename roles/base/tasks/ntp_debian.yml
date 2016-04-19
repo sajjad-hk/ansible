@@ -1,0 +1,13 @@
+- name: install or update ntp (debian-based)
+  apt: name=ntp state=latest
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+  notify: restart_ntp
+
+- name: copy ntp.conf
+  copy: src=ntp.conf dest=/etc/ntp.conf owner=root group=root mode=755
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+  notify: restart_ntp
+
+- name: enable and start daemon (ntp)
+  service: name=ntp enabled=yes state=started
+  when: ansible_distribution in ['Debian', 'Ubuntu']

@@ -13,10 +13,17 @@
   when: ansible_distribution in ['Fedora']
 
 - include: cron.yml
-- include: ntp.yml
 - include: scripts.yml
 - include: sudoers.yml
 
+- include: ntp_centos.yml
+  when: ansible_distribution in ['CentOS']
+
+- include: ntp_debian.yml
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- include: ntp_fedora.yml
+  when: ansible_distribution in ['Fedora']
 
 - include: openssh_centos.yml
   when: ansible_distribution in ['CentOS']
