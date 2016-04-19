@@ -27,5 +27,5 @@
   lineinfile: dest=/etc/sudoers state=absent line="%admins ALL=(ALL:ALL) ALL" state=absent validate='visudo -cf %s'
   when: sudoers.changed
 
-- name: copy custom_sudoers
-  copy: src=custom_sudoers dest=/etc/sudoers.d/custom_sudoers owner=root group=root mode=0440
+- name: copy sudoers_custom
+  copy: src=custom_sudoers dest=/etc/sudoers.d/sudoers_custom owner=root group=root mode=0440
