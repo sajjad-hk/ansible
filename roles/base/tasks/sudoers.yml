@@ -7,7 +7,7 @@
 - name: make sure admins group is allowed in sudoers
   lineinfile: "dest=/etc/sudoers
                state=present
-               line='%admins ALL=(ALL:ALL) ALL'
+               line='#includedir /etc/sudoers.d'
                validate='/usr/sbin/visudo -cf %s'"
   register: sudoers
 
@@ -26,3 +26,6 @@
 - name: remove unsed sudoers line
   lineinfile: dest=/etc/sudoers state=absent line="%admins ALL=(ALL:ALL) ALL" state=absent validate='visudo -cf %s'
   when: sudoers.changed
+
+- name: copy custom_sudoers
+  copy: src=custom_sudoers dest=/etc/sudoers.d/custom_sudoers owner=root group=root mode=0440

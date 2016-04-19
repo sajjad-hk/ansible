@@ -1,0 +1,2 @@
+%admins ALL=(ALL:ALL) ALL
+ansible ALL=(ALL) NOPASSWD: ALL
