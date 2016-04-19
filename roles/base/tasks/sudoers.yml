@@ -4,7 +4,7 @@
 - name: add jay to admins group
   user: name=jay groups=admins append=yes
 
-- name: make sure admins group is allowed in sudoers
+- name: make sure suders includes the appropriate directory
   lineinfile: "dest=/etc/sudoers
                state=present
                line='#includedir /etc/sudoers.d'
