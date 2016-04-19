@@ -1,0 +1,13 @@
+- name: install or update openssh (centos)
+  yum: name=openssh-server state=latest
+  notify: restart_sshd
+  when: ansible_distribution == 'CentOS'
+
+- name: enable sshd
+  service: name=sshd enabled=yes state=started
+  when: ansible_distribution in ['CentOS', 'Fedora']
+
+- name: copy sshd_config (centos)
+  template: src=sshd_config_centos.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+  notify: restart_sshd
+  when: ansible_distribution in ['CentOS']

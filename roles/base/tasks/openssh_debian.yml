@@ -1,0 +1,13 @@
+- name: install or update openssh (debian-based)
+  apt: name=openssh-server state=latest
+  notify: restart_ssh
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: enable ssh
+  service: name=ssh enabled=yes state=started
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: copy sshd_config (debian-based)
+  template: src=sshd_config_debian.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+  notify: restart_ssh
+  when: ansible_distribution in ['Debian', 'Ubuntu']

@@ -14,6 +14,17 @@
 
 - include: cron.yml
 - include: ntp.yml
-- include: sudoers.yml
-- include: openssh.yml
 - include: scripts.yml
+- include: sudoers.yml
+
+
+- include: openssh_centos.yml
+  when: ansible_distribution in ['CentOS']
+
+- include: openssh_debian.yml
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- include: openssh_fedora.yml
+  when: ansible_distribution in ['Fedora']
+
+- include: openssh_motd.yml
