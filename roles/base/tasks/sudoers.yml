@@ -21,7 +21,7 @@
   file: path=/etc/sudoers.d/sudoers_custom owner=root state=absent
 
 - name: remove unsed sudoers line
-  lineinfile: dest=/etc/sudoers state=absent line="%admins ALL=(ALL:ALL) ALL" state=absent validate='visudo -cf %s'
+  lineinfile: dest=/etc/sudoers line="%admins ALL=(ALL:ALL) ALL" state=absent validate='visudo -cf %s'
 
 - name: remove unsed sudoers line
-  lineinfile: dest=/etc/sudoers state=absent line="ansible ALL=(ALL) NOPASSWD: ALL" state=absent validate='visudo -cf %s'
+  lineinfile: dest=/etc/sudoers line="ansible ALL=(ALL) NOPASSWD: ALL" state=absent validate='visudo -cf %s'
