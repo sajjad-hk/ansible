@@ -9,23 +9,13 @@
                state=present
                line='#includedir /etc/sudoers.d'
                validate='/usr/sbin/visudo -cf %s'"
-  register: sudoers
 
-- name: remove unused sudoers line
-  lineinfile: dest=/etc/sudoers state=absent line="%admin ALL=(ALL) ALL" validate='visudo -cf %s'
-  when: sudoers.changed
+- name: copy sudoers_ansible
+  copy: src=sudoers_ansible dest=/etc/sudoers.d/ansible owner=root group=root mode=0440
 
-- name: remove unsed sudoers line
-  lineinfile: dest=/etc/sudoers state=absent line="# Allow members of group sudo to execute any command" state=absent validate='visudo -cf %s'
-  when: sudoers.changed
+- name: copy sudoers_admins
+  copy: src=sudoers_admins dest=/etc/sudoers.d/admins owner=root group=root mode=0440
 
-- name: remove unsed sudoers line
-  lineinfile: dest=/etc/sudoers state=absent line="# Members of the admin group may gain root privileges" state=absent validate='visudo -cf %s'
-  when: sudoers.changed
-
-- name: remove unsed sudoers line
-  lineinfile: dest=/etc/sudoers state=absent line="%admins ALL=(ALL:ALL) ALL" state=absent validate='visudo -cf %s'
-  when: sudoers.changed
-
+# This needs to be removed later.
 - name: copy sudoers_custom
-  copy: src=custom_sudoers dest=/etc/sudoers.d/sudoers_custom owner=root group=root mode=0440
+  file: path=/etc/sudoers.d/sudoers_custom owner=root state=absent
