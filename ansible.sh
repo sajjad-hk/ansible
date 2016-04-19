@@ -15,7 +15,7 @@ fi
 if [ -f /tmp/ansible.lock ]
 then
     echo "Ansible may already be running, a lock file was found." > /var/log/ansible-$CURRDATE.log
-    echo "Exiting." > /var/log/ansible-$CURRDATE.log
+    echo "Exiting." > /var/log/ansible/ansible-$CURRDATE.log
     RESULT="Skipped!"
     exit 1
 fi
