@@ -16,9 +16,14 @@
 - name: copy sudoers_admins
   copy: src=sudoers_admins dest=/etc/sudoers.d/admins owner=root group=root mode=0440
 
-# This needs to be removed later.
+# The admins group is used to control sudo, so remove the %sudo lines.
+- lineinfile: dest=/etc/sudoers line="# Allow members of group sudo to execute any command" state=absent validate="visudo -cf %s"
+- lineinfile: dest=/etc/sudoers state=absent regexp="^%sudo" validate="visudo -cf %s"
+
+
+# This needs to be removed later, after it runs on all machines.
 - name: copy sudoers_custom
   file: path=/etc/sudoers.d/sudoers_custom state=absent
 
-#- lineinfile: dest=/etc/sudoers line="%admins ALL=(ALL:ALL) ALL" state=absent validate="visudo -cf %s"
-#- lineinfile: dest=/etc/sudoers line="ansible ALL=(ALL) NOPASSWD: ALL" state=absent validate="visudo -cf %s"
+- lineinfile: dest=/etc/sudoers line="%admins ALL=(ALL:ALL) ALL" state=absent validate="visudo -cf %s"
+- lineinfile: 'dest=/etc/sudoers line="ansible ALL=(ALL) NOPASSWD: ALL" state=absent validate="visudo -cf %s"'
