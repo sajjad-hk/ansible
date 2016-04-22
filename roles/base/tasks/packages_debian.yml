@@ -29,9 +29,19 @@
     - silversearcher-ag
     - sshfs
     - tig
-    - tmux
     - vim-nox
     - wget
+
+
+- name: install tmux (debian)
+  apt: name=tmux default_release=jessie-backports
+  when: ansible_distribution in ['Debian']
+
+
+- name: install tmux (ubuntu)
+  apt: name=tmux state=latest
+  when: ansible_distribution in ['Ubuntu']
+
 
 - name: remove unneeded debian packages
   apt: name={{item}} state=absent
