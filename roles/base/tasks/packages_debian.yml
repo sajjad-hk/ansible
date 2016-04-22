@@ -33,9 +33,9 @@
     - wget
 
 
-- name: install tmux (debian)
-  apt: name=tmux default_release=jessie-backports
-  when: ansible_distribution in ['Debian']
+#- name: install tmux (debian)
+  #apt: name=tmux default_release=jessie-backports
+  #when: ansible_distribution in ['Debian']
 
 
 - name: install tmux (ubuntu)
