@@ -26,7 +26,7 @@ GROUP=`groups`
 # System Data Capture
 #
 HOSTNAME=`hostname`
-SYSREL=`cat /etc/os-release`
+#SYSREL=`cat /etc/os-release`
 KERNEL=`uname -r`
 UPTIME=`uptime|sed 's/^.*up *//;s/, *[0-9]* user.*$/m/; s/ day[^0-9]*/d, /;s/ \([hm]\).*m$/\1/;s/:/h, /; s/^/ /'`
 BTIME=`who -b`
@@ -67,20 +67,16 @@ echo -e "
 \033[0;35m
 \033[0;35m=====================================: \033[1;32mSystem Info\033[0;35m :============================
 +\033[0;37mHostname \033[0;35m= \033[1;34m$HOSTNAME
-\033[0;35m+\033[0;37mLinux Version \033[0;35m= \033[1;34m$SYSREL
 \033[0;35m+\033[0;37mKernel \033[0;35m= \033[1;34m$KERNEL
 \033[0;35m+\033[0;37mCPU \033[0;35m= \033[1;34m[${i}]:${CPUMOD} @${CPUSPEC} MHz
-\033[0;35m-------------------------------------: \033[1;32mNetwork Data\033[0;35m :---------------------------
 \033[0;35m+\033[0;37mInternal IP Address \033[0;35m= \033[1;34m$IPADDR
 \033[0;35m+\033[0;37mExternal IP Address \033[0;35m= \033[1;34m$EXTADDR
-\033[0;35m-------------------------------------: \033[1;32mSystem Data\033[0;35m :----------------------------
 \033[0;35m+\033[0;37mLoad \033[0;35m= \033[0;37m1 Min: \033[1;34m${one} \033[0;37m5 Min: \033[1;34m${five} \033[0;37m15 Min: \033[1;34m${fifteen}
 \033[0;35m+\033[0;37mCPU Avarage \033[0;35m= \033[1;34m`echo $CPUTIME / $CPUCORES`%
 \033[0;35m+\033[0;37mMemory \033[0;35m= \033[1;34m${MEM} MB \033[0;37mMemory Free \033[0;35m= \033[1;34m${MEMFREE} MB
 \033[0;35m+\033[0;37mSwap \033[0;35m= \033[1;34m${SWAP} MB \033[0;37mSwap Free \033[0;35m= \033[1;34m${SWAPFREE} MB
-\033[0;35m+\033[0;37m/ free space\033[0;35m= \033[1;34m$ROOT
-\033[0;35m--------------------------------------: \033[1;32mUser Data\033[0;35m :-----------------------------
-+\033[0;37mUsername \033[0;35m= \033[1;34m$USER
+\033[0;35m+\033[0;37mFree space \033[0;35m= \033[1;34m$ROOT
+\033[0;35m+\033[0;37mUsername \033[0;35m= \033[1;34m$USER
 \033[0;35m+\033[0;37mGroups \033[0;35m= \033[1;34m$GROUP
 \033[0;35m+\033[0;37mUsers on the System \033[0;35m= \033[1;34m$WHO
 
