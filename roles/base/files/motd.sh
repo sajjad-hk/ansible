@@ -35,7 +35,7 @@ BTIME=`who -b`
 # Network Data Capture
 #
 IPADDR=`hostname -I`
-EXTADDR=`dig myip.opendns.com @resolver1.opendns.com +short +tries=1 +retry=1`
+#EXTADDR=`dig myip.opendns.com @resolver1.opendns.com +short +tries=1 +retry=1`
 
 ##################################################
 # Memory Data Capture
@@ -67,10 +67,9 @@ echo -e "
 \033[0;35m
 \033[0;35m=====================================: \033[1;32mSystem Info\033[0;35m :============================
 +\033[0;37mHostname \033[0;35m= \033[1;34m$HOSTNAME
+\033[0;35m+\033[0;37mIP Address \033[0;35m= \033[1;34m$IPADDR
 \033[0;35m+\033[0;37mKernel \033[0;35m= \033[1;34m$KERNEL
 \033[0;35m+\033[0;37mCPU \033[0;35m= \033[1;34m[${i}]:${CPUMOD} @${CPUSPEC} MHz
-\033[0;35m+\033[0;37mInternal IP Address \033[0;35m= \033[1;34m$IPADDR
-\033[0;35m+\033[0;37mExternal IP Address \033[0;35m= \033[1;34m$EXTADDR
 \033[0;35m+\033[0;37mLoad \033[0;35m= \033[0;37m1 Min: \033[1;34m${one} \033[0;37m5 Min: \033[1;34m${five} \033[0;37m15 Min: \033[1;34m${fifteen}
 \033[0;35m+\033[0;37mCPU Avarage \033[0;35m= \033[1;34m`echo $CPUTIME / $CPUCORES`%
 \033[0;35m+\033[0;37mMemory \033[0;35m= \033[1;34m${MEM} MB \033[0;37mMemory Free \033[0;35m= \033[1;34m${MEMFREE} MB
