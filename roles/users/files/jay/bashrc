@@ -1,5 +1,9 @@
 # Current PS1:
-tty -s && export PS1="\[\e[36m\]\t\[\e[m\] [\h:\[\e[32m\]\W\[\e[m\]]\\$ "
+tty -s && export PS1="\[\033[38;5;249m\]\t\[$(tput sgr0)\]\[\033[38;5;15m\] [\h:\[$(tput sgr0)\]\[\033[38;5;247m\]\W\[$(tput sgr0)\]\[\033[38;5;15m\]]\\$ \[$(tput sgr0)\]"
+
+# No color version:
+#export PS1="\[\033[38;5;249m\]\t\[$(tput sgr0)\]\[\033[38;5;15m\] [\h:\[$(tput sgr0)\]\[\033[38;5;247m\]\W\[$(tput sgr0)\]\[\033[38;5;15m\]]\\$ \[$(tput sgr0)\]"
+
 
 # Env
 export TERM=xterm-256color
