@@ -1,6 +1,6 @@
-- name: install base packages (debian)
+- name: install base packages (ubuntu)
   apt: name={{item}} state=installed
-  when: ansible_distribution in ['Debian']
+  when: ansible_distribution in ['Ubuntu']
   with_items:
     - aptitude
     - colordiff
@@ -30,18 +30,14 @@
     - silversearcher-ag
     - sshfs
     - tig
+    - tmux
     - vim-nox
     - wget
 
 
-#- name: install tmux (debian)
-  #apt: name=tmux default_release=jessie-backports
-  #when: ansible_distribution in ['Debian']
-
-
-- name: remove unneeded debian packages
+- name: remove unneeded packages
   apt: name={{item}} state=absent
-  when: ansible_distribution in ['Debian']
+  when: ansible_distribution in ['Ubuntu']
   with_items:
     - exim4
     - exim4-base
