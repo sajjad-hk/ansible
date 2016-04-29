@@ -1,2 +1,5 @@
-- include: openbox_debian.yml
-- include: openbox_fedora.yml
+- include: packages_debian.yml
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- include: packages_fedora.yml
+  when: ansible_distribution in ['Fedora']

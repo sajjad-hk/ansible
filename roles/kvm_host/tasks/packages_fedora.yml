@@ -1,0 +1,10 @@
+- name: install kvm packages (fedora)
+  dnf: name={{item}} state=installed
+  when: ansible_distribution == 'Fedora'
+  with_items:
+    - bridge-utils
+    - dnsmasq
+    - ebtables
+    - libvirt
+    - qemu
+    - virt-manager

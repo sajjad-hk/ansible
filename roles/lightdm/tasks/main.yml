@@ -1,2 +1,7 @@
-- include: lightdm_package.yml
+- include: packages_debian.yml
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- include: packages_fedora.yml
+  when: ansible_distribution in ['Fedora']
+
 - include: lightdm_service.yml

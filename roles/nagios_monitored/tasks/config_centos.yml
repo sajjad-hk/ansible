@@ -1,0 +1,12 @@
+- name: copy nrpe.cfg (centos)
+  copy: src=nrpe_centos.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+  when: ansible_distribution == 'CentOS'
+  notify: restart_nrpe
+
+- name: copy check_mem plugin (centos)
+  copy: src=check_mem dest=/usr/lib64/nagios/plugins/check_mem owner=root group=root mode=755
+  when: ansible_distribution in ['CentOS']
+
+- name: enable nrpe daemon (centos)
+  service: name=nrpe enabled=yes state=started
+  when: ansible_distribution in ['CentOS']

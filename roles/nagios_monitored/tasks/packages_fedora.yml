@@ -1,0 +1,7 @@
+- name: install nagios-plugins package (fedora)
+  dnf: name=nagios-plugins state=latest
+  when: ansible_distribution == 'Fedora'
+
+- name: install nrpe package (fedora)
+  dnf: name=nrpe state=latest
+  when: ansible_distribution == 'Fedora'

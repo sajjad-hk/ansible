@@ -1,0 +1,7 @@
+- name: install nagios-nrpe-server package (debian-based)
+  apt: name=nagios-nrpe-server state=latest
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: install nagios-nrpe-plugin package (debian-based)
+  apt: name=nagios-nrpe-plugin state=latest
+  when: ansible_distribution in ['Debian', 'Ubuntu']

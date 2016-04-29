@@ -1,3 +1,7 @@
 - include: packages_debian.yml
+  when: ansible_distribution in ['Debian']
+
 - include: packages_fedora.yml
+  when: ansible_distribution in ['Fedora']
+
 - include: mame.ini.yml

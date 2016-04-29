@@ -1,0 +1,12 @@
+- name: copy nrpe.cfg (debian-based)
+  copy: src=nrpe_debian.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+  notify: restart_nagios-nrpe-server
+
+- name: copy check_mem plugin (debian-based)
+  copy: src=check_mem dest=/usr/lib/nagios/plugins/check_mem owner=root group=root mode=755
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: enable nagios-nrpe-server daemon (debian-based)
+  service: name=nagios-nrpe-server enabled=yes state=started
+  when: ansible_distribution in ['Debian', 'Ubuntu']

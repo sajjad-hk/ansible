@@ -1,1 +1,17 @@
-- include: nagios.yml
+- include: packages_centos.yml
+  when: ansible_distribution in ['CentOS']
+
+- include: packages_debian.yml
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- include: packages_fedora.yml
+  when: ansible_distribution in ['Fedora']
+
+- include: config_centos.yml
+  when: ansible_distribution in ['CentOS']
+
+- include: config_debian.yml
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- include: config_fedora.yml
+  when: ansible_distribution in ['Fedora']
