@@ -1,6 +1,6 @@
-- name: install workstation packages (debian)
+- name: install workstation packages (ubuntu)
   apt: name={{item}} state=installed
-  when: ansible_distribution in ['Debian']
+  when: ansible_distribution in ['Ubuntu']
   with_items:
     - acpid
     - aptitude
@@ -58,7 +58,17 @@
     - xfonts-terminus
     - xsel
 
-
-- name: install iwlwifi driver (debian)
-  apt: name=firmware-iwlwifi
-  when: ansible_distribution == 'debian'
+- name: remove unneeded debian packages
+  apt: name={{item}} state=absent
+  when: ansible_distribution in ['Ubuntu']
+  with_items:
+    #- deja-dup
+    #- duplicity
+    - exim4
+    - exim4-base
+    - exim4-config
+    #- gnome-orca
+    - nano
+    #- onboard
+    #- xul-ext-ubufox
+    #- xzoom
