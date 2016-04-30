@@ -4,4 +4,7 @@
 - include: packages_fedora.yml
   when: ansible_distribution in ['Fedora']
 
+- include: packages_ubuntu.yml
+  when: ansible_distribution in ['Ubuntu']
+
 - include: mame.ini.yml

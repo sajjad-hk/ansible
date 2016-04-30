@@ -1,6 +1,6 @@
-- name: install games on debian hosts
+- name: install games on ubuntu hosts
   apt: name={{item}} state=installed
-  when: ansible_distribution in ['Debian']
+  when: ansible_distribution in ['Ubuntu']
   with_items:
     - chromium-bsu
     - frozen-bubble
