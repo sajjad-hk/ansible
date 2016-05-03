@@ -24,7 +24,7 @@ Host eris
 
 Host galaxy
     Hostname 10.10.96.4
-    Port 65004
+    Port 22
     User jay
 
 Host hermes
