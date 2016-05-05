@@ -17,6 +17,11 @@ Host crusader
     Port 22
     User jay
 
+Host dev
+    Hostname 107.170.25.34
+    Port 65001
+    User jay
+
 Host eris
     Hostname 10.10.98.8
     Port 22
