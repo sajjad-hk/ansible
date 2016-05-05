@@ -58,9 +58,6 @@
 - name: create /share/android/camera
   file: path=/share/android/camera state=directory owner=jay group=jay mode=700
 
-- name: create /share/android/pictures
-  file: path=/share/android/pictures state=directory owner=jay group=jay mode=700
-
 - name: remove ~/Desktop
   file: path=/home/jay/Desktop state=absent
 
