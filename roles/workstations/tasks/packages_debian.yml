@@ -27,11 +27,14 @@
     - guake
     - hunspell-en-us
     - hyphen-en-us
+    - irssi
+    - irssi-dev
     - keepassx
     - libreoffice-calc
     - libreoffice-gnome
     - libreoffice-impress
     - libreoffice-writer
+    - libssl-dev
     - mpv
     - network-manager
     - network-manager-openvpn
@@ -41,7 +44,7 @@
     - pavucontrol
     - perl
     - pyrenamer
-    - quassel-client
+      #- quassel-client (using irssi currently)
     - rdesktop
     - remmina
     - roxterm
