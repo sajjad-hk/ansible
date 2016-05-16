@@ -3,6 +3,7 @@
   when: ansible_distribution in ['Debian']
   with_items:
     - chromium-bsu
+    - extremetuxracer
     - frozen-bubble
     - libasound2-data
     - libasound2-plugins:i386
