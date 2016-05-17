@@ -1,3 +1,18 @@
+- name: add syncthing repository key
+  apt_key: url=https://syncthing.net/release-key.txt state=present
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+  register: syncthing_repo
+
+- name: add syncthing repository
+  #apt_repository: repo='deb http://apt.syncthing.net/ syncthing release' state=present filename='syncthing'
+  copy: src=syncthing.list dest=/etc/apt/sources.list.d/syncthing.list owner=root group=root mode=644
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+  register: syncthing_repo
+
+- name: apt-update
+  apt: update_cache=yes
+  when: syncthing_repo.changed
+
 - name: install or upgrade syncthing (debian-based)
   apt: name=syncthing state=latest
   when: ansible_distribution in ['Debian', 'Ubuntu']
