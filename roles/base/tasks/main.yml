@@ -1,12 +1,14 @@
-- name: apt-update
-  apt: update_cache=yes
-  when: ansible_distribution in ['Debian', 'Ubuntu']
-  changed_when: False
-
-- name: pacman-update
-  pacman: update_cache=yes
+- include: repositories_arch.yml
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
-  changed_when: False
+
+- include: repositories_debian.yml
+  when: ansible_distribution in ['Debian']
+
+- include: repositories_fedora.yml
+  when: ansible_distribution in ['Fedora']
+
+- include: repositories_ubuntu.yml
+  when: ansible_distribution in ['Ubuntu']
 
 - include: packages_arch.yml
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']

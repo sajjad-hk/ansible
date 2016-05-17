@@ -1,0 +1,8 @@
+- name: copy arch pacman.conf
+  copy: src=pacman.conf dest=/etc/pacman.conf owner=root group=root mode=644
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: arch-update
+  pacman: update_cache=yes
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+  changed_when: False
