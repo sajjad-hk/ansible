@@ -1,0 +1,13 @@
+- name: install or update openssh (arch)
+  pacman: name=openssh state=latest
+  notify: restart_sshd
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: enable sshd
+  service: name=sshd enabled=yes state=started
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: copy sshd_config (triggers sshd)
+  template: src=sshd_config.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+  notify: restart_sshd
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']

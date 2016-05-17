@@ -3,6 +3,14 @@
   when: ansible_distribution in ['Debian', 'Ubuntu']
   changed_when: False
 
+- name: pacman-update
+  pacman: update_cache=yes
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+  changed_when: False
+
+- include: packages_arch.yml
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
 - include: packages_centos.yml
   when: ansible_distribution in ['CentOS']
 
@@ -18,6 +26,9 @@
 - include: cron.yml
 - include: scripts.yml
 - include: sudoers.yml
+
+- include: ntp_arch.yml
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
 
 - include: ntp_centos.yml
   when: ansible_distribution in ['CentOS']
