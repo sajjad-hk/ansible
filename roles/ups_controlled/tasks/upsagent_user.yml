@@ -1,0 +1,15 @@
+- name: create upsagent user
+  user: name=upsagent
+        state=present
+        group="upsagent"
+        uid=905
+        shell=/bin/bash
+
+- name: create .ssh directory for upsagent user
+  file: path=/home/upsagent/.ssh state=directory mode=0700
+
+- name: add ssh key for upsagent
+  file: path=/home/upsagent/.ssh/id_rsa src=upsagent_id_rsa mode=0600
+
+- name: add authorized key for upsagent
+  file: path=/home/upsagent/.ssh/authorized_keys src=upsagent_authorized_keys mode=0600
