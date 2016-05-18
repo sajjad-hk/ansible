@@ -8,6 +8,6 @@
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
 
 - name: copy sshd_config (triggers sshd)
-  template: src=sshd_config.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
+  template: src=sshd_config_arch.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
   notify: restart_sshd
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
