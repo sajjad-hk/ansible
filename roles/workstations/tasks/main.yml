@@ -13,7 +13,10 @@
 - include: network_manager.yml
 - include: directories.yml
 - include: firefox.yml
+
 - include: syncthing.yml
+  when: not ansible_distribution == 'Fedora'
+
 - include: telegram.yml
 - include: thunderbird.yml
 - include: firewall.yml
