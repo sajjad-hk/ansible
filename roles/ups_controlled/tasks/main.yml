@@ -5,3 +5,4 @@
   cron: name="ups_check" minute="*/2" job="/usr/local/bin/ups_check > /dev/null" state=absent
 
 - include: upsagent_user.yml
+- include: suoders_upsagent.yml

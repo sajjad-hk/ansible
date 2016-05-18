@@ -1,0 +1,2 @@
+- name: copy sudoers_upsagent
+  copy: src=sudoers_upsagent dest=/etc/sudoers.d/upsagent owner=root group=root mode=0440
