@@ -1,2 +1,2 @@
 - include: upsagent_user.yml
-- include: sudoers_upsagent.yml
+- include: upsagent_sudoers.yml
