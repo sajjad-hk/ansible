@@ -1,7 +1,6 @@
 - name: create upsagent user
   user: name=upsagent
         state=present
-        group="upsagent"
         uid=905
         shell=/bin/bash
 
