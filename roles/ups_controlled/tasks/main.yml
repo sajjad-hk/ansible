@@ -1,8 +1,2 @@
-- name: copy ups_check script
-  file: path=ups_check state=absent
-
-- name: set up ups_check cron job
-  cron: name="ups_check" minute="*/2" job="/usr/local/bin/ups_check > /dev/null" state=absent
-
 - include: upsagent_user.yml
 - include: suoders_upsagent.yml
