@@ -4,7 +4,10 @@
 
 - name: disable gdm (fedora)
   service: name=gdm enabled=no
-  when: ansible_distribution in ['Fedora']
+  when: ansible_distribution in ['Archlinux', 'Fedora', 'Manjaro Linux']
+
+- name: enable lightdm
+  service: name=lightdm enabled=yes
 
 - name: enable lightdm
   service: name=lightdm enabled=yes

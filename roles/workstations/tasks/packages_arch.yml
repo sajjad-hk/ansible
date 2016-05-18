@@ -1,0 +1,57 @@
+- name: install workstation packages
+  pacman: name={{item}} state=installed
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+  with_items:
+    - acpid
+    - asunder
+    - banshee
+    - brasero
+    - cmus
+    - conky
+    - cryptsetup
+    - dialog
+    - dmenu
+    - easytag
+    - exfat-utils
+    - filezilla
+    - freerdp
+    - galculator
+    - geany
+    - geany-plugins
+    - gimp
+    - gnome-keyring
+    - gparted
+    - gtk-engine-aurora
+    - gtk-engine-murrine
+    - gtk-recordmydesktop
+    - guake
+    - hunspell-en
+    - hyphen-en
+    - keepassx
+    - libreoffice-still
+    - mpv
+    - network-manager-applet
+    - networkmanager
+    - networkmanager-openvpn
+    - networkmanager-pptp
+    - networkmanager-vpnc
+    - pavucontrol
+    - perl
+    - quassel-client
+    - rdesktop
+    - remmina
+    - roxterm
+    - rxvt-unicode # To do: Unable to install the proper package, rxvt-unicode-pixbuf, via yaourt
+    - shutter
+    - smbclient
+    - terminator
+    - terminus-font
+    - transmission-gtk
+    - vlc
+    - vorbis-tools
+    - wireless_tools
+    - wpa_actiond
+    - wpa_supplicant
+    - x11-ssh-askpass
+    - xorg-xbacklight
+    - xsel

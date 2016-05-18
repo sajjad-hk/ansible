@@ -1,0 +1,11 @@
+- name: install lightdm
+  pacman: name=lightdm
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: install lightdm-gtk-greeter
+  pacman: name=lightdm-gtk-greeter
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: remove gdm
+  pacman: name=gdm state=absent
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']

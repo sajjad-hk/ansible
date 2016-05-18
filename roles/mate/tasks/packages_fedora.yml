@@ -1,4 +1,4 @@
-- name: install mate (fedora)
+- name: install mate
   dnf: name={{item}} state=installed
   when: ansible_distribution == 'Fedora'
   with_items:

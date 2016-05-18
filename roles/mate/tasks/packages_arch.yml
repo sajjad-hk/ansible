@@ -1,6 +1,6 @@
 - name: install mate
-  apt: name={{item}} state=installed
-  when: ansible_distribution in ['Debian', 'Ubuntu']
+  pacman: name={{item}} state=installed
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
   with_items:
     - atril
     - caja
@@ -13,22 +13,13 @@
     - mate-media
     - mate-menus
     - mate-notification-daemon
-    - mate-panel
-    - mate-polkit
     - mate-power-manager
     - mate-screensaver
+    - mate-screensaver-hacks
     - mate-session-manager
-    - mate-settings-daemon
     - mate-system-monitor
     - mate-terminal
     - mate-themes
     - mozo
     - pluma
-
-- name: install mate-media-pulse (debian)
-  apt: name=mate-media-pulse
-  when: ansible_distribution == 'debian'
-
-- name: install mate-media-pulse (debian)
-  apt: name=mate-media-settings-daemon-pulse
-  when: ansible_distribution == 'debian'
+    - ttf-liberation
