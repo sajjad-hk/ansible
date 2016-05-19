@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Ultimate Mortal Kombat 3
+Categories=Games;
+Exec=/usr/games/mame umk3
+Icon=/opt/games/.icons/mortal_kombat.png
+Terminal=false

@@ -10,4 +10,6 @@
 - include: packages_ubuntu.yml
   when: ansible_distribution in ['Ubuntu']
 
+- include: directories.yml
 - include: mame.ini.yml
+- include: shortcuts.yml

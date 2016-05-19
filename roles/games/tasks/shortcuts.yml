@@ -1,0 +1,46 @@
+- name: create ~/.local/share/applications directory
+  file: path=/home/jay/.local/share/applications state=directory recurse=true owner=jay group=jay mode=700
+ 
+- name: copy minecraft icon
+  copy: src=minecraft.png dest=/opt/games/.icons/minecraft.png owner=jay group=jay mode=600
+
+- name: copy mortal kombat icon
+  copy: src=mortal_kombat.png dest=/opt/games/.icons/mortal_kombat.png owner=jay group=jay mode=600
+
+- name: copy street fighter icon
+  copy: src=street_fighter.png dest=/opt/games/.icons/street_fighter.png owner=jay group=jay mode=600
+
+- name: copy minecraft.desktop
+  copy: src=minecraft.desktop dest=/home/jay/.local/share/applications/minecraft.desktop owner=jay group=jay mode=600
+
+- name: copy mk2.desktop
+  copy: src=mame_mk2.desktop dest=/home/jay/.local/share/applications/mk2.desktop owner=jay group=jay mode=600
+  when: not ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: copy street_fighter_alpha_2.desktop
+  copy: src=mame_street_fighter_alpha_2.desktop dest=/home/jay/.local/share/applications/street_fighter_alpha_2.desktop owner=jay group=jay mode=600
+  when: not ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: copy street_fighter_alpha_3.desktop
+  copy: src=mame_street_fighter_alpha_3.desktop dest=/home/jay/.local/share/applications/street_fighter_alpha_3.desktop owner=jay group=jay mode=600
+  when: not ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: copy umk3.desktop
+  copy: src=mame_umk3.desktop dest=/home/jay/.local/share/applications/umk3.desktop owner=jay group=jay mode=600
+  when: not ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: copy mk2.desktop (arch)
+  copy: src=sdlmame_mk2.desktop dest=/home/jay/.local/share/applications/mk2.desktop owner=jay group=jay mode=600
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: copy street_fighter_alpha_2.desktop (arch)
+  copy: src=sdlmame_street_fighter_alpha_2.desktop dest=/home/jay/.local/share/applications/street_fighter_alpha_2.desktop owner=jay group=jay mode=600
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: copy street_fighter_alpha_3.desktop (arch)
+  copy: src=sdlmame_street_fighter_alpha_3.desktop dest=/home/jay/.local/share/applications/street_fighter_alpha_3.desktop owner=jay group=jay mode=600
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: copy umk3.desktop (arch)
+  copy: src=sdlmame_umk3.desktop dest=/home/jay/.local/share/applications/umk3.desktop owner=jay group=jay mode=600
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']

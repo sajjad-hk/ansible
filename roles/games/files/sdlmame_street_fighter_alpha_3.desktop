@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Street Fighter Alpha 3
+Categories=Games;
+Exec=/usr/games/mame sfa3u
+Icon=/opt/games/.icons/street_fighter.png
+Terminal=false

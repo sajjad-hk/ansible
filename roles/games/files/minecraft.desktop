@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Minecraft
+Categories=Games;
+Exec="/opt/games/minecraft/minecraft.sh"
+Icon=/opt/games/.icons/minecraft.png
+Terminal=false

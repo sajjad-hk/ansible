@@ -1,0 +1,5 @@
+- name: create games directory
+  file: path=/opt/games/ state=directory owner=jay group=jay mode=700
+
+- name: create games directory
+  file: path=/opt/games/.icons state=directory owner=jay group=jay mode=700

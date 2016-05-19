@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Mortal Kombat II
+Categories=Games;
+Exec=/usr/games/mame mk2
+Icon=/opt/games/.icons/mortal_kombat.png
+Terminal=false
