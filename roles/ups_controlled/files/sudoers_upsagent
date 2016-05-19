@@ -1,1 +1,1 @@
-upsmon ALL=(ALL) NOPASSWD: ALL
+upsagent ALL=(ALL) NOPASSWD: ALL
