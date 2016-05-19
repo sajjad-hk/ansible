@@ -41,6 +41,9 @@
 - include: ntp_fedora.yml
   when: ansible_distribution in ['Fedora']
 
+- include: openssh_arch.yml
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
 - include: openssh_centos.yml
   when: ansible_distribution in ['CentOS']
 
