@@ -5,10 +5,10 @@
         shell=/bin/bash
 
 - name: create .ssh directory for upsagent user
-  file: path=/home/upsagent/.ssh state=directory mode=0700
+  file: path=/home/upsagent/.ssh state=directory mode=0700 owner=upsagent group=upsagent
 
 - name: add ssh key for upsagent
-  copy: src=upsagent_id_rsa dest=/home/upsagent/.ssh/id_rsa mode=0600
+  copy: src=upsagent_id_rsa dest=/home/upsagent/.ssh/id_rsa mode=0600 owner=upsagent group=upsagent
 
 - name: add authorized key for upsagent
-  copy: src=upsagent_authorized_keys dest=/home/upsagent/.ssh/authorized_keys mode=0600
+  copy: src=upsagent_authorized_keys dest=/home/upsagent/.ssh/authorized_keys mode=0600 owner=upsagent group=upsagent
