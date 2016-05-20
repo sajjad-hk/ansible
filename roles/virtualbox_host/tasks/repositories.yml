@@ -10,6 +10,7 @@
 
 - name: Add virtualbox repository key (debian-based)
   apt_key: url=https://www.virtualbox.org/download/oracle_vbox_2016.asc state=present
+  when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: apt-update
   apt: update_cache=yes
@@ -23,3 +24,4 @@
   baseurl: http://download.virtualbox.org/virtualbox/rpm/fedora/$releasever/$basearch
   gpgkey: https://www.virtualbox.org/download/oracle_vbox.asc
   gpgcheck: yes
+  when: ansible_distribution in ['Fedora']
