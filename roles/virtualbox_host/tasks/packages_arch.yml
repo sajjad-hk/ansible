@@ -5,5 +5,4 @@
     - linux-headers
     - virtualbox
     - virtualbox-guest-iso
-    - virtualbox-host-modules
-    - virtualbox-host-modules-lts
+    - virtualbox-host-dkms
