@@ -1,5 +1,5 @@
 - name: create /vm_store directory
-  file: path=/vm_store state=directory owner=root mode=770 recurse=no
+  file: path=/vm_store state=directory owner=root mode=770
 
 - name: create /vm_store/vbox directory
-  file: path=/vm_store state=directory owner=jay group=jay mode=770 recurse=no
+  file: path=/vm_store/vbox state=directory owner=jay group=jay mode=770
