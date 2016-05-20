@@ -1,5 +1,5 @@
-- name: install games on archlinux hosts
-  pacman: name={{item}} state=installed
+- name: install games
+  pacman: name={{item}} state=latest
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
   with_items:
     - chromium-bsu

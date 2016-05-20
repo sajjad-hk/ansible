@@ -1,4 +1,4 @@
-- name: install kvm packages (fedora)
+- name: install kvm packages
   dnf: name={{item}} state=installed
   when: ansible_distribution == 'Fedora'
   with_items:

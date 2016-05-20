@@ -1,5 +1,5 @@
 - name: install mate
-  dnf: name={{item}} state=installed
+  dnf: name={{item}} state=latest
   when: ansible_distribution == 'Fedora'
   with_items:
     - atril

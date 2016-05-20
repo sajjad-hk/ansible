@@ -1,4 +1,4 @@
-- name: install or update openssh (arch)
+- name: install or update openssh
   pacman: name=openssh state=latest
   notify: restart_sshd
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']

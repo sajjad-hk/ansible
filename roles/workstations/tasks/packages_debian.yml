@@ -1,5 +1,5 @@
-- name: install workstation packages (debian)
-  apt: name={{item}} state=installed
+- name: install workstation packages
+  apt: name={{item}} state=latest
   when: ansible_distribution in ['Debian']
   with_items:
     - acpid

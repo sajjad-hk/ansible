@@ -1,0 +1,7 @@
+- name: install gdm
+  dnf: name=gdm
+  when: ansible_distribution in ['Fedora']
+
+- name: remove lightdm
+  pacman: name=lightdm state=absent
+  when: ansible_distribution in ['Fedora']

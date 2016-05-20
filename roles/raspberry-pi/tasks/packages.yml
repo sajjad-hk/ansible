@@ -1,5 +1,5 @@
 - name: install packages on raspbian hosts
-  apt: name={{item}} state=installed
+  apt: name={{item}} state=latest
   with_items:
     - dhcpcd5
 

@@ -14,7 +14,13 @@
 - include: directories.yml
 - include: firefox.yml
 
-- include: syncthing.yml
+- include: syncthing_repository.yml
+  when: not ansible_distribution == 'Fedora'
+
+- include: syncthing_package.yml
+  when: not ansible_distribution == 'Fedora'
+
+- include: syncthing_config.yml
   when: not ansible_distribution == 'Fedora'
 
 - include: telegram.yml

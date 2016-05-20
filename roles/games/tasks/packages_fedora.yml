@@ -1,5 +1,5 @@
-- name: install games on fedora hosts
-  dnf: name={{item}} state=installed
+- name: install games
+  dnf: name={{item}} state=latest
   when: ansible_distribution == 'Fedora'
   with_items:
     - alsa-lib.i686

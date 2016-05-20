@@ -1,2 +1,13 @@
-- include: gdm_package.yml
-- include: gdm_service.yml
+- include: packages_arch.yml
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- include: packages_debian.yml
+  when: ansible_distribution in ['Debian']
+
+- include: packages_fedora.yml
+  when: ansible_distribution in ['Fedora']
+
+- include: packages_ubuntu.yml
+  when: ansible_distribution in ['Ubuntu']
+
+- include: service.yml

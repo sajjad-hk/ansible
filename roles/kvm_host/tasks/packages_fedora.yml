@@ -1,5 +1,5 @@
-- name: install kvm packages (fedora)
-  dnf: name={{item}} state=installed
+- name: install kvm packages
+  dnf: name={{item}} state=latest
   when: ansible_distribution == 'Fedora'
   with_items:
     - bridge-utils

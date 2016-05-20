@@ -1,5 +1,5 @@
-- name: install kvm packages (debian-based)
-  apt: name={{item}} state=installed
+- name: install kvm packages
+  apt: name={{item}} state=latest
   when: ansible_distribution in ['Debian', 'Ubuntu']
   with_items:
     - bridge-utils

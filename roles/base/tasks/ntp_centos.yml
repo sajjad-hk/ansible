@@ -1,4 +1,4 @@
-- name: install or update ntp (centos)
+- name: install or update ntp
   yum: name=ntp state=latest
   when: ansible_distribution == 'CentOS'
   notify: restart_ntpd

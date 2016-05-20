@@ -1,5 +1,5 @@
-- name: install base packages (fedora)
-  dnf: name={{item}} state=installed
+- name: install base packages
+  dnf: name={{item}} state=latest
   when: ansible_distribution == 'Fedora'
   with_items:
     - colordiff

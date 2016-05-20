@@ -1,0 +1,7 @@
+- name: install gdm
+  apt: name=gdm3
+  when: ansible_distribution in ['Debian']
+
+- name: remove lightdm
+  apt: name=lightdm state=absent
+  when: ansible_distribution in ['Debian']

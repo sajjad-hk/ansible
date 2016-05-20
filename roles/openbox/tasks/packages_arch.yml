@@ -1,4 +1,4 @@
-- name: install openbox (arch)
+- name: install openbox
   pacman: name={{item}} state=installed
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
   with_items:

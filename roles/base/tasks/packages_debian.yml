@@ -1,5 +1,5 @@
-- name: install base packages (debian)
-  apt: name={{item}} state=installed
+- name: install base packages
+  apt: name={{item}} state=latest
   when: ansible_distribution in ['Debian']
   with_items:
     - aptitude

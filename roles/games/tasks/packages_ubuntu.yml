@@ -1,5 +1,5 @@
-- name: install games on ubuntu hosts
-  apt: name={{item}} state=installed
+- name: install games
+  apt: name={{item}} state=latest
   when: ansible_distribution in ['Ubuntu']
   with_items:
     - chromium-bsu

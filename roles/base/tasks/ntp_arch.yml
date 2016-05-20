@@ -1,4 +1,4 @@
-- name: install or update ntp (arch)
+- name: install or update ntp
   pacman: name=ntp state=latest
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
   notify: restart_ntpd

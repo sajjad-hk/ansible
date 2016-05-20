@@ -1,5 +1,5 @@
-- name: install openbox (fedora)
-  dnf: name={{item}} state=installed
+- name: install openbox
+  dnf: name={{item}} state=latest
   when: ansible_distribution == 'Fedora'
   with_items:
     - abattis-cantarell-fonts

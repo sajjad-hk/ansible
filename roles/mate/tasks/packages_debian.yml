@@ -1,5 +1,5 @@
 - name: install mate
-  apt: name={{item}} state=installed
+  apt: name={{item}} state=latest
   when: ansible_distribution in ['Debian', 'Ubuntu']
   with_items:
     - atril

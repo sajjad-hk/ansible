@@ -1,4 +1,4 @@
-- name: install or update openssh (centos)
+- name: install or update openssh
   yum: name=openssh-server state=latest
   notify: restart_sshd
   when: ansible_distribution == 'CentOS'

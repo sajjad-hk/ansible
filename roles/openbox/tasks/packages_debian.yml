@@ -1,5 +1,5 @@
-- name: install openbox (debian-based)
-  apt: name={{item}} state=installed
+- name: install openbox
+  apt: name={{item}} state=latest
   when: ansible_distribution in ['Debian', 'Ubuntu']
   with_items:
     - clipit

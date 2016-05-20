@@ -1,5 +1,5 @@
-- name: install workstation packages (fedora)
-  dnf: name={{item}} state=installed
+- name: install workstation packages
+  dnf: name={{item}} state=latest
   when: ansible_distribution == 'Fedora'
   with_items:
     - acpid

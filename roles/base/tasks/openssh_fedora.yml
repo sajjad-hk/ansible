@@ -1,4 +1,4 @@
-- name: install or update openssh (fedora)
+- name: install or update openssh
   dnf: name=openssh state=latest
   notify: restart_sshd
   when: ansible_distribution == 'Fedora'
@@ -7,7 +7,7 @@
   service: name=sshd enabled=yes state=started
   when: ansible_distribution in ['CentOS', 'Fedora']
 
-- name: copy sshd_config (fedora)
+- name: copy sshd_config
   template: src=sshd_config_fedora.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=644
   notify: restart_sshd
   when: ansible_distribution in ['Fedora']

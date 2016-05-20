@@ -1,4 +1,4 @@
-- name: install base packages (arch)
+- name: install base packages
   pacman: name={{item}} state=installed
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
   with_items:

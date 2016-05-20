@@ -1,0 +1,7 @@
+- name: install gdm
+  pacman: name=gdm
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- name: remove lightdm
+  pacman: name=lightdm state=absent
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
