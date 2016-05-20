@@ -19,9 +19,9 @@
 
 - name: install virtualbox repository (fedora)
   yum_repository:
-  name: virtualbox
-  description: VirtualBox repository
-  baseurl: http://download.virtualbox.org/virtualbox/rpm/fedora/$releasever/$basearch
-  gpgkey: https://www.virtualbox.org/download/oracle_vbox.asc
-  gpgcheck: yes
+    name: virtualbox
+    description: VirtualBox repository
+    baseurl: http://download.virtualbox.org/virtualbox/rpm/fedora/$releasever/$basearch
+    gpgkey: https://www.virtualbox.org/download/oracle_vbox.asc
+    gpgcheck: yes
   when: ansible_distribution in ['Fedora']
