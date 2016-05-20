@@ -35,11 +35,11 @@
 
 # Splitting tmux into two sections, Raspbian isn't compatible with backports.
 - name: install tmux (debian)
-  apt: name=tmux default_release=jessie-backports
+  apt: name=tmux state=latest default_release=jessie-backports
   when: not ansible_architecture|match('arm')
 
 - name: install tmux (raspbian)
-  apt: name=tmux
+  apt: name=tmux state=latest
   when: ansible_architecture|match('arm')
 
 - name: remove unneeded debian packages
