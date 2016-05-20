@@ -1,5 +1,11 @@
+- name: create ~/.local directory
+  file: path=/home/jay/.local state=directory owner=jay group=jay mode=700
+
+- name: create ~/.local/share directory
+  file: path=/home/jay/.local/share state=directory owner=jay group=jay mode=700
+
 - name: create ~/.local/share/applications directory
-  file: path=/home/jay/.local/share/applications state=directory recurse=true owner=jay group=jay mode=700
+  file: path=/home/jay/.local/share/applications state=directory owner=jay group=jay mode=700
  
 - name: copy minecraft icon
   copy: src=minecraft.png dest=/opt/games/.icons/minecraft.png owner=jay group=jay mode=600
