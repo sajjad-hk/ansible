@@ -75,3 +75,8 @@
   become: true
   roles:
     - role: kvm_host
+
+- hosts: virtualbox_hosts
+  become: true
+  roles:
+    - role: virtualbox_host

@@ -1,0 +1,14 @@
+- include: repositories.yml
+
+- include: packages_arch.yml
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+
+- include: packages_debian.yml
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- include: packages_fedora.yml
+  when: ansible_distribution in ['Fedora']
+
+- include: directories.yml
+- include: files.yml
+- include: group.yml

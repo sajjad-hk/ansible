@@ -1,0 +1,3 @@
+- name: copy virtualbox.conf
+  copy: src=virtualbox.conf dest=/etc/modules-load.d/virtualbox.conf owner=root group=root mode=644
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']

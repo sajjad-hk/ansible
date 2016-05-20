@@ -1,0 +1,5 @@
+- name: create /vm_store/vbox directory
+  file: path=/vm_store state=directory owner=root group=kvm mode=770 recurse=true
+
+- name: create /vm_store/iso_images directory
+  file: path=/vm_store/iso_images state=directory owner=root group=kvm mode=770 recurse=true

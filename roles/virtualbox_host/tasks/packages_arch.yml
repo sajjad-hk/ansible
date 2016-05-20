@@ -1,0 +1,9 @@
+- name: install kvm packages (arch)
+  pacman: name={{item}} state=installed
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+  with_items:
+    - linux-headers
+    - virtualbox
+    - virtualbox-guest-iso
+    - virtualbox-host-modules
+    - virtualbox-host-modules-lts
