@@ -7,5 +7,5 @@
     - ebtables
     - libvirt
     - qemu
-    - ssh-askpass
+    - x11-ssh-askpass
     - virt-manager
