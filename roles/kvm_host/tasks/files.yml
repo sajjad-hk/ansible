@@ -1,22 +1,22 @@
 - name: copy libvirtd.conf
   copy: src=libvirtd.conf dest=/etc/libvirt/libvirtd.conf owner=root group=root mode=644
   notify: restart libvirtd
-  when: ansible_distribution in ['CentOS', 'Debian', 'Fedora']
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro Linux']
 
 - name: copy default.xml
   copy: src=default.xml dest=/etc/libvirt/storage/default.xml owner=root group=root mode=644
   notify: restart libvirtd
-  when: ansible_distribution in ['CentOS', 'Debian', 'Fedora']
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro Linux']
 
 - name: copy iso.xml
   copy: src=iso.xml dest=/etc/libvirt/storage/iso.xml owner=root group=root mode=644
   notify: restart libvirtd
-  when: ansible_distribution in ['CentOS', 'Debian', 'Fedora']
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro Linux']
 
 - name: copy qemu.conf
   copy: src=qemu.conf dest=/etc/libvirt/qemu.conf owner=root group=root mode=600
   notify: restart libvirtd
-  when: ansible_distribution in ['CentOS', 'Debian', 'Fedora']
+  when: ansible_distribution in ['Archlinux', 'CentOS', 'Debian', 'Fedora', 'Manjaro Linux']
 
 - name: copy libvirtd.conf
   copy: src=libvirtd.conf dest=/etc/libvirt/libvirtd.conf owner=root group=root mode=644
