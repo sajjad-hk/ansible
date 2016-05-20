@@ -1,5 +1,5 @@
 - name: create /vm_store directory
-  file: path=/vm_store state=directory owner=root group=kvm mode=770
+  file: path=/vm_store state=directory owner=root mode=770
 
 - name: create /vm_store/kvm directory
   file: path=/vm_store/kvm state=directory owner=root group=kvm mode=770
