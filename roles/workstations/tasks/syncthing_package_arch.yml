@@ -1,0 +1,12 @@
+- name: install or upgrade syncthing (arch)
+  pacman: name=syncthing state=latest
+  when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
+  register: syncthing
+
+- name: enable syncthing
+  command: systemctl enable syncthing@jay.service
+  when: syncthing.changed
+
+- name: restart syncthing
+  command: systemctl restart syncthing@jay.service
+  when: syncthing.changed
