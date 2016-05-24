@@ -72,8 +72,10 @@
     - exim4
     - exim4-base
     - exim4-config
+    - firefox
     - gnome-orca
     - nano
     - onboard
+    - thunderbird
     - xul-ext-ubufox
     - xzoom
