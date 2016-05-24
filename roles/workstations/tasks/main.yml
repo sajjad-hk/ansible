@@ -14,13 +14,13 @@
 - include: directories.yml
 - include: firefox.yml
 
-- include: syncthing_repository_debian.yml
+- include: syncthing_repository_debian_ubuntu.yml
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - include: syncthing_package_arch.yml
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
 
-- include: syncthing_package_debian.yml
+- include: syncthing_package_debian_ubuntu.yml
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - include: syncthing_config.yml

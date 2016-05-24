@@ -1,4 +1,4 @@
-- name: install kvm packages
+- name: install virtualbox packages
   apt: name={{item}} state=installed
   when: ansible_distribution in ['Debian', 'Ubuntu']
   with_items:

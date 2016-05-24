@@ -1,7 +1,7 @@
 - include: packages_arch.yml
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
 
-- include: packages_debian.yml
+- include: packages_debian_ubuntu.yml
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - include: packages_fedora.yml

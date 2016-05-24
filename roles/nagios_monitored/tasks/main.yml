@@ -1,7 +1,7 @@
 - include: packages_centos.yml
   when: ansible_distribution in ['CentOS']
 
-- include: packages_debian.yml
+- include: packages_debian_ubuntu.yml
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - include: packages_fedora.yml
@@ -10,7 +10,7 @@
 - include: config_centos.yml
   when: ansible_distribution in ['CentOS']
 
-- include: config_debian.yml
+- include: config_debian_ubuntu.yml
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - include: config_fedora.yml

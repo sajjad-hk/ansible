@@ -35,7 +35,7 @@
 - include: ntp_centos.yml
   when: ansible_distribution in ['CentOS']
 
-- include: ntp_debian.yml
+- include: ntp_debian_ubuntu.yml
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - include: ntp_fedora.yml
@@ -47,7 +47,7 @@
 - include: openssh_centos.yml
   when: ansible_distribution in ['CentOS']
 
-- include: openssh_debian.yml
+- include: openssh_debian_ubuntu.yml
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - include: openssh_fedora.yml
