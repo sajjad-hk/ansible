@@ -67,13 +67,13 @@
   apt: name={{item}} state=absent
   when: ansible_distribution in ['Ubuntu']
   with_items:
-    #- deja-dup
-    #- duplicity
+    - deja-dup
+    - duplicity
     - exim4
     - exim4-base
     - exim4-config
-    #- gnome-orca
+    - gnome-orca
     - nano
-    #- onboard
-    #- xul-ext-ubufox
-    #- xzoom
+    - onboard
+    - xul-ext-ubufox
+    - xzoom
