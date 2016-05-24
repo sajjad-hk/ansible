@@ -68,3 +68,12 @@
 - name: install iwlwifi driver (debian)
   apt: name=firmware-iwlwifi
   when: ansible_distribution == 'debian'
+
+
+- name: remove unwanted packages
+  apt: name={{item}} state=absent
+  when: ansible_distribution in ['Debian']
+  with_items:
+    - firefox
+    - iceweasel
+    - thunderbird
