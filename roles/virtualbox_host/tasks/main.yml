@@ -1,4 +1,5 @@
-- include: repositories.yml
+- include: repositories_debian_based.yml
+  when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - include: packages_arch.yml
   when: ansible_distribution in ['Archlinux', 'Manjaro Linux']
