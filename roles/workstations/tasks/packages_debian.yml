@@ -71,7 +71,7 @@
 
 
 - name: remove unwanted packages
-  apt: name={{item}} state=absent
+  apt: name={{item}} state=absent purge=yes
   when: ansible_distribution in ['Debian']
   with_items:
     - firefox

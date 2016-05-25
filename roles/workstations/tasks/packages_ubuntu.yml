@@ -64,7 +64,7 @@
     - xsel
 
 - name: remove unneeded debian packages
-  apt: name={{item}} state=absent
+  apt: name={{item}} state=absent purge=yes
   when: ansible_distribution in ['Ubuntu']
   with_items:
     - deja-dup
