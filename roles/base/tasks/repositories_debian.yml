@@ -1,9 +1,9 @@
 - name: install sources.list
-  copy: src=sources.list dest=/etc/apt/sources.list owner=root group=root mode=644
+  copy: src=debian_jessie_sources.list dest=/etc/apt/sources.list owner=root group=root mode=644
   when: not ansible_architecture|match('arm')
 
 - name: enable backports
-  copy: src=jessie_backports.list dest=/etc/apt/sources.list.d/backports.list owner=root group=root mode=644
+  apt_repository: repo='deb http://ftp.debian.org/debian jessie-backports main' state=present filename='backports'
   when: not ansible_architecture|match('arm')
 
 - name: enable 32-bit packages
