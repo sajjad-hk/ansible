@@ -5,22 +5,10 @@
 - name: install virtualbox repository (debian)
   apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian jessie contrib' state=present filename='virtualbox' mode=644
   when: ansible_distribution in ['Debian']
-  register: apt
-
-- name: apt-update
-  apt: update_cache=yes
-  when: apt.changed
-  changed_when: False
 
 - name: install virtualbox repository (ubuntu)
-  apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian jessie contrib' state=present filename='virtualbox'
+  apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian jessie contrib' state=present filename='virtualbox' mode=644
   when: ansible_distribution in ['Ubuntu']
-  register: apt
-
-- name: apt-update
-  apt: update_cache=yes
-  when: apt.changed
-  changed_when: False
 
 - name: install virtualbox repository (fedora)
   yum_repository:
