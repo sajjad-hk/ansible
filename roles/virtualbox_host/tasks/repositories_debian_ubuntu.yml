@@ -3,7 +3,7 @@
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: install virtualbox repository (debian)
-  apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian jessie contrib' state=present filename='virtualbox'
+  apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian jessie contrib' state=present filename='virtualbox' mode=644
   when: ansible_distribution in ['Debian']
   register: apt
 

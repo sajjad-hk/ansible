@@ -4,7 +4,7 @@
   register: syncthing_repo
 
 - name: add syncthing repository
-  apt_repository: repo='deb http://apt.syncthing.net/ syncthing release' state=present filename='syncthing'
+  apt_repository: repo='deb http://apt.syncthing.net/ syncthing release' state=present filename='syncthing' mode=644
   when: ansible_distribution in ['Debian', 'Ubuntu']
   register: syncthing_repo
 
