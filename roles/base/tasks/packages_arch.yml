@@ -31,6 +31,7 @@
     - lynx
     - m4
     - make
+    - mc
     - mosh
     - ncdu
     - patch
@@ -41,6 +42,7 @@
     - python2-pip
     - python2-pyflakes
     - python2-virtualenv
+    - ranger
     - rsync
     - ruby
     - screen

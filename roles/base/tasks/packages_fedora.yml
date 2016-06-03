@@ -12,6 +12,7 @@
     - lnav
     - lynx
     - mailx
+    - mc
     - mosh
     - ncdu
     - pyflakes
@@ -22,6 +23,7 @@
     - python3-flake8
     - python3-pep8
     - python3-pyflakes
+    - ranger
     - rsync
     - ruby
     - screen
