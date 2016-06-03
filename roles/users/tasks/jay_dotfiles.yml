@@ -1,6 +1,9 @@
 - name: create .config directory
   file: path=/home/jay/.config state=directory owner=jay group=jay mode=700
 
+- name: create mc directory
+  file: path=/home/jay/.config/mc state=directory owner=jay group=jay mode=700
+
 - name: copy user-dirs.dirs
   copy: src=jay/user-dirs.dirs dest=/home/jay/.config/user-dirs.dirs owner=jay group=jay mode=600
 
@@ -51,3 +54,6 @@
 
 - name: copy zenburn.vim (jay)
   copy: src=shared/zenburn.vim dest=/home/jay/.vim/colors/zenburn.vim owner=jay group=jay mode=600
+
+- name: copy mc ini
+  copy: src=jay/mc.ini dest=/home/jay/.config/mc/ini owner=jay group=jay mode=600
