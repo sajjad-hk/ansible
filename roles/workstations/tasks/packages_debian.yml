@@ -49,6 +49,7 @@
       #- quassel-client (using irssi currently)
     - rdesktop
     - remmina
+    - resolvconf
     - roxterm
     - rxvt-unicode-256color
     - shutter

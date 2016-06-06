@@ -47,6 +47,7 @@
     - quassel-client
     - rdesktop
     - remmina
+    - resolvconf
     - roxterm
     - rxvt-unicode-256color
     - shutter
