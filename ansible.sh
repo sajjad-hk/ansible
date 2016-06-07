@@ -10,7 +10,7 @@ then
     ANSIBLE="/usr/local/bin/ansible-playbook"
 else
     ANSIBLE="/usr/bin/ansible-playbook"
-fi 
+fi
 
 if [ -f /tmp/ansible.lock ]
 then
