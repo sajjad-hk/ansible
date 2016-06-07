@@ -32,6 +32,11 @@ Host galaxy
     Port 22
     User jay
 
+Host glycon
+    Hostname 10.10.96.6
+    Port 22
+    User jay
+
 Host hermes
     Hostname 10.10.96.1
     Port 65001
