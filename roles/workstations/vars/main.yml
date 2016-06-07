@@ -1,4 +1,4 @@
-firefox_version: 44.0
+firefox_version: 47.0
 syncthing_config: /home/jay/.config/syncthing/config.xml
 thunderbird_version: 38.5.1
 firefox_url: https://ftp.mozilla.org/pub/firefox/releases/{{firefox_version}}/linux-x86_64/en-US/firefox-{{firefox_version}}.tar.bz2
