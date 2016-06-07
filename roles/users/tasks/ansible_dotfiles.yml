@@ -7,6 +7,9 @@
 - name: copy ssh config file
   copy: src=ansible/ssh_config dest=/home/ansible/.ssh/config owner=ansible group=ansible mode=600
 
+- name: copy ssh authorized_keys file
+  copy: src=ansible/authorized_keys dest=/home/ansible/.ssh/authorized_keys owner=ansible group=ansible mode=600
+
 - name: copy .bash_profile (ansible)
   copy: src=ansible/bash_profile dest=/home/ansible/.bash_profile owner=ansible group=ansible mode=600
 
