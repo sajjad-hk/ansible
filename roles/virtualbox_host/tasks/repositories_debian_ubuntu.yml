@@ -7,7 +7,7 @@
   when: ansible_distribution in ['Debian']
 
 - name: install virtualbox repository (ubuntu)
-  apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian jessie contrib' state=present filename='virtualbox' mode=644
+  apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian xenial contrib' state=present filename='virtualbox' mode=644
   when: ansible_distribution in ['Ubuntu']
 
 - name: install virtualbox repository (fedora)
