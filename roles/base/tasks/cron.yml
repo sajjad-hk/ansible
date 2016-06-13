@@ -1,2 +1,2 @@
 - name: install cron job (ansible run)
-  cron: user="ansible" name="ansible run" minute="30" job="/var/ansible/ansible.sh > /dev/null"
+  cron: user="ansible" name="ansible run" minute="30" job="/var/ansible/ansible.sh > /dev/null" state=absent
