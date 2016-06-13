@@ -5,6 +5,9 @@ BODY="Ansible results are attached."
 CURRDATE=$(date +%Y-%m-%d_%H%M)
 ATTACHMENT="/var/log/ansible/ansible-$CURRDATE.log"
 
+PLAYBOOKDIR="/git/ansible"
+
+# Depending on distribution, the ansible binary may be located in different places.
 if [ -f /etc/apt/sources.list ]
 then
     ANSIBLE="/usr/local/bin/ansible-playbook"
@@ -24,7 +27,7 @@ if [ ! -f /tmp/ansible.lock ]
 then
     touch /tmp/ansible.lock
 
-    cd /var/ansible; git pull
+    cd $PLAYBOOKDIR
     $ANSIBLE site.yml >> "/var/log/ansible/ansible-$CURRDATE.log"
 
     if [ $? -eq 0 ]
