@@ -58,5 +58,6 @@ ragnarok:22 passwd_auth=no
 
 [workstations]
 crusader:22 passwd_auth=no
+moogle:22 passwd_auth=no
 pandora:22 passwd_auth=no
 ragnarok:22 passwd_auth=no
