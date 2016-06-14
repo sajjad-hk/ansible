@@ -1,3 +1,11 @@
+- name: install nagios-plugins package (fedora)
+  dnf: name=nagios-plugins state=latest
+  when: ansible_distribution == 'Fedora'
+
+- name: install nrpe package (fedora)
+  dnf: name=nrpe state=latest
+  when: ansible_distribution == 'Fedora'
+
 - name: copy nrpe.cfg (fedora)
   copy: src=nrpe_fedora.cfg dest=/etc/nagios/nrpe.cfg owner=root group=root mode=644
   when: ansible_distribution == 'Fedora'

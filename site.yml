@@ -11,12 +11,6 @@
     - role: servers
 
 
-- hosts: nagios_monitored
-  become: true
-  roles:
-    - role: nagios_monitored
-
-
 - hosts: workstations
   become: true
   roles:

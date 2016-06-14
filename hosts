@@ -16,20 +16,6 @@ crusader:22 passwd_auth=no
 pandora:22 passwd_auth=no
 ragnarok:22 passwd_auth=no
 
-[nagios_monitored]
-localhost:22 ansible_connection=local passwd_auth=no
-code.learnlinux.tv:65001 passwd_auth=no
-dev.learnlinux.tv:65001 passwd_auth=no
-galaxy:22 passwd_auth=no
-iris:22 passwd_auth=no
-moogle:22 passwd_auth=no
-pi-dev:22 passwd_auth=no
-pluto:22 passwd_auth=no
-portal.learnlinux.tv:22 passwd_auth=yes
-upsmon:22 passwd_auth=no
-web.learnlinux.tv:65001 passwd_auth=no
-work-vm:22 passwd_auth=no
-
 [openbox]
 
 [raspberry-pi]

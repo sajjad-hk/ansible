@@ -1,1 +1,10 @@
 - include: scripts.yml
+
+- include: nrpe_centos.yml
+  when: ansible_distribution in ['CentOS']
+
+- include: nrpe_debian_ubuntu.yml
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- include: nrpe_fedora.yml
+  when: ansible_distribution in ['Fedora']
