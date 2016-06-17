@@ -1,0 +1,17 @@
+- name: add archive sshfs fstab entry
+  mount: name=/mnt/pluto/archive src=jay@pluto:/share/archive fstype=fuse.sshfs opts=_netdev,users,noauto state=present
+
+- name: add backup sshfs fstab entry
+  mount: name=/mnt/pluto/backup src=jay@pluto:/share/backup fstype=fuse.sshfs opts=_netdev,users,noauto state=present
+
+- name: add downloads sshfs fstab entry
+  mount: name=/mnt/pluto/downloads src=jay@pluto:/share/downloads fstype=fuse.sshfs opts=_netdev,users,noauto state=present
+
+- name: add private sshfs fstab entry
+  mount: name=/mnt/pluto/private src=jay@pluto:/share/private fstype=fuse.sshfs opts=_netdev,users,noauto state=present
+
+- name: add public sshfs fstab entry
+  mount: name=/mnt/pluto/public src=jay@pluto:/share/public fstype=fuse.sshfs opts=_netdev,users,noauto state=present
+
+- name: add videos sshfs fstab entry
+  mount: name=/mnt/pluto/videos src=jay@pluto:/share/videos fstype=fuse.sshfs opts=_netdev,users,noauto state=present

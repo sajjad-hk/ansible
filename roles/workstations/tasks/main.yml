@@ -29,3 +29,4 @@
 - include: telegram.yml
 - include: thunderbird.yml
 - include: firewall.yml
+- include: sshfs_fstab.yml
