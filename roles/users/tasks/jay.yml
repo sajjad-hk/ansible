@@ -1,5 +1,7 @@
 - name: create jay group
-  group: name=jay state=present gid=1000
+  group: name=jay
+         state=present
+         gid=1000
 
 - name: create user jay
   user: name=jay
