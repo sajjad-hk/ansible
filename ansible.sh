@@ -6,7 +6,6 @@ CURRDATE=$(date +%Y-%m-%d_%H%M)
 ATTACHMENT="/var/log/ansible/ansible-$CURRDATE.log"
 
 PLAYBOOKDIR="/git/ansible"
-VAULTPASS="/home/ansible/.secure/vault_pass"
 
 # Depending on distribution, the ansible binary may be located in different places.
 if [ -f /etc/apt/sources.list ]
@@ -29,7 +28,7 @@ then
     touch /tmp/ansible.lock
 
     cd $PLAYBOOKDIR
-    $ANSIBLE site.yml --vault-password-file $VAULTPASS >> "/var/log/ansible/ansible-$CURRDATE.log"
+    $ANSIBLE site.yml >> "/var/log/ansible/ansible-$CURRDATE.log"
 
 #    if [ $? -eq 0 ]
 #    then
