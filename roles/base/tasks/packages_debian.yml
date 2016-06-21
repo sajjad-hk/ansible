@@ -1,6 +1,6 @@
 - name: install base packages
   apt: name={{item}} state=latest
-  when: ansible_distribution in ['Debian']
+  when: ansible_distribution == 'Debian'
   with_items:
     - aptitude
     - colordiff
@@ -46,7 +46,7 @@
 
 - name: remove unneeded debian packages
   apt: name={{item}} state=absent purge=yes
-  when: ansible_distribution in ['Debian']
+  when: ansible_distribution == 'Debian'
   with_items:
     - exim4
     - exim4-base
