@@ -1,2 +1,2 @@
 - name: change ansible password
-  user: name=ansible password="$6$/uDN/eCtmSKkyg$Qffgu/NWv9RYu3ouiG2wOyljd1jXPp0XJdbdv30FVetAetrWJwE/fEO7/MdfyrfyheaKbjiDR.cBg./d58y0K."
+  user: name=ansible password="{{ ansible_passwd }}"

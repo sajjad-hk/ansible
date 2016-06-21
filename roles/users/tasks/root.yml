@@ -1,2 +1,2 @@
 - name: change root password
-  user: name=root password="$6$F5VMOWKBRucgdu$AQZhO4Pf7WJ9dl5FtqJ39Y/yNa9yKr0EIhpRkAtUGn016qNBkjrk.fIrmmbFjE4m48HCoNjBiXLRlgnTCpQpl0"
+  user: name=root password="{{ root_passwd }}"
