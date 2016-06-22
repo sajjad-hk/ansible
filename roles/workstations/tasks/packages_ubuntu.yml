@@ -54,6 +54,7 @@
     - smbclient
     - suckless-tools
     - synaptic
+    - taskwarrior
     - terminator
     - transmission-gtk
     - ubuntu-make
