@@ -1,16 +1,22 @@
 - name: install sources.list
   copy: src=debian_jessie_sources.list dest=/etc/apt/sources.list owner=root group=root mode=644
   when: not ansible_architecture|match('arm')
+  register: sources
 
 - name: enable backports
   apt_repository: repo='deb http://ftp.debian.org/debian jessie-backports main' state=present filename='backports'
   when: not ansible_architecture|match('arm')
+  register: backports
 
 - name: enable 32-bit packages
   copy: src=arch dest=/var/lib/dpkg/arch owner=root group=root mode=644
   when: not ansible_architecture|match('arm')
+  register: multilib
 
 - name: apt-update
   apt: update_cache=yes
-  when: ansible_distribution in ['Debian']
-  changed_when: False
+  when: item.changed
+  with_items:
+      - "{{ backports }}"
+      - "{{ multilib }}"
+      - "{{ sources }}"

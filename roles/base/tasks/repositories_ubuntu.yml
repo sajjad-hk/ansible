@@ -1,8 +1,8 @@
 - name: enable 32-bit packages
   copy: src=arch dest=/var/lib/dpkg/arch owner=root group=root mode=644
   when: ansible_distribution in ['Ubuntu']
+  register: multilib
 
 - name: apt-update
   apt: update_cache=yes
-  when: ansible_distribution in ['Ubuntu']
-  changed_when: False
+  when: multilib.changed
