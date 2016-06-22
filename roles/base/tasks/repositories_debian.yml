@@ -4,7 +4,7 @@
   register: sources
 
 - name: enable backports
-  apt_repository: repo='deb http://ftp.debian.org/debian jessie-backports main' state=present filename='backports'
+  apt_repository: repo='deb http://ftp.debian.org/debian jessie-backports main' state=present filename='backports' mode=644
   when: not ansible_architecture|match('arm')
   register: backports
 
