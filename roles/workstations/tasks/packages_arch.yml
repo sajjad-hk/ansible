@@ -44,6 +44,7 @@
     - rxvt-unicode # To do: Unable to install the proper package, rxvt-unicode-pixbuf, via yaourt
     - shutter
     - smbclient
+    - task
     - terminator
     - terminus-font
     - transmission-gtk
