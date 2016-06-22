@@ -1,5 +1,9 @@
 - hosts: all
   become: true
+  pre_tasks:
+      - name: update package cache (debian-based)
+        apt: update_cache=yes
+        when: ansible_distribution in ['Debian', 'Ubuntu'] 
   roles:
   - role: base
   - role: users
