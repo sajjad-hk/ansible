@@ -28,6 +28,7 @@ then
     touch /tmp/ansible.lock
 
     cd $PLAYBOOKDIR
+    git pull
     $ANSIBLE site.yml >> "/var/log/ansible/ansible-$CURRDATE.log"
 
 #    if [ $? -eq 0 ]
