@@ -1,14 +1,14 @@
-- name: dconf: mate-terminal default column size
+- name: dconf - mate-terminal default column size
   dconf: user=jay
          key=/org/mate/terminal/profiles/default/default-size-columns
          value="'90'"
 
-- name: dconf: mate-terminal hide scrollbar
+- name: dconf - mate-terminal hide scrollbar
   dconf: user=jay
          key=/org/mate/terminal/profiles/default/scrollbar-position
          value="'hidden'"
 
-- name: dconf: mate-terminal hide menubar
+- name: dconf - mate-terminal hide menubar
   dconf: user=jay
          key=/org/mate/terminal/profiles/default/default-show-menubar
          value=false

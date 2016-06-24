@@ -8,5 +8,6 @@
   when: ansible_distribution in ['Fedora']
 
 - include: dconf_caja.yml
+- include: dconf_keybindings.yml
 - include: dconf_marco.yml
 - include: dconf_mate_terminal.yml

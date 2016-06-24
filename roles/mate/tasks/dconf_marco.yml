@@ -1,34 +1,34 @@
-- name: dconf: set workspaces
+- name: dconf - set workspaces
   dconf: user=jay
          key=/org/mate/marco/general/num-workspaces
          value="'6'"
 
-- name: dconf: set workspace name 1
+- name: dconf - set workspace name 1
   dconf: user=jay
          key=/org/mate/marco/general/workspace-names/name-1
          value="'communication'"
 
-- name: dconf: set workspace name 2
+- name: dconf - set workspace name 2
   dconf: user=jay
          key=/org/mate/marco/general/workspace-names/name-2
          value="'browsing'"
 
-- name: dconf: set workspace name 3
+- name: dconf - set workspace name 3
   dconf: user=jay
          key=/org/mate/marco/general/workspace-names/name-3
          value="'media'"
 
-- name: dconf: set workspace name 4
+- name: dconf - set workspace name 4
   dconf: user=jay
          key=/org/mate/marco/general/workspace-names/name-4
          value="'dev'"
 
-- name: dconf: set workspace name 5
+- name: dconf - set workspace name 5
   dconf: user=jay
          key=/org/mate/marco/general/workspace-names/name-5
          value="'admin'"
 
-- name: dconf: set workspace name 6
+- name: dconf - set workspace name 6
   dconf: user=jay
          key=/org/mate/marco/general/workspace-names/name-6
          value="'virtual-machines'"

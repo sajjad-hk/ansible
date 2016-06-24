@@ -1,9 +1,9 @@
-- name: dconf: set caja list view
+- name: dconf - set caja list view
   dconf: user=jay
          key=/org/mate/caja/preferences/default-folder-viewer
          value="'list-view'"
 
-- name: dconf: caja set date view
+- name: dconf - caja set date view
   dconf: user=jay
          key=/org/mate/caja/preferences/date-format
          value="'iso'"
