@@ -4,6 +4,8 @@
   with_items:
     - atril
     - caja
+    - dconf
+    - dconf-editor
     - eom
     - mate-applets
     - mate-backgrounds
