@@ -1,0 +1,4 @@
+- name: mate-terminal hide menubar
+  dconf: user=jay
+         key=/org/mate/terminal/profiles/default/default-show-menubar
+         value=false
