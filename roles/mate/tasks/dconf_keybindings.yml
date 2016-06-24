@@ -1,0 +1,14 @@
+- name: dconf - add sample keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom5/action
+         value="'cmus'"
+
+- name: dconf - add sample keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom5/binding
+         value="'<Mod4>c'"
+
+- name: dconf - add sample keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom5/name
+         value="'sample'"
