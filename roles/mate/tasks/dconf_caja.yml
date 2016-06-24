@@ -5,5 +5,5 @@
 
 - name: dconf: caja set date view
   dconf: user=jay
-      key=/org/mate/caja/preferences/date-formate
+         key=/org/mate/caja/preferences/date-format
          value="'iso'"
