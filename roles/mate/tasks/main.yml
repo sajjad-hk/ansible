@@ -7,4 +7,5 @@
 - include: packages_fedora.yml
   when: ansible_distribution in ['Fedora']
 
-- include: dconf.yml
+- include: dconf_caja.yml
+- include: dconf_mate_terminal.yml
