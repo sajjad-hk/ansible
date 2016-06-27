@@ -1,3 +1,28 @@
+- name: dconf - caja - show computer icon
+  dconf: user=jay
+         key=/org/mate/caja/desktop/computer-icon-visible
+         value=true
+
+- name: dconf - caja - show attached volumes
+  dconf: user=jay
+         key=/org/mate/caja/desktop/volumes-visible
+         value=true
+
+- name: dconf - caja - set iec-units
+  dconf: user=jay
+         key=/org/mate/caja/preferences/use-iec-units
+         value=true
+
+- name: dconf - caja - enable delete
+  dconf: user=jay
+         key=/org/mate/caja/preferences/enable-delete
+         value=true
+
+- name: dconf - caja - set directory sort order
+  dconf: user=jay
+         key=/org/mate/caja/preferences/sort-directories-first
+         value=false
+
 - name: dconf - set caja list view
   dconf: user=jay
          key=/org/mate/caja/preferences/default-folder-viewer
