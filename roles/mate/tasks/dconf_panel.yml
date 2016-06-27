@@ -1,0 +1,4 @@
+- name: dconf - enable showing of workspace names
+  dconf: user=jay
+         key=/org/mate/panel/objects/workspace-switcher/prefs/display-workspace-names
+         value=True

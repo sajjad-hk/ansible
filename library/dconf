@@ -12,11 +12,11 @@ def _escape_single_quotes(string):
 def _set_value(user, key, value):
 
     command = " ".join([
-        'export `/usr/bin/dbus-launch`',
-        ';',
-        '/usr/bin/dconf write', key, "'%s'" % _escape_single_quotes(value),
-        ';',
-        'kill $DBUS_SESSION_BUS_PID &> /dev/null'
+        #'export `/usr/bin/dbus-launch`',
+        #';',
+        '/usr/bin/dconf write', key, "'%s'" % _escape_single_quotes(value)
+        #';',
+        #'kill $DBUS_SESSION_BUS_PID &> /dev/null'
     ])
 
     return subprocess.check_output([
@@ -26,11 +26,11 @@ def _set_value(user, key, value):
 def _get_value(user, key):
 
     command = " ".join([
-        'export `/usr/bin/dbus-launch`',
-        ';',
-        '/usr/bin/dconf read', key,
-        ';',
-        'kill $DBUS_SESSION_BUS_PID &> /dev/null'
+        #'export `/usr/bin/dbus-launch`',
+        #';',
+        '/usr/bin/dconf read', key
+        #';',
+        #'kill $DBUS_SESSION_BUS_PID &> /dev/null'
     ])
 
     return subprocess.check_output([

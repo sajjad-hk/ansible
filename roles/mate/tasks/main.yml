@@ -11,3 +11,4 @@
 - include: dconf_keybindings.yml
 - include: dconf_marco.yml
 - include: dconf_mate_terminal.yml
+- include: dconf_panel.yml
