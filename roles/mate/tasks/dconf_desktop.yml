@@ -1,0 +1,4 @@
+- name: dconf - desktop - show icons only
+  dconf: user=jay
+         key=/org/mate/desktop/interface/toolbar-style
+         value="'icons'"
