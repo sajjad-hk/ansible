@@ -1,14 +1,89 @@
-- name: dconf - add sample keybinding
+- name: dconf - add browser keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom0/action
+         value="'/home/jay/bin/firefox/firefox'"
+
+- name: dconf - add browser keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom0/binding
+         value="'<Mod4>b'"
+
+- name: dconf - add browser keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom0/name
+         value="'browser'"
+
+- name: dconf - add file manager keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom1/action
+         value="'caja --no-desktop /home/jay'"
+
+- name: dconf - add file manager keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom1/binding
+         value="'<Mod4>f'"
+
+- name: dconf - add file manager keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom1/name
+         value="'file manager'"
+
+- name: dconf - add htop keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom2/action
+         value="'mate-terminal -e htop'"
+
+- name: dconf - add htop keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom2/binding
+         value="'<Mod4>h'"
+
+- name: dconf - add htop keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom2/name
+         value="'htop'"
+
+- name: dconf - add mc keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom3/action
+         value="'mate-terminal -e mc'"
+
+- name: dconf - add mc keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom3/binding
+         value="'<Mod4>m'"
+
+- name: dconf - add mc keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom3/name
+         value="'mc'"
+
+- name: dconf - add terminal keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom4/action
+         value="'mate-terminal'"
+
+- name: dconf - add terminal keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom4/binding
+         value="'<Mod4>t'"
+
+- name: dconf - add terminal keybinding
+  dconf: user=jay
+         key=/org/mate/desktop/keybindings/custom4/name
+         value="'terminal'"
+
+- name: dconf - add terminal keybinding
   dconf: user=jay
          key=/org/mate/desktop/keybindings/custom5/action
-         value="'cmus'"
+         value="'/home/jay/bin/thunderbird/thunderbird'"
 
-- name: dconf - add sample keybinding
+- name: dconf - add thunderbird keybinding
   dconf: user=jay
          key=/org/mate/desktop/keybindings/custom5/binding
-         value="'<Mod4>c'"
+         value="'<Mod4>e'"
 
-- name: dconf - add sample keybinding
+- name: dconf - add thunderbird keybinding
   dconf: user=jay
          key=/org/mate/desktop/keybindings/custom5/name
-         value="'sample'"
+         value="'e-mail'"
