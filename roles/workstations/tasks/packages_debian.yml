@@ -56,7 +56,6 @@
     - smbclient
     - suckless-tools
     - synaptic
-    - taskwarrior
     - terminator
     - transmission-gtk
     - uget
@@ -78,4 +77,5 @@
   with_items:
     - firefox
     - iceweasel
+    - taskwarrior
     - thunderbird
