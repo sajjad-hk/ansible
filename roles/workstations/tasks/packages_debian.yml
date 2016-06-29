@@ -51,7 +51,6 @@
     - remmina
     - resolvconf
     - roxterm
-    - rxvt-unicode-256color
     - shutter
     - smbclient
     - suckless-tools
@@ -63,7 +62,6 @@
     - vorbis-tools
     - xbacklight
     - xfonts-terminus
-    - xsel
 
 
 - name: install iwlwifi driver (debian)
@@ -78,3 +76,4 @@
     - firefox
     - iceweasel
     - thunderbird
+    - rxvt-unicode-256color

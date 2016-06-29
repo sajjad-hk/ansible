@@ -37,7 +37,6 @@
     - rdesktop
     - remmina
     - roxterm
-    - rxvt-unicode-256color
     - shutter
     - terminator
     - terminus-fonts
@@ -45,4 +44,3 @@
     - vlc
     - vorbis-tools
     - xbacklight
-    - xsel

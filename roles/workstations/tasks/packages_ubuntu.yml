@@ -49,7 +49,6 @@
     - remmina
     - resolvconf
     - roxterm
-    - rxvt-unicode-256color
     - shutter
     - smbclient
     - suckless-tools
@@ -62,9 +61,8 @@
     - vorbis-tools
     - xbacklight
     - xfonts-terminus
-    - xsel
 
-- name: remove unneeded debian packages
+- name: remove unneeded ubuntu packages
   apt: name={{item}} state=absent purge=yes
   when: ansible_distribution in ['Ubuntu']
   with_items:
@@ -80,3 +78,4 @@
     - thunderbird
     - xul-ext-ubufox
     - xzoom
+    - rxvt-unicode-256color

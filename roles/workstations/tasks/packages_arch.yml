@@ -41,7 +41,6 @@
     - rdesktop
     - remmina
     - roxterm
-    - rxvt-unicode # To do: Unable to install the proper package, rxvt-unicode-pixbuf, via yaourt
     - shutter
     - smbclient
     - terminator
@@ -54,4 +53,3 @@
     - wpa_supplicant
     - x11-ssh-askpass
     - xorg-xbacklight
-    - xsel
