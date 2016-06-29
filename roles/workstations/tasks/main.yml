@@ -10,6 +10,9 @@
 - include: packages_ubuntu.yml
   when: ansible_distribution in ['Ubuntu']
 
+- include: apport_ubuntu.yml
+  when: ansible_distribution in ['Ubuntu']
+
 - include: network_manager.yml
 - include: directories.yml
 - include: firefox.yml
