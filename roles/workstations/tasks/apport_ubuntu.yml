@@ -1,0 +1,8 @@
+- name: disable apport in config
+  lineinfile: dest=/etc/default/apport
+              regexp="enabled="
+              line="enabled=0"
+
+
+- name: disable apport service
+  service: name=apport enabled=no state=stopped
