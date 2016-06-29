@@ -59,7 +59,6 @@
     - uget
     - vlc
     - vorbis-tools
-    - xbacklight
     - xfonts-terminus
 
 - name: remove unneeded ubuntu packages
