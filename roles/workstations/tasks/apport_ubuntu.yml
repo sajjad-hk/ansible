@@ -4,5 +4,5 @@
               line="enabled=0"
 
 
-- name: disable apport service
-  service: name=apport enabled=no state=stopped
+- name: stop apport service
+  service: name=apport state=stopped
