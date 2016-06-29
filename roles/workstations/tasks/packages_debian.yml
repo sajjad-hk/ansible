@@ -77,5 +77,4 @@
   with_items:
     - firefox
     - iceweasel
-    - taskwarrior
     - thunderbird
