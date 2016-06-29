@@ -19,14 +19,8 @@
 - name: copy ssh authorized_keys file
   copy: src=jay/authorized_keys dest=/home/jay/.ssh/authorized_keys owner=jay group=jay mode=600
 
-- name: copy .bash_profile (jay)
-  copy: src=jay/bash_profile dest=/home/jay/.bash_profile owner=jay group=jay mode=600
-
 - name: copy .bashrc (jay)
   copy: src=jay/bashrc dest=/home/jay/.bashrc owner=jay group=jay mode=600
-
-- name: copy .profile (jay)
-  copy: src=jay/profile dest=/home/jay/.profile owner=jay group=jay mode=600
 
 - name: copy .tmux.conf (jay)
   copy: src=jay/tmux.conf dest=/home/jay/.tmux.conf owner=jay group=jay mode=600

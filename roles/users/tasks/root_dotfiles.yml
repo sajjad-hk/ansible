@@ -1,11 +1,5 @@
-- name: copy .bash_profile (root)
-  copy: src=root/bash_profile dest=/root/.bash_profile owner=root group=root mode=600
-
 - name: copy .bashrc (root)
   copy: src=root/bashrc dest=/root/.bashrc owner=root group=root mode=600
-
-- name: copy .profile (root)
-  copy: src=root/profile dest=/root/.profile owner=root group=root mode=600
 
 - name: copy .tmux.conf (root)
   copy: src=root/tmux.conf dest=/root/.tmux.conf owner=root group=root mode=600
