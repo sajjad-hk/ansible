@@ -61,7 +61,8 @@
     - vorbis-tools
     - xfonts-terminus
 
-- name: remove unneeded ubuntu packages
+
+- name: remove unwanted ubuntu packages
   apt: name={{item}} state=absent purge=yes
   when: ansible_distribution in ['Ubuntu']
   with_items:
