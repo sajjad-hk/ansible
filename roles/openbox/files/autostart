@@ -1,0 +1,42 @@
+## Add $HOME/bin to path:
+export PATH=$HOME/bin:$PATH
+
+## Desktop background
+(sleep 1s && nitrogen --restore) &
+
+## tint2 Panel
+(sleep 1s && tint2) &
+
+## Volume icon
+#(sleep 1s && pnmixer) &
+volumeicon &
+
+## pcmanfm daemon (for faster startup and auto-mounting)
+pcmanfm -d &
+
+## Screensaver
+xscreensaver -no-splash &
+
+## Clipboard manager
+clipit &
+
+## Guake
+guake &
+
+## Quassel
+#quasselclient &
+
+## Telegram
+/home/jay/.TelegramDesktop/Telegram &
+
+## Correct rxvt fonts
+#xrdb /home/$USER/.Xresources &
+
+## MATE power manager
+mate-power-manager &
+
+## Compositing
+(sleep 6s && compton -Gb --unredir-if-possible) &
+
+## Set touchpad speed
+#synclient MinSpeed=1.5 MaxSpeed=4.0 AccelFactor=0.1 &

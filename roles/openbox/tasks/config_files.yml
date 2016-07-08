@@ -1,0 +1,17 @@
+- name: openbox - ensure .config directory exists
+  file: path=/home/jay/.config state=directory mode=700
+
+- name: openbox - ensure .config/openbox directory exists
+  file: path=/home/jay/.config/openbox state=directory mode=700
+
+- name: openbox - copy autostart
+  file: src=autostart dest=/home/jay/.config/openbox/autostart mode=600
+
+- name: openbox - copy environment
+  file: src=environment dest=/home/jay/.config/openbox/environment mode=600
+
+- name: openbox - copy menu.xml
+  file: src=menu.xml dest=/home/jay/.config/openbox/menu.xml mode=600
+
+- name: openbox - copy rc.xml
+  file: src=rc.xml dest=/home/jay/.config/openbox/rc.xml mode=600

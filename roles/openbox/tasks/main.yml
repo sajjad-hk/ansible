@@ -6,3 +6,5 @@
 
 - include: packages_fedora.yml
   when: ansible_distribution in ['Fedora']
+
+- include: config_files.yml
