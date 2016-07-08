@@ -1,7 +1,7 @@
 - name: dconf - set workspaces
   dconf: user=jay
          key=/org/mate/marco/general/num-workspaces
-         value="6"
+         value="7"
 
 - name: dconf - set workspace name 1
   dconf: user=jay
@@ -32,3 +32,8 @@
   dconf: user=jay
          key=/org/mate/marco/workspace-names/name-6
          value="'virtual-machines'"
+
+- name: dconf - set workspace name 7
+  dconf: user=jay
+         key=/org/mate/marco/workspace-names/name-7
+         value="'work'"
