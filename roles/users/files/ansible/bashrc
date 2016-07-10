@@ -11,6 +11,7 @@ alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
 alias l.='ls -lha --time-style=long-iso --color=auto'
+alias ll='ls'
 alias ls='ls -lh --time-style=long-iso --color=auto'
 alias lsmount='mount |column -t'
 alias c='clear'
@@ -31,3 +32,21 @@ if [ -f /etc/yum.conf ]; then
     alias update='sudo yum update'
     alias install='sudo yum install'
 fi
+
+## Functions
+
+# Make a directory, then go there
+md() {
+    test -n "$1" || return
+    mkdir -p "$1" && cd "$1"
+}
+
+# "path" shows current path, one element per line.
+# If an argument is supplied, grep for it.
+path() {
+    test -n "$1" && {
+        echo $PATH | perl -p -e "s/:/\n/g;" | grep -i "$1"
+    } || {
+        echo $PATH | perl -p -e "s/:/\n/g;"
+    }
+}
