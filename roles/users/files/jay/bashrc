@@ -35,6 +35,9 @@ alias grep='grep --color=auto'
 alias mkdir='mkdir -pv'
 alias ports='netstat -tulanp'
 
+# reload bash config
+alias reload="source ~/.bashrc"
+
 if [ -d /etc/pacman.d ]; then
     alias update='yaourt -Syu --aur'
     alias install='sudo pacman -S'

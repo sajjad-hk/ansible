@@ -19,6 +19,9 @@ alias grep='grep --color=auto'
 alias mkdir='mkdir -pv'
 alias ports='netstat -tulanp'
 
+# reload bash config
+alias reload="source ~/.bashrc"
+
 if [ -d /etc/apt ]; then
     alias update='sudo apt-get update && sudo apt-get dist-upgrade'
     alias install='sudo apt-get install'

@@ -13,6 +13,9 @@
 - name: copy .bashrc (ansible)
   copy: src=ansible/bashrc dest=/home/ansible/.bashrc owner=ansible group=ansible mode=600
 
+- name: copy .bash_profile (ansible)
+  copy: src=ansible/bash_profile dest=/home/ansible/.bash_profile owner=ansible group=ansible mode=600
+
 - name: copy .tmux.conf (ansible)
   copy: src=ansible/tmux.conf dest=/home/ansible/.tmux.conf owner=ansible group=ansible mode=600
 
