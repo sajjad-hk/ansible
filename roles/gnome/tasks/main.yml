@@ -6,3 +6,7 @@
 
 - include: packages_fedora.yml
   when: ansible_distribution in ['Fedora']
+
+- include: dconf_nautilus.yml
+#- include: dconf_gnome_terminal.yml # profile is dynamically generated
+- include: dconf_keybindings.yml
