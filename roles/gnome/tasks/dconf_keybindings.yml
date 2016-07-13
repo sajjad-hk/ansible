@@ -1,0 +1,89 @@
+- name: dconf - add browser keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
+         value="'/home/jay/bin/firefox/firefox'"
+
+- name: dconf - add browser keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
+         value="'<Super>b'"
+
+- name: dconf - add browser keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
+         value="'browser'"
+
+- name: dconf - add file manager keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command
+         value="'nautilus --no-desktop /home/jay'"
+
+- name: dconf - add file manager keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding
+         value="'<Super>f'"
+
+- name: dconf - add file manager keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name
+         value="'file manager'"
+
+- name: dconf - add htop keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command
+         value="'gnome-terminal -e htop'"
+
+- name: dconf - add htop keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding
+         value="'<Super>h'"
+
+- name: dconf - add htop keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/name
+         value="'htop'"
+
+- name: dconf - add mc keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/command
+         value="'gnome-terminal -e mc'"
+
+- name: dconf - add mc keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/binding
+         value="'<Super>m'"
+
+- name: dconf - add mc keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/name
+         value="'mc'"
+
+- name: dconf - add terminal keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/command
+         value="'gnome-terminal'"
+
+- name: dconf - add terminal keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/binding
+         value="'<Super>t'"
+
+- name: dconf - add terminal keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/name
+         value="'terminal'"
+
+- name: dconf - add terminal keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/command
+         value="'/home/jay/bin/thunderbird/thunderbird'"
+
+- name: dconf - add thunderbird keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/binding
+         value="'<Super>e'"
+
+- name: dconf - add thunderbird keybinding
+  dconf: user=jay
+         key=/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/name
+         value="'e-mail'"
