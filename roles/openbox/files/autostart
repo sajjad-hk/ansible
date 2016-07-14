@@ -30,7 +30,7 @@ guake &
 /home/jay/.TelegramDesktop/Telegram &
 
 ## Correct rxvt fonts
-#xrdb /home/$USER/.Xresources &
+xrdb /home/$USER/.Xresources &
 
 ## MATE power manager
 mate-power-manager &

@@ -99,7 +99,9 @@ path() {
 }
 
 ## For desktop clients, make sure Xresources is parsed
-if [ -L ~/.Xresources ]
-   then
-       xrdb ~/.Xresources
+if [ "$DISPLAY" ]
+    if [ -L ~/.Xresources ]
+        then
+            xrdb ~/.Xresources
+    fi
 fi
