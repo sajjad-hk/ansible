@@ -22,21 +22,22 @@ case :$PATH: in
 esac
 
 # Command aliases
-alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
-alias l.='ls -lha --time-style=long-iso --color=auto'
-alias ll='ls'
-alias ls='ls -lh --time-style=long-iso --color=auto'
-alias lsmount='mount |column -t'
 alias c='clear'
+alias cd..='cd ..'
 alias diff='colordiff'
 alias grep='grep --color=auto'
+alias l.='ls -lhFa --time-style=long-iso --color=auto'
+alias ll='ls'
+alias ls='ls -lhF --time-style=long-iso --color=auto'
+alias lsmount='mount |column -t'
 alias mkdir='mkdir -pv'
 alias ports='netstat -tulanp'
 alias h='history'
 alias j='jobs -l'
+alias ssha='eval $(ssh-agent) && ssh-add'
 alias svim='sudo vim'
 alias wget='wget -c'
 
@@ -96,3 +97,9 @@ path() {
         echo $PATH | perl -p -e "s/:/\n/g;"
     }
 }
+
+## For desktop clients, make sure Xresources is parsed
+if [ -L ~/.Xresources ]
+   then
+       xrdb ~/.Xresources
+fi
