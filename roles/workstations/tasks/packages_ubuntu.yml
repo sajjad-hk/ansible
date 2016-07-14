@@ -49,6 +49,7 @@
     - remmina
     - resolvconf
     - roxterm
+    - rxvt-unicode-256color
     - shutter
     - smbclient
     - suckless-tools
@@ -60,6 +61,7 @@
     - vlc
     - vorbis-tools
     - xfonts-terminus
+    - xsel
 
 
 - name: remove unwanted ubuntu packages
@@ -78,4 +80,3 @@
     - thunderbird
     - xul-ext-ubufox
     - xzoom
-    - rxvt-unicode-256color

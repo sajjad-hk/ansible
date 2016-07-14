@@ -37,9 +37,11 @@
     - rdesktop
     - remmina
     - roxterm
+    - rxvt-unicode-256color
     - shutter
     - terminator
     - terminus-fonts
     - transmission-gtk
     - vlc
     - vorbis-tools
+    - xsel
