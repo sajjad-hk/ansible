@@ -6,7 +6,6 @@ ragnarok:22 passwd_auth=no
 [gdm]
 
 [gnome]
-10.10.99.253:22 passwd_auth=no
 
 [lightdm]
 
