@@ -1,0 +1,75 @@
+- hosts: workstations
+  become: true
+  pre_tasks:
+      - name: update package cache (debian-based)
+        apt: update_cache=yes
+        when: ansible_distribution in ['Debian', 'Ubuntu'] 
+  roles:
+  - role: base
+  - role: users
+
+
+- hosts: workstations:!servers
+  become: true
+  roles:
+    - role: workstations
+
+
+- hosts: games
+  become: true
+  roles:
+    - role: games
+
+
+- hosts: gnome
+  become: true
+  roles:
+    - role: gnome
+
+
+- hosts: mate
+  become: true
+  roles:
+    - role: mate
+
+
+- hosts: openbox
+  become: true
+  roles:
+    - role: openbox
+
+
+- hosts: gdm
+  become: true
+  roles:
+    - role: gdm
+
+
+- hosts: lightdm
+  become: true
+  roles:
+    - role: lightdm
+
+
+- hosts: raspberry-pi
+  become: true
+  roles:
+    - role: raspberry-pi
+
+
+- hosts: kvm_hosts:&workstations
+  become: true
+  roles:
+    - role: kvm_host
+
+
+- hosts: virtualbox_hosts
+  become: true
+  roles:
+    - role: virtualbox_host
+
+- hosts: ups_controlled:&workstations
+  become: true
+  roles:
+    - role: ups_controlled
+
